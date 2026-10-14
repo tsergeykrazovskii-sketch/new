@@ -1,0 +1,5 @@
+# Закрываем служебные файлы админки (на Apache; на nginx их защищает exit в начале файлов)
+<FilesMatch "^(config\.php|config\.example\.php)$">
+  Require all denied
+</FilesMatch>
+Options -Indexes

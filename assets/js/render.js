@@ -169,6 +169,7 @@
 
   function widgetSlots(c, w) {
     const rows = c.staff
+      .slice(0, w.limit || 4)
       .map(
         (s, i) => `
       <li class="qw__row" style="--i:${i}">
@@ -327,7 +328,11 @@
       .map(
         (m) => `
       <li class="staff__card">
-        ${photo({ img: m.img, name: m.name, mark: initials(m.name) }, 'photo--portrait')}
+        ${
+          m.img
+            ? photo({ img: m.img, alt: m.name }, 'photo--portrait')
+            : `<div class="photo photo--portrait photo--mono" aria-hidden="true"><span class="photo__mark">${esc(initials(m.name))}</span></div>`
+        }
         <div class="staff__body">
           <h3 class="staff__name">${esc(m.name)}</h3>
           <p class="staff__role">${esc(m.role)}${m.years ? ` · стаж ${m.years}${NBSP}${plural(m.years, ['год', 'года', 'лет'])}` : ''}</p>
@@ -354,7 +359,7 @@
         <ul class="level__prices">${s.rows
           .map((r) => `<li><span>${esc(r.service)}</span><b>${r.values[i] == null ? '—' : price({ value: r.values[i] })}</b></li>`)
           .join('')}</ul>
-        <button class="btn btn--line btn--block" type="button" data-book data-staff="${esc(lv.id)}">Записаться к мастеру</button>
+        <button class="btn btn--line btn--block" type="button" data-book${c.staff.some((m) => m.id === lv.id) ? ` data-staff="${esc(lv.id)}"` : ''}>Записаться</button>
       </li>`
       )
       .join('')}</ul>
@@ -414,9 +419,9 @@
       .map(
         (r) => `
       <li class="review">
-        <div class="review__stars" aria-label="Оценка ${r.rating} из 5">${Array.from({ length: 5 }, (_, i) => ic('star', i < r.rating ? 'on' : 'off')).join('')}</div>
+        ${r.rating ? `<div class="review__stars" aria-label="Оценка ${r.rating} из 5">${Array.from({ length: 5 }, (_, i) => ic('star', i < r.rating ? 'on' : 'off')).join('')}</div>` : `<span class="review__quote" aria-hidden="true">«</span>`}
         <p class="review__text">${esc(r.text)}</p>
-        <p class="review__meta"><b>${esc(r.name)}</b><span>${esc(r.source)} · ${esc(r.date)}</span></p>
+        <p class="review__meta">${r.name ? `<b>${esc(r.name)}</b>` : ''}<span>${[r.source, r.date].filter(Boolean).map(esc).join(' · ')}</span></p>
       </li>`
       )
       .join('');

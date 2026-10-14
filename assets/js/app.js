@@ -429,6 +429,7 @@
           </label>
           ${B.errors.consent ? `<p class="field__err" id="b-consent-err">${esc(B.errors.consent)}</p>` : ''}
         </div>
+        ${B.errors.submit ? `<p class="field__err" role="alert">${esc(B.errors.submit)}</p>` : ''}
       </div>`;
   }
 
@@ -447,7 +448,11 @@
           <li><span>Адрес</span><b>${esc(cfg.contacts.address)}</b></li>
           <li><span>Подтверждение</span><b>${esc(x.contact)}</b></li>
         </ul>
-        <p class="done__note">Это демо: заявка никуда не отправлена. В рабочей версии она уходит администратору в Telegram или в YCLIENTS.</p>
+        <p class="done__note">${
+          cfg.booking.endpoint
+            ? 'Мы получили заявку и свяжемся с вами, чтобы подтвердить время.'
+            : 'Это демо: заявка никуда не отправлена. В рабочей версии она уходит администратору.'
+        }</p>
       </div>`;
   }
 
@@ -501,6 +506,7 @@
         if (bad) bad.focus();
         return;
       }
+      if (cfg.booking.endpoint) return sendBooking();
       B.i = B.steps.length; // экран «Готово»
     } else {
       if (!isComplete(step)) return;
@@ -510,6 +516,42 @@
     renderBooking();
     dlg().querySelector('[data-book-body]').scrollTop = 0;
     focusStep();
+  }
+
+  // Боевой сайт: заявка уходит на сервер (admin/api.php), оттуда — администратору
+  function sendBooking() {
+    const x = B.data;
+    const svc = Slot.findService(cfg, x.service);
+    const staff = cfg.staff.find((m) => m.id === x.staff);
+    const next = dlg().querySelector('[data-book-next]');
+    next.disabled = true;
+    next.textContent = 'Отправляем…';
+    const pad = (n) => String(n).padStart(2, '0');
+    const payload = {
+      service: svc ? svc.name : '',
+      staff: cfg.booking.askStaff ? (staff ? staff.name : 'Любой свободный') : '',
+      date: `${x.date.getFullYear()}-${pad(x.date.getMonth() + 1)}-${pad(x.date.getDate())}`,
+      time: fmtMin(x.time),
+      name: x.name.trim(),
+      phone: x.phone,
+      comment: x.comment.trim(),
+      contact: x.contact,
+      extra: x.extra,
+      consent: x.consent,
+      website: '',
+    };
+    fetch(cfg.booking.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+      .then((r) => r.json())
+      .then((res) => {
+        if (!res.ok) throw new Error(res.error || 'Заявка не отправилась');
+        B.i = B.steps.length;
+        B.dir = 'next';
+        renderBooking();
+      })
+      .catch((err) => {
+        B.errors.submit = `${err.message && err.message !== 'Failed to fetch' ? err.message : 'Нет связи с сервером'}. Попробуйте ещё раз или позвоните: ${cfg.contacts.phone}`;
+        renderBooking();
+      });
   }
 
   function maskPhone(v) {
@@ -771,8 +813,23 @@
       if (cfg.styles.some((s) => s.id === fromHash)) styleId = fromHash;
       else if (cfg.styles.some((s) => s.id === store.get('slot-style-' + id))) styleId = store.get('slot-style-' + id);
     }
+    // Демо: правки из админки (тот же браузер) показываем поверх исходных данных
+    let edited = false;
+    const nicheOf = Slot.clients && Slot.clients[id];
+    if (opts.demo && nicheOf) {
+      try {
+        const saved = JSON.parse(store.get('slot-data-' + id) || 'null');
+        if (saved) {
+          cfg = Slot.niches[id] = Slot.compose(Slot.niches[nicheOf], saved);
+          styleId = cfg.defaultStyle;
+          edited = true;
+        }
+      } catch (e) {
+        /* повреждённые данные — показываем исходные */
+      }
+    }
     const app = doc.getElementById('app');
-    const prerendered = app.dataset.niche === id && app.dataset.style === styleId && app.children.length;
+    const prerendered = !edited && app.dataset.niche === id && app.dataset.style === styleId && app.children.length;
     applyTheme();
     if (!prerendered) app.innerHTML = Slot.render(cfg);
     if (opts.demo) {
