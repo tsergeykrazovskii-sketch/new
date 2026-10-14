@@ -1,0 +1,203 @@
+/* Ниша: барбершоп. Все имена, цены, отзывы и реквизиты — демонстрационные. */
+(function (g) {
+  const Slot = (g.Slot = g.Slot || {});
+  Slot.niches = Slot.niches || {};
+
+  Slot.niches.barber = {
+    id: 'barber',
+    label: 'Барбершоп',
+    schemaType: 'BarberShop',
+    timezone: 'Europe/Moscow',
+
+    theme: {
+      scheme: 'dark',
+      fonts: 'https://fonts.googleapis.com/css2?family=Cormorant:wght@600;700&family=Onest:wght@400;500;600;700&display=swap',
+      // Бутылочно-зелёный + латунь: классика мужской парикмахерской без кожи и кирпича
+      tokens: {
+        bg: '#13241D',
+        surface: '#192E25',
+        raised: '#20382E',
+        line: 'rgba(237,230,216,0.14)',
+        fg: '#EDE6D8',
+        muted: '#A9B4A7',
+        accent: '#C9A45C',
+        onAccent: '#13241D',
+        accentText: '#D4B271',
+        accentSoft: 'rgba(201,164,92,0.13)',
+        stripeA: '#C9A45C',
+        stripeB: '#EDE6D8',
+        display: '"Cormorant", "Cormorant Garamond", Georgia, "Times New Roman", serif',
+        body: '"Onest", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
+        displayWeight: '700',
+        displayScale: '1.1',
+        displayTracking: '-0.005em',
+        radius: '3px',
+        radiusLg: '6px',
+        err: '#FF9B8F',
+      },
+      // Полоса с акциями — латунная
+      invert: {
+        bg: '#C9A45C',
+        surface: '#D2B06D',
+        raised: '#D8B979',
+        line: 'rgba(19,36,29,0.22)',
+        fg: '#13241D',
+        muted: '#2C3830',
+        accent: '#13241D',
+        onAccent: '#EDE6D8',
+        accentText: '#13241D',
+      },
+    },
+
+    brand: { name: 'Ремесло', kind: 'Барбершоп' },
+
+    contacts: {
+      city: 'Москва',
+      address: 'Лесная ул., 7',
+      addressNote: 'Вход со двора, вывеска «Ремесло»',
+      metro: 'м. Белорусская, 4 минуты пешком',
+      phone: '+7 999 123-45-67',
+      phoneHref: '+79991234567',
+      hoursShort: 'Ежедневно с 10:00',
+      yandexMaps: 'https://yandex.ru/maps/',
+      twoGis: 'https://2gis.ru/',
+      messengers: [
+        { label: 'Telegram', icon: 'send', url: 'https://t.me/' },
+        { label: 'MAX', icon: 'message', url: 'https://max.ru/' },
+        { label: 'ВКонтакте', icon: 'message', url: 'https://vk.com/' },
+      ],
+    },
+
+    // Пн…Вс, null — выходной
+    hours: [
+      ['10:00', '22:00'],
+      ['10:00', '22:00'],
+      ['10:00', '22:00'],
+      ['10:00', '22:00'],
+      ['10:00', '22:00'],
+      ['10:00', '21:00'],
+      ['10:00', '21:00'],
+    ],
+
+    nav: [
+      { id: 'services', label: 'Услуги' },
+      { id: 'staff', label: 'Мастера' },
+      { id: 'gallery', label: 'Работы' },
+      { id: 'reviews', label: 'Отзывы' },
+      { id: 'contacts', label: 'Контакты' },
+    ],
+
+    hero: {
+      title: 'Стрижка, которую не нужно укладывать по утрам',
+      lead: 'Мужские стрижки, борода и бритьё опасной бритвой. Четыре мастера со стажем от четырёх лет, кофе пока ждёте, запись за минуту.',
+      cta: 'Записаться онлайн',
+      secondary: 'Услуги и цены',
+      proof: [
+        { source: 'Яндекс Карты', rating: '4,9', count: 812, url: 'https://yandex.ru/maps/' },
+        { source: '2ГИС', rating: '4,8', count: 347, url: 'https://2gis.ru/' },
+      ],
+      widget: { type: 'slots', title: 'Свободные окна', more: 'Все услуги и время' },
+    },
+
+    services: [
+      {
+        category: 'Стрижки',
+        items: [
+          { id: 'cut', name: 'Мужская стрижка', desc: 'Консультация, мытьё головы, стрижка и укладка', duration: 60, price: { value: 2200, from: true } },
+          { id: 'buzz', name: 'Стрижка машинкой', desc: 'Одна насадка по всей голове, окантовка', duration: 30, price: { value: 1200 } },
+          { id: 'long', name: 'Удлинённая стрижка', desc: 'Для волос длиннее 10 см, стрижка ножницами', duration: 75, price: { value: 2600, from: true } },
+          { id: 'kids', name: 'Детская стрижка', desc: 'Для мальчиков от 4 до 12 лет', duration: 45, price: { value: 1600 } },
+        ],
+      },
+      {
+        category: 'Борода и бритьё',
+        items: [
+          { id: 'beard', name: 'Моделирование бороды', desc: 'Форма, окантовка, уход маслом', duration: 45, price: { value: 1600 } },
+          { id: 'shave', name: 'Королевское бритьё', desc: 'Опасная бритва, горячие полотенца, уходовая маска', duration: 45, price: { value: 1900 } },
+          { id: 'head', name: 'Бритьё головы', desc: 'Опасной бритвой с горячим полотенцем', duration: 40, price: { value: 1500 } },
+        ],
+      },
+      {
+        category: 'Комплексы',
+        items: [
+          { id: 'combo', name: 'Стрижка и борода', desc: 'Выгоднее на 400 ₽, чем по отдельности', duration: 90, price: { value: 3400, from: true } },
+          { id: 'family', name: 'Отец и сын', desc: 'Две стрижки подряд у одного мастера', duration: 100, price: { value: 3500 } },
+          { id: 'grey', name: 'Камуфляж седины', desc: 'Тонирование волос или бороды, 10 минут на краситель', duration: 30, price: { value: 1400, from: true } },
+        ],
+      },
+    ],
+
+    staff: [
+      { id: 'artem', name: 'Артём Ковалёв', dative: 'Артёму', role: 'Шеф-барбер', years: 9, note: 'Классика, кроп и сложные переходы', demoSlots: ['14:30', '17:00', '19:30'] },
+      { id: 'timur', name: 'Тимур Сафин', dative: 'Тимуру', role: 'Топ-барбер', years: 6, note: 'Борода и бритьё опасной бритвой', demoSlots: ['13:00', '15:30', '18:00'] },
+      { id: 'ilya', name: 'Илья Ветров', dative: 'Илье', role: 'Барбер', years: 4, note: 'Текстурные и удлинённые стрижки', demoSlots: ['12:30', '16:00', '20:00'] },
+      { id: 'denis', name: 'Денис Ахмедов', dative: 'Денису', role: 'Барбер', years: 5, note: 'Детские стрижки, «отец и сын»', demoSlots: ['14:00', '15:00', '18:30'] },
+    ],
+
+    booking: { askStaff: true, step: 30, contactMethods: ['Звонок', 'Telegram', 'MAX'], fields: [] },
+
+    sections: [
+      { type: 'hero' },
+      {
+        type: 'perks',
+        label: 'Удобства',
+        items: [
+          { icon: 'coffee', title: 'Кофе и чай бесплатно', text: 'Сварим, пока ждёте мастера' },
+          { icon: 'gamepad', title: 'PlayStation 5', text: 'Пока стрижётся друг или сын' },
+          { icon: 'parking', title: 'Парковка во дворе', text: 'Бесплатно для гостей' },
+          { icon: 'card', title: 'Карта, наличные, СБП', text: 'Оплата по QR-коду без комиссии' },
+        ],
+      },
+      { type: 'services', title: 'Услуги и цены', lead: 'Цена зависит от мастера: у топ-барбера и шефа она на 300–600 ₽ выше.' },
+      { type: 'staff', title: 'Мастера', lead: 'Выберите своего мастера или запишитесь к первому свободному.' },
+      {
+        type: 'offers',
+        invert: true,
+        title: 'Сейчас выгодно',
+        items: [
+          { icon: 'calendar', title: '−15% на первый визит', text: 'При записи онлайн на любую услугу. Не суммируется с другими скидками.', cta: 'Записаться', service: 'cut' },
+          { icon: 'scissors', title: 'Отец и сын за 3 500 ₽', text: 'Две стрижки подряд у одного мастера. Для сыновей до 12 лет.', cta: 'Записаться вдвоём', service: 'family' },
+          { icon: 'gift', title: 'Подарочный сертификат', text: 'От 2 000 ₽ или на конкретную услугу. Электронный или в конверте.', cta: 'Заказать сертификат' },
+        ],
+      },
+      {
+        type: 'gallery',
+        title: 'Работы',
+        lead: 'Свежие стрижки наших мастеров. Больше — в Telegram-канале.',
+        items: [
+          { caption: 'Текстурный кроп' },
+          { caption: 'Скин-фейд' },
+          { caption: 'Классика с пробором' },
+          { caption: 'Борода и усы' },
+          { caption: 'Удлинённая стрижка' },
+          { caption: 'Отец и сын' },
+        ],
+      },
+      {
+        type: 'reviews',
+        title: 'Отзывы',
+        lead: 'Собираем отзывы на Яндекс Картах и в 2ГИС, ничего не удаляем.',
+        items: [
+          { name: 'Максим К.', source: 'Яндекс Карты', date: '2 октября', rating: 5, text: 'Хожу к Артёму второй год. Стрижка держит форму недели три, переделывать ни разу не пришлось.' },
+          { name: 'Олег П.', source: '2ГИС', date: '27 сентября', rating: 5, text: 'Записался на королевское бритьё перед свадьбой. Горячие полотенца, ни одного пореза и никакого раздражения.' },
+          { name: 'Сергей В.', source: 'Яндекс Карты', date: '19 сентября', rating: 5, text: 'Привёл сына, подстриглись оба за полтора часа. Ребёнок не хотел уходить из-за приставки.' },
+          { name: 'Андрей Н.', source: 'Яндекс Карты', date: '8 сентября', rating: 4, text: 'Стрижка отличная. В субботу пришлось подождать минут десять сверх записи, зато предложили кофе.' },
+        ],
+      },
+      {
+        type: 'faq',
+        title: 'Частые вопросы',
+        items: [
+          { q: 'Можно прийти без записи?', a: 'Да, если есть свободный мастер. Чтобы не ждать, лучше записаться онлайн — это занимает минуту.' },
+          { q: 'Как перенести или отменить запись?', a: 'Напишите нам в Telegram или MAX либо позвоните не позднее чем за 3 часа до визита.' },
+          { q: 'Стрижёте детей?', a: 'Да, мальчиков с 4 лет. Детская стрижка до 12 лет стоит 1 600 ₽.' },
+          { q: 'Как можно оплатить?', a: 'Картой, наличными или через СБП по QR-коду на кассе.' },
+          { q: 'Есть подарочные сертификаты?', a: 'Да, на любую сумму от 2 000 ₽ или на конкретную услугу. Оформим за 5 минут в мессенджере.' },
+        ],
+      },
+      { type: 'contacts', title: 'Как нас найти' },
+    ],
+
+    legal: { entity: 'ИП Ковалёв А. С. · ИНН 000000000000', year: '2026' },
+  };
+})(typeof globalThis !== 'undefined' ? globalThis : window);
