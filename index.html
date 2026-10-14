@@ -15,6 +15,6 @@
   <script src="niches/barber.js"></script>
   <script src="niches/auto.js"></script>
   <script src="assets/js/app.js"></script>
-  <script>Slot.boot({ demo: true, niche: 'barber' });</script>
+  <script>Slot.boot({ demo: true, niche: location.hash === '#auto' ? 'auto' : 'barber' });</script>
 </body>
 </html>

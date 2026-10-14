@@ -116,6 +116,11 @@
     radius: '--radius',
     radiusLg: '--radius-lg',
     err: '--err',
+    radiusBtn: '--radius-btn',
+    displayCase: '--display-case',
+    num: '--font-num',
+    price: '--font-price',
+    stripeC: '--stripe-c',
   };
 
   const tokensToCss = (t) =>
@@ -124,9 +129,13 @@
       .map((k) => `${TOKEN_MAP[k]}:${t[k]}`)
       .join(';');
 
-  Slot.themeCss = (cfg) => {
-    const th = cfg.theme;
-    return `:root{${tokensToCss(th.tokens)};color-scheme:${th.scheme}}.invert{${tokensToCss(th.invert || {})}}`;
+  // Стиль ниши: шрифты, цвета, скругления и характер анимации
+  Slot.getStyle = (cfg, id) => cfg.styles.find((s) => s.id === id) || cfg.styles.find((s) => s.id === cfg.defaultStyle) || cfg.styles[0];
+
+  Slot.themeCss = (cfg, id) => {
+    const st = Slot.getStyle(cfg, id);
+    // html:root сильнее :root из slot.css, поэтому порядок подключения стилей не важен
+    return `html:root{${tokensToCss(st.tokens)};color-scheme:${st.scheme}}html .invert{${tokensToCss(st.invert || {})}}`;
   };
 
   /* ---------- секции ---------- */
@@ -161,8 +170,8 @@
   function widgetSlots(c, w) {
     const rows = c.staff
       .map(
-        (s) => `
-      <li class="qw__row">
+        (s, i) => `
+      <li class="qw__row" style="--i:${i}">
         <span class="ava" aria-hidden="true">${esc(initials(s.name))}</span>
         <span class="qw__who"><b>${esc(s.name)}</b><span>${esc(s.role)}</span></span>
         <span class="qw__slots" data-qw-slots="${esc(s.id)}">${(s.demoSlots || [])
@@ -229,18 +238,21 @@
       )
       .join('');
     const widget = h.widget.type === 'estimate' ? widgetEstimate(c, h.widget) : widgetSlots(c, h.widget);
+    const words = h.title.split(/\s+/);
+    const title = words.map((w, i) => `<span class="w"><span style="--i:${i + 1}">${esc(w)}</span></span>`).join(' ');
+    const k = Math.min(words.length, 6) + 1; // дальше заголовка задержка не растёт
     return `
 <section class="hero" aria-labelledby="hero-title">
   <div class="wrap hero__in">
     <div class="hero__copy">
-      <p class="hero__where">${ic('pin')}${esc(c.contacts.city)}, ${esc(c.contacts.address)}${c.contacts.metro ? ' · ' + esc(c.contacts.metro) : ''}</p>
-      <h1 class="hero__title" id="hero-title">${esc(h.title)}</h1>
-      <p class="hero__lead">${esc(h.lead)}</p>
-      <div class="hero__actions">
+      <p class="hero__where rise" style="--i:0">${ic('pin')}${esc(c.contacts.city)}, ${esc(c.contacts.address)}${c.contacts.metro ? ' · ' + esc(c.contacts.metro) : ''}</p>
+      <h1 class="hero__title" id="hero-title" aria-label="${esc(h.title)}">${title}</h1>
+      <p class="hero__lead rise" style="--i:${k}">${esc(h.lead)}</p>
+      <div class="hero__actions rise" style="--i:${k + 1}">
         <button class="btn btn--accent btn--lg" type="button" data-book>${esc(h.cta)}</button>
         <a class="btn btn--ghost btn--lg" href="#services">${esc(h.secondary)}</a>
       </div>
-      <ul class="proof">${proof}</ul>
+      <ul class="proof rise" style="--i:${k + 2}">${proof}</ul>
     </div>
     <aside class="hero__widget card card--stripe" aria-label="${esc(h.widget.title)}">${widget}</aside>
   </div>
@@ -275,8 +287,8 @@
       <div class="svc-panel" role="tabpanel" id="svc-p-${i}" aria-labelledby="svc-t-${i}"${i ? ' hidden' : ''}>
         <ul class="svc">${cat.items
           .map(
-            (it) => `
-          <li class="svc__row">
+            (it, j) => `
+          <li class="svc__row" style="--i:${j}">
             <div class="svc__main">
               <h3 class="svc__name">${esc(it.name)}</h3>
               ${it.desc ? `<p class="svc__desc">${esc(it.desc)}</p>` : ''}
@@ -294,7 +306,7 @@
 <section class="sec" id="services" aria-labelledby="services-title">
   <div class="wrap">
     ${secHead('services', s)}
-    <div class="tabs" role="tablist" aria-label="Категории услуг">${tabs}</div>
+    <div class="tabs" role="tablist" aria-label="Категории услуг">${tabs}<span class="tabs__ind" aria-hidden="true"></span></div>
     ${panels}
   </div>
 </section>`;

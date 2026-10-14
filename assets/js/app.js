@@ -9,7 +9,9 @@
   const doc = document;
 
   let cfg = null;
+  let styleId = null;
   let opts = { demo: false };
+  const reduceMotion = () => !!(g.matchMedia && g.matchMedia('(prefers-reduced-motion: reduce)').matches);
   let widgetDay = null; // день, для которого показаны окна в первом экране
   let estimate = null; // { service, date, time } — выбор в калькуляторе
 
@@ -128,10 +130,10 @@
     if (!st) {
       st = doc.createElement('style');
       st.id = 'slot-theme';
+      (doc.head || doc.documentElement).appendChild(st);
     }
-    // тема должна идти последней, иначе её перекроют запасные значения из slot.css
-    (doc.head || doc.documentElement).appendChild(st);
-    st.textContent = Slot.themeCss(cfg);
+    const style = Slot.getStyle(cfg, styleId);
+    st.textContent = Slot.themeCss(cfg, style.id);
     let ln = doc.getElementById('slot-fonts');
     if (!ln) {
       ln = doc.createElement('link');
@@ -139,8 +141,12 @@
       ln.rel = 'stylesheet';
       doc.head.appendChild(ln);
     }
-    if (ln.getAttribute('href') !== cfg.theme.fonts) ln.setAttribute('href', cfg.theme.fonts);
-    doc.documentElement.dataset.niche = cfg.id;
+    if (ln.getAttribute('href') !== style.fonts) ln.setAttribute('href', style.fonts);
+    const root = doc.documentElement.dataset;
+    root.niche = cfg.id;
+    root.style = style.id;
+    root.motion = style.motion;
+    root.texture = style.texture || 'none';
   }
 
   /* ---------- оживление статичной разметки ---------- */
@@ -176,18 +182,54 @@
         const id = box.dataset.qwSlots;
         const free = freeSlots(widgetDay, id).slice(0, 3);
         box.innerHTML = free.length
-          ? free.map((s) => `<button class="chip" type="button" data-book data-staff="${esc(id)}" data-time="${s.m}">${fmtMin(s.m)}</button>`).join('')
+          ? free
+              .map((s, j) => `<button class="chip" type="button" style="--j:${j}" data-book data-staff="${esc(id)}" data-time="${s.m}">${fmtMin(s.m)}</button>`)
+              .join('')
           : '<span class="qw__none">Окон нет</span>';
       });
     }
 
-    if (doc.querySelector('[data-widget="estimate"]')) updateEstimate();
+    if (doc.querySelector('[data-widget="estimate"]')) updateEstimate(true);
+    placeIndicators(true);
+    onScroll();
 
+    // Плашку про cookie показываем после первой прокрутки, чтобы она не закрывала первый экран
     const cookie = doc.querySelector('[data-cookie]');
-    if (cookie) cookie.hidden = !!store.get('slot-cookie');
+    if (cookie) cookie.hidden = true;
+    cookieArmed = !!cookie && !store.get('slot-cookie');
   }
 
-  function updateEstimate() {
+  let priceShown = null;
+  let priceAnim = 0;
+
+  // Цена «докручивается» до нового значения, как счётчик
+  function tweenPrice(el, to, instant) {
+    const from = priceShown;
+    priceShown = to;
+    cancelAnimationFrame(priceAnim);
+    if (instant || from == null || from === to || reduceMotion()) {
+      el.textContent = price({ from: true, value: to });
+      return;
+    }
+    const t0 = performance.now();
+    const dur = 420;
+    const step = (now) => {
+      const k = Math.min(1, (now - t0) / dur);
+      const e = 1 - Math.pow(1 - k, 3);
+      el.textContent = price({ from: true, value: Math.round((from + (to - from) * e) / 10) * 10 });
+      if (k < 1) priceAnim = requestAnimationFrame(step);
+      else el.textContent = price({ from: true, value: to });
+    };
+    priceAnim = requestAnimationFrame(step);
+    const box = el.closest('.qw__result');
+    if (box) {
+      box.classList.remove('is-bump');
+      void box.offsetWidth;
+      box.classList.add('is-bump');
+    }
+  }
+
+  function updateEstimate(instant) {
     const w = cfg.hero.widget;
     const checked = doc.querySelector('input[name="qw-brand"]:checked');
     const brand = w.brands[checked ? Number(checked.value) : w.defaultBrand];
@@ -195,14 +237,14 @@
     const svc = Slot.findService(cfg, sel.value);
     const near = nearest(null);
     estimate = { service: svc.id, date: near && near.date, time: near && near.time };
-    doc.querySelector('[data-est-price]').textContent = price({ from: true, value: Slot.roundPrice(svc.price.value * brand.k) });
+    tweenPrice(doc.querySelector('[data-est-price]'), Slot.roundPrice(svc.price.value * brand.k), instant === true);
     doc.querySelector('[data-est-dur]').innerHTML = svc.duration ? ic('clock') + 'около ' + duration(svc.duration) : '';
     doc.querySelector('[data-est-slot]').textContent = near ? dayLabel(near.date) + ', ' + fmtMin(near.time) : 'уточните по телефону';
   }
 
   /* ---------- онлайн-запись ---------- */
 
-  const B = { steps: [], i: 0, data: null, errors: {} };
+  const B = { steps: [], i: 0, data: null, errors: {}, dir: 'none' };
   const STEP_NAMES = { service: 'Услуга', staff: 'Мастер', time: 'Дата и время', contacts: 'Контакты' };
 
   const dlg = () => doc.getElementById('book');
@@ -225,6 +267,7 @@
       preset
     );
     B.errors = {};
+    B.dir = 'none';
     B.steps = ['service'].concat(cfg.booking.askStaff ? ['staff'] : [], ['time', 'contacts']);
     B.i = nextIncomplete(-1);
     renderBooking();
@@ -416,6 +459,8 @@
     d.querySelector('[data-book-back]').hidden = isDone || B.i === 0;
     d.querySelector('[data-book-sum]').innerHTML = isDone ? '' : summary();
     const body = d.querySelector('[data-book-body]');
+    body.dataset.dir = B.dir;
+    B.dir = 'stay';
     body.innerHTML =
       step === 'service' ? stepService() : step === 'staff' ? stepStaff() : step === 'time' ? stepTime() : step === 'contacts' ? stepContacts() : stepDone();
     const next = d.querySelector('[data-book-next]');
@@ -461,6 +506,7 @@
       if (!isComplete(step)) return;
       B.i = nextIncomplete(B.i);
     }
+    B.dir = 'next';
     renderBooking();
     dlg().querySelector('[data-book-body]').scrollTop = 0;
     focusStep();
@@ -533,13 +579,14 @@
       return;
     }
 
-    const niche = t.closest('[data-niche]');
-    if (niche) return switchNiche(niche.dataset.niche, true);
+    const styleBtn = t.closest('[data-style-id]');
+    if (styleBtn) return switchStyle(styleBtn.dataset.styleId);
 
     // внутри окна записи
     if (t.closest('[data-book-close]')) return dlg().close();
     if (t.closest('[data-book-back]')) {
       B.i = Math.max(0, B.i - 1);
+      B.dir = 'prev';
       renderBooking();
       return focusStep();
     }
@@ -622,6 +669,36 @@
       b.tabIndex = on ? 0 : -1;
       doc.getElementById(b.getAttribute('aria-controls')).hidden = !on;
     });
+    placeIndicator(list);
+    tab.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: reduceMotion() ? 'auto' : 'smooth' });
+  }
+
+  // Подложка активной вкладки переезжает под выбранную
+  function placeIndicator(list, instant) {
+    const ind = list.querySelector('.tabs__ind');
+    const tab = list.querySelector('[aria-selected="true"]');
+    if (!ind || !tab) return;
+    if (instant) list.classList.add('no-anim');
+    ind.style.width = tab.offsetWidth + 'px';
+    ind.style.height = tab.offsetHeight + 'px';
+    ind.style.transform = `translate(${tab.offsetLeft}px, ${tab.offsetTop}px)`;
+    list.classList.add('has-ind');
+    if (instant) requestAnimationFrame(() => requestAnimationFrame(() => list.classList.remove('no-anim')));
+  }
+  function placeIndicators(instant) {
+    doc.querySelectorAll('.tabs').forEach((l) => placeIndicator(l, instant));
+  }
+
+  let cookieArmed = false;
+
+  function onScroll() {
+    const h = doc.querySelector('.hdr');
+    if (h) h.classList.toggle('is-scrolled', g.scrollY > 8);
+    if (cookieArmed && g.scrollY > 200) {
+      cookieArmed = false;
+      const cookie = doc.querySelector('[data-cookie]');
+      if (cookie) cookie.hidden = false;
+    }
   }
 
   function closeMenu() {
@@ -636,38 +713,39 @@
 
   /* ---------- демо: переключатель ниш ---------- */
 
+  /* ---------- демо: переключатель стилей ---------- */
+
   function demoBar() {
-    const ids = Object.keys(Slot.niches);
+    const cur = Slot.getStyle(cfg, styleId);
     return `
       <div class="wrap demo__in">
-        <p class="demo__text"><b>Шаблон «Слот»</b> · демо, все данные вымышленные</p>
-        <div class="demo__seg" role="group" aria-label="Ниша">${ids
+        <p class="demo__text"><b>${esc(cfg.product)}</b> · демо, данные вымышленные</p>
+        <div class="demo__seg" role="group" aria-label="Стиль">${cfg.styles
           .map(
-            (id) =>
-              `<button type="button" data-niche="${id}" aria-pressed="${id === cfg.id}">${esc(Slot.niches[id].label)}</button>`
+            (st) =>
+              `<button type="button" data-style-id="${st.id}" aria-pressed="${st.id === cur.id}">${esc(st.label)}${st.recommended ? ' ★' : ''}</button>`
           )
           .join('')}</div>
+        <p class="demo__spec">${esc(cur.spec)}</p>
       </div>`;
   }
 
-  function switchNiche(id, user) {
-    if (!Slot.niches[id] || (cfg && cfg.id === id && !user)) return;
-    cfg = Slot.niches[id];
+  function switchStyle(id) {
+    if (!cfg.styles.some((s) => s.id === id)) return;
+    styleId = id;
     applyTheme();
-    const app = doc.getElementById('app');
-    app.innerHTML = Slot.render(cfg);
+    doc.getElementById('app').innerHTML = Slot.render(cfg);
     const bar = doc.getElementById('demo');
     if (bar) bar.innerHTML = demoBar();
+    priceShown = null;
     hydrate();
-    if (user) {
-      store.set('slot-niche', id);
-      try {
-        history.replaceState(null, '', '#' + id);
-      } catch (e) {
-        /* в песочнице может быть недоступно */
-      }
-      window.scrollTo(0, 0);
+    store.set('slot-style-' + cfg.id, id);
+    try {
+      history.replaceState(null, '', '#' + id);
+    } catch (e) {
+      /* в песочнице может быть недоступно */
     }
+    g.scrollTo(0, 0);
   }
 
   /* ---------- запуск ---------- */
@@ -679,16 +757,22 @@
     doc.addEventListener('input', onInput);
     doc.addEventListener('submit', onSubmit);
     doc.addEventListener('keydown', onKey);
+    g.addEventListener('scroll', onScroll, { passive: true });
+    g.addEventListener('resize', () => placeIndicators(true));
+    if (doc.fonts && doc.fonts.addEventListener) doc.fonts.addEventListener('loadingdone', () => placeIndicators(true));
 
+    // В демо адрес вида #auto выбирает нишу, #tabak — стиль
     const fromHash = (location.hash || '').slice(1);
     let id = opts.niche;
+    if (opts.demo && Slot.niches[fromHash]) id = fromHash;
+    cfg = Slot.niches[id];
+    styleId = opts.style || cfg.defaultStyle;
     if (opts.demo) {
-      if (Slot.niches[fromHash]) id = fromHash;
-      else if (Slot.niches[store.get('slot-niche')]) id = store.get('slot-niche');
+      if (cfg.styles.some((s) => s.id === fromHash)) styleId = fromHash;
+      else if (cfg.styles.some((s) => s.id === store.get('slot-style-' + id))) styleId = store.get('slot-style-' + id);
     }
     const app = doc.getElementById('app');
-    const prerendered = app.dataset.niche === id && app.children.length;
-    cfg = Slot.niches[id];
+    const prerendered = app.dataset.niche === id && app.dataset.style === styleId && app.children.length;
     applyTheme();
     if (!prerendered) app.innerHTML = Slot.render(cfg);
     if (opts.demo) {

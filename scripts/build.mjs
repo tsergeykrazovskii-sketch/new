@@ -1,6 +1,6 @@
 // Сборка «Слота»:
-//   dist/<ниша>.html — готовый сайт одним файлом, разметка отрендерена заранее (для SEO)
-//   dist/preview.html — демо со всеми нишами для предпросмотра в Claude (без <html>/<head>)
+//   dist/<ниша>.html      — готовый сайт одним файлом в стиле по умолчанию, разметка отрендерена заранее (для SEO)
+//   dist/demo-<ниша>.html — демо ниши с переключателем стилей для предпросмотра в Claude (без <html>/<head>)
 // Запуск: node scripts/build.mjs
 import fs from 'node:fs';
 import path from 'node:path';
@@ -47,9 +47,11 @@ function schema(c) {
 // 1. Сайт под каждую нишу
 for (const id of Object.keys(Slot.niches)) {
   const c = Slot.niches[id];
+  const st = Slot.getStyle(c);
+  const nicheSrc = sources.niches[nicheFiles.indexOf(id + '.js')];
   const title = `${c.brand.kind} «${c.brand.name}» — ${c.contacts.city}`;
   const html = `<!doctype html>
-<html lang="ru">
+<html lang="ru" data-niche="${id}" data-style="${st.id}" data-motion="${st.motion}" data-texture="${st.texture || 'none'}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -58,15 +60,15 @@ for (const id of Object.keys(Slot.niches)) {
 <meta property="og:title" content="${Slot.util.esc(title)}">
 <meta property="og:description" content="${Slot.util.esc(c.hero.lead)}">
 <meta property="og:locale" content="ru_RU">
-${fontsLinks(c.theme.fonts)}
+${fontsLinks(st.fonts)}
 <style>${sources.css}</style>
-<style id="slot-theme">${Slot.themeCss(c)}</style>
+<style id="slot-theme">${Slot.themeCss(c, st.id)}</style>
 <script type="application/ld+json">${JSON.stringify(schema(c))}</script>
 </head>
 <body>
-<div id="app" data-niche="${id}">${Slot.render(c)}</div>
+<div id="app" data-niche="${id}" data-style="${st.id}">${Slot.render(c)}</div>
 ${inlineScript(sources.render)}
-${inlineScript(sources.niches[nicheFiles.indexOf(id + '.js')])}
+${inlineScript(nicheSrc)}
 ${inlineScript(sources.app)}
 <script>Slot.boot({ niche: '${id}' });</script>
 </body>
@@ -74,21 +76,21 @@ ${inlineScript(sources.app)}
 `;
   fs.writeFileSync(path.join(out, `${id}.html`), html);
   console.log('dist/' + id + '.html', (html.length / 1024).toFixed(1) + ' КБ');
-}
 
-// 2. Демо для предпросмотра (артефакт): обёртку <html>/<head> добавляет площадка
-const first = Slot.niches.barber || Slot.niches[Object.keys(Slot.niches)[0]];
-const preview = `<title>Шаблон «Слот»</title>
+
+  // 2. Демо ниши для предпросмотра (артефакт): обёртку <html>/<head> добавляет площадка
+  const demo = `<title>${Slot.util.esc(c.product)}</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-${fontsLinks(first.theme.fonts)}
+${fontsLinks(st.fonts)}
 <style>${sources.css}</style>
-<style id="slot-theme">${Slot.themeCss(first)}</style>
+<style id="slot-theme">${Slot.themeCss(c, st.id)}</style>
 <div class="demo" id="demo"></div>
-<div id="app" data-niche="${first.id}">${Slot.render(first)}</div>
+<div id="app" data-niche="${id}" data-style="${st.id}">${Slot.render(c)}</div>
 ${inlineScript(sources.render)}
-${sources.niches.map(inlineScript).join('\n')}
+${inlineScript(nicheSrc)}
 ${inlineScript(sources.app)}
-<script>Slot.boot({ demo: true, niche: '${first.id}' });</script>
+<script>Slot.boot({ demo: true, niche: '${id}' });</script>
 `;
-fs.writeFileSync(path.join(out, 'preview.html'), preview);
-console.log('dist/preview.html', (preview.length / 1024).toFixed(1) + ' КБ');
+  fs.writeFileSync(path.join(out, `demo-${id}.html`), demo);
+  console.log('dist/demo-' + id + '.html', (demo.length / 1024).toFixed(1) + ' КБ');
+}
