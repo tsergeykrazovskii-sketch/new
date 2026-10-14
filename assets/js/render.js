@@ -121,6 +121,8 @@
     num: '--font-num',
     price: '--font-price',
     stripeC: '--stripe-c',
+    photoCtaBg: '--photo-cta-bg',
+    photoCtaFg: '--photo-cta-fg',
   };
 
   const tokensToCss = (t) =>
@@ -245,7 +247,8 @@
     const title = words.map((w, i) => `<span class="w"><span style="--i:${i + 1}">${esc(w)}</span></span>`).join(' ');
     const k = Math.min(words.length, 6) + 1; // дальше заголовка задержка не растёт
     return `
-<section class="hero" aria-labelledby="hero-title">
+<section class="hero${h.image ? ' hero--photo' : ''}" aria-labelledby="hero-title">
+  ${h.image ? `<div class="hero__bg"><img src="${esc(h.image)}" alt="${esc(h.imageAlt || '')}" fetchpriority="high"></div>` : ''}
   <div class="wrap hero__in">
     <div class="hero__copy">
       <p class="hero__where rise" style="--i:0">${ic('pin')}${esc(c.contacts.city)}, ${esc(c.contacts.address)}${c.contacts.metro ? ' · ' + esc(c.contacts.metro) : ''}</p>
@@ -398,15 +401,44 @@
   </div>
 </section>`;
 
-  R.gallery = (c, s) => `
+  const photos = (s) => (s.items || []).filter((it) => it.img);
+
+  R.gallery = (c, s) => {
+    const real = photos(s);
+    // С фото — плитка разного размера и просмотр по нажатию, без фото — места под фото
+    const list = real.length
+      ? `<ul class="gallery gallery--bento">${real
+          .map(
+            (it, i) => `<li class="bento__item">
+          <button class="bento__btn" type="button" data-lb="${i}" aria-label="Открыть фото: ${esc(it.caption || 'фото ' + (i + 1))}">
+            <img src="${esc(it.img)}" alt="${esc(it.alt || it.caption || '')}" loading="lazy">
+            ${it.caption ? `<span class="bento__cap">${esc(it.caption)}</span>` : ''}
+          </button></li>`
+          )
+          .join('')}</ul>`
+      : `<ul class="gallery">${s.items
+          .map((it) => `<li><figure class="tile">${photo(it)}<figcaption>${esc(it.caption)}</figcaption></figure></li>`)
+          .join('')}</ul>`;
+    return `
 <section class="sec" id="gallery" aria-labelledby="gallery-title">
   <div class="wrap">
     ${secHead('gallery', s)}
-    <ul class="gallery">${s.items
-      .map((it) => `<li><figure class="tile">${photo(it)}<figcaption>${esc(it.caption)}</figcaption></figure></li>`)
-      .join('')}</ul>
+    ${list}
   </div>
 </section>`;
+  };
+
+  // Бегущая лента атмосферы: фото из галереи медленно плывут по экрану
+  R.strip = (c) => {
+    const g = c.sections.find((x) => x.type === 'gallery');
+    const real = g ? photos(g) : [];
+    if (real.length < 3) return '';
+    const row = real.map((it) => `<li><img src="${esc(it.img)}" alt="" loading="lazy"></li>`).join('');
+    return `
+<section class="strip" aria-hidden="true">
+  <ul class="strip__track">${row}${row}</ul>
+</section>`;
+  };
 
   R.reviews = (c, s) => {
     const sum = c.hero.proof

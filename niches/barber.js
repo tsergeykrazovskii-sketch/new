@@ -183,6 +183,8 @@
           radius: '8px',
           radiusLg: '14px',
           radiusBtn: '8px',
+          photoCtaBg: '#F1F2F0',
+          photoCtaFg: '#14181B',
         },
         invert: {
           bg: '#14181B',

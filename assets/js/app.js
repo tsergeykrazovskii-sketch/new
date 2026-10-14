@@ -621,6 +621,13 @@
       return;
     }
 
+    const lb = t.closest('[data-lb]');
+    if (lb) return openLightbox(Number(lb.dataset.lb));
+    if (t.closest('[data-lb-close]')) return doc.getElementById('lb').close();
+    if (t.closest('[data-lb-prev]')) return stepLightbox(-1);
+    if (t.closest('[data-lb-next]')) return stepLightbox(1);
+    if (t.id === 'lb') return t.close();
+
     const styleBtn = t.closest('[data-style-id]');
     if (styleBtn) return switchStyle(styleBtn.dataset.styleId);
 
@@ -741,6 +748,56 @@
       const cookie = doc.querySelector('[data-cookie]');
       if (cookie) cookie.hidden = false;
     }
+  }
+
+  /* ---------- просмотр фото галереи ---------- */
+
+  let lbIndex = 0;
+  function lbItems() {
+    const g = cfg.sections.find((s) => s.type === 'gallery');
+    return g ? (g.items || []).filter((it) => it.img) : [];
+  }
+  function openLightbox(i) {
+    let d = doc.getElementById('lb');
+    if (!d) {
+      d = doc.createElement('dialog');
+      d.id = 'lb';
+      d.className = 'lb';
+      d.setAttribute('aria-label', 'Фото');
+      d.innerHTML = `<button class="lb__close icon-btn" type="button" data-lb-close aria-label="Закрыть">${ic('x')}</button>
+        <img class="lb__img" alt="">
+        <p class="lb__cap"></p>
+        <button class="lb__nav lb__nav--prev icon-btn" type="button" data-lb-prev aria-label="Предыдущее фото">${ic('left')}</button>
+        <button class="lb__nav lb__nav--next icon-btn" type="button" data-lb-next aria-label="Следующее фото">${ic('right')}</button>`;
+      doc.body.appendChild(d);
+      let x0 = null;
+      d.addEventListener('pointerdown', (e) => (x0 = e.clientX));
+      d.addEventListener('pointerup', (e) => {
+        if (x0 != null && Math.abs(e.clientX - x0) > 50) stepLightbox(e.clientX < x0 ? 1 : -1);
+        x0 = null;
+      });
+      d.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') stepLightbox(1);
+        if (e.key === 'ArrowLeft') stepLightbox(-1);
+      });
+    }
+    lbIndex = i;
+    showLightbox();
+    if (!d.open) d.showModal();
+  }
+  function stepLightbox(k) {
+    const n = lbItems().length;
+    lbIndex = (lbIndex + k + n) % n;
+    showLightbox();
+  }
+  function showLightbox() {
+    const d = doc.getElementById('lb');
+    const it = lbItems()[lbIndex];
+    if (!it) return;
+    const img = d.querySelector('.lb__img');
+    img.src = it.img;
+    img.alt = it.alt || it.caption || '';
+    d.querySelector('.lb__cap').textContent = it.caption || '';
   }
 
   function closeMenu() {

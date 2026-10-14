@@ -2345,3 +2345,252 @@ div.photo::before {
     transition: none;
   }
 }
+
+/* ======================================================================
+ * Фото: первый экран на всю ширину, плитка галереи, бегущая лента, просмотр
+ * ====================================================================== */
+
+/* первый экран с фото: текст светлый поверх затемнения, виджет — на своей карточке */
+.hero--photo {
+  color: #fff;
+  background: #0d0f11;
+}
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+.hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: hero-zoom 2.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 10, 12, 0.2) 0%, rgba(8, 10, 12, 0.55) 45%, rgba(8, 10, 12, 0.92) 100%);
+}
+@media (min-width: 960px) {
+  .hero--photo {
+    padding-block: 120px 120px;
+  }
+  .hero__bg::after {
+    background: linear-gradient(90deg, rgba(8, 10, 12, 0.88) 0%, rgba(8, 10, 12, 0.6) 48%, rgba(8, 10, 12, 0.2) 100%);
+  }
+}
+@media (max-width: 959px) {
+  .hero--photo {
+    padding-top: 42vh;
+  }
+}
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.12);
+  }
+}
+.hero--photo .hero__copy {
+  --fg: #ffffff;
+  --muted: rgba(255, 255, 255, 0.8);
+  --line: rgba(255, 255, 255, 0.35);
+  --accent-text: #ffffff;
+  color: var(--fg);
+}
+.hero--photo .hero__lead,
+.hero--photo .proof__src,
+.hero--photo .hero__where {
+  color: var(--muted);
+}
+.hero--photo .hero__actions .btn--accent {
+  background: var(--photo-cta-bg, var(--accent));
+  border-color: var(--photo-cta-bg, var(--accent));
+  color: var(--photo-cta-fg, var(--on-accent));
+}
+.hero--photo .hero__actions .btn--ghost {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.hero--photo .proof__rate .ic {
+  color: var(--photo-cta-bg, var(--accent));
+}
+.hero--photo .hero__widget {
+  color: var(--fg);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.55);
+}
+
+/* плитка галереи: первое фото крупное, остальные мельче */
+.gallery--bento {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 160px;
+  grid-auto-flow: dense;
+  gap: 10px;
+}
+.bento__item:nth-child(6n + 1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.bento__item:nth-child(6n + 4) {
+  grid-column: span 2;
+}
+@media (min-width: 768px) {
+  .gallery--bento {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: 210px;
+    gap: 14px;
+  }
+  .bento__item:nth-child(6n + 5),
+  .bento__item:nth-child(6n + 6) {
+    grid-column: span 2;
+  }
+}
+.bento__btn {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--raised);
+  cursor: zoom-in;
+}
+.bento__btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.bento__btn:hover img {
+  transform: scale(1.05);
+}
+.bento__cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 28px 14px 12px;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.65));
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+}
+
+/* фото проявляются при прокрутке (где браузер умеет анимацию по прокрутке) */
+@supports (animation-timeline: view()) {
+  .bento__btn img,
+  .staff__card img.photo {
+    animation: img-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 35%;
+  }
+}
+@keyframes img-in {
+  from {
+    transform: scale(1.18);
+    filter: saturate(0.6);
+  }
+}
+
+/* бегущая лента атмосферы */
+.strip {
+  overflow: hidden;
+  padding-block: 8px;
+  border-block: 1px solid var(--line);
+}
+.strip__track {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: strip 60s linear infinite;
+}
+.strip:hover .strip__track {
+  animation-play-state: paused;
+}
+.strip li {
+  flex: none;
+  width: clamp(180px, 26vw, 300px);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+.strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@keyframes strip {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* просмотр фото на весь экран */
+.lb {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: rgba(6, 7, 8, 0.96);
+  color: #fff;
+}
+.lb[open] {
+  display: grid;
+  place-items: center;
+  animation: fade-up 0.3s ease-out;
+}
+.lb__img {
+  max-width: min(92vw, 1400px);
+  max-height: 80vh;
+  border-radius: 8px;
+  object-fit: contain;
+}
+.lb__cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  margin: 0;
+  text-align: center;
+  font-size: 15px;
+}
+.lb .icon-btn {
+  position: absolute;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+.lb__close {
+  top: calc(12px + env(safe-area-inset-top, 0px));
+  right: max(12px, env(safe-area-inset-right, 0px));
+}
+.lb__nav {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.lb__nav--prev {
+  left: max(12px, env(safe-area-inset-left, 0px));
+}
+.lb__nav--next {
+  right: max(12px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-reduced-motion: reduce) {
+  .strip__track {
+    animation: none;
+  }
+  .strip {
+    overflow-x: auto;
+  }
+}

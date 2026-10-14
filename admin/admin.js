@@ -101,6 +101,7 @@
   const TABS = [
     { id: 'main', label: 'Главное', anchor: 'top' },
     { id: 'services', label: 'Услуги и цены', anchor: 'services' },
+    { id: 'photos', label: 'Фото', anchor: 'top' },
     { id: 'staff', label: 'Мастера', anchor: 'staff' },
     { id: 'reviews', label: 'Отзывы', anchor: 'reviews' },
     { id: 'contacts', label: 'Контакты и часы', anchor: 'contacts' },
@@ -188,6 +189,51 @@
       ${levels}`;
   };
 
+  // Галерея создаётся при первом фото: секция «Атмосфера» перед отзывами и бегущая лента после удобств
+  function ensureGallery() {
+    let gi = sectionIndex('gallery');
+    if (gi >= 0) return gi;
+    const at = data.sections.findIndex((s) => ['reviews', 'faq', 'contacts'].includes(typeof s === 'string' ? s : s.type));
+    data.sections.splice(at < 0 ? data.sections.length : at, 0, { type: 'gallery', title: 'Атмосфера', lead: '', items: [] });
+    if (sectionIndex('strip') < 0) {
+      const after = data.sections.findIndex((s) => (typeof s === 'string' ? s : s.type) === 'perks');
+      data.sections.splice(after < 0 ? 1 : after + 1, 0, { type: 'strip' });
+    }
+    return sectionIndex('gallery');
+  }
+
+  const photoBox = (src, target, label) => `
+    <div class="ph ph--wide">
+      ${src ? `<img src="${esc(imgUrl(src))}" alt="">` : `<span>нет фото</span>`}
+      <label class="ph__btn">${src ? 'Заменить' : label}<input type="file" accept="image/*" data-kind="photo" data-target="${target}" hidden></label>
+      ${src ? `<button type="button" class="ph__del" data-act="img-del" data-target="${target}">Убрать</button>` : ''}
+    </div>`;
+
+  PANELS.photos = () => {
+    const gi = sectionIndex('gallery');
+    const items = gi >= 0 ? data.sections[gi].items || [] : [];
+    return `
+      <h2>Фото</h2>
+      <p class="lead">Фото с телефона подойдут. Сайт сам уменьшит их, чтобы страница открывалась быстро.</p>
+      <h3 class="sub">Первый экран</h3>
+      <div class="card">${photoBox(data.hero.image, 'hero.image', 'Загрузить фото')}
+        ${input('Что на фото (для поисковиков и незрячих)', 'hero.imageAlt', { placeholder: 'Барбер стрижёт клиента' })}</div>
+      <h3 class="sub">Галерея и лента атмосферы</h3>
+      ${items
+        .map(
+          (it, i) => `
+        <div class="card">
+          <div class="card__head"><b>Фото ${i + 1}</b>${tools(`sections.${gi}.items`, i, items.length)}</div>
+          <div class="staff-row">
+            ${photoBox(it.img, `sections.${gi}.items.${i}.img`, 'Загрузить')}
+            <div>${input('Подпись', `sections.${gi}.items.${i}.caption`, { placeholder: 'Скин-фейд' })}</div>
+          </div>
+        </div>`
+        )
+        .join('')}
+      <label class="add add--file">+ Добавить фото<input type="file" accept="image/*" multiple data-kind="photo-add" hidden></label>`;
+  };
+
   PANELS.staff = () => `
     <h2>Мастера</h2>
     <p class="lead">Фото лучше вертикальное, по пояс. Его можно снять на телефон.</p>
@@ -199,8 +245,8 @@
         <div class="staff-row">
           <div class="ph">
             ${m.img ? `<img src="${esc(imgUrl(m.img))}" alt="">` : `<span>${esc(Slot.util.initials(m.name || '?'))}</span>`}
-            <label class="ph__btn">${m.img ? 'Заменить' : 'Загрузить фото'}<input type="file" accept="image/*" data-kind="photo" data-i="${i}" hidden></label>
-            ${m.img ? `<button type="button" class="ph__del" data-act="photo-del" data-i="${i}">Убрать фото</button>` : ''}
+            <label class="ph__btn">${m.img ? 'Заменить' : 'Загрузить фото'}<input type="file" accept="image/*" data-kind="photo" data-target="staff.${i}.img" hidden></label>
+            ${m.img ? `<button type="button" class="ph__del" data-act="img-del" data-target="staff.${i}.img">Убрать фото</button>` : ''}
           </div>
           <div class="staff-fields">
             ${input('Имя', `staff.${i}.name`)}
@@ -434,8 +480,9 @@
     });
   }
 
-  function uploadPhoto(i, file) {
-    shrink(file, mode === 'server' ? 1000 : 640)
+  // Загружает фото и возвращает адрес: на сервере — файл в /uploads, в демо — data:-строка
+  function uploadPhoto(file, max) {
+    return shrink(file, mode === 'server' ? max : Math.min(max, 900))
       .then((blob) => {
         if (mode === 'server') {
           const fd = new FormData();
@@ -452,9 +499,24 @@
           fr.onload = () => resolve(fr.result);
           fr.readAsDataURL(blob);
         });
-      })
+      });
+  }
+
+  function putPhoto(target, file) {
+    const max = target === 'hero.image' ? 2000 : target.startsWith('staff') ? 1000 : 1600;
+    uploadPhoto(file, max)
       .then((url) => {
-        data.staff[i].img = url;
+        setPath(data, target, url);
+        touch(true);
+      })
+      .catch((err) => toast(err.message, true));
+  }
+
+  function addPhotos(files) {
+    const gi = ensureGallery();
+    Promise.all(Array.from(files).map((f) => uploadPhoto(f, 1600)))
+      .then((urls) => {
+        urls.forEach((url) => data.sections[gi].items.push({ img: url, caption: '' }));
         touch(true);
       })
       .catch((err) => toast(err.message, true));
@@ -530,7 +592,8 @@
 
   function onChange(e) {
     const t = e.target;
-    if (t.dataset.kind === 'photo' && t.files && t.files[0]) uploadPhoto(Number(t.dataset.i), t.files[0]);
+    if (t.dataset.kind === 'photo' && t.files && t.files[0]) putPhoto(t.dataset.target, t.files[0]);
+    else if (t.dataset.kind === 'photo-add' && t.files && t.files.length) addPhotos(t.files);
     else if (t.type === 'radio' || t.type === 'checkbox') onInput(e);
   }
 
@@ -597,8 +660,8 @@
       data.sections[i].items.push({ name: '', source: 'Яндекс Карты', date: '', text: '' });
       return touch(true);
     }
-    if (act === 'photo-del') {
-      delete data.staff[i].img;
+    if (act === 'img-del') {
+      setPath(data, t.dataset.target, '');
       return touch(true);
     }
   }
