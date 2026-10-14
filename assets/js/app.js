@@ -719,7 +719,7 @@
     const cur = Slot.getStyle(cfg, styleId);
     return `
       <div class="wrap demo__in">
-        <p class="demo__text"><b>${esc(cfg.product)}</b> · демо, данные вымышленные</p>
+        <p class="demo__text">${cfg.demoLabel ? esc(cfg.demoLabel) : `<b>${esc(cfg.product)}</b> · демо, данные вымышленные`}</p>
         <div class="demo__seg" role="group" aria-label="Стиль">${cfg.styles
           .map(
             (st) =>

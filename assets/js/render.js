@@ -16,7 +16,7 @@
   const NNBSP = ' ';
 
   const num = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, NNBSP);
-  const price = (p) => (p.from ? 'от' + NBSP : '') + num(p.value) + NBSP + '₽';
+  const price = (p) => (!p || p.value == null ? 'по' + NBSP + 'запросу' : (p.from ? 'от' + NBSP : '') + num(p.value) + NBSP + '₽');
 
   function duration(min) {
     const h = Math.floor(min / 60);
@@ -226,14 +226,16 @@
     </div>`;
   }
 
+  const countText = (p) => (p.countText ? esc(p.countText) : num(p.count) + NBSP + plural(p.count, ['отзыв', 'отзыва', 'отзывов']));
+
   R.hero = (c) => {
     const h = c.hero;
     const proof = h.proof
       .map(
         (p) => `
         <li class="proof__item">
-          <span class="proof__rate">${ic('star')}${esc(p.rating)}</span>
-          <span class="proof__src">${esc(p.source)}<br>${num(p.count)}${NBSP}${plural(p.count, ['отзыв', 'отзыва', 'отзывов'])}</span>
+          <span class="proof__rate">${p.rating ? ic('star') + esc(p.rating) : esc(p.big)}</span>
+          <span class="proof__src">${esc(p.source)}<br>${countText(p)}</span>
         </li>`
       )
       .join('');
@@ -284,7 +286,7 @@
     const panels = c.services
       .map(
         (cat, i) => `
-      <div class="svc-panel" role="tabpanel" id="svc-p-${i}" aria-labelledby="svc-t-${i}"${i ? ' hidden' : ''}>
+      <div class="svc-panel"${c.services.length > 1 ? ` role="tabpanel" id="svc-p-${i}" aria-labelledby="svc-t-${i}"` : ''}${i ? ' hidden' : ''}>
         <ul class="svc">${cat.items
           .map(
             (it, j) => `
@@ -306,7 +308,7 @@
 <section class="sec" id="services" aria-labelledby="services-title">
   <div class="wrap">
     ${secHead('services', s)}
-    <div class="tabs" role="tablist" aria-label="Категории услуг">${tabs}<span class="tabs__ind" aria-hidden="true"></span></div>
+    ${c.services.length > 1 ? `<div class="tabs" role="tablist" aria-label="Категории услуг">${tabs}<span class="tabs__ind" aria-hidden="true"></span></div>` : ''}
     ${panels}
   </div>
 </section>`;
@@ -328,10 +330,31 @@
         ${photo({ img: m.img, name: m.name, mark: initials(m.name) }, 'photo--portrait')}
         <div class="staff__body">
           <h3 class="staff__name">${esc(m.name)}</h3>
-          <p class="staff__role">${esc(m.role)} · стаж ${m.years}${NBSP}${plural(m.years, ['год', 'года', 'лет'])}</p>
-          <p class="staff__note">${esc(m.note)}</p>
-          <button class="btn btn--line btn--block" type="button" data-book data-staff="${esc(m.id)}">Записаться к${NBSP}${esc(m.dative)}</button>
+          <p class="staff__role">${esc(m.role)}${m.years ? ` · стаж ${m.years}${NBSP}${plural(m.years, ['год', 'года', 'лет'])}` : ''}</p>
+          <p class="staff__note">${esc(m.note || '')}</p>
+          <button class="btn btn--line btn--block" type="button" data-book data-staff="${esc(m.id)}">${m.dative ? `Записаться к${NBSP}${esc(m.dative)}` : 'Записаться'}</button>
         </div>
+      </li>`
+      )
+      .join('')}</ul>
+  </div>
+</section>`;
+
+  // Уровни мастеров: одна карточка на уровень, в ней цены ключевых услуг
+  R.levels = (c, s) => `
+<section class="sec" id="levels" aria-labelledby="levels-title">
+  <div class="wrap">
+    ${secHead('levels', s)}
+    <ul class="levels">${s.levels
+      .map(
+        (lv, i) => `
+      <li class="level">
+        <h3 class="level__name">${esc(lv.name)}</h3>
+        ${lv.note ? `<p class="level__note">${esc(lv.note)}</p>` : ''}
+        <ul class="level__prices">${s.rows
+          .map((r) => `<li><span>${esc(r.service)}</span><b>${r.values[i] == null ? '—' : price({ value: r.values[i] })}</b></li>`)
+          .join('')}</ul>
+        <button class="btn btn--line btn--block" type="button" data-book data-staff="${esc(lv.id)}">Записаться к мастеру</button>
       </li>`
       )
       .join('')}</ul>
@@ -384,10 +407,10 @@
     const sum = c.hero.proof
       .map(
         (p) =>
-          `<a class="rsum" href="${esc(p.url)}" target="_blank" rel="noopener"><span class="rsum__rate">${ic('star')}${esc(p.rating)}</span><span>${esc(p.source)} · ${num(p.count)}${NBSP}${plural(p.count, ['отзыв', 'отзыва', 'отзывов'])}</span></a>`
+          `<a class="rsum" href="${esc(p.url)}" target="_blank" rel="noopener"><span class="rsum__rate">${p.rating ? ic('star') + esc(p.rating) : esc(p.big)}</span><span>${esc(p.source)} · ${countText(p)}</span></a>`
       )
       .join('');
-    const cards = s.items
+    const cards = (s.items || [])
       .map(
         (r) => `
       <li class="review">
@@ -402,7 +425,7 @@
   <div class="wrap">
     ${secHead('reviews', s)}
     <div class="rsums">${sum}</div>
-    <ul class="reviews">${cards}</ul>
+    ${s.items && s.items.length ? `<ul class="reviews">${cards}</ul>` : ''}
   </div>
 </section>`;
   };
@@ -453,7 +476,7 @@
       <p class="contacts__addr">${ic('pin')}<span><b>${esc(k.city)}, ${esc(k.address)}</b>${k.addressNote ? `<br>${esc(k.addressNote)}` : ''}${k.metro ? `<br>${esc(k.metro)}` : ''}</span></p>
       <ul class="hours" aria-label="Часы работы">${hours}</ul>
       <p class="contacts__phone"><a href="tel:${esc(k.phoneHref)}">${esc(k.phone)}</a></p>
-      <div class="contacts__msg">${msgs}</div>
+      ${msgs ? `<div class="contacts__msg">${msgs}</div>` : ''}
     </div>
     <div class="map" role="img" aria-label="Схема проезда: ${esc(k.address)}">
       <span class="map__road map__road--a"></span><span class="map__road map__road--b"></span>
@@ -470,19 +493,23 @@
   R.footer = (c) => `
 <footer class="ftr">
   <div class="wrap ftr__in">
-    <div class="ftr__brand"><span class="logo__name">${esc(c.brand.name)}</span><span>${esc(c.legal.entity)}</span></div>
+    <div class="ftr__brand"><span class="logo__name">${esc(c.brand.name)}</span>${c.legal && c.legal.entity ? `<span>${esc(c.legal.entity)}</span>` : ''}</div>
     <nav class="ftr__links" aria-label="Документы">
       <a href="#privacy">Политика обработки персональных данных</a>
       <a href="#consent">Согласие на обработку персональных данных</a>
     </nav>
-    <p class="ftr__made">© ${esc(c.legal.year)} · Сайт на шаблоне «Слот»</p>
+    <p class="ftr__made">© ${esc((c.legal && c.legal.year) || '2026')} · Сайт на шаблоне «Слот»</p>
   </div>
 </footer>`;
 
   R.mbar = (c) => `
 <div class="mbar" aria-label="Быстрые действия">
   <a class="mbar__btn" href="tel:${esc(c.contacts.phoneHref)}">${ic('phone')}<span>Позвонить</span></a>
-  <a class="mbar__btn" href="${esc(c.contacts.messengers[0].url)}" target="_blank" rel="noopener">${ic('send')}<span>Написать</span></a>
+  ${
+    c.contacts.messengers.length
+      ? `<a class="mbar__btn" href="${esc(c.contacts.messengers[0].url)}" target="_blank" rel="noopener">${ic('send')}<span>Написать</span></a>`
+      : `<a class="mbar__btn" href="${esc(c.contacts.yandexMaps)}" target="_blank" rel="noopener">${ic('pin')}<span>Маршрут</span></a>`
+  }
   <button class="mbar__btn mbar__btn--accent" type="button" data-book>${ic('calendar')}<span>Записаться</span></button>
 </div>`;
 
@@ -519,6 +546,25 @@
   };
 
   Slot.roundPrice = (v) => Math.round(v / 100) * 100;
+
+  // Сайт клиента = шаблон ниши + данные клиента (clients/<slug>.json).
+  // Секция из списка клиента берёт настройки одноимённой секции ниши и перекрывает их своими.
+  Slot.compose = (niche, client) => {
+    const c = Object.assign({}, niche, client);
+    c.id = client.slug;
+    c.styles = niche.styles;
+    c.defaultStyle = client.style || niche.defaultStyle;
+    c.booking = Object.assign({}, niche.booking, client.booking);
+    c.hero = Object.assign({}, niche.hero, client.hero);
+    c.hero.widget = Object.assign({}, niche.hero.widget, client.hero && client.hero.widget);
+    if (client.sections) {
+      c.sections = client.sections.map((sec) => {
+        const o = typeof sec === 'string' ? { type: sec } : sec;
+        return Object.assign({}, niche.sections.find((n) => n.type === o.type), o);
+      });
+    }
+    return c;
+  };
 
   Slot.util = { esc, num, price, duration, plural, initials, ic, DAYS };
 

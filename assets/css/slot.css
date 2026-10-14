@@ -1053,6 +1053,56 @@ div.photo::before {
   }
 }
 
+/* уровни мастеров */
+.levels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.level {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+.level__name {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+  text-transform: var(--display-case);
+  font-size: calc(1.9rem * var(--display-scale));
+  line-height: 1.05;
+}
+.level__note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+.level__prices {
+  flex: 1;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+}
+.level__prices li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 10px;
+  border-bottom: 1px dashed var(--line);
+}
+.level__prices b {
+  font-family: var(--font-num);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
 /* этапы */
 .steps {
   display: grid;
