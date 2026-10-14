@@ -274,6 +274,8 @@
   </div>
 </section>`;
 
+  const secCls = (s) => 'sec' + (s.invert ? ' invert' : '');
+
   const secHead = (id, s) => `
     <div class="sec__head">
       <h2 class="sec__title" id="${id}-title">${esc(s.title)}</h2>
@@ -309,7 +311,7 @@
       )
       .join('');
     return `
-<section class="sec" id="services" aria-labelledby="services-title">
+<section class="${secCls(s)}" id="services" aria-labelledby="services-title">
   <div class="wrap">
     ${secHead('services', s)}
     ${c.services.length > 1 ? `<div class="tabs" role="tablist" aria-label="Категории услуг">${tabs}<span class="tabs__ind" aria-hidden="true"></span></div>` : ''}
@@ -324,7 +326,7 @@
       : `<div class="photo ${cls || ''}" role="img" aria-label="Место для фото: ${esc(item.caption || item.name)}"><span class="photo__mark">${esc(item.mark || '')}</span><span class="photo__hint">${ic('camera')}фото</span></div>`;
 
   R.staff = (c, s) => `
-<section class="sec" id="staff" aria-labelledby="staff-title">
+<section class="${secCls(s)}" id="staff" aria-labelledby="staff-title">
   <div class="wrap">
     ${secHead('staff', s)}
     <ul class="staff">${c.staff
@@ -350,7 +352,7 @@
 
   // Уровни мастеров: одна карточка на уровень, в ней цены ключевых услуг
   R.levels = (c, s) => `
-<section class="sec" id="levels" aria-labelledby="levels-title">
+<section class="${secCls(s)}" id="levels" aria-labelledby="levels-title">
   <div class="wrap">
     ${secHead('levels', s)}
     <ul class="levels">${s.levels
@@ -420,7 +422,7 @@
           .map((it) => `<li><figure class="tile">${photo(it)}<figcaption>${esc(it.caption)}</figcaption></figure></li>`)
           .join('')}</ul>`;
     return `
-<section class="sec" id="gallery" aria-labelledby="gallery-title">
+<section class="${secCls(s)}" id="gallery" aria-labelledby="gallery-title">
   <div class="wrap">
     ${secHead('gallery', s)}
     ${list}
@@ -458,7 +460,7 @@
       )
       .join('');
     return `
-<section class="sec" id="reviews" aria-labelledby="reviews-title">
+<section class="${secCls(s)}" id="reviews" aria-labelledby="reviews-title">
   <div class="wrap">
     ${secHead('reviews', s)}
     <div class="rsums">${sum}</div>
@@ -468,7 +470,7 @@
   };
 
   R.faq = (c, s) => `
-<section class="sec" id="faq" aria-labelledby="faq-title">
+<section class="${secCls(s)}" id="faq" aria-labelledby="faq-title">
   <div class="wrap faq__in">
     ${secHead('faq', s)}
     <div class="faq">${s.items
@@ -506,7 +508,7 @@
       .map((r) => `<li data-days="${r.from}-${r.to}"><span>${r.days}</span><span>${r.time}</span></li>`)
       .join('');
     return `
-<section class="sec" id="contacts" aria-labelledby="contacts-title">
+<section class="${secCls(s)}" id="contacts" aria-labelledby="contacts-title">
   <div class="wrap contacts">
     <div class="contacts__info">
       ${secHead('contacts', s)}
@@ -589,7 +591,7 @@
   Slot.compose = (niche, client) => {
     const c = Object.assign({}, niche, client);
     c.id = client.slug;
-    c.styles = niche.styles;
+    c.styles = (client.styles || []).concat(niche.styles); // фирменный стиль клиента — первым
     c.defaultStyle = client.style || niche.defaultStyle;
     c.booking = Object.assign({}, niche.booking, client.booking);
     c.hero = Object.assign({}, niche.hero, client.hero);

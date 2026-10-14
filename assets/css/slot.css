@@ -291,11 +291,16 @@ h3 {
 }
 .demo__seg {
   display: inline-flex;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
   padding: 2px;
   border: 1px solid currentColor;
   border-radius: 999px;
 }
 .demo__seg button {
+  flex: none;
+  white-space: nowrap;
   min-height: 36px;
   padding: 6px 14px;
   border: 0;

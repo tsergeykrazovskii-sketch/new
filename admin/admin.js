@@ -324,7 +324,8 @@
   PANELS.style = () => `
     <h2>Оформление</h2>
     <p class="lead">Стиль меняет шрифты, цвета, скругления и анимацию. Тексты и цены остаются прежними.</p>
-    <div class="styles">${niche.styles
+    <div class="styles">${(data.styles || [])
+      .concat(niche.styles)
       .map(
         (st) => `
       <label class="style">
