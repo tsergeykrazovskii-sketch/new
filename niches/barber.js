@@ -212,8 +212,10 @@
       phone: '+7 999 123-45-67',
       phoneHref: '+79991234567',
       hoursShort: 'Ежедневно с 10:00',
-      yandexMaps: 'https://yandex.ru/maps/',
-      twoGis: 'https://2gis.ru/',
+      // точка на Лесной у дома 7 (Яндекс Карты); заведение вымышленное, поэтому карта по координатам
+      coords: [55.778627, 37.587271],
+      yandexMaps: 'https://yandex.ru/maps/?pt=37.587271,55.778627&z=17&l=map',
+      twoGis: 'https://2gis.ru/moscow/search/%D0%9B%D0%B5%D1%81%D0%BD%D0%B0%D1%8F%207',
       messengers: [
         { label: 'Telegram', icon: 'send', url: 'https://t.me/' },
         { label: 'MAX', icon: 'message', url: 'https://max.ru/' },
@@ -245,7 +247,7 @@
       lead: 'Мужские стрижки, борода и бритьё опасной бритвой. Четыре мастера со стажем от четырёх лет, кофе пока ждёте, запись за минуту.',
       cta: 'Записаться онлайн',
       secondary: 'Услуги и цены',
-      image: 'assets/img/barber/hero.webp',
+      image: '/assets/img/barber/hero.webp',
       imageAlt: 'Барбер делает фейд машинкой',
       proof: [
         { source: 'Яндекс Карты', rating: '4,9', count: 812, url: 'https://yandex.ru/maps/' },
@@ -286,10 +288,10 @@
     ],
 
     staff: [
-      { id: 'artem', name: 'Артём Ковалёв', dative: 'Артёму', role: 'Шеф-барбер', years: 9, note: 'Классика, кроп и сложные переходы', img: 'assets/img/barber/staff-1.webp', demoSlots: ['14:30', '17:00', '19:30'] },
-      { id: 'timur', name: 'Тимур Сафин', dative: 'Тимуру', role: 'Топ-барбер', years: 6, note: 'Борода и бритьё опасной бритвой', img: 'assets/img/barber/staff-2.webp', demoSlots: ['13:00', '15:30', '18:00'] },
-      { id: 'ilya', name: 'Илья Ветров', dative: 'Илье', role: 'Барбер', years: 4, note: 'Текстурные и удлинённые стрижки', img: 'assets/img/barber/staff-3.webp', demoSlots: ['12:30', '16:00', '20:00'] },
-      { id: 'denis', name: 'Денис Ахмедов', dative: 'Денису', role: 'Барбер', years: 5, note: 'Детские стрижки, «отец и сын»', img: 'assets/img/barber/staff-4.webp', demoSlots: ['14:00', '15:00', '18:30'] },
+      { id: 'artem', name: 'Артём Ковалёв', dative: 'Артёму', role: 'Шеф-барбер', years: 9, note: 'Классика, кроп и сложные переходы', img: '/assets/img/barber/staff-1.webp', demoSlots: ['14:30', '17:00', '19:30'] },
+      { id: 'timur', name: 'Тимур Сафин', dative: 'Тимуру', role: 'Топ-барбер', years: 6, note: 'Борода и бритьё опасной бритвой', img: '/assets/img/barber/staff-2.webp', demoSlots: ['13:00', '15:30', '18:00'] },
+      { id: 'ilya', name: 'Илья Ветров', dative: 'Илье', role: 'Барбер', years: 4, note: 'Текстурные и удлинённые стрижки', img: '/assets/img/barber/staff-3.webp', demoSlots: ['12:30', '16:00', '20:00'] },
+      { id: 'denis', name: 'Денис Ахмедов', dative: 'Денису', role: 'Барбер', years: 5, note: 'Детские стрижки, «отец и сын»', img: '/assets/img/barber/staff-4.webp', demoSlots: ['14:00', '15:00', '18:30'] },
     ],
 
     booking: { askStaff: true, step: 30, contactMethods: ['Звонок', 'Telegram', 'MAX'], fields: [] },
@@ -323,12 +325,12 @@
         title: 'Работы',
         lead: 'Свежие стрижки наших мастеров. Больше — в Telegram-канале.',
         items: [
-          { caption: 'Скин-фейд', img: 'assets/img/barber/g-fade.webp' },
-          { caption: 'Борода и опасная бритва', img: 'assets/img/barber/g-beard.webp' },
-          { caption: 'Текстурная укладка', img: 'assets/img/barber/g-styling.webp' },
-          { caption: 'Отец и сын', img: 'assets/img/barber/g-family.webp' },
-          { caption: 'Зал', img: 'assets/img/barber/g-interior.webp' },
-          { caption: 'Инструменты', img: 'assets/img/barber/g-tools.webp' },
+          { caption: 'Скин-фейд', img: '/assets/img/barber/g-fade.webp' },
+          { caption: 'Борода и опасная бритва', img: '/assets/img/barber/g-beard.webp' },
+          { caption: 'Текстурная укладка', img: '/assets/img/barber/g-styling.webp' },
+          { caption: 'Отец и сын', img: '/assets/img/barber/g-family.webp' },
+          { caption: 'Зал', img: '/assets/img/barber/g-interior.webp' },
+          { caption: 'Инструменты', img: '/assets/img/barber/g-tools.webp' },
         ],
       },
       {

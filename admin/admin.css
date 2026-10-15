@@ -132,6 +132,16 @@ h2 {
   font-size: 13px;
   border-bottom: 1px solid #f0dcaa;
 }
+.mode__reset {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
 
 /* раскладка: вкладки | форма | предпросмотр */
 .layout {

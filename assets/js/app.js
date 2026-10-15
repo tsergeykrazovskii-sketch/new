@@ -871,10 +871,11 @@
       if (cfg.styles.some((s) => s.id === fromHash)) styleId = fromHash;
       else if (cfg.styles.some((s) => s.id === store.get('slot-style-' + id))) styleId = store.get('slot-style-' + id);
     }
-    // Демо: правки из админки (тот же браузер) показываем поверх исходных данных
+    // Демо: правки из админки (тот же браузер) показываем поверх исходных данных.
+    // У клиента шаблон — его ниша, у демо-ниши — она сама (её контент правится как данные).
     let edited = false;
-    const nicheOf = Slot.clients && Slot.clients[id];
-    if (opts.demo && nicheOf) {
+    const nicheOf = (Slot.clients && Slot.clients[id]) || (opts.edits ? id : null);
+    if ((opts.demo || opts.edits) && nicheOf) {
       try {
         const saved = JSON.parse(store.get('slot-data-' + id) || 'null');
         if (saved) {

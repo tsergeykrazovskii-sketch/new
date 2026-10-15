@@ -535,7 +535,13 @@
       if (MAP_WIDGET.test(src)) return src;
     }
     const org = /^https:\/\/yandex\.ru\/maps\/(?:\d+\/[^/]+\/)?org\/([^/?#]+)\/(\d+)/.exec(k.yandexMaps || '');
-    return org ? `https://yandex.ru/map-widget/v1/org/${org[1]}/${org[2]}/` : '';
+    if (org) return `https://yandex.ru/map-widget/v1/org/${org[1]}/${org[2]}/`;
+    // точка по координатам [широта, долгота] — для вымышленных демо-ниш, у которых нет организации
+    if (Array.isArray(k.coords) && k.coords.length === 2) {
+      const ll = `${Number(k.coords[1])},${Number(k.coords[0])}`;
+      return `https://yandex.ru/map-widget/v1/?ll=${ll}&z=16&pt=${ll},pm2rdm`;
+    }
+    return '';
   };
   Slot.mapWidget = mapWidget;
 
@@ -687,6 +693,18 @@
   };
 
   Slot.CONTENT_KEYS = CONTENT_KEYS;
+
+  // Контент демо-ниши в формате данных клиента: так шаблон ниши правится той же админкой,
+  // а Slot.compose(ниша, Slot.nicheData(id)) собирает ту же страницу, что и сама ниша
+  const NICHE_CONTENT = ['brand', 'promo', 'contacts', 'hours', 'nav', 'hero', 'services', 'staff', 'sections', 'legal'];
+  Slot.nicheData = (id) => {
+    const n = Slot.niches[id];
+    const d = { slug: id, niche: id };
+    NICHE_CONTENT.forEach((k) => {
+      if (n[k] !== undefined) d[k] = JSON.parse(JSON.stringify(n[k]));
+    });
+    return d;
+  };
   Slot.util = { esc, num, price, duration, plural, initials, ic, DAYS };
 
   /* ---------- страница ---------- */

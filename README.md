@@ -40,7 +40,7 @@ docs/                 анализ рынка
 node scripts/build.mjs
 ```
 
-В `dist/` появятся `barber.html` и `auto.html` (готовый сайт одним файлом в стиле по умолчанию, разметка отрендерена заранее для SEO) и `demo-barber.html`, `demo-auto.html` (демо с переключателем стилей). Для разработки: `index.html` — барбершоп, `index.html#auto` — автосервис.
+В `dist/` появятся `barber/index.html` и `auto/index.html` (шаблон ниши одним файлом в стиле по умолчанию, разметка отрендерена заранее для SEO; на Vercel — `/barber/` и `/auto/`), их демо-админки `barber/admin/` и `auto/admin/` и `demo-barber.html`, `demo-auto.html` (демо с переключателем стилей). Для разработки: `index.html` — барбершоп, `index.html#auto` — автосервис.
 
 ## Демо для клиента
 

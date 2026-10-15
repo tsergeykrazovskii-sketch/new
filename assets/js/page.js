@@ -13,6 +13,16 @@
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
     `<link rel="stylesheet" id="slot-fonts" href="${href}">`;
 
+  // Иконка вкладки: первая буква названия на фирменном цвете (без отдельного файла и без 404 на /favicon.ico)
+  Slot.favicon = (c, st) => {
+    const t = st.tokens || {};
+    const letter = (c.brand.name || 'С').trim().charAt(0).toUpperCase().replace(/[<>&"']/g, '');
+    const svg =
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="${t.accent || '#222'}"/>` +
+      `<text x="32" y="44" font-family="Arial,sans-serif" font-size="36" font-weight="700" text-anchor="middle" fill="${t.onAccent || '#fff'}">${letter}</text></svg>`;
+    return `<link rel="icon" href="data:image/svg+xml,${encodeURIComponent(svg)}">`;
+  };
+
   Slot.schema = (c) => {
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     return {
@@ -36,7 +46,8 @@
    * mode: 'site' — боевой сайт, 'demo' — демо для Vercel (закрыто от индексации),
    *       'artifact' — предпросмотр в Claude (без <html>/<head>, их добавляет площадка).
    * src:  { css, render, app, scripts: [исходники, после которых в Slot.niches[id] лежит конфиг] }
-   * opts: { noMotion, base } — для предпросмотра в админке
+   * opts: { noMotion, base } — для предпросмотра в админке;
+   *       { edits } — страница показывает правки из демо-админки в этом браузере (шаблоны ниш на Vercel)
    */
   Slot.page = (c, id, mode, src, opts) => {
     const o = opts || {};
@@ -46,7 +57,7 @@
     const app =
       `${demo ? '<div class="demo" id="demo"></div>\n' : ''}<div id="app" data-niche="${id}" data-style="${st.id}">${Slot.render(c)}</div>\n` +
       `${inlineScript(src.render)}\n${src.scripts.map(inlineScript).join('\n')}\n${inlineScript(src.app)}\n` +
-      `<script>Slot.boot({ ${demo ? 'demo: true, ' : ''}niche: ${JSON.stringify(id)} });</script>`;
+      `<script>Slot.boot({ ${demo ? 'demo: true, ' : ''}${o.edits ? 'edits: true, ' : ''}niche: ${JSON.stringify(id)} });</script>`;
     const styles =
       `${fontsLinks(st.fonts)}\n<style>${src.css}</style>\n<style id="slot-theme">${Slot.themeCss(c, st.id)}</style>` +
       (o.noMotion ? '\n<style>*,*::before,*::after{animation:none!important;transition:none!important}</style>' : '');
@@ -62,6 +73,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 ${o.base ? `<base href="${esc(o.base)}">\n` : ''}<title>${esc(title)}</title>
+${Slot.favicon(c, st)}
 ${mode === 'demo' ? '<meta name="robots" content="noindex, nofollow">\n' : ''}<meta name="description" content="${esc(c.hero.lead)}">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(c.hero.lead)}">

@@ -10,7 +10,8 @@
   const Slot = g.Slot;
   const { esc, price } = Slot.util;
   const S = JSON.parse(doc.getElementById('slot-admin').textContent);
-  // S: { slug, nicheId, data, src: { css, render, app, niche } }
+  // S: { slug, nicheId, data, siteUrl, base, demo, src: { css, render, app, niche } }
+  //    base — путь от админки к сайту ('../'); в предпросмотре для Claude его нет
 
   const niche = Slot.niches[S.nicheId];
   const DAYS = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
@@ -77,8 +78,8 @@
 
   const uid = (p) => p + '-' + Math.random().toString(36).slice(2, 7);
 
-  // Фото на сервере лежат в /uploads относительно сайта, а админка открыта из /admin
-  const imgUrl = (u) => (mode === 'server' && !/^(data:|https?:|\/)/.test(u) ? '../' + u : u);
+  // Пути фото считаются от сайта, а админка открыта из его папки /admin
+  const imgUrl = (u) => (S.base && !/^(data:|https?:|\/)/.test(u) ? S.base + u : u);
 
   /* ---------- поля ---------- */
 
@@ -398,7 +399,7 @@
       app: S.src.app,
       scripts: [S.src.niche, Slot.clientScript(S.slug, S.nicheId, d)],
     };
-    return Slot.page(c, S.slug, 'site', src, forPreview ? { noMotion: true, base: mode === 'server' ? '../' : '' } : {});
+    return Slot.page(c, S.slug, 'site', src, forPreview ? { noMotion: true, base: S.base || '' } : {});
   }
 
   function renderPreview() {
@@ -618,6 +619,18 @@
       return;
     }
     if (t.matches('[data-save]')) return save();
+    if (t.matches('[data-reset]')) {
+      if (!g.confirm('Вернуть исходные тексты, цены и фото? Ваши правки в этом браузере удалятся.')) return;
+      try {
+        localStorage.removeItem(KEY);
+      } catch (err) {
+        /* хранилище недоступно — правок там и нет */
+      }
+      data = clone(S.data);
+      dirty = false;
+      savedAt = null;
+      return start();
+    }
     if (t.matches('[data-preview-open]')) return doc.body.classList.add('show-preview');
     if (t.matches('[data-preview-close]')) return doc.body.classList.remove('show-preview');
 
@@ -731,7 +744,8 @@
         e.returnValue = '';
       }
     });
-    fetch(`${API}?action=session`, { credentials: 'same-origin' })
+    // На Vercel и в предпросмотре сервера нет — сразу демо, без лишнего запроса к api.php
+    (S.demo ? Promise.reject(new Error('демо')) : fetch(`${API}?action=session`, { credentials: 'same-origin' }))
       .then((r) => r.json())
       .then((res) => {
         if (!res || !res.ok || !res.slot) throw new Error('нет сервера');

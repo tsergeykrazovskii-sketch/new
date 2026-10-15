@@ -1,7 +1,9 @@
 // Сборка «Слота». Запуск: node scripts/build.mjs
 //
 //   dist/ — уходит на Vercel:
-//     <ниша>.html, demo-<ниша>.html     — сайт ниши и демо со всеми стилями (demo-* — для предпросмотра в Claude)
+//     <ниша>/index.html                 — шаблон ниши (показывает правки из своей демо-админки)
+//     <ниша>/admin/index.html           — демо админки шаблона: тот же редактор, что у клиентов
+//     demo-<ниша>.html                  — демо со всеми стилями для предпросмотра в Claude
 //     <клиент>/index.html               — персональное демо клиента (закрыто от индексации)
 //     <клиент>/admin/index.html         — демо админки: правки хранятся в браузере и видны на демо-сайте
 //     <клиент>/preview.html, admin-preview.html — то же для предпросмотра в Claude
@@ -61,8 +63,11 @@ function write(base, rel, content) {
 const siteSrc = (scripts) => ({ css: src.css, render: src.render, app: src.app, scripts });
 
 // Страница админки. mode: 'full' — отдельный HTML-файл, 'artifact' — предпросмотр в Claude.
-function adminPage(slug, nicheId, data, mode, siteUrl) {
-  const payload = { slug, nicheId, data, siteUrl, src: { css: src.css, render: src.render, app: src.app, niche: src.niche[nicheId] } };
+// base — путь от админки к сайту: от него считаются относительные пути фото в предпросмотре.
+// demo — админка на Vercel: PHP-сервера там нет, правки только в браузере, api.php не запрашиваем.
+function adminPage(slug, nicheId, data, mode, siteUrl, base, demo) {
+  const payload = { slug, nicheId, data, siteUrl, base, demo: !!demo, src: { css: src.css, render: src.render, app: src.app, niche: src.niche[nicheId] } };
+  const site = Slot.compose(Slot.niches[nicheId], data);
   const json = JSON.stringify(payload).replace(/</g, '\\u003c');
   const name = `${data.brand.kind} «${data.brand.name}»`;
   const body = `
@@ -75,7 +80,7 @@ function adminPage(slug, nicheId, data, mode, siteUrl) {
     <button class="btn btn--primary" type="button" data-save disabled>Сохранить</button>
   </div>
 </div>
-<p class="mode" data-mode hidden>Демо админки: изменения сохраняются только в этом браузере. В рабочей версии «Сохранить» сразу обновляет сайт.</p>
+<p class="mode" data-mode hidden>Демо админки: изменения сохраняются только в этом браузере. В рабочей версии «Сохранить» сразу обновляет сайт. <button type="button" class="mode__reset" data-reset>Вернуть исходные данные</button></p>
 <div class="layout">
   <nav class="tabs" data-tabs aria-label="Разделы"></nav>
   <main class="panel" data-panel></main>
@@ -104,6 +109,7 @@ ${inlineScript(src.adminJs)}
   const head = `<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap">
+${Slot.favicon(site, Slot.getStyle(site, site.defaultStyle))}
 <style>${src.adminCss}</style>`;
   if (mode === 'artifact') {
     return `<title>Админка ${esc(data.brand.name)}</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n${head}\n${body}`;
@@ -125,7 +131,8 @@ ${head}
 // 1. Ниши: боевой файл и демо со всеми стилями
 for (const id of Object.keys(Slot.niches)) {
   const c = Slot.niches[id];
-  write(dist, `${id}.html`, Slot.page(c, id, 'site', siteSrc([src.niche[id]])));
+  write(dist, `${id}/index.html`, Slot.page(c, id, 'site', siteSrc([src.niche[id]]), { edits: true }));
+  write(dist, `${id}/admin/index.html`, adminPage(id, id, Slot.nicheData(id), 'full', '../', '../', true));
   write(dist, `demo-${id}.html`, Slot.page(c, id, 'artifact', siteSrc([src.niche[id]])));
   const n = copyDir(`assets/img/${id}`, path.join(dist, 'assets', 'img', id));
   if (n) console.log(`dist/assets/img/${id}/ — фото: ${n}`);
@@ -142,8 +149,8 @@ for (const f of clientFiles) {
   const c = Slot.compose(Slot.niches[nicheId], data);
   write(dist, `${slug}/index.html`, Slot.page(c, slug, 'demo', siteSrc(scripts(data))));
   write(dist, `${slug}/preview.html`, Slot.page(c, slug, 'artifact', siteSrc(scripts(data))));
-  write(dist, `${slug}/admin/index.html`, adminPage(slug, nicheId, data, 'full', '../'));
-  write(dist, `${slug}/admin-preview.html`, adminPage(slug, nicheId, data, 'artifact', null));
+  write(dist, `${slug}/admin/index.html`, adminPage(slug, nicheId, data, 'full', '../', '../', true));
+  write(dist, `${slug}/admin-preview.html`, adminPage(slug, nicheId, data, 'artifact', null, null, true));
 
   // комплект для хостинга клиента: служебные поля демо убираем, заявки уходят в admin/api.php
   const clean = Object.fromEntries(Object.entries(data).filter(([k]) => !k.startsWith('_') && k !== 'demoLabel'));
@@ -151,7 +158,7 @@ for (const f of clientFiles) {
   const base = path.join(release, slug);
   write(base, 'index.html', Slot.page(Slot.compose(Slot.niches[nicheId], live), slug, 'site', siteSrc(scripts(live))));
   write(base, 'data.json', JSON.stringify(clean, null, 2));
-  write(base, 'admin/index.html', adminPage(slug, nicheId, clean, 'full', '../'));
+  write(base, 'admin/index.html', adminPage(slug, nicheId, clean, 'full', '../', '../'));
   for (const file of ['api.php', 'config.example.php', '.htaccess', 'private/.htaccess']) {
     write(base, 'admin/' + file, read('admin/' + file));
   }

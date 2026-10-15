@@ -160,14 +160,16 @@
 
     contacts: {
       city: 'Екатеринбург',
-      address: 'ул. Промышленная, 18',
+      address: 'Монтёрская ул., 3',
       addressNote: 'Въезд с торца здания, 6 постов',
       metro: '',
       phone: '+7 999 765-43-21',
       phoneHref: '+79997654321',
       hoursShort: 'Пн–Сб с 9:00',
-      yandexMaps: 'https://yandex.ru/maps/',
-      twoGis: 'https://2gis.ru/',
+      // промзона Вторчермет, дом найден в Яндекс Картах; заведение вымышленное, поэтому карта по координатам
+      coords: [56.782575, 60.613032],
+      yandexMaps: 'https://yandex.ru/maps/?pt=60.613032,56.782575&z=17&l=map',
+      twoGis: 'https://2gis.ru/ekaterinburg/search/%D0%9C%D0%BE%D0%BD%D1%82%D1%91%D1%80%D1%81%D0%BA%D0%B0%D1%8F%203',
       messengers: [
         { label: 'Telegram', icon: 'send', url: 'https://t.me/' },
         { label: 'MAX', icon: 'message', url: 'https://max.ru/' },
@@ -197,7 +199,7 @@
       title: 'Ремонт без сюрпризов в итоговом счёте',
       lead: 'Сначала диагностика и смета, ремонт — только после вашего согласия. Гарантия 12 месяцев на работы и запчасти. Обслуживаем иномарки, китайские и отечественные автомобили.',
       cta: 'Записаться на ремонт',
-      image: 'assets/img/auto/hero.webp',
+      image: '/assets/img/auto/hero.webp',
       imageAlt: 'Мастер осматривает машину на подъёмнике',
       secondary: 'Цены на работы',
       proof: [
@@ -329,12 +331,12 @@
         title: 'Сервис изнутри',
         lead: 'Шесть постов, своя шиномонтажная зона и комната ожидания с Wi-Fi.',
         items: [
-          { caption: 'Подъёмники', img: 'assets/img/auto/g-lift.webp' },
-          { caption: 'Диагностика', img: 'assets/img/auto/g-diag.webp' },
-          { caption: 'Шиномонтаж', img: 'assets/img/auto/g-tires.webp' },
-          { caption: 'Зона приёмки', img: 'assets/img/auto/g-reception.webp' },
-          { caption: 'Комната ожидания', img: 'assets/img/auto/g-lounge.webp' },
-          { caption: 'Склад шин', img: 'assets/img/auto/g-storage.webp' },
+          { caption: 'Подъёмники', img: '/assets/img/auto/g-lift.webp' },
+          { caption: 'Диагностика', img: '/assets/img/auto/g-diag.webp' },
+          { caption: 'Шиномонтаж', img: '/assets/img/auto/g-tires.webp' },
+          { caption: 'Зона приёмки', img: '/assets/img/auto/g-reception.webp' },
+          { caption: 'Комната ожидания', img: '/assets/img/auto/g-lounge.webp' },
+          { caption: 'Склад шин', img: '/assets/img/auto/g-storage.webp' },
         ],
       },
       {
