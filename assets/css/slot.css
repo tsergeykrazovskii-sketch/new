@@ -38,8 +38,9 @@
   --hero-anim: word-rise;
   --widget-anim: lift-in;
   --maxw: 1200px;
-  /* множитель отступов между секциями: тема «Своя» делает сайт плотнее или просторнее */
+  /* множители темы «Своя»: отступы между секциями и размер обычного текста */
   --space: 1;
+  --text-scale: 1;
   --header-h: 64px;
   color-scheme: dark;
 }
@@ -62,7 +63,7 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: calc(16px * var(--text-scale));
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
@@ -148,7 +149,7 @@ h3 {
   border-radius: var(--radius-btn);
   background: transparent;
   font-weight: 600;
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale));
   line-height: 1.2;
   text-align: center;
   text-decoration: none;
@@ -184,12 +185,12 @@ h3 {
 .btn--sm {
   min-height: 44px;
   padding: 8px 14px;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
 }
 .btn--lg {
   min-height: 54px;
   padding: 14px 26px;
-  font-size: 16px;
+  font-size: calc(16px * var(--text-scale));
 }
 .btn--block {
   width: 100%;
@@ -213,7 +214,7 @@ h3 {
   border-radius: var(--radius-btn);
   background: transparent;
   font-weight: 600;
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale));
   font-family: var(--font-num);
   font-variant-numeric: tabular-nums;
   cursor: pointer;
@@ -273,7 +274,7 @@ h3 {
 .demo {
   background: var(--fg);
   color: var(--bg);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale));
 }
 .demo__in {
   display: flex;
@@ -309,7 +310,7 @@ h3 {
   border-radius: 999px;
   background: transparent;
   font-weight: 600;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale));
   cursor: pointer;
 }
 .demo__seg button[aria-pressed="true"] {
@@ -339,16 +340,27 @@ h3 {
 .logo {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
+  /* название не ужимается, пока рядом помещаются кнопка меню и точка статуса */
+  max-width: calc(100% - 100px);
+  min-width: 0;
   margin-right: auto;
   text-decoration: none;
   line-height: 1;
 }
+/* в шапке тесно: длинное название, широкий шрифт или крупный текст темы не должны выталкивать меню */
+.logo__name,
+.logo__kind {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 .logo__name {
-  font-size: calc(1.7rem * var(--display-scale));
+  font-size: min(calc(1.7rem * var(--display-scale)), 7.4vw);
 }
 .logo__kind {
   margin-top: 3px;
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale));
   color: var(--muted);
 }
 .hdr__nav {
@@ -358,14 +370,23 @@ h3 {
   display: flex;
   align-items: center;
   gap: 14px;
+  min-width: 0;
+  /* когда тесно, ужимается статус, а не название */
+  flex-shrink: 1;
 }
 .status {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
+  min-width: 0;
+  font-size: calc(13px * var(--text-scale));
   color: var(--muted);
   white-space: nowrap;
+}
+.status [data-status-text] {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .status__dot {
   width: 8px;
@@ -393,6 +414,7 @@ h3 {
   display: none;
 }
 .hdr__menu {
+  flex: none;
   display: grid;
   place-items: center;
   width: 44px;
@@ -414,7 +436,7 @@ h3 {
 .menu a {
   padding-block: 14px;
   border-bottom: 1px solid var(--line);
-  font-size: 18px;
+  font-size: calc(18px * var(--text-scale));
   text-decoration: none;
 }
 .menu__phone {
@@ -453,7 +475,7 @@ h3 {
   .hdr__nav a {
     color: var(--muted);
     font-weight: 500;
-    font-size: 15px;
+    font-size: calc(15px * var(--text-scale));
     text-decoration: none;
   }
   .hdr__nav a:hover {
@@ -487,7 +509,7 @@ h3 {
   align-items: center;
   gap: 8px;
   margin: 0 0 16px;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
   color: var(--muted);
 }
 .hero__where .ic {
@@ -500,7 +522,7 @@ h3 {
 .hero__lead {
   max-width: 52ch;
   margin: 20px 0 0;
-  font-size: clamp(1.05rem, 1rem + 0.3vw, 1.2rem);
+  font-size: calc(clamp(1.05rem, 1rem + 0.3vw, 1.2rem) * var(--text-scale));
   color: var(--muted);
 }
 .hero__actions {
@@ -534,7 +556,7 @@ h3 {
   color: var(--accent);
 }
 .proof__src {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale));
   line-height: 1.35;
   color: var(--muted);
 }
@@ -591,7 +613,7 @@ h3 {
   font-size: calc(1.75rem * var(--display-scale));
 }
 .qw__date {
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
   font-weight: 600;
   color: var(--accent-text);
 }
@@ -624,7 +646,7 @@ h3 {
   font-weight: 600;
 }
 .qw__who span {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale));
   color: var(--muted);
 }
 .qw__slots {
@@ -643,7 +665,7 @@ h3 {
   color: var(--on-accent);
 }
 .qw__none {
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
   color: var(--muted);
 }
 @container (min-width: 460px) {
@@ -680,7 +702,7 @@ h3 {
 .qw__field > span:first-child {
   padding: 0;
   margin-bottom: 8px;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale));
   color: var(--muted);
 }
 .qw__field > span:first-child {
@@ -728,12 +750,12 @@ h3 {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
   color: var(--muted);
 }
 .qw__note {
   margin: -6px 0 0;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale));
   color: var(--muted);
 }
 .qw__slot {
@@ -741,7 +763,7 @@ h3 {
   align-items: center;
   gap: 8px;
   margin: 0;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
 }
 .qw__slot .ic {
   color: var(--accent-text);
@@ -765,7 +787,7 @@ h3 {
   align-items: flex-start;
   gap: 12px;
   padding-block: 18px;
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale));
   line-height: 1.35;
 }
 .perk b {
@@ -773,7 +795,7 @@ h3 {
   font-weight: 600;
 }
 .perk span span {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale));
   color: var(--muted);
 }
 .perk__ic {
@@ -819,7 +841,7 @@ h3 {
 }
 .sec__lead {
   margin: 0;
-  font-size: 17px;
+  font-size: calc(17px * var(--text-scale));
   color: var(--muted);
 }
 .invert {
@@ -847,7 +869,7 @@ h3 {
   border-radius: var(--radius-btn);
   background: transparent;
   font-weight: 600;
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale));
   white-space: nowrap;
   cursor: pointer;
 }
@@ -903,20 +925,20 @@ h3 {
   min-width: 0;
 }
 .svc__name {
-  font-size: 17px;
+  font-size: calc(17px * var(--text-scale));
   font-weight: 600;
   line-height: 1.3;
 }
 .svc__desc {
   margin: 4px 0 0;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
   color: var(--muted);
 }
 .svc__price {
   grid-area: price;
   font-family: var(--font-num);
   font-weight: 700;
-  font-size: 17px;
+  font-size: calc(17px * var(--text-scale));
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
@@ -925,7 +947,7 @@ h3 {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
   color: var(--muted);
   white-space: nowrap;
 }
@@ -1020,7 +1042,7 @@ div.photo::before {
   padding: 4px 8px;
   border-radius: var(--radius);
   background: var(--surface);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale));
   color: var(--muted);
 }
 
@@ -1046,25 +1068,25 @@ div.photo::before {
   gap: 4px;
 }
 .staff__name {
-  font-size: 18px;
+  font-size: calc(18px * var(--text-scale));
   font-weight: 600;
   line-height: 1.25;
 }
 .staff__role {
   margin: 0;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
   font-weight: 500;
   color: var(--accent-text);
 }
 .staff__note {
   flex: 1;
   margin: 0 0 12px;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
   color: var(--muted);
 }
 .staff .btn {
   padding-inline: 12px;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
   text-wrap: balance;
 }
 @media (min-width: 960px) {
@@ -1103,7 +1125,7 @@ div.photo::before {
 .level__note {
   margin: 0;
   color: var(--muted);
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
 }
 .level__prices {
   flex: 1;
@@ -1149,7 +1171,7 @@ div.photo::before {
   color: var(--accent-text);
 }
 .step__title {
-  font-size: 19px;
+  font-size: calc(19px * var(--text-scale));
 }
 .step p {
   margin: 0;
@@ -1215,7 +1237,7 @@ div.photo::before {
   margin: 0;
 }
 .tile figcaption {
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
   color: var(--muted);
 }
 @media (min-width: 960px) {
@@ -1240,7 +1262,7 @@ div.photo::before {
   padding: 8px 14px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
   text-decoration: none;
 }
 .rsum:hover {
@@ -1306,7 +1328,7 @@ div.photo::before {
   display: flex;
   flex-direction: column;
   margin: 0;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
 }
 .review__meta span {
   color: var(--muted);
@@ -1339,7 +1361,7 @@ div.photo::before {
   min-height: 44px;
   padding-block: 18px;
   font-weight: 600;
-  font-size: 17px;
+  font-size: calc(17px * var(--text-scale));
   list-style: none;
   cursor: pointer;
 }
@@ -1490,7 +1512,7 @@ div.photo::before {
   border-radius: var(--radius);
   background: var(--fg);
   color: var(--bg);
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
 }
 .map__links {
   position: absolute;
@@ -1528,7 +1550,7 @@ div.photo::before {
 .ftr {
   padding-block: 32px;
   border-top: 1px solid var(--line);
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
   color: var(--muted);
 }
 .ftr__in {
@@ -1554,6 +1576,33 @@ div.photo::before {
 }
 .ftr__made {
   margin: 0;
+}
+.ftr__made a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+.heart {
+  display: inline-block;
+  animation: heart-beat 1.6s ease-in-out infinite;
+}
+@keyframes heart-beat {
+  0%,
+  40%,
+  100% {
+    transform: scale(1);
+  }
+  10%,
+  30% {
+    transform: scale(1.22);
+  }
+  20% {
+    transform: scale(1.05);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .heart {
+    animation: none;
+  }
 }
 
 /* ---------- мобильная панель действий ---------- */
@@ -1581,7 +1630,7 @@ div.photo::before {
   border: 1px solid var(--line);
   border-radius: var(--radius-btn);
   background: transparent;
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale));
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
@@ -1596,7 +1645,7 @@ div.photo::before {
   border-color: var(--accent);
   background: var(--accent);
   color: var(--on-accent);
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale));
 }
 @media (max-width: 899px) {
   body {
@@ -1627,7 +1676,7 @@ div.photo::before {
   border-radius: var(--radius-lg);
   background: var(--fg);
   color: var(--bg);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale));
   line-height: 1.4;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
@@ -1709,7 +1758,7 @@ div.photo::before {
 }
 .book__step {
   margin: 2px 0 0;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale));
   color: var(--muted);
 }
 .icon-btn {
@@ -1744,7 +1793,7 @@ div.photo::before {
   border-radius: 999px;
   background: var(--accent-soft);
   color: var(--accent-text);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale));
   font-weight: 600;
 }
 .book__body {
@@ -1766,7 +1815,7 @@ div.photo::before {
 }
 .opts__cat {
   margin: 16px 0 4px;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale));
   font-weight: 600;
   color: var(--muted);
 }
@@ -1808,7 +1857,7 @@ div.photo::before {
   font-weight: 600;
 }
 .opt__main span {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale));
   color: var(--muted);
 }
 .opt__price {
@@ -1827,7 +1876,7 @@ div.photo::before {
   background: var(--accent-soft);
   color: var(--accent-text);
   font-weight: 600;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
 }
 .days {
   display: flex;
@@ -1853,11 +1902,11 @@ div.photo::before {
   cursor: pointer;
 }
 .day span {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale));
   color: var(--muted);
 }
 .day b {
-  font-size: 18px;
+  font-size: calc(18px * var(--text-scale));
 }
 .day.is-on {
   border-color: var(--accent);
@@ -1896,7 +1945,7 @@ div.photo::before {
 }
 .field > label,
 .field legend {
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
   font-weight: 600;
 }
 .field legend {
@@ -1916,7 +1965,7 @@ div.photo::before {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--raised);
-  font-size: 16px;
+  font-size: calc(16px * var(--text-scale));
 }
 .field textarea {
   min-height: 72px;
@@ -1932,19 +1981,19 @@ div.photo::before {
 }
 .field__err {
   margin: 0;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale));
   color: var(--err);
 }
 .field__hint {
   margin: 0;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale));
   color: var(--muted);
 }
 .check {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
   line-height: 1.4;
   cursor: pointer;
 }
@@ -1985,7 +2034,7 @@ div.photo::before {
 }
 .done__when {
   margin: 0;
-  font-size: 18px;
+  font-size: calc(18px * var(--text-scale));
   font-weight: 600;
   color: var(--accent-text);
 }
@@ -2003,7 +2052,7 @@ div.photo::before {
   gap: 16px;
   padding-block: 10px;
   border-bottom: 1px solid var(--line);
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale));
 }
 .done__list span {
   color: var(--muted);
@@ -2013,7 +2062,7 @@ div.photo::before {
 }
 .done__note {
   margin: 12px 0 0;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale));
   color: var(--muted);
 }
 
@@ -2509,7 +2558,7 @@ div.photo::before {
   padding: 28px 14px 12px;
   background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.65));
   color: #fff;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
   font-weight: 600;
   text-align: left;
 }
@@ -2596,7 +2645,7 @@ div.photo::before {
   bottom: calc(24px + env(safe-area-inset-bottom, 0px));
   margin: 0;
   text-align: center;
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale));
 }
 .lb .icon-btn {
   position: absolute;
@@ -2668,7 +2717,7 @@ div.photo::before {
 .promo {
   background: var(--accent);
   color: var(--on-accent);
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale));
 }
 .promo__in {
   display: flex;
@@ -2698,7 +2747,7 @@ div.photo::before {
   border-radius: var(--radius-btn);
   background: transparent;
   font-weight: 700;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale));
   cursor: pointer;
 }
 .promo__cta:hover .ic {
@@ -2790,13 +2839,13 @@ html.doc-open body {
 }
 .doc__text {
   max-width: 68ch;
-  font-size: 16px;
+  font-size: calc(16px * var(--text-scale));
   line-height: 1.65;
 }
 .doc__text h2 {
   margin: 28px 0 8px;
   font-family: var(--font-body);
-  font-size: 18px;
+  font-size: calc(18px * var(--text-scale));
   font-weight: 700;
   line-height: 1.35;
   text-wrap: balance;

@@ -392,6 +392,12 @@
         <div class="f"><label for="f-own-body">Шрифт текста</label><select id="f-own-body" data-path="customTheme.body">${fontOpts(Slot.FONTS.body, o.body)}</select></div>
       </div>
       <label class="check"><input type="checkbox" data-path="customTheme.upper"${o.upper ? ' checked' : ''}> Заголовки заглавными буквами</label>
+      <div class="f"><span class="f__lbl">Размер текста</span><div class="segs">${Object.keys(Slot.TEXT_SIZES)
+        .map((k) => choice('customTheme.text', k, Slot.TEXT_SIZES[k].label, o.text))
+        .join('')}</div></div>
+      <div class="f"><span class="f__lbl">Размер заголовков</span><div class="segs">${Object.keys(Slot.HEAD_SIZES)
+        .map((k) => choice('customTheme.heads', k, Slot.HEAD_SIZES[k].label, o.heads))
+        .join('')}</div></div>
       <div class="f"><span class="f__lbl">Углы кнопок и карточек</span><div class="segs">${Object.keys(Slot.RADII)
         .map((k) => choice('customTheme.radius', k, Slot.RADII[k].label, o.radius))
         .join('')}</div></div>

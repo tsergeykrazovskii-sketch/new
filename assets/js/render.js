@@ -144,6 +144,7 @@
     photoCtaBg: '--photo-cta-bg',
     photoCtaFg: '--photo-cta-fg',
     space: '--space',
+    textScale: '--text-scale',
   };
 
   const tokensToCss = (t) =>
@@ -201,6 +202,8 @@
   };
   Slot.SPACES = { compact: { label: 'Плотные', k: 0.72 }, normal: { label: 'Обычные', k: 1 }, airy: { label: 'Просторные', k: 1.3 } };
   Slot.MOTIONS = { elegant: 'Плавная', mechanical: 'Чёткая', bold: 'Яркая' };
+  Slot.TEXT_SIZES = { s: { label: 'Мелкий', k: 0.93 }, m: { label: 'Обычный', k: 1 }, l: { label: 'Крупный', k: 1.1 } };
+  Slot.HEAD_SIZES = { s: { label: 'Сдержанные', k: 0.85 }, m: { label: 'Обычные', k: 1 }, l: { label: 'Крупные', k: 1.15 } };
   Slot.CUSTOM_DEFAULT = {
     display: 'manrope',
     body: 'onest',
@@ -211,6 +214,8 @@
     radius: 'soft',
     space: 'normal',
     motion: 'mechanical',
+    text: 'm',
+    heads: 'm',
   };
 
   // Цвета: #RGB / #RRGGBB → [r, g, b]
@@ -266,6 +271,8 @@
     const B = Slot.FONTS.body.find((f) => f.id === t.body) || Slot.FONTS.body[0];
     const r = Slot.RADII[t.radius] || Slot.RADII.soft;
     const sp = Slot.SPACES[t.space] || Slot.SPACES.normal;
+    const tx = Slot.TEXT_SIZES[t.text] || Slot.TEXT_SIZES.m;
+    const hd = Slot.HEAD_SIZES[t.heads] || Slot.HEAD_SIZES.m;
     const dark = lum(t.bg) < 0.25;
     const fg = readable(t.fg, t.bg, dark ? '#FFFFFF' : '#000000', 7);
     const onAccent = contrast('#FFFFFF', t.accent) >= contrast('#111111', t.accent) ? '#FFFFFF' : '#111111';
@@ -276,7 +283,7 @@
       id: 'custom',
       label: 'Своя',
       custom: true,
-      spec: `${D.name} + ${B.name} · ${r.label.toLowerCase()} углы · ${sp.label.toLowerCase()} отступы · ${Slot.MOTIONS[t.motion] ? Slot.MOTIONS[t.motion].toLowerCase() : 'чёткая'} анимация`,
+      spec: `${D.name} + ${B.name} · ${tx.label.toLowerCase()} текст · ${r.label.toLowerCase()} углы · ${sp.label.toLowerCase()} отступы · ${Slot.MOTIONS[t.motion] ? Slot.MOTIONS[t.motion].toLowerCase() : 'чёткая'} анимация`,
       scheme: dark ? 'dark' : 'light',
       motion: Slot.MOTIONS[t.motion] ? t.motion : 'mechanical',
       texture: 'none',
@@ -302,7 +309,7 @@
         display: font(D),
         body: font(B),
         displayWeight: String(D.weight),
-        displayScale: String(D.scale),
+        displayScale: String(Math.round(D.scale * hd.k * 1000) / 1000),
         displayTracking: t.upper ? '0.02em' : '-0.01em',
         displayCase: t.upper ? 'uppercase' : 'none',
         radius: r.radius,
@@ -311,6 +318,7 @@
         photoCtaBg: t.accent,
         photoCtaFg: onAccent,
         space: String(sp.k),
+        textScale: String(tx.k),
       },
       // полоса с акциями — на цвете акцента
       invert: {
@@ -915,7 +923,7 @@
       <a href="#privacy">Политика обработки персональных данных</a>
       <a href="#consent">Согласие на обработку персональных данных</a>
     </nav>
-    <p class="ftr__made">© ${esc((c.legal && c.legal.year) || '2026')} · Сайт на шаблоне «Слот»</p>
+    <p class="ftr__made">© ${esc((c.legal && c.legal.year) || '2026')} · Разработано с <span class="heart" role="img" aria-label="любовью">❤️</span> в <a href="https://top-in.ru" target="_blank" rel="noopener">top-in.ru</a></p>
   </div>
 </footer>`;
 
