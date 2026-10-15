@@ -253,7 +253,7 @@
 
   R.hero = (c) => {
     const h = c.hero;
-    const proof = h.proof
+    const proof = (h.proof || [])
       .map(
         (p) => `
         <li class="proof__item">
@@ -262,12 +262,12 @@
         </li>`
       )
       .join('');
-    const widget = h.widget.type === 'estimate' ? widgetEstimate(c, h.widget) : widgetSlots(c, h.widget);
+    const widget = !h.widget ? '' : h.widget.type === 'estimate' ? widgetEstimate(c, h.widget) : widgetSlots(c, h.widget);
     const words = h.title.split(/\s+/);
     const title = words.map((w, i) => `<span class="w"><span style="--i:${i + 1}">${esc(w)}</span></span>`).join(' ');
     const k = Math.min(words.length, 6) + 1; // дальше заголовка задержка не растёт
     return `
-<section class="hero${h.image ? ' hero--photo' : ''}" aria-labelledby="hero-title">
+<section class="hero${h.image ? ' hero--photo' : ''}${h.widget ? '' : ' hero--solo'}" aria-labelledby="hero-title">
   ${
     h.image
       ? `<div class="hero__bg"><img src="${esc(h.image)}" alt="${esc(h.imageAlt || '')}" fetchpriority="high">${
@@ -286,7 +286,7 @@
       </div>
       <ul class="proof rise" style="--i:${k + 2}">${proof}</ul>
     </div>
-    <aside class="hero__widget card card--stripe" aria-label="${esc(h.widget.title)}">${widget}</aside>
+    ${widget ? `<aside class="hero__widget card card--stripe" aria-label="${esc(h.widget.title)}">${widget}</aside>` : ''}
   </div>
 </section>`;
   };
@@ -469,7 +469,7 @@
   };
 
   R.reviews = (c, s) => {
-    const sum = c.hero.proof
+    const sum = (c.hero.proof || [])
       .map(
         (p) =>
           `<a class="rsum" href="${esc(p.url)}" target="_blank" rel="noopener"><span class="rsum__rate">${p.rating ? ic('star') + esc(p.rating) : esc(p.big)}</span><span>${esc(p.source)} · ${countText(p)}</span></a>`
@@ -627,20 +627,39 @@
 
   // Сайт клиента = шаблон ниши + данные клиента (clients/<slug>.json).
   // Секция из списка клиента берёт настройки одноимённой секции ниши и перекрывает их своими.
+  // От ниши клиент получает только оформление и поведение. Контент (мастера, услуги, акции,
+  // удобства, отзывы, плашка) — только свой: демо-данные вымышленной точки к нему не попадают.
+  const TEMPLATE_KEYS = ['label', 'product', 'schemaType', 'timezone', 'booking'];
+  const CONTENT_KEYS = ['items', 'levels', 'rows'];
+
   Slot.compose = (niche, client) => {
-    const c = Object.assign({}, niche, client);
+    const c = {};
+    TEMPLATE_KEYS.forEach((k) => {
+      if (niche[k] !== undefined) c[k] = niche[k];
+    });
+    Object.assign(c, client);
     c.id = client.slug;
+    c.staff = client.staff || [];
+    c.services = client.services || [];
     c.styles = (client.styles || []).concat(niche.styles); // фирменный стиль клиента — первым
     c.defaultStyle = client.style || niche.defaultStyle;
     c.booking = Object.assign({}, niche.booking, client.booking);
-    c.hero = Object.assign({}, niche.hero, client.hero);
-    c.hero.widget = Object.assign({}, niche.hero.widget, client.hero && client.hero.widget);
-    if (client.sections) {
-      c.sections = client.sections.map((sec) => {
-        const o = typeof sec === 'string' ? { type: sec } : sec;
-        return Object.assign({}, niche.sections.find((n) => n.type === o.type), o);
-      });
-    }
+    c.hero = Object.assign({}, client.hero);
+    // Окна мастеров строятся из данных клиента, поэтому этот виджет можно взять у ниши;
+    // калькулятор ссылается на конкретные услуги — его клиент описывает сам
+    const nw = niche.hero.widget;
+    c.hero.widget =
+      client.hero && client.hero.widget
+        ? Object.assign({}, client.hero.widget)
+        : nw.type === 'slots' && c.staff.length
+          ? Object.assign({}, nw)
+          : null;
+    c.sections = (client.sections || niche.sections.map((s) => s.type)).map((sec) => {
+      const o = typeof sec === 'string' ? { type: sec } : sec;
+      const base = Object.assign({}, niche.sections.find((n) => n.type === o.type));
+      CONTENT_KEYS.forEach((k) => delete base[k]);
+      return Object.assign(base, o);
+    });
     return c;
   };
 
@@ -648,8 +667,18 @@
 
   /* ---------- страница ---------- */
 
+  // Секции, которые без своих пунктов не имеют смысла, пропускаем
+  const NEEDS_ITEMS = ['perks', 'offers', 'steps', 'faq'];
+  const hasContent = (c, s) =>
+    NEEDS_ITEMS.includes(s.type) ? (s.items || []).length > 0
+      : s.type === 'staff' ? c.staff.length > 0
+        : s.type === 'services' ? c.services.length > 0
+          : s.type === 'gallery' ? (s.items || []).length > 0
+            : s.type === 'levels' ? !!(s.levels && s.rows)
+              : true;
+
   Slot.render = (c) => {
-    const body = c.sections.map((s) => (R[s.type] ? R[s.type](c, s) : '')).join('');
+    const body = c.sections.map((s) => (R[s.type] && hasContent(c, s) ? R[s.type](c, s) : '')).join('');
     return (
       Slot.sprite() +
       R.promo(c) +

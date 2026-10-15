@@ -592,8 +592,9 @@
           preset.date = estimate.date;
           preset.time = estimate.time;
         }
+        // Подставляем марку в форму, если в калькуляторе марки, а не группы («Китайские»)
         const car = doc.querySelector('input[name="qw-brand"]:checked');
-        if (car) preset.extra = { car: car.nextElementSibling.textContent + ' ' };
+        if (car && cfg.hero.widget.prefillCar !== false) preset.extra = { car: car.nextElementSibling.textContent + ' ' };
       }
       closeMenu();
       openBooking(preset);

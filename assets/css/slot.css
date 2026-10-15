@@ -2709,3 +2709,9 @@ div.photo::before {
     padding-block: 12px;
   }
 }
+
+@media (min-width: 960px) {
+  .hero--solo .hero__in {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
