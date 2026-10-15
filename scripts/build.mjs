@@ -17,6 +17,11 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
 
+// Сайт может жить в подпапке (GitHub Pages: /new/). Фото ниш указаны от корня — добавляем приставку.
+// SITE_BASE=/new node scripts/build.mjs; по умолчанию — корень домена (Vercel, свой хостинг)
+const BASE = (process.env.SITE_BASE || '').replace(/\/+$/, '');
+const withBase = (code) => (BASE ? code.replace(/(['"])\/assets\/img\//g, `$1${BASE}/assets/img/`) : code);
+
 const nicheFiles = fs.readdirSync(path.join(root, 'niches')).filter((f) => f.endsWith('.js')).sort();
 const clientFiles = fs.existsSync(path.join(root, 'clients'))
   ? fs.readdirSync(path.join(root, 'clients')).filter((f) => f.endsWith('.json')).sort()
@@ -28,7 +33,7 @@ const src = {
   css: read('assets/css/slot.css'),
   adminJs: read('admin/admin.js'),
   adminCss: read('admin/admin.css'),
-  niche: Object.fromEntries(nicheFiles.map((f) => [f.replace(/\.js$/, ''), read('niches/' + f)])),
+  niche: Object.fromEntries(nicheFiles.map((f) => [f.replace(/\.js$/, ''), withBase(read('niches/' + f))])),
 };
 
 const ctx = vm.createContext({});
@@ -136,6 +141,30 @@ for (const id of Object.keys(Slot.niches)) {
   write(dist, `demo-${id}.html`, Slot.page(c, id, 'artifact', siteSrc([src.niche[id]])));
   const n = copyDir(`assets/img/${id}`, path.join(dist, 'assets', 'img', id));
   if (n) console.log(`dist/assets/img/${id}/ — фото: ${n}`);
+}
+
+// Стартовая страница со ссылками на шаблоны (закрыта от индексации)
+{
+  const links = Object.keys(Slot.niches)
+    .map((id) => {
+      const n = Slot.niches[id];
+      return `<li><a href="${id}/">${esc(n.brand.kind)} «${esc(n.brand.name)}»</a> · <a href="${id}/admin/">админка</a></li>`;
+    })
+    .join('\n');
+  write(dist, 'index.html', `<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Слот — шаблоны сайтов</title>
+<style>body{margin:0;padding:48px 20px;font:17px/1.6 system-ui,sans-serif;color:#16181b;background:#f4f4f2}main{max-width:560px;margin:0 auto}h1{font-size:28px;margin:0 0 8px}p{color:#5b6066;margin:0 0 24px}ul{padding:0;list-style:none}li{padding:14px 0;border-top:1px solid #ddd}a{color:inherit}</style>
+</head>
+<body><main><h1>Слот</h1><p>Шаблоны сайтов с онлайн-записью.</p><ul>
+${links}
+</ul></main></body>
+</html>
+`);
 }
 
 // 2. Клиенты: данные клиента поверх шаблона ниши
