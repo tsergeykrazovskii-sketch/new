@@ -38,6 +38,8 @@
   --hero-anim: word-rise;
   --widget-anim: lift-in;
   --maxw: 1200px;
+  /* множитель отступов между секциями: тема «Своя» делает сайт плотнее или просторнее */
+  --space: 1;
   --header-h: 64px;
   color-scheme: dark;
 }
@@ -543,7 +545,7 @@ h3 {
 }
 @media (min-width: 960px) {
   .hero {
-    padding-block: 64px 96px;
+    padding-block: calc(64px * var(--space)) calc(96px * var(--space));
   }
   .hero__in {
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
@@ -793,11 +795,11 @@ h3 {
 /* ---------- секции ---------- */
 
 .sec {
-  padding-block: 56px;
+  padding-block: calc(56px * var(--space));
 }
 @media (min-width: 960px) {
   .sec {
-    padding-block: 96px;
+    padding-block: calc(96px * var(--space));
   }
 }
 .sec__head {

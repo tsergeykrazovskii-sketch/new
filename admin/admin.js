@@ -326,7 +326,30 @@
       <div class="hours">${hours}</div>`;
   };
 
-  PANELS.style = () => `
+  // Своя тема: что сейчас выбрано (или исходные значения, если владелец ещё не трогал)
+  const customOpts = () => Object.assign({}, Slot.CUSTOM_DEFAULT, data.customTheme || {});
+
+  const swatches = (st) => ['bg', 'accent', 'fg'].map((k) => `<i style="background:${esc(st.tokens[k])}"></i>`).join('');
+
+  const choice = (path, value, label, current) =>
+    `<label class="seg"><input type="radio" name="${esc(path)}" data-path="${esc(path)}" value="${esc(value)}"${current === value ? ' checked' : ''}><span>${esc(label)}</span></label>`;
+
+  function contrastNote(o) {
+    const c = Slot.color.contrast(o.fg, o.bg);
+    return c < 4.5
+      ? `Текст плохо читается на этом фоне (контраст ${c.toFixed(1)} из нужных 4,5). На сайте мы его затемним или осветлим автоматически, но лучше выбрать цвета контрастнее.`
+      : '';
+  }
+
+  PANELS.style = () => {
+    const o = customOpts();
+    const own = Slot.customStyle(o);
+    const current = data.style || niche.defaultStyle;
+    const fontOpts = (list, sel) =>
+      list.map((f) => `<option value="${f.id}"${f.id === sel ? ' selected' : ''}>${esc(f.name)} — ${esc(f.note)}</option>`).join('');
+    const color = (key, label) =>
+      `<label class="clr"><input type="color" data-path="customTheme.${key}" value="${esc(o[key])}"><span><b>${esc(label)}</b><span data-clr="${key}">${esc(o[key].toUpperCase())}</span></span></label>`;
+    return `
     <h2>Оформление</h2>
     <p class="lead">Стиль меняет шрифты, цвета, скругления и анимацию. Тексты и цены остаются прежними.</p>
     <div class="styles">${(data.styles || [])
@@ -334,13 +357,42 @@
       .map(
         (st) => `
       <label class="style">
-        <input type="radio" name="style" data-path="style" value="${st.id}"${(data.style || niche.defaultStyle) === st.id ? ' checked' : ''}>
-        <span class="style__sw">${['bg', 'accent', 'fg'].map((k) => `<i style="background:${esc(st.tokens[k])}"></i>`).join('')}</span>
+        <input type="radio" name="style" data-path="style" value="${st.id}"${current === st.id ? ' checked' : ''}>
+        <span class="style__sw">${swatches(st)}</span>
         <b>${esc(st.label)}</b>
         <span>${esc(st.spec)}</span>
       </label>`
       )
-      .join('')}</div>`;
+      .join('')}
+      <label class="style">
+        <input type="radio" name="style" data-path="style" value="custom"${current === 'custom' ? ' checked' : ''}>
+        <span class="style__sw" data-own-sw>${swatches(own)}</span>
+        <b>Своя</b>
+        <span>Настройте ниже: цвета, шрифты, углы, отступы</span>
+      </label>
+    </div>
+
+    <h3 class="sub">Своя тема</h3>
+    <p class="lead">Любая настройка ниже сразу включает тему «Своя».</p>
+    <div class="own">
+      <div class="own__row">${color('bg', 'Фон')}${color('fg', 'Текст')}${color('accent', 'Акцент — кнопки и выделения')}</div>
+      <p class="own__warn" data-contrast-note${contrastNote(o) ? '' : ' hidden'}>${esc(contrastNote(o))}</p>
+      <div class="row2">
+        <div class="f"><label for="f-own-display">Шрифт заголовков</label><select id="f-own-display" data-path="customTheme.display">${fontOpts(Slot.FONTS.display, o.display)}</select></div>
+        <div class="f"><label for="f-own-body">Шрифт текста</label><select id="f-own-body" data-path="customTheme.body">${fontOpts(Slot.FONTS.body, o.body)}</select></div>
+      </div>
+      <label class="check"><input type="checkbox" data-path="customTheme.upper"${o.upper ? ' checked' : ''}> Заголовки заглавными буквами</label>
+      <div class="f"><span class="f__lbl">Углы кнопок и карточек</span><div class="segs">${Object.keys(Slot.RADII)
+        .map((k) => choice('customTheme.radius', k, Slot.RADII[k].label, o.radius))
+        .join('')}</div></div>
+      <div class="f"><span class="f__lbl">Отступы между блоками</span><div class="segs">${Object.keys(Slot.SPACES)
+        .map((k) => choice('customTheme.space', k, Slot.SPACES[k].label, o.space))
+        .join('')}</div></div>
+      <div class="f"><span class="f__lbl">Анимация</span><div class="segs">${Object.keys(Slot.MOTIONS)
+        .map((k) => choice('customTheme.motion', k, Slot.MOTIONS[k], o.motion))
+        .join('')}</div></div>
+    </div>`;
+  };
 
   PANELS.bookings = () => `
     <h2>Заявки</h2>
@@ -558,8 +610,27 @@
     const t = e.target;
     const kind = t.dataset.kind;
     if (t.dataset.path && !kind) {
-      let v = t.type === 'radio' ? t.value : t.value;
+      let v = t.type === 'checkbox' ? t.checked : t.value;
       if (t.dataset.type === 'number') v = t.value === '' ? null : Number(t.value);
+      // своя тема: любая её настройка включает стиль «Своя»
+      if (t.dataset.path.startsWith('customTheme.') || (t.dataset.path === 'style' && v === 'custom')) {
+        data.customTheme = customOpts();
+        if (t.dataset.path !== 'style') setPath(data, t.dataset.path, v);
+        data.style = 'custom';
+        const radio = doc.querySelector('input[name="style"][value="custom"]');
+        if (radio) radio.checked = true;
+        const o = customOpts();
+        const sw = doc.querySelector('[data-own-sw]');
+        if (sw) sw.innerHTML = swatches(Slot.customStyle(o));
+        const clr = doc.querySelector(`[data-clr="${t.dataset.path.split('.')[1]}"]`);
+        if (clr) clr.textContent = String(v).toUpperCase();
+        const note = doc.querySelector('[data-contrast-note]');
+        if (note) {
+          note.textContent = contrastNote(o);
+          note.hidden = !note.textContent;
+        }
+        return touch(false);
+      }
       setPath(data, t.dataset.path, v);
       if (t.dataset.path === 'style') return touch(false);
       const head = t.closest('.card') && t.closest('.card').querySelector('.card__head b');

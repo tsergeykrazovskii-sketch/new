@@ -143,6 +143,7 @@
     stripeC: '--stripe-c',
     photoCtaBg: '--photo-cta-bg',
     photoCtaFg: '--photo-cta-fg',
+    space: '--space',
   };
 
   const tokensToCss = (t) =>
@@ -158,6 +159,174 @@
     const st = Slot.getStyle(cfg, id);
     // html:root сильнее :root из slot.css, поэтому порядок подключения стилей не важен
     return `html:root{${tokensToCss(st.tokens)};color-scheme:${st.scheme}}html .invert{${tokensToCss(st.invert || {})}}`;
+  };
+
+  /* ---------- тема «Своя» ---------- */
+
+  // Шрифты с кириллицей из Google Fonts. w — начертания, которые у шрифта точно есть
+  // (лишнее начертание в запросе ломает загрузку всего файла шрифтов).
+  const serif = 'Georgia, "Times New Roman", serif';
+  const sans = 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif';
+  Slot.FONTS = {
+    display: [
+      { id: 'cormorant', name: 'Cormorant', note: 'изящная антиква', w: [600, 700], weight: 700, scale: 1.1, fb: serif },
+      { id: 'playfair', name: 'Playfair Display', note: 'контрастная антиква', w: [600, 700], weight: 700, scale: 1, fb: serif },
+      { id: 'prata', name: 'Prata', note: 'классика, вывеска', w: [400], weight: 400, scale: 0.95, fb: serif },
+      { id: 'yeseva', name: 'Yeseva One', note: 'мягкая, «салонная»', w: [400], weight: 400, scale: 0.95, fb: serif },
+      { id: 'lora', name: 'Lora', note: 'спокойная антиква', w: [400, 500, 600, 700], weight: 700, scale: 1, fb: serif },
+      { id: 'oswald', name: 'Oswald', note: 'узкая, плакатная', w: [500, 600], weight: 600, scale: 1, fb: sans },
+      { id: 'russo', name: 'Russo One', note: 'техничная, «гаражная»', w: [400], weight: 400, scale: 0.9, fb: sans },
+      { id: 'unbounded', name: 'Unbounded', note: 'широкая, современная', w: [500, 600, 700], weight: 600, scale: 0.85, fb: sans },
+      { id: 'exo2', name: 'Exo 2', note: 'спортивная', w: [600, 700], weight: 700, scale: 1, fb: sans },
+      { id: 'manrope', name: 'Manrope', note: 'строгая гротеск', w: [400, 500, 600, 700, 800], weight: 800, scale: 0.95, fb: sans },
+      { id: 'montserrat', name: 'Montserrat', note: 'геометрическая', w: [400, 500, 600, 700, 800], weight: 700, scale: 0.92, fb: sans },
+      { id: 'comfortaa', name: 'Comfortaa', note: 'округлая, дружелюбная', w: [600, 700], weight: 700, scale: 0.92, fb: sans },
+    ],
+    body: [
+      { id: 'onest', name: 'Onest', note: 'нейтральный', w: [400, 500, 600, 700], fb: sans },
+      { id: 'golos', name: 'Golos Text', note: 'чёткий, для экранов', w: [400, 500, 600, 700], fb: sans },
+      { id: 'manrope', name: 'Manrope', note: 'строгий', w: [400, 500, 600, 700, 800], fb: sans },
+      { id: 'inter', name: 'Inter', note: 'универсальный', w: [400, 500, 600, 700], fb: sans },
+      { id: 'montserrat', name: 'Montserrat', note: 'геометрический', w: [400, 500, 600, 700, 800], fb: sans },
+      { id: 'rubik', name: 'Rubik', note: 'мягкий', w: [400, 500, 600, 700], fb: sans },
+      { id: 'nunito', name: 'Nunito', note: 'округлый', w: [400, 500, 600, 700], fb: sans },
+      { id: 'ptsans', name: 'PT Sans', note: 'привычный', w: [400, 700], fb: sans },
+      { id: 'lora', name: 'Lora', note: 'с засечками', w: [400, 500, 600, 700], fb: serif },
+    ],
+  };
+  Slot.RADII = {
+    sharp: { label: 'Острые', radius: '3px', radiusLg: '6px', radiusBtn: '3px' },
+    soft: { label: 'Мягкие', radius: '10px', radiusLg: '16px', radiusBtn: '10px' },
+    round: { label: 'Круглые', radius: '14px', radiusLg: '24px', radiusBtn: '999px' },
+  };
+  Slot.SPACES = { compact: { label: 'Плотные', k: 0.72 }, normal: { label: 'Обычные', k: 1 }, airy: { label: 'Просторные', k: 1.3 } };
+  Slot.MOTIONS = { elegant: 'Плавная', mechanical: 'Чёткая', bold: 'Яркая' };
+  Slot.CUSTOM_DEFAULT = {
+    display: 'manrope',
+    body: 'onest',
+    upper: false,
+    bg: '#F5F4F0',
+    fg: '#1E2125',
+    accent: '#C2502E',
+    radius: 'soft',
+    space: 'normal',
+    motion: 'mechanical',
+  };
+
+  // Цвета: #RGB / #RRGGBB → [r, g, b]
+  const rgb = (hex) => {
+    let h = String(hex || '').trim().replace('#', '');
+    if (h.length === 3) h = h.replace(/./g, (c) => c + c);
+    if (!/^[0-9a-f]{6}$/i.test(h)) return null;
+    return [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16));
+  };
+  const hex = (c) => '#' + c.map((v) => Math.round(Math.max(0, Math.min(255, v))).toString(16).padStart(2, '0')).join('').toUpperCase();
+  const mix = (a, b, t) => hex(rgb(a).map((v, i) => v + (rgb(b)[i] - v) * t));
+  const alpha = (a, t) => `rgba(${rgb(a).join(',')},${t})`;
+  const lum = (a) => {
+    const [r, g, b] = rgb(a).map((v) => {
+      v /= 255;
+      return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  };
+  const contrast = (a, b) => {
+    const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p);
+    return (x + 0.05) / (y + 0.05);
+  };
+  // Сдвигаем цвет к «читаемому» краю, пока контраст с фоном не станет достаточным
+  const readable = (color, bg, toward, min) => {
+    let c = color;
+    for (let t = 0.1; contrast(c, bg) < min && t <= 1; t += 0.1) c = mix(color, toward, t);
+    return c;
+  };
+  Slot.color = { rgb, mix, contrast };
+
+  const fontQuery = (fonts) => {
+    const fam = {};
+    fonts.forEach(({ f, w }) => {
+      fam[f.name] = Array.from(new Set((fam[f.name] || []).concat(w))).sort((a, b) => a - b);
+    });
+    return (
+      'https://fonts.googleapis.com/css2?' +
+      Object.keys(fam)
+        .map((n) => `family=${n.replace(/ /g, '+')}${fam[n].length === 1 && fam[n][0] === 400 ? '' : ':wght@' + fam[n].join(';')}`)
+        .join('&') +
+      '&display=swap'
+    );
+  };
+
+  // Владелец задаёт три цвета, шрифты, скругления, отступы и анимацию — остальное выводим сами
+  Slot.customStyle = (opts) => {
+    const t = Object.assign({}, Slot.CUSTOM_DEFAULT, opts);
+    ['bg', 'fg', 'accent'].forEach((k) => {
+      if (!rgb(t[k])) t[k] = Slot.CUSTOM_DEFAULT[k];
+    });
+    const D = Slot.FONTS.display.find((f) => f.id === t.display) || Slot.FONTS.display[0];
+    const B = Slot.FONTS.body.find((f) => f.id === t.body) || Slot.FONTS.body[0];
+    const r = Slot.RADII[t.radius] || Slot.RADII.soft;
+    const sp = Slot.SPACES[t.space] || Slot.SPACES.normal;
+    const dark = lum(t.bg) < 0.25;
+    const fg = readable(t.fg, t.bg, dark ? '#FFFFFF' : '#000000', 7);
+    const onAccent = contrast('#FFFFFF', t.accent) >= contrast('#111111', t.accent) ? '#FFFFFF' : '#111111';
+    const accentText = readable(t.accent, t.bg, fg, 4.5);
+    const muted = readable(mix(fg, t.bg, 0.38), t.bg, fg, 4.6);
+    const font = (f) => `"${f.name}", ${f.fb}`;
+    return {
+      id: 'custom',
+      label: 'Своя',
+      custom: true,
+      spec: `${D.name} + ${B.name} · ${r.label.toLowerCase()} углы · ${sp.label.toLowerCase()} отступы · ${Slot.MOTIONS[t.motion] ? Slot.MOTIONS[t.motion].toLowerCase() : 'чёткая'} анимация`,
+      scheme: dark ? 'dark' : 'light',
+      motion: Slot.MOTIONS[t.motion] ? t.motion : 'mechanical',
+      texture: 'none',
+      fonts: fontQuery([
+        { f: D, w: [D.weight] },
+        { f: B, w: B.w.filter((x) => x >= 400 && x <= 700) },
+      ]),
+      tokens: {
+        bg: t.bg,
+        surface: mix(t.bg, fg, dark ? 0.05 : 0.025),
+        raised: mix(t.bg, fg, dark ? 0.09 : 0.055),
+        line: alpha(fg, dark ? 0.16 : 0.13),
+        fg,
+        muted,
+        accent: t.accent,
+        onAccent,
+        accentText,
+        accentSoft: alpha(t.accent, dark ? 0.16 : 0.11),
+        stripeA: t.accent,
+        stripeB: fg,
+        stripeC: t.bg,
+        err: dark ? '#FF9B8F' : '#B42318',
+        display: font(D),
+        body: font(B),
+        displayWeight: String(D.weight),
+        displayScale: String(D.scale),
+        displayTracking: t.upper ? '0.02em' : '-0.01em',
+        displayCase: t.upper ? 'uppercase' : 'none',
+        radius: r.radius,
+        radiusLg: r.radiusLg,
+        radiusBtn: r.radiusBtn,
+        photoCtaBg: t.accent,
+        photoCtaFg: onAccent,
+        space: String(sp.k),
+      },
+      // полоса с акциями — на цвете акцента
+      invert: {
+        bg: t.accent,
+        surface: mix(t.accent, onAccent, 0.08),
+        raised: mix(t.accent, onAccent, 0.14),
+        line: alpha(onAccent, 0.24),
+        fg: onAccent,
+        muted: mix(onAccent, t.accent, 0.22),
+        accent: onAccent,
+        onAccent: t.accent,
+        accentText: onAccent,
+      },
+      // для подсказки в админке: читается ли основной текст на фоне
+      contrast: Math.round(contrast(t.fg, t.bg) * 10) / 10,
+    };
   };
 
   /* ---------- секции ---------- */
@@ -670,7 +839,8 @@
     c.id = client.slug;
     c.staff = client.staff || [];
     c.services = client.services || [];
-    c.styles = (client.styles || []).concat(niche.styles); // фирменный стиль клиента — первым
+    // фирменный стиль клиента — первым, своя тема из админки — последней
+    c.styles = (client.styles || []).concat(niche.styles, client.customTheme ? [Slot.customStyle(client.customTheme)] : []);
     c.defaultStyle = client.style || niche.defaultStyle;
     c.booking = Object.assign({}, niche.booking, client.booking);
     c.hero = Object.assign({}, client.hero);

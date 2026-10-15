@@ -596,3 +596,103 @@ h2 {
 .gate .btn {
   width: 100%;
 }
+
+/* своя тема */
+.own {
+  display: grid;
+  gap: 16px;
+}
+.own__row {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
+}
+.clr {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.clr input {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+}
+.clr > span {
+  display: grid;
+  min-width: 0;
+  font-size: 13px;
+}
+.clr > span span {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.own__warn {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fff4dc;
+  color: #5c3d00;
+  font-size: 13px;
+}
+.f__lbl {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.segs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.seg input {
+  position: absolute;
+  opacity: 0;
+}
+.seg span {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.seg input:checked + span {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+.seg input:focus-visible + span {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+.f .seg {
+  position: relative;
+  font-weight: 500;
+  color: var(--fg);
+}
+.f .seg input {
+  width: 1px;
+  height: 1px;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+}
+.f select {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  font-size: 16px;
+}
