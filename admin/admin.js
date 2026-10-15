@@ -194,6 +194,19 @@
       ${levels}`;
   };
 
+  // Блок «Мастера» создаётся при первом мастере (в шаблоне автосервиса его изначально нет) — сразу после цен
+  function ensureStaff() {
+    if (sectionIndex('staff') >= 0) return;
+    const type = (x) => (typeof x === 'string' ? x : x.type);
+    let at = data.sections.findIndex((x) => ['services', 'levels'].includes(type(x)));
+    at = at < 0 ? data.sections.findIndex((x) => ['reviews', 'faq', 'contacts'].includes(type(x))) : at + 1;
+    data.sections.splice(at < 0 ? data.sections.length : at, 0, {
+      type: 'staff',
+      title: 'Мастера',
+      lead: niche.id === 'auto' ? 'Кто будет заниматься вашей машиной.' : 'Выберите своего мастера или запишитесь к первому свободному.',
+    });
+  }
+
   // Галерея создаётся при первом фото: секция «Атмосфера» перед отзывами и бегущая лента после удобств
   function ensureGallery() {
     let gi = sectionIndex('gallery');
@@ -856,7 +869,8 @@
       return touch(true);
     }
     if (act === 'add-staff') {
-      (data.staff = data.staff || []).push({ id: uid('m'), name: '', dative: '', role: 'Барбер', note: '' });
+      (data.staff = data.staff || []).push({ id: uid('m'), name: '', dative: '', role: niche.id === 'auto' ? 'Мастер' : 'Барбер', note: '' });
+      ensureStaff();
       return touch(true);
     }
     if (act === 'add-review') {
