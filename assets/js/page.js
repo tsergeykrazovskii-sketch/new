@@ -13,16 +13,6 @@
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
     `<link rel="stylesheet" id="slot-fonts" href="${href}">`;
 
-  // Иконка вкладки: первая буква названия на фирменном цвете (без отдельного файла и без 404 на /favicon.ico)
-  Slot.favicon = (c, st) => {
-    const t = st.tokens || {};
-    const letter = (c.brand.name || 'С').trim().charAt(0).toUpperCase().replace(/[<>&"']/g, '');
-    const svg =
-      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="${t.accent || '#222'}"/>` +
-      `<text x="32" y="44" font-family="Arial,sans-serif" font-size="36" font-weight="700" text-anchor="middle" fill="${t.onAccent || '#fff'}">${letter}</text></svg>`;
-    return `<link rel="icon" href="data:image/svg+xml,${encodeURIComponent(svg)}">`;
-  };
-
   Slot.schema = (c) => {
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     return {

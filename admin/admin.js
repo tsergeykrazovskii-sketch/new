@@ -110,6 +110,7 @@
     { id: 'reviews', label: 'Отзывы', anchor: 'reviews' },
     { id: 'contacts', label: 'Контакты и часы', anchor: 'contacts' },
     { id: 'style', label: 'Оформление', anchor: 'top' },
+    { id: 'docs', label: 'Документы', anchor: 'top' },
     { id: 'bookings', label: 'Заявки', anchor: 'top', server: true },
   ];
 
@@ -219,6 +220,15 @@
     return `
       <h2>Фото</h2>
       <p class="lead">Фото с телефона подойдут. Сайт сам уменьшит их, чтобы страница открывалась быстро.</p>
+      <h3 class="sub">Иконка сайта</h3>
+      <div class="card fav">
+        <div class="fav__tab" aria-hidden="true"><img src="${esc(siteIcon())}" alt=""><span>${esc(data.brand.name)}</span></div>
+        <p class="lead">Значок на вкладке браузера и на экране телефона. Подойдёт логотип или любая картинка — сайт сам вырежет квадрат по центру. ${data.brand.favicon ? '' : 'Сейчас — первая буква названия на фирменном цвете.'}</p>
+        <div class="fav__acts">
+          <label class="btn">${data.brand.favicon ? 'Заменить' : 'Загрузить иконку'}<input type="file" accept="image/*" data-kind="favicon" hidden></label>
+          ${data.brand.favicon ? '<button type="button" class="btn" data-act="favicon-del">Вернуть букву</button>' : ''}
+        </div>
+      </div>
       <h3 class="sub">Первый экран</h3>
       <div class="card">${photoBox(data.hero.image, 'hero.image', 'Загрузить фото')}
         ${input('Что на фото (для поисковиков и незрячих)', 'hero.imageAlt', { placeholder: 'Барбер стрижёт клиента' })}</div>
@@ -394,6 +404,41 @@
     </div>`;
   };
 
+  PANELS.docs = () => {
+    const l = data.legal || {};
+    const empty = (k) => !(l[k] && String(l[k]).trim());
+    const doc = (key, title) => `
+      <div class="card">
+        <div class="card__head"><b>${title}</b><span class="tools">
+          <button type="button" class="tool" data-act="doc-template" data-doc="${key}">Вставить шаблон</button>
+          <button type="button" class="tool" data-act="doc-show" data-doc="${key}">Показать в предпросмотре</button>
+        </span></div>
+        ${
+          empty(key)
+            ? `<p class="own__warn" data-doc-warn="${key}">Своего текста пока нет — на сайте показывается шаблон с данными выше. Вставьте текст, согласованный с юристом.</p>`
+            : ''
+        }
+        ${input('Текст', `legal.${key}`, { multiline: true, rows: 16, wide: true })}
+      </div>`;
+    return `
+      <h2>Документы</h2>
+      <p class="lead">Политика обработки персональных данных и согласие на их обработку. Ссылки на них стоят в подвале сайта, в форме записи и в плашке про cookie.</p>
+      <h3 class="sub">Оператор персональных данных</h3>
+      <div class="row2">
+        ${input('ИП или ООО', 'legal.operator', { placeholder: 'ИП Иванов Иван Иванович' })}
+        ${input('ИНН', 'legal.inn', { placeholder: '123456789012' })}
+      </div>
+      <div class="row2">
+        ${input('Юридический адрес', 'legal.address', { placeholder: 'г. Тула, ул. Ленина, д. 1' })}
+        ${input('E-mail для обращений', 'legal.email', { placeholder: 'owner@yandex.ru' })}
+      </div>
+      ${input('Дата редакции', 'legal.updated', { placeholder: '01.11.2026', hint: 'Попадает в шаблон. Меняйте, когда обновляете текст.' })}
+      <h3 class="sub">Тексты</h3>
+      <p class="lead">Вставьте готовый текст из Word или от юриста. Каждая строка станет абзацем. Заголовками станут первая строка, нумерованные пункты без точки в конце («1. Общие положения») и строки заглавными буквами, строки с «—» в начале — списком. «Вставить шаблон» заполнит поле заготовкой по 152-ФЗ с вашими данными — это не юридическая консультация, перед публикацией её стоит показать юристу.</p>
+      ${doc('privacy', 'Политика обработки персональных данных')}
+      ${doc('consent', 'Согласие на обработку персональных данных')}`;
+  };
+
   PANELS.bookings = () => `
     <h2>Заявки</h2>
     <p class="lead">Последние заявки с сайта. Они же приходят на почту или в Telegram, если это настроено.</p>
@@ -468,8 +513,21 @@
       } catch (e) {
         /* ничего */
       }
+      if (tab === 'docs' && previewDoc) showPreviewDoc(previewDoc);
     };
     frame.srcdoc = buildHtml(true);
+  }
+
+  // Документ в предпросмотре: открываем его поверх сайта, как по ссылке из подвала
+  let previewDoc = '';
+  function showPreviewDoc(id) {
+    try {
+      const d = doc.querySelector('[data-frame]').contentDocument;
+      d.querySelectorAll('.doc').forEach((el) => el.classList.toggle('is-open', el.id === id));
+      d.documentElement.classList.toggle('doc-open', !!id);
+    } catch (e) {
+      /* предпросмотр ещё не готов */
+    }
   }
 
   function scrollPreviewTo(anchor) {
@@ -560,6 +618,38 @@
       });
   }
 
+  // Иконка сайта: квадрат по центру картинки, 128×128 PNG прямо в данных сайта (без загрузки на сервер)
+  function makeIcon(file) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      const url = URL.createObjectURL(file);
+      img.onload = () => {
+        const side = Math.min(img.naturalWidth, img.naturalHeight);
+        if (!side) return reject(new Error('Не получилось прочитать картинку'));
+        const cv = doc.createElement('canvas');
+        cv.width = cv.height = 128;
+        const ctx = cv.getContext('2d');
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(img, (img.naturalWidth - side) / 2, (img.naturalHeight - side) / 2, side, side, 0, 0, 128, 128);
+        URL.revokeObjectURL(url);
+        resolve(cv.toDataURL('image/png'));
+      };
+      img.onerror = () => {
+        URL.revokeObjectURL(url);
+        reject(new Error('Это не похоже на картинку. Подойдут PNG, JPG, WebP или SVG'));
+      };
+      img.src = url;
+    });
+  }
+
+  // Как иконка выглядит сейчас: загруженная или буква на цвете текущего стиля
+  function siteIcon() {
+    if (data.brand.favicon) return data.brand.favicon;
+    const c = Slot.compose(niche, data);
+    const m = /href="([^"]+)"/.exec(Slot.favicon(c, Slot.getStyle(c, c.defaultStyle)));
+    return m ? m[1].replace(/&amp;/g, '&') : '';
+  }
+
   function putPhoto(target, file) {
     const max = target === 'hero.image' ? 2000 : target.startsWith('staff') ? 1000 : 1600;
     uploadPhoto(file, max)
@@ -632,6 +722,11 @@
         return touch(false);
       }
       setPath(data, t.dataset.path, v);
+      if (/^legal\.(privacy|consent)$/.test(t.dataset.path)) {
+        previewDoc = t.dataset.path.split('.')[1];
+        const warn = doc.querySelector(`[data-doc-warn="${previewDoc}"]`);
+        if (warn) warn.hidden = !!String(v).trim();
+      }
       if (t.dataset.path === 'style') return touch(false);
       const head = t.closest('.card') && t.closest('.card').querySelector('.card__head b');
       if (head && /\.(name|text)$/.test(t.dataset.path) && t.value) head.textContent = t.value;
@@ -673,7 +768,14 @@
 
   function onChange(e) {
     const t = e.target;
-    if (t.dataset.kind === 'photo' && t.files && t.files[0]) putPhoto(t.dataset.target, t.files[0]);
+    if (t.dataset.kind === 'favicon' && t.files && t.files[0]) {
+      makeIcon(t.files[0])
+        .then((icon) => {
+          data.brand.favicon = icon;
+          touch(true);
+        })
+        .catch((err) => toast(err.message, true));
+    } else if (t.dataset.kind === 'photo' && t.files && t.files[0]) putPhoto(t.dataset.target, t.files[0]);
     else if (t.dataset.kind === 'photo-add' && t.files && t.files.length) addPhotos(t.files);
     else if (t.type === 'radio' || t.type === 'checkbox') onInput(e);
   }
@@ -685,6 +787,8 @@
     if (!t) return;
     if (t.dataset.tab) {
       tab = t.dataset.tab;
+      previewDoc = tab === 'docs' ? previewDoc || 'privacy' : '';
+      showPreviewDoc(previewDoc);
       renderTabs();
       renderPanel();
       doc.querySelector('[data-panel]').scrollTop = 0;
@@ -755,6 +859,23 @@
     }
     if (act === 'img-del') {
       setPath(data, t.dataset.target, '');
+      return touch(true);
+    }
+    if (act === 'favicon-del') {
+      delete data.brand.favicon;
+      return touch(true);
+    }
+    if (act === 'doc-show') {
+      previewDoc = t.dataset.doc;
+      showPreviewDoc(previewDoc);
+      return doc.body.classList.add('show-preview');
+    }
+    if (act === 'doc-template') {
+      const key = t.dataset.doc;
+      const cur = getPath(data, 'legal.' + key);
+      if (cur && String(cur).trim() && !g.confirm('Заменить текущий текст шаблоном? Ваш текст в этом поле пропадёт.')) return;
+      setPath(data, 'legal.' + key, Slot.legalTemplates(Slot.compose(niche, data))[key]);
+      previewDoc = key;
       return touch(true);
     }
   }

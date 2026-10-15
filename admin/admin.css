@@ -696,3 +696,40 @@ h2 {
   background: var(--surface);
   font-size: 16px;
 }
+
+/* иконка сайта */
+.fav {
+  display: grid;
+  gap: 12px;
+}
+.fav__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-self: start;
+  max-width: 100%;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-bottom: 0;
+  border-radius: 10px 10px 0 0;
+  background: var(--bg);
+  font-size: 13px;
+}
+.fav__tab img {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+.fav__tab span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fav__acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.fav .lead {
+  margin: 0;
+}

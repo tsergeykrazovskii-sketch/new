@@ -353,6 +353,6 @@
       { type: 'contacts', title: 'Как добраться' },
     ],
 
-    legal: { entity: 'ООО «Поршень» · ИНН 0000000000', year: '2026' },
+    legal: { operator: 'ООО «Поршень»', inn: '0000000000', address: 'г. Екатеринбург, Монтёрская ул., д. 3', email: 'service@porshen-demo.ru', year: '2026' },
   };
 })(typeof globalThis !== 'undefined' ? globalThis : window);

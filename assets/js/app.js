@@ -147,6 +147,23 @@
     root.style = style.id;
     root.motion = style.motion;
     root.texture = style.texture || 'none';
+    // иконка вкладки — как в данных сайта (в демо её могли сменить в админке)
+    if (Slot.favicon && doc.head) {
+      const want = Slot.favicon(cfg, style);
+      const hrefs = Array.from(want.matchAll(/rel="([^"]+)" href="([^"]+)"/g));
+      doc.head.querySelectorAll('link[rel="icon"], link[rel="apple-touch-icon"]').forEach((l) => {
+        if (!hrefs.some((h) => h[1] === l.rel)) l.remove();
+      });
+      hrefs.forEach(([, rel, href]) => {
+        let l = doc.head.querySelector(`link[rel="${rel}"]`);
+        if (!l) {
+          l = doc.createElement('link');
+          l.rel = rel;
+          doc.head.appendChild(l);
+        }
+        if (l.getAttribute('href') !== href) l.setAttribute('href', href);
+      });
+    }
   }
 
   /* ---------- оживление статичной разметки ---------- */
@@ -425,7 +442,7 @@
         <div class="field${B.errors.consent ? ' has-error' : ''}">
           <label class="check">
             <input id="b-consent" type="checkbox"${x.consent ? ' checked' : ''}${aria('consent')}>
-            <span>Даю <a href="#consent">согласие на обработку персональных данных</a> и принимаю <a href="#privacy">политику конфиденциальности</a></span>
+            <span>Даю <a href="#consent" target="_blank" rel="noopener">согласие на обработку персональных данных</a> и принимаю <a href="#privacy" target="_blank" rel="noopener">политику конфиденциальности</a></span>
           </label>
           ${B.errors.consent ? `<p class="field__err" id="b-consent-err">${esc(B.errors.consent)}</p>` : ''}
         </div>
@@ -571,8 +588,35 @@
 
   /* ---------- события (делегирование, вешаются один раз) ---------- */
 
+  /* ---------- документы: политика и согласие открываются поверх сайта по #privacy / #consent ---------- */
+
+  let docFromPage = false;
+  function syncDoc() {
+    const id = (location.hash || '').slice(1);
+    let open = null;
+    doc.querySelectorAll('.doc').forEach((d) => {
+      const on = d.id === id;
+      d.classList.toggle('is-open', on);
+      if (on) open = d;
+    });
+    doc.documentElement.classList.toggle('doc-open', !!open);
+    if (open) {
+      open.scrollTop = 0;
+      const back = open.querySelector('.doc__back');
+      if (back) back.focus({ preventScroll: true });
+    } else docFromPage = false;
+  }
+
   function onClick(e) {
     const t = e.target;
+
+    if (t.closest('a[href="#privacy"], a[href="#consent"]') && !t.closest('a[target="_blank"]')) docFromPage = true;
+    if (t.closest('[data-doc-close]') && docFromPage) {
+      // пришли со страницы — возвращаемся туда же, где были
+      e.preventDefault();
+      history.back();
+      return;
+    }
 
     const book = t.closest('[data-book]');
     if (book) {
@@ -699,6 +743,11 @@
   }
 
   function onKey(e) {
+    if (e.key === 'Escape' && doc.documentElement.classList.contains('doc-open')) {
+      const close = doc.querySelector('.doc.is-open [data-doc-close]');
+      if (close) close.click();
+      return;
+    }
     const tab = e.target.closest('[role="tab"]');
     if (!tab || !['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(e.key)) return;
     const tabs = Array.from(tab.parentElement.querySelectorAll('[role="tab"]'));
@@ -854,6 +903,7 @@
   Slot.boot = function (o) {
     opts = Object.assign(opts, o || {});
     doc.addEventListener('click', onClick);
+    g.addEventListener('hashchange', syncDoc);
     doc.addEventListener('change', onChange);
     doc.addEventListener('input', onInput);
     doc.addEventListener('submit', onSubmit);
@@ -898,5 +948,6 @@
       bar.innerHTML = demoBar();
     }
     hydrate();
+    syncDoc();
   };
 })(window);

@@ -358,6 +358,6 @@
       { type: 'contacts', title: 'Как нас найти' },
     ],
 
-    legal: { entity: 'ИП Ковалёв А. С. · ИНН 000000000000', year: '2026' },
+    legal: { operator: 'ИП Ковалёв Артём Сергеевич', inn: '000000000000', address: 'г. Москва, Лесная ул., д. 7', email: 'hello@remeslo-demo.ru', year: '2026' },
   };
 })(typeof globalThis !== 'undefined' ? globalThis : window);
