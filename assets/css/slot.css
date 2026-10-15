@@ -1499,6 +1499,21 @@ div.photo::before {
   flex-wrap: wrap;
   gap: 8px;
 }
+/* живая карта Яндекса: кнопки под картой, чтобы не закрывать логотип и элементы виджета */
+.map--live {
+  background: var(--raised);
+}
+.map--live iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.contacts__map > .map__links {
+  position: static;
+  margin-top: 12px;
+}
 @media (min-width: 960px) {
   .contacts {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
@@ -1626,9 +1641,10 @@ div.photo::before {
 }
 @media (min-width: 900px) {
   .cookie {
-    left: auto;
-    right: max(24px, env(safe-area-inset-right, 0px));
+    left: 24px;
+    right: 24px;
     bottom: 24px;
+    max-width: 680px;
   }
 }
 

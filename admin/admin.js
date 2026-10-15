@@ -319,7 +319,8 @@
       <h3 class="sub">Мессенджеры и соцсети</h3>
       <div class="row3">${msg('Telegram')}${msg('MAX')}${msg('ВКонтакте')}</div>
       <h3 class="sub">Карты</h3>
-      <div class="row2">${input('Яндекс Карты', 'contacts.yandexMaps')}${input('2ГИС', 'contacts.twoGis')}</div>
+      <div class="row2">${input('Яндекс Карты', 'contacts.yandexMaps', { hint: 'Ссылка на вашу организацию — по ней на сайте появится карта.' })}${input('2ГИС', 'contacts.twoGis')}</div>
+      ${input('Код карты (необязательно)', 'contacts.mapWidget', { hint: 'Если карта показывает не то место: в Яндекс Картах «Поделиться» → «Встроить карту», скопируйте код и вставьте сюда.' })}
       <h3 class="sub">Часы работы</h3>
       <div class="hours">${hours}</div>`;
   };

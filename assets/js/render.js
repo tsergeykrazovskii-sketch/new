@@ -525,11 +525,30 @@
   }
   Slot.hoursRows = hoursRows;
 
+  // Живая карта Яндекса. Точный адрес виджета — contacts.mapWidget (из Яндекс Карт: «Поделиться» →
+  // «Встроить карту»; можно вставить код целиком, возьмём src). Иначе строим по ссылке на организацию.
+  // У вымышленных демо-ниш организации нет — у них остаётся схема.
+  const MAP_WIDGET = /^https:\/\/yandex\.(ru|com)\/map-widget\//;
+  const mapWidget = (k) => {
+    if (k.mapWidget) {
+      const src = (/src="([^"]+)"/.exec(k.mapWidget) || [null, k.mapWidget])[1].trim().replace(/&amp;/g, '&');
+      if (MAP_WIDGET.test(src)) return src;
+    }
+    const org = /^https:\/\/yandex\.ru\/maps\/(?:\d+\/[^/]+\/)?org\/([^/?#]+)\/(\d+)/.exec(k.yandexMaps || '');
+    return org ? `https://yandex.ru/map-widget/v1/org/${org[1]}/${org[2]}/` : '';
+  };
+  Slot.mapWidget = mapWidget;
+
   R.contacts = (c, s) => {
     const k = c.contacts;
     const msgs = k.messengers
       .map((m) => `<a class="btn btn--line" href="${esc(m.url)}" target="_blank" rel="noopener">${ic(m.icon)}${esc(m.label)}</a>`)
       .join('');
+    const widget = mapWidget(k);
+    const links = `<div class="map__links">
+        <a class="btn btn--surface btn--sm" href="${esc(k.yandexMaps)}" target="_blank" rel="noopener">Яндекс Карты</a>
+        <a class="btn btn--surface btn--sm" href="${esc(k.twoGis)}" target="_blank" rel="noopener">2ГИС</a>
+      </div>`;
     const hours = hoursRows(c.hours)
       .map((r) => `<li data-days="${r.from}-${r.to}"><span>${r.days}</span><span>${r.time}</span></li>`)
       .join('');
@@ -543,14 +562,18 @@
       <p class="contacts__phone"><a href="tel:${esc(k.phoneHref)}">${esc(k.phone)}</a></p>
       ${msgs ? `<div class="contacts__msg">${msgs}</div>` : ''}
     </div>
-    <div class="map" role="img" aria-label="Схема проезда: ${esc(k.address)}">
+    ${
+      widget
+        ? `<div class="contacts__map">
+      <div class="map map--live"><iframe src="${esc(widget)}" title="Карта: ${esc(k.city)}, ${esc(k.address)}" loading="lazy" allowfullscreen></iframe></div>
+      ${links}
+    </div>`
+        : `<div class="map" role="img" aria-label="Схема проезда: ${esc(k.address)}">
       <span class="map__road map__road--a"></span><span class="map__road map__road--b"></span>
       <span class="map__pin"><span class="map__dot">${ic('pin')}</span><b>${esc(c.brand.name)}</b></span>
-      <div class="map__links">
-        <a class="btn btn--surface btn--sm" href="${esc(k.yandexMaps)}" target="_blank" rel="noopener">Яндекс Карты</a>
-        <a class="btn btn--surface btn--sm" href="${esc(k.twoGis)}" target="_blank" rel="noopener">2ГИС</a>
-      </div>
-    </div>
+      ${links}
+    </div>`
+    }
   </div>
 </section>`;
   };
@@ -612,7 +635,7 @@
 
   R.cookie = () => `
 <div class="cookie" data-cookie hidden>
-  <p>Сайт использует cookie и Яндекс Метрику, чтобы считать посещения. <a href="#privacy">Подробнее</a></p>
+  <p>Сайт использует cookie: Яндекс Метрика считает посещения, Яндекс Карты показывают, как нас найти. <a href="#privacy">Подробнее</a></p>
   <button class="btn btn--line btn--sm" type="button" data-cookie-ok>Понятно</button>
 </div>`;
 
