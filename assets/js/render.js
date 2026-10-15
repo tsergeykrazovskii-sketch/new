@@ -641,7 +641,7 @@
 
   R.cookie = () => `
 <div class="cookie" data-cookie hidden>
-  <p>Сайт использует cookie: Яндекс Метрика считает посещения, Яндекс Карты показывают, как нас найти. <a href="#privacy">Подробнее</a></p>
+  <p>Сайт использует cookie: они нужны для записи онлайн и карты проезда. <a href="#privacy">Подробнее</a></p>
   <button class="btn btn--line btn--sm" type="button" data-cookie-ok>Понятно</button>
 </div>`;
 

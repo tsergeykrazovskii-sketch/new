@@ -536,7 +536,8 @@
       phone: x.phone,
       comment: x.comment.trim(),
       contact: x.contact,
-      extra: x.extra,
+      // в письмо и админку — с подписями полей, как на сайте («Госномер: …»)
+      extra: Object.fromEntries((cfg.booking.fields || []).filter((f) => (x.extra[f.id] || '').trim()).map((f) => [f.label, x.extra[f.id].trim()])),
       consent: x.consent,
       website: '',
     };

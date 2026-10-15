@@ -1,0 +1,24 @@
+# Слот — настройки сайта для Apache (Beget, Timeweb, REG.RU и большинство хостингов с PHP).
+# Сборка кладёт этот файл в корень сайта как .htaccess.
+Options -Indexes
+DirectoryIndex index.html
+
+# Скрытые файлы и временные файлы сохранения не отдаём
+<FilesMatch "(^\.|\.tmp[0-9a-f]*$)">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  # сайт и админку нельзя встроить в чужую страницу (защита от «подложных кликов»)
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  # После включения HTTPS раскомментируйте: браузер будет открывать сайт только по HTTPS
+  # Header always set Strict-Transport-Security "max-age=31536000"
+</IfModule>
+
+# Переадресация на HTTPS: раскомментируйте, когда в панели хостинга выпущен SSL-сертификат
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

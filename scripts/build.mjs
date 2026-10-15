@@ -12,6 +12,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
+import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -65,6 +66,14 @@ function write(base, rel, content) {
   console.log(path.relative(root, file), (content.length / 1024).toFixed(1) + ' КБ');
 }
 
+// Код вида K7QM-2XRP-H4TD: без похожих символов (0/O, 1/I/L), чтобы легко продиктовать
+const setupCodes = [];
+function setupCode() {
+  const abc = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+  const bytes = crypto.randomBytes(12);
+  return Array.from(bytes, (b, i) => (i && i % 4 === 0 ? '-' : '') + abc[b % abc.length]).join('');
+}
+
 const siteSrc = (scripts) => ({ css: src.css, render: src.render, app: src.app, scripts });
 
 // Страница админки. mode: 'full' — отдельный HTML-файл, 'artifact' — предпросмотр в Claude.
@@ -99,6 +108,10 @@ function adminPage(slug, nicheId, data, mode, siteUrl, base, demo) {
   <form>
     <h1 data-gate-title>Вход в админку</h1>
     <p data-gate-hint></p>
+    <div data-gate-code hidden>
+      <label for="gate-code" class="muted">Код первого входа</label>
+      <input id="gate-code" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false">
+    </div>
     <label for="gate-pass" class="muted">Пароль</label>
     <input id="gate-pass" type="password" autocomplete="current-password" required>
     <p class="err" data-gate-err role="alert"></p>
@@ -191,7 +204,17 @@ for (const f of clientFiles) {
   for (const file of ['api.php', 'config.example.php', '.htaccess', 'private/.htaccess']) {
     write(base, 'admin/' + file, read('admin/' + file));
   }
+  // Код первого входа: без него пароль админки не задать. Новый при каждой сборке, в git не попадает.
+  const code = setupCode();
+  write(base, 'admin/config.php', read('admin/config.example.php').replace("'setup_code' => ''", `'setup_code' => '${code}'`));
+  write(base, '.htaccess', read('admin/site.htaccess'));
+  write(base, 'uploads/.htaccess', read('admin/uploads.htaccess'));
+  setupCodes.push(`${slug}: ${code}`);
   const n = copyDir(`clients/${slug}/img`, path.join(dist, slug, 'img'));
   copyDir(`clients/${slug}/img`, path.join(base, 'img'));
   if (n) console.log(`${slug}/img/ — фото: ${n}`);
+}
+
+if (setupCodes.length) {
+  console.log('\nКоды первого входа в админку (release/<клиент>/admin/config.php):\n  ' + setupCodes.join('\n  '));
 }

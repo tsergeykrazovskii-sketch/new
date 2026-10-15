@@ -540,6 +540,10 @@
               .map(
                 (b) => `<div class="card"><div class="card__head"><b>${esc(b.name)} · ${esc(b.phone)}</b><span class="muted">${esc(b.at)}</span></div>
                 <p>${esc(b.service)}${b.staff ? ' · ' + esc(b.staff) : ''} · ${esc(b.date.split('-').reverse().join('.'))} в ${esc(b.time)}</p>
+                ${Object.entries(b.extra || {})
+                  .filter(([, v]) => v)
+                  .map(([k, v]) => `<p class="muted">${esc(k)}: ${esc(v)}</p>`)
+                  .join('')}
                 ${b.comment ? `<p class="muted">${esc(b.comment)}</p>` : ''}<p class="muted">Подтвердить: ${esc(b.contact)}</p></div>`
               )
               .join('')
@@ -701,11 +705,19 @@
     gate.hidden = false;
     gate.querySelector('[data-gate-title]').textContent = kind === 'setup' ? 'Придумайте пароль для админки' : 'Вход в админку';
     gate.querySelector('[data-gate-hint]').textContent =
-      kind === 'setup' ? 'Не меньше 8 символов. Его будете вводить при каждом входе.' : `Сайт «${data.brand.name}»`;
+      kind === 'setup'
+        ? 'Код первого входа выдаётся вместе с сайтом. Пароль — не меньше 8 символов, его будете вводить при каждом входе.'
+        : `Сайт «${data.brand.name}»`;
+    const codeBox = gate.querySelector('[data-gate-code]');
+    codeBox.hidden = kind !== 'setup';
+    codeBox.querySelector('input').required = kind === 'setup';
+    gate.querySelector('#gate-pass').autocomplete = kind === 'setup' ? 'new-password' : 'current-password';
     gate.querySelector('form').onsubmit = (e) => {
       e.preventDefault();
       const pass = gate.querySelector('#gate-pass').value;
-      api(kind === 'setup' ? 'setup' : 'login', { password: pass })
+      const body = { password: pass };
+      if (kind === 'setup') body.code = codeBox.querySelector('input').value;
+      api(kind === 'setup' ? 'setup' : 'login', body)
         .then((res) => {
           csrf = res.csrf;
           gate.hidden = true;
@@ -735,6 +747,19 @@
   }
 
   function boot() {
+    // Админку нельзя открыть внутри чужой страницы — защита от «подложных кликов»
+    if (g.top !== g.self) {
+      let foreign = true;
+      try {
+        foreign = g.top.location.origin !== g.location.origin;
+      } catch (err) {
+        /* чужой домен — доступа нет */
+      }
+      if (foreign) {
+        doc.body.textContent = 'Админку можно открыть только напрямую.';
+        return;
+      }
+    }
     doc.addEventListener('input', onInput);
     doc.addEventListener('change', onChange);
     doc.addEventListener('click', onClick);

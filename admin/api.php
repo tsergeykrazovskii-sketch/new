@@ -2,7 +2,8 @@
 /*
  * Слот — серверная часть админки. Один файл, без базы данных.
  *   ?action=session  — вошёл ли владелец, задан ли пароль
- *   ?action=setup    — задать пароль при первом входе (только пока его нет)
+ *   ?action=setup    — задать пароль при первом входе: только пока его нет и только с кодом
+ *                      первого входа из admin/config.php (иначе пароль задал бы любой посетитель)
  *   ?action=login / logout
  *   ?action=save     — сохранить data.json и index.html сайта
  *   ?action=upload   — загрузить фото мастера в /uploads
@@ -12,6 +13,8 @@
  */
 declare(strict_types=1);
 
+ini_set('session.use_strict_mode', '1');
+ini_set('session.gc_maxlifetime', '43200');
 session_set_cookie_params([
     'httponly' => true,
     'samesite' => 'Strict',
@@ -21,12 +24,18 @@ session_name('slot_admin');
 session_start();
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
+header('X-Content-Type-Options: nosniff');
+header('X-Frame-Options: DENY');
+header('Referrer-Policy: no-referrer');
 
 $ROOT = dirname(__DIR__);
 $PRIVATE = __DIR__ . '/private';
 $AUTH_FILE = $PRIVATE . '/auth.php';
 $BOOKINGS_FILE = $PRIVATE . '/bookings.php';
+$LIMITS_FILE = $PRIVATE . '/limits.php';
+$LOG_FILE = $PRIVATE . '/errors.php';
 $cfg = is_file(__DIR__ . '/config.php') ? (array) require __DIR__ . '/config.php' : [];
+const SESSION_IDLE = 12 * 3600; // после 12 часов без действий — войти заново
 
 function out(array $a, int $code = 200): void
 {
@@ -43,7 +52,15 @@ function body(): array
 
 function authed(): bool
 {
-    return !empty($_SESSION['slot_auth']);
+    if (empty($_SESSION['slot_auth'])) {
+        return false;
+    }
+    if (time() - (int) ($_SESSION['slot_seen'] ?? 0) > SESSION_IDLE) {
+        $_SESSION = [];
+        return false;
+    }
+    $_SESSION['slot_seen'] = time();
+    return true;
 }
 
 function need_auth(): void
@@ -82,9 +99,168 @@ function start_session(): string
 {
     session_regenerate_id(true);
     $_SESSION['slot_auth'] = true;
+    $_SESSION['slot_seen'] = time();
     $_SESSION['slot_csrf'] = bin2hex(random_bytes(16));
-    $_SESSION['slot_fail'] = 0;
     return $_SESSION['slot_csrf'];
+}
+
+// Адрес посетителя. Заголовкам вроде X-Forwarded-For не верим: их может подставить кто угодно.
+function client_ip(): string
+{
+    return (string) ($_SERVER['REMOTE_ADDR'] ?? '');
+}
+
+/*
+ * Ограничения по частоте: сколько раз событие случилось за окно времени.
+ * Считаем на сервере по IP (сессию бот просто не сохранит), храним в закрытом файле.
+ *   limit_hits('login:' . ip, 900) — сколько неудачных входов за 15 минут
+ *   limit_add('login:' . ip)       — записать ещё одно
+ */
+function limits_rw(callable $fn)
+{
+    global $LIMITS_FILE;
+    $dir = dirname($LIMITS_FILE);
+    if (!is_dir($dir)) {
+        mkdir($dir, 0750, true);
+    }
+    $h = fopen($LIMITS_FILE, 'c+');
+    if (!$h) {
+        return $fn([])[1];
+    }
+    flock($h, LOCK_EX);
+    $raw = stream_get_contents($h);
+    $all = json_decode(substr((string) $raw, strlen(GUARD)), true);
+    [$all, $result] = $fn(is_array($all) ? $all : []);
+    // старше суток не нужно ни одному окну
+    foreach ($all as $k => $times) {
+        $all[$k] = array_values(array_filter($times, fn($t) => time() - $t < 86400));
+        if (!$all[$k]) {
+            unset($all[$k]);
+        }
+    }
+    ftruncate($h, 0);
+    rewind($h);
+    fwrite($h, GUARD . json_encode($all));
+    flock($h, LOCK_UN);
+    fclose($h);
+    return $result;
+}
+
+function limit_key(string $bucket): string
+{
+    return $bucket . ':' . substr(hash('sha256', client_ip()), 0, 16);
+}
+
+function limit_hits(string $key, int $window): int
+{
+    return limits_rw(fn($all) => [$all, count(array_filter($all[$key] ?? [], fn($t) => time() - $t < $window))]);
+}
+
+function limit_add(string $key): void
+{
+    limits_rw(function ($all) use ($key) {
+        $all[$key][] = time();
+        return [$all, null];
+    });
+}
+
+function limit_clear(string $key): void
+{
+    limits_rw(function ($all) use ($key) {
+        unset($all[$key]);
+        return [$all, null];
+    });
+}
+
+function log_error(string $msg): void
+{
+    global $LOG_FILE;
+    if (!is_file($LOG_FILE)) {
+        write_atomic($LOG_FILE, GUARD);
+    }
+    @file_put_contents($LOG_FILE, date('d.m.Y H:i') . ' ' . $msg . "\n", FILE_APPEND | LOCK_EX);
+}
+
+/*
+ * Письмо владельцу. Если в config.php задан SMTP (например, ящик на Яндексе с паролем приложения),
+ * отправляем через него: такие письма не попадают в спам. Иначе — через mail() хостинга.
+ */
+function smtp_read($fp): string
+{
+    $resp = '';
+    while (($line = fgets($fp, 1024)) !== false) {
+        $resp .= $line;
+        if (strlen($line) < 4 || $line[3] === ' ') {
+            break;
+        }
+    }
+    return $resp;
+}
+
+function smtp_cmd($fp, ?string $cmd, int $expect): void
+{
+    if ($cmd !== null) {
+        fwrite($fp, $cmd . "\r\n");
+    }
+    $resp = smtp_read($fp);
+    if ((int) substr($resp, 0, 3) !== $expect) {
+        throw new RuntimeException(trim($resp) ?: 'сервер не ответил');
+    }
+}
+
+function send_mail(array $cfg, string $to, string $subject, string $text): bool
+{
+    $subj = '=?UTF-8?B?' . base64_encode($subject) . '?=';
+    if (empty($cfg['smtp_host'])) {
+        return @mail($to, $subj, $text, "Content-Type: text/plain; charset=utf-8\r\n");
+    }
+    $host = (string) $cfg['smtp_host'];
+    $port = (int) ($cfg['smtp_port'] ?? 465);
+    $secure = (string) ($cfg['smtp_secure'] ?? 'ssl'); // ssl (465) | tls (587, STARTTLS) | '' (без шифрования)
+    $user = (string) ($cfg['smtp_user'] ?? '');
+    $from = $user ?: 'noreply@' . ($_SERVER['HTTP_HOST'] ?? 'localhost');
+    $fp = @stream_socket_client(($secure === 'ssl' ? 'ssl://' : 'tcp://') . $host . ':' . $port, $errno, $errstr, 10);
+    if (!$fp) {
+        log_error("SMTP: не удалось подключиться к $host:$port ($errstr)");
+        return false;
+    }
+    stream_set_timeout($fp, 10);
+    try {
+        $me = preg_replace('/[^a-z0-9.-]/i', '', explode(':', (string) ($_SERVER['HTTP_HOST'] ?? 'localhost'))[0]) ?: 'localhost';
+        smtp_cmd($fp, null, 220);
+        smtp_cmd($fp, "EHLO $me", 250);
+        if ($secure === 'tls') {
+            smtp_cmd($fp, 'STARTTLS', 220);
+            if (!stream_socket_enable_crypto($fp, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+                throw new RuntimeException('не удалось включить TLS');
+            }
+            smtp_cmd($fp, "EHLO $me", 250);
+        }
+        if ($user !== '') {
+            smtp_cmd($fp, 'AUTH LOGIN', 334);
+            smtp_cmd($fp, base64_encode($user), 334);
+            smtp_cmd($fp, base64_encode((string) ($cfg['smtp_pass'] ?? '')), 235);
+        }
+        $addr = fn(string $a) => '<' . preg_replace('/[\r\n<>]/', '', $a) . '>';
+        smtp_cmd($fp, 'MAIL FROM:' . $addr($from), 250);
+        smtp_cmd($fp, 'RCPT TO:' . $addr($to), 250);
+        smtp_cmd($fp, 'DATA', 354);
+        $body = preg_replace('/^\./m', '..', str_replace(["\r\n", "\r", "\n"], "\r\n", $text));
+        $msg = 'From: ' . $addr($from) . "\r\n"
+            . 'To: ' . $addr($to) . "\r\n"
+            . "Subject: $subj\r\n"
+            . 'Date: ' . date('r') . "\r\n"
+            . "MIME-Version: 1.0\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Transfer-Encoding: 8bit\r\n\r\n"
+            . $body . "\r\n.";
+        smtp_cmd($fp, $msg, 250);
+        fwrite($fp, "QUIT\r\n");
+        fclose($fp);
+        return true;
+    } catch (RuntimeException $e) {
+        log_error('SMTP: ' . $e->getMessage());
+        fclose($fp);
+        return false;
+    }
 }
 
 $action = (string) ($_GET['action'] ?? '');
@@ -105,7 +281,21 @@ switch ($action) {
         if (is_file($AUTH_FILE)) {
             out(['ok' => false, 'error' => 'Пароль уже задан. Войдите с ним.'], 409);
         }
-        $pass = (string) (body()['password'] ?? '');
+        $code = trim((string) ($cfg['setup_code'] ?? ''));
+        if ($code === '') {
+            out(['ok' => false, 'error' => 'Не задан код первого входа: впишите setup_code в admin/config.php'], 403);
+        }
+        $key = limit_key('setup');
+        if (limit_hits($key, 900) >= 5) {
+            out(['ok' => false, 'error' => 'Слишком много попыток. Попробуйте через 15 минут.'], 429);
+        }
+        $b = body();
+        if (!hash_equals(mb_strtoupper($code), mb_strtoupper(trim((string) ($b['code'] ?? ''))))) {
+            limit_add($key);
+            sleep(1);
+            out(['ok' => false, 'error' => 'Неверный код первого входа'], 403);
+        }
+        $pass = (string) ($b['password'] ?? '');
         if (mb_strlen($pass) < 8) {
             out(['ok' => false, 'error' => 'Пароль должен быть не короче 8 символов'], 400);
         }
@@ -117,21 +307,23 @@ switch ($action) {
         if (!is_file($AUTH_FILE)) {
             out(['ok' => false, 'error' => 'Пароль ещё не задан'], 409);
         }
-        $fails = (int) ($_SESSION['slot_fail'] ?? 0);
-        $last = (int) ($_SESSION['slot_fail_at'] ?? 0);
-        if ($fails >= 5 && time() - $last < 900) {
+        // 5 ошибок с одного адреса — пауза 15 минут; 50 ошибок со всех адресов за час — пауза для всех
+        $key = limit_key('login');
+        if (limit_hits($key, 900) >= 5 || limit_hits('login:all', 3600) >= 50) {
             out(['ok' => false, 'error' => 'Слишком много попыток. Попробуйте через 15 минут.'], 429);
         }
         $hash = (string) require $AUTH_FILE;
         if (!password_verify((string) (body()['password'] ?? ''), $hash)) {
-            $_SESSION['slot_fail'] = $fails + 1;
-            $_SESSION['slot_fail_at'] = time();
+            limit_add($key);
+            limit_add('login:all');
             sleep(1);
             out(['ok' => false, 'error' => 'Неверный пароль'], 401);
         }
+        limit_clear($key);
         out(['ok' => true, 'csrf' => start_session()]);
 
     case 'logout':
+        need_post();
         $_SESSION = [];
         session_destroy();
         out(['ok' => true]);
@@ -182,6 +374,10 @@ switch ($action) {
         if (!is_dir($dir) && !mkdir($dir, 0755, true)) {
             out(['ok' => false, 'error' => 'Не удалось создать папку uploads'], 500);
         }
+        // в папке фото сервер не должен исполнять скрипты, даже если туда что-то попадёт
+        if (!is_file($dir . '/.htaccess')) {
+            @file_put_contents($dir . '/.htaccess', "Options -Indexes\n<FilesMatch \"\\.(php\\d?|phtml|phar|pl|py|cgi|sh)$\">\n  Require all denied\n</FilesMatch>\n");
+        }
         $name = date('Ymd') . '-' . bin2hex(random_bytes(6)) . '.' . $types[$mime];
         if (!move_uploaded_file($f['tmp_name'], $dir . '/' . $name)) {
             out(['ok' => false, 'error' => 'Не удалось сохранить фото'], 500);
@@ -194,9 +390,10 @@ switch ($action) {
         if (!empty($b['website'])) {
             out(['ok' => true]); // поле-ловушка для ботов
         }
-        $recent = array_filter((array) ($_SESSION['slot_books'] ?? []), fn($t) => time() - (int) $t < 600);
-        if (count($recent) >= 5) {
-            out(['ok' => false, 'error' => 'Слишком много заявок подряд'], 429);
+        // 5 заявок за 10 минут с одного адреса и 60 в час со всех — защита от спама
+        $key = limit_key('book');
+        if (limit_hits($key, 600) >= 5 || limit_hits('book:all', 3600) >= 60) {
+            out(['ok' => false, 'error' => 'Слишком много заявок подряд. Позвоните нам, пожалуйста.'], 429);
         }
         $s = fn(string $k, int $max = 200) => mb_substr(trim((string) ($b[$k] ?? '')), 0, $max);
         $phone = preg_replace('/\D/', '', $s('phone', 40));
@@ -225,8 +422,8 @@ switch ($action) {
             write_atomic($BOOKINGS_FILE, GUARD);
         }
         file_put_contents($BOOKINGS_FILE, json_encode($item, JSON_UNESCAPED_UNICODE) . "\n", FILE_APPEND | LOCK_EX);
-        $recent[] = time();
-        $_SESSION['slot_books'] = $recent;
+        limit_add($key);
+        limit_add('book:all');
 
         $text = "Новая заявка с сайта\n"
             . "{$item['service']}" . ($item['staff'] ? " · {$item['staff']}" : '') . "\n"
@@ -237,8 +434,7 @@ switch ($action) {
             . ($item['comment'] ? "\nКомментарий: {$item['comment']}" : '');
 
         if (!empty($cfg['notify_email'])) {
-            $subject = '=?UTF-8?B?' . base64_encode('Заявка с сайта: ' . $item['name']) . '?=';
-            @mail((string) $cfg['notify_email'], $subject, $text, "Content-Type: text/plain; charset=utf-8\r\n");
+            send_mail($cfg, (string) $cfg['notify_email'], 'Заявка с сайта: ' . $item['name'], $text);
         }
         if (!empty($cfg['telegram_bot_token']) && !empty($cfg['telegram_chat_id'])) {
             $ctx = stream_context_create(['http' => [

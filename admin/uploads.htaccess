@@ -1,0 +1,8 @@
+# Папка фото: только картинки, никаких скриптов и списка файлов
+Options -Indexes
+<FilesMatch "\.(php\d?|phtml|phar|pl|py|cgi|sh)$">
+  Require all denied
+</FilesMatch>
+<IfModule mod_php.c>
+  php_flag engine off
+</IfModule>
