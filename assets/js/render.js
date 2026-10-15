@@ -78,6 +78,26 @@
     gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/>',
     scissors:
       '<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12"/>',
+    razor: '<path d="M4 20l6-6"/><path d="M10 14l7.6-7.6a2.1 2.1 0 0 1 3 3L13 17z"/>',
+    mustache: '<path d="M12 11.5c-1.6-2.4-5.4-3.4-8.5-1.2.8 3.6 5.6 4.4 8.5 1.6 2.9 2.8 7.7 2 8.5-1.6-3.1-2.2-6.9-1.2-8.5 1.2z"/>',
+    clipper: '<rect x="7" y="8" width="10" height="13" rx="3"/><path d="M8 8V4h8v4M10 4V2.5M12 4V2.5M14 4V2.5M12 13v3"/>',
+    comb: '<rect x="3" y="7" width="18" height="5" rx="1.5"/><path d="M6 12v5M9 12v5M12 12v5M15 12v5M18 12v5"/>',
+    towel: '<path d="M4 9h16v3H4z"/><path d="M6 12v8h12v-8"/><path d="M9 3c0 1.2 1.2 1.2 1.2 2.4M13.5 3c0 1.2 1.2 1.2 1.2 2.4"/>',
+    sparkle: '<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.7 1.8 1.8.7-1.8.7L19 20l-.7-1.8-1.8-.7 1.8-.7z"/>',
+    percent: '<path d="M19 5 5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/>',
+    qr: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/>',
+    wifi: '<path d="M2 8.8a15 15 0 0 1 20 0M5 12.6a10 10 0 0 1 14 0M8.5 16.4a5 5 0 0 1 7 0"/><path d="M12 20h.01"/>',
+    award: '<circle cx="12" cy="8.5" r="5.5"/><path d="M8.6 12.9 7 21l5-2.8 5 2.8-1.6-8.1"/>',
+    child: '<circle cx="12" cy="6" r="3"/><path d="M8 21v-4l-2-4 6-2 6 2-2 4v4"/>',
+    smartphone: '<rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M11 18h2"/>',
+    car: '<path d="M19 17h2a1 1 0 0 0 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3A2.6 2.6 0 0 0 12 7H5a1.6 1.6 0 0 0-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4a1 1 0 0 0 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/>',
+    droplet: '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5S12.5 5.5 12 3c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7z"/>',
+    disc: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M15.5 4.2a9 9 0 0 1 4.3 4.3"/><path d="M12 5.5v1M18.5 12h-1M12 18.5v-1M5.5 12h1"/>',
+    gauge: '<path d="M12 14l4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/><path d="M12 14h.01"/>',
+    snowflake: '<path d="M2 12h20M12 2v20M20 16l-4-4 4-4M4 8l4 4-4 4M16 4l-4 4-4-4M8 20l4-4 4 4"/>',
+    battery: '<rect x="2" y="7" width="17" height="11" rx="2"/><path d="M22 11v3M6 12.5h4M8 10.5v4"/>',
+    key: '<circle cx="7.5" cy="15.5" r="5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/>',
+    box: '<path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>',
     tire: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/>',
   };
 
@@ -248,7 +268,13 @@
     const k = Math.min(words.length, 6) + 1; // дальше заголовка задержка не растёт
     return `
 <section class="hero${h.image ? ' hero--photo' : ''}" aria-labelledby="hero-title">
-  ${h.image ? `<div class="hero__bg"><img src="${esc(h.image)}" alt="${esc(h.imageAlt || '')}" fetchpriority="high"></div>` : ''}
+  ${
+    h.image
+      ? `<div class="hero__bg"><img src="${esc(h.image)}" alt="${esc(h.imageAlt || '')}" fetchpriority="high">${
+          h.video ? `<video autoplay muted loop playsinline preload="metadata" poster="${esc(h.image)}" aria-hidden="true"><source src="${esc(h.video)}" type="video/mp4"></video>` : ''
+        }</div>`
+      : ''
+  }
   <div class="wrap hero__in">
     <div class="hero__copy">
       <p class="hero__where rise" style="--i:0">${ic('pin')}${esc(c.contacts.city)}, ${esc(c.contacts.address)}${c.contacts.metro ? ' · ' + esc(c.contacts.metro) : ''}</p>
@@ -269,7 +295,7 @@
 <section class="perks" aria-label="${esc(s.label)}">
   <div class="wrap">
     <ul class="perks__list">${s.items
-      .map((p) => `<li class="perk">${ic(p.icon, 'perk__ic')}<span><b>${esc(p.title)}</b><span>${esc(p.text)}</span></span></li>`)
+      .map((p) => `<li class="perk"><span class="ico">${ic(p.icon)}</span><span><b>${esc(p.title)}</b><span>${esc(p.text)}</span></span></li>`)
       .join('')}</ul>
   </div>
 </section>`;
@@ -286,7 +312,7 @@
     const tabs = c.services
       .map(
         (cat, i) =>
-          `<button class="tab" type="button" role="tab" id="svc-t-${i}" aria-controls="svc-p-${i}" aria-selected="${i === 0}"${i ? ' tabindex="-1"' : ''}>${esc(cat.category)}</button>`
+          `<button class="tab" type="button" role="tab" id="svc-t-${i}" aria-controls="svc-p-${i}" aria-selected="${i === 0}"${i ? ' tabindex="-1"' : ''}>${cat.icon ? ic(cat.icon) : ''}${esc(cat.category)}</button>`
       )
       .join('');
     const panels = c.services
@@ -389,7 +415,7 @@
       .map(
         (o) => `
       <li class="offer">
-        ${ic(o.icon, 'offer__ic')}
+        <span class="ico ico--lg">${ic(o.icon)}</span>
         <h3 class="offer__title">${esc(o.title)}</h3>
         <p>${esc(o.text)}</p>
         ${
@@ -541,6 +567,19 @@
   </div>
 </footer>`;
 
+  // Рекламная плашка над шапкой: одна акция и кнопка записи на неё
+  R.promo = (c) =>
+    c.promo
+      ? `
+<div class="promo">
+  <div class="wrap promo__in">
+    <span class="promo__ic">${ic(c.promo.icon || 'sparkle')}</span>
+    <p class="promo__text">${esc(c.promo.text)}</p>
+    <button class="promo__cta" type="button" data-book${c.promo.service ? ` data-service="${esc(c.promo.service)}"` : ''}>${esc(c.promo.cta || 'Записаться')}${ic('right')}</button>
+  </div>
+</div>`
+      : '';
+
   R.mbar = (c) => `
 <div class="mbar" aria-label="Быстрые действия">
   <a class="mbar__btn" href="tel:${esc(c.contacts.phoneHref)}">${ic('phone')}<span>Позвонить</span></a>
@@ -613,6 +652,7 @@
     const body = c.sections.map((s) => (R[s.type] ? R[s.type](c, s) : '')).join('');
     return (
       Slot.sprite() +
+      R.promo(c) +
       R.header(c) +
       `<main id="top">${body}</main>` +
       R.footer(c) +

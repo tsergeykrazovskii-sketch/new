@@ -42,6 +42,14 @@ const release = path.join(root, 'release');
 fs.rmSync(dist, { recursive: true, force: true });
 fs.rmSync(release, { recursive: true, force: true });
 
+// Папка с фото копируется как есть: assets/img/<ниша> → dist/img/<ниша>, clients/<клиент>/img → <клиент>/img
+function copyDir(from, to) {
+  const src = path.join(root, from);
+  if (!fs.existsSync(src)) return 0;
+  fs.cpSync(src, to, { recursive: true });
+  return fs.readdirSync(src).length;
+}
+
 function write(base, rel, content) {
   const file = path.join(base, rel);
   fs.mkdirSync(path.dirname(file), { recursive: true });
@@ -118,6 +126,8 @@ for (const id of Object.keys(Slot.niches)) {
   const c = Slot.niches[id];
   write(dist, `${id}.html`, Slot.page(c, id, 'site', siteSrc([src.niche[id]])));
   write(dist, `demo-${id}.html`, Slot.page(c, id, 'artifact', siteSrc([src.niche[id]])));
+  const n = copyDir(`assets/img/${id}`, path.join(dist, 'img', id));
+  if (n) console.log(`dist/img/${id}/ — фото: ${n}`);
 }
 
 // 2. Клиенты: данные клиента поверх шаблона ниши
@@ -144,4 +154,7 @@ for (const f of clientFiles) {
   for (const file of ['api.php', 'config.example.php', '.htaccess', 'private/.htaccess']) {
     write(base, 'admin/' + file, read('admin/' + file));
   }
+  const n = copyDir(`clients/${slug}/img`, path.join(dist, slug, 'img'));
+  copyDir(`clients/${slug}/img`, path.join(base, 'img'));
+  if (n) console.log(`${slug}/img/ — фото: ${n}`);
 }

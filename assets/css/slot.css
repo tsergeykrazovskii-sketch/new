@@ -2599,3 +2599,113 @@ div.photo::before {
     overflow-x: auto;
   }
 }
+
+
+/* ======================================================================
+ * Иконки в подложках, иконки категорий, рекламная плашка, видео на первом экране
+ * ====================================================================== */
+.ico {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: calc(var(--radius-lg) * 0.8);
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+.ico .ic {
+  width: 22px;
+  height: 22px;
+}
+.ico--lg {
+  width: 56px;
+  height: 56px;
+}
+.ico--lg .ic {
+  width: 28px;
+  height: 28px;
+}
+.perk {
+  align-items: center;
+}
+.tab .ic {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  vertical-align: -0.25em;
+}
+.tab {
+  display: inline-flex;
+  align-items: center;
+}
+.promo {
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 14px;
+}
+.promo__in {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding-block: 6px;
+}
+.promo__ic .ic {
+  width: 18px;
+  height: 18px;
+}
+.promo__text {
+  flex: 1;
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.promo__cta {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-btn);
+  background: transparent;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+.promo__cta:hover .ic {
+  transform: translateX(3px);
+}
+.promo__cta .ic {
+  transition: transform var(--dur-fast);
+}
+@media (max-width: 479px) {
+  .promo__ic {
+    display: none;
+  }
+  .promo__cta {
+    padding: 0 10px;
+  }
+}
+.hero__bg video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__bg video {
+    display: none;
+  }
+}
+@media (max-width: 479px) {
+  .perks__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .perk {
+    padding-block: 12px;
+  }
+}
