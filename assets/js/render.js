@@ -663,6 +663,7 @@
     return c;
   };
 
+  Slot.CONTENT_KEYS = CONTENT_KEYS;
   Slot.util = { esc, num, price, duration, plural, initials, ic, DAYS };
 
   /* ---------- страница ---------- */

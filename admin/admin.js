@@ -66,8 +66,11 @@
     let i = data.sections.findIndex((s) => (typeof s === 'string' ? s : s.type) === type);
     if (i < 0) return -1;
     if (typeof data.sections[i] === 'string') {
-      const base = niche.sections.find((s) => s.type === type) || { type };
-      data.sections[i] = clone(base);
+      // как в Slot.compose: от ниши берём настройки секции, но не её демо-пункты и фото
+      const base = clone(niche.sections.find((s) => s.type === type) || { type });
+      Slot.CONTENT_KEYS.forEach((k) => delete base[k]);
+      if (niche.sections.some((s) => s.type === type && s.items)) base.items = [];
+      data.sections[i] = base;
     }
     return i;
   }
@@ -168,7 +171,7 @@
       .join('');
     const li = sectionIndex('levels');
     const levels =
-      li >= 0
+      li >= 0 && data.sections[li].rows && data.sections[li].levels
         ? `<h3 class="sub">Цены по уровням мастеров</h3>
         ${data.sections[li].rows
           .map(

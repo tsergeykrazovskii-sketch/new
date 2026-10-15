@@ -8,6 +8,14 @@
 
 Файлы кладём в `assets/img/<ниша>/` через `python3 scripts/images.py <исходники> assets/img/<ниша>`.
 
+## Сделано 15.10.2026
+
+Все 20 фото сгенерированы в Higgsfield: GPT Image 2.5, качество medium, 2K, по 1 кредиту — 20 кредитов, без переделок. Видео для первого экрана не делали (решение пользователя), первый экран у обеих ниш на фото `hero`.
+
+- Барбершоп: `hero`, `staff-1…4` (Артём, Тимур, Илья, Денис — в порядке мастеров ниши), в галерее `g-fade`, `g-beard`, `g-styling`, `g-family`, `g-interior`, `g-tools`.
+- Автосервис: `hero`, в галерее `g-lift`, `g-diag`, `g-tires`, `g-reception`, `g-lounge`, `g-storage`.
+- Запас: `barber/g-coffee`, `auto/g-brakes` — плитка галереи рассчитана на 6 фото. Это кадры атмосферы, их можно ставить и реальному клиенту.
+
 ## Барбершоп
 
 Общая часть промпта: `editorial photograph, modern barbershop, warm wood, dark green and brass accents, soft natural window light, shallow depth of field, 35mm film grain, muted premium color grading, no text, no logos, no signage`

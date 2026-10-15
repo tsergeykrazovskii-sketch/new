@@ -245,6 +245,8 @@
       lead: 'Мужские стрижки, борода и бритьё опасной бритвой. Четыре мастера со стажем от четырёх лет, кофе пока ждёте, запись за минуту.',
       cta: 'Записаться онлайн',
       secondary: 'Услуги и цены',
+      image: 'assets/img/barber/hero.webp',
+      imageAlt: 'Барбер делает фейд машинкой',
       proof: [
         { source: 'Яндекс Карты', rating: '4,9', count: 812, url: 'https://yandex.ru/maps/' },
         { source: '2ГИС', rating: '4,8', count: 347, url: 'https://2gis.ru/' },
@@ -284,10 +286,10 @@
     ],
 
     staff: [
-      { id: 'artem', name: 'Артём Ковалёв', dative: 'Артёму', role: 'Шеф-барбер', years: 9, note: 'Классика, кроп и сложные переходы', demoSlots: ['14:30', '17:00', '19:30'] },
-      { id: 'timur', name: 'Тимур Сафин', dative: 'Тимуру', role: 'Топ-барбер', years: 6, note: 'Борода и бритьё опасной бритвой', demoSlots: ['13:00', '15:30', '18:00'] },
-      { id: 'ilya', name: 'Илья Ветров', dative: 'Илье', role: 'Барбер', years: 4, note: 'Текстурные и удлинённые стрижки', demoSlots: ['12:30', '16:00', '20:00'] },
-      { id: 'denis', name: 'Денис Ахмедов', dative: 'Денису', role: 'Барбер', years: 5, note: 'Детские стрижки, «отец и сын»', demoSlots: ['14:00', '15:00', '18:30'] },
+      { id: 'artem', name: 'Артём Ковалёв', dative: 'Артёму', role: 'Шеф-барбер', years: 9, note: 'Классика, кроп и сложные переходы', img: 'assets/img/barber/staff-1.webp', demoSlots: ['14:30', '17:00', '19:30'] },
+      { id: 'timur', name: 'Тимур Сафин', dative: 'Тимуру', role: 'Топ-барбер', years: 6, note: 'Борода и бритьё опасной бритвой', img: 'assets/img/barber/staff-2.webp', demoSlots: ['13:00', '15:30', '18:00'] },
+      { id: 'ilya', name: 'Илья Ветров', dative: 'Илье', role: 'Барбер', years: 4, note: 'Текстурные и удлинённые стрижки', img: 'assets/img/barber/staff-3.webp', demoSlots: ['12:30', '16:00', '20:00'] },
+      { id: 'denis', name: 'Денис Ахмедов', dative: 'Денису', role: 'Барбер', years: 5, note: 'Детские стрижки, «отец и сын»', img: 'assets/img/barber/staff-4.webp', demoSlots: ['14:00', '15:00', '18:30'] },
     ],
 
     booking: { askStaff: true, step: 30, contactMethods: ['Звонок', 'Telegram', 'MAX'], fields: [] },
@@ -321,12 +323,12 @@
         title: 'Работы',
         lead: 'Свежие стрижки наших мастеров. Больше — в Telegram-канале.',
         items: [
-          { caption: 'Текстурный кроп' },
-          { caption: 'Скин-фейд' },
-          { caption: 'Классика с пробором' },
-          { caption: 'Борода и усы' },
-          { caption: 'Удлинённая стрижка' },
-          { caption: 'Отец и сын' },
+          { caption: 'Скин-фейд', img: 'assets/img/barber/g-fade.webp' },
+          { caption: 'Борода и опасная бритва', img: 'assets/img/barber/g-beard.webp' },
+          { caption: 'Текстурная укладка', img: 'assets/img/barber/g-styling.webp' },
+          { caption: 'Отец и сын', img: 'assets/img/barber/g-family.webp' },
+          { caption: 'Зал', img: 'assets/img/barber/g-interior.webp' },
+          { caption: 'Инструменты', img: 'assets/img/barber/g-tools.webp' },
         ],
       },
       {

@@ -42,7 +42,8 @@ const release = path.join(root, 'release');
 fs.rmSync(dist, { recursive: true, force: true });
 fs.rmSync(release, { recursive: true, force: true });
 
-// Папка с фото копируется как есть: assets/img/<ниша> → dist/img/<ниша>, clients/<клиент>/img → <клиент>/img
+// Папка с фото копируется как есть: assets/img/<ниша> → dist/assets/img/<ниша> (тот же путь, что у index.html
+// в корне репозитория), clients/<клиент>/img → <клиент>/img
 function copyDir(from, to) {
   const src = path.join(root, from);
   if (!fs.existsSync(src)) return 0;
@@ -126,8 +127,8 @@ for (const id of Object.keys(Slot.niches)) {
   const c = Slot.niches[id];
   write(dist, `${id}.html`, Slot.page(c, id, 'site', siteSrc([src.niche[id]])));
   write(dist, `demo-${id}.html`, Slot.page(c, id, 'artifact', siteSrc([src.niche[id]])));
-  const n = copyDir(`assets/img/${id}`, path.join(dist, 'img', id));
-  if (n) console.log(`dist/img/${id}/ — фото: ${n}`);
+  const n = copyDir(`assets/img/${id}`, path.join(dist, 'assets', 'img', id));
+  if (n) console.log(`dist/assets/img/${id}/ — фото: ${n}`);
 }
 
 // 2. Клиенты: данные клиента поверх шаблона ниши

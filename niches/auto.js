@@ -197,6 +197,8 @@
       title: 'Ремонт без сюрпризов в итоговом счёте',
       lead: 'Сначала диагностика и смета, ремонт — только после вашего согласия. Гарантия 12 месяцев на работы и запчасти. Обслуживаем иномарки, китайские и отечественные автомобили.',
       cta: 'Записаться на ремонт',
+      image: 'assets/img/auto/hero.webp',
+      imageAlt: 'Мастер осматривает машину на подъёмнике',
       secondary: 'Цены на работы',
       proof: [
         { source: 'Яндекс Карты', rating: '4,8', count: 1204, url: 'https://yandex.ru/maps/' },
@@ -327,12 +329,12 @@
         title: 'Сервис изнутри',
         lead: 'Шесть постов, своя шиномонтажная зона и комната ожидания с Wi-Fi.',
         items: [
-          { caption: 'Зона приёмки' },
-          { caption: 'Подъёмники' },
-          { caption: 'Диагностика' },
-          { caption: 'Шиномонтаж' },
-          { caption: 'Склад шин' },
-          { caption: 'Комната ожидания' },
+          { caption: 'Подъёмники', img: 'assets/img/auto/g-lift.webp' },
+          { caption: 'Диагностика', img: 'assets/img/auto/g-diag.webp' },
+          { caption: 'Шиномонтаж', img: 'assets/img/auto/g-tires.webp' },
+          { caption: 'Зона приёмки', img: 'assets/img/auto/g-reception.webp' },
+          { caption: 'Комната ожидания', img: 'assets/img/auto/g-lounge.webp' },
+          { caption: 'Склад шин', img: 'assets/img/auto/g-storage.webp' },
         ],
       },
       {
