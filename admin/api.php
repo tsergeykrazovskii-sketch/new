@@ -7,8 +7,10 @@
  *   ?action=login / logout
  *   ?action=save     — сохранить data.json и index.html сайта
  *   ?action=upload   — загрузить фото мастера в /uploads
- *   ?action=book     — заявка с сайта: сохраняем и отправляем администратору
+ *   ?action=book     — заявка с сайта: сохраняем и отправляем администратору (статус «новая»)
  *   ?action=bookings — последние заявки для админки
+ *   ?action=booking-status — подтвердить / отменить заявку (подтверждённая занимает время)
+ *   ?action=busy     — занятое время для сайта: только подтверждённые заявки, без имён и телефонов
  * Настройки уведомлений — в admin/config.php (см. config.example.php).
  */
 declare(strict_types=1);
@@ -170,6 +172,23 @@ function limit_clear(string $key): void
         unset($all[$key]);
         return [$all, null];
     });
+}
+
+// Все заявки из закрытого файла (первая строка — защита GUARD)
+function read_bookings(): array
+{
+    global $BOOKINGS_FILE;
+    if (!is_file($BOOKINGS_FILE)) {
+        return [];
+    }
+    $out = [];
+    foreach (array_slice(file($BOOKINGS_FILE, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ?: [], 1) as $l) {
+        $j = json_decode($l, true);
+        if (is_array($j)) {
+            $out[] = $j;
+        }
+    }
+    return $out;
 }
 
 function log_error(string $msg): void
@@ -405,11 +424,15 @@ switch ($action) {
             $extra[mb_substr((string) $k, 0, 40)] = mb_substr(trim((string) $v), 0, 200);
         }
         $item = [
+            'id' => bin2hex(random_bytes(6)),
+            'status' => 'new',
             'at' => date('d.m.Y H:i'),
             'service' => $s('service'),
             'staff' => $s('staff'),
-            'date' => $s('date', 20),
-            'time' => $s('time', 10),
+            'staffId' => preg_replace('/[^a-zA-Z0-9_-]/', '', $s('staffId', 40)),
+            'dur' => max(5, min(600, (int) ($b['dur'] ?? 30))),
+            'date' => preg_match('/^\d{4}-\d{2}-\d{2}$/', $s('date', 20)) ? $s('date', 20) : '',
+            'time' => preg_match('/^\d{1,2}:\d{2}$/', $s('time', 10)) ? $s('time', 10) : '',
             'name' => $s('name'),
             'phone' => '+' . $phone,
             'contact' => $s('contact', 40),
@@ -450,17 +473,63 @@ switch ($action) {
     case 'bookings':
         need_auth();
         $items = [];
-        if (is_file($BOOKINGS_FILE)) {
-            $lines = array_slice(file($BOOKINGS_FILE, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ?: [], 1);
-            foreach (array_reverse(array_slice($lines, -100)) as $l) {
-                $j = json_decode($l, true);
-                if (is_array($j)) {
-                    unset($j['ip']);
-                    $items[] = $j;
-                }
-            }
+        foreach (array_reverse(array_slice(read_bookings(), -200)) as $j) {
+            unset($j['ip']);
+            $items[] = $j;
         }
         out(['ok' => true, 'items' => $items]);
+
+    case 'booking-status':
+        need_post();
+        need_auth();
+        $b = body();
+        $id = (string) ($b['id'] ?? '');
+        $status = (string) ($b['status'] ?? '');
+        if (!in_array($status, ['new', 'confirmed', 'cancelled'], true)) {
+            out(['ok' => false, 'error' => 'Неизвестный статус'], 400);
+        }
+        $fp = fopen($BOOKINGS_FILE, 'c+');
+        if (!$fp) {
+            out(['ok' => false, 'error' => 'Заявок пока нет'], 404);
+        }
+        flock($fp, LOCK_EX);
+        $lines = array_slice(preg_split('/\n/', (string) stream_get_contents($fp)), 1);
+        $found = false;
+        foreach ($lines as $k => $l) {
+            $j = json_decode($l, true);
+            if (!is_array($j) || ($j['id'] ?? '') !== $id) {
+                continue;
+            }
+            $j['status'] = $status;
+            if (isset($b['staffId'])) {
+                $j['staffId'] = preg_replace('/[^a-zA-Z0-9_-]/', '', (string) $b['staffId']);
+                $j['staff'] = mb_substr(trim((string) ($b['staff'] ?? $j['staff'] ?? '')), 0, 200);
+            }
+            $lines[$k] = json_encode($j, JSON_UNESCAPED_UNICODE);
+            $found = true;
+        }
+        if ($found) {
+            ftruncate($fp, 0);
+            rewind($fp);
+            fwrite($fp, GUARD . implode("\n", array_filter($lines, fn($l) => trim($l) !== '')) . "\n");
+        }
+        flock($fp, LOCK_UN);
+        fclose($fp);
+        out($found ? ['ok' => true] : ['ok' => false, 'error' => 'Заявка не найдена'], $found ? 200 : 404);
+
+    case 'busy':
+        // для сайта: только подтверждённые заявки на ближайшие 60 дней, без имён и телефонов
+        $from = date('Y-m-d');
+        $to = date('Y-m-d', time() + 60 * 86400);
+        $busy = [];
+        foreach (read_bookings() as $j) {
+            $d = (string) ($j['date'] ?? '');
+            if (($j['status'] ?? '') !== 'confirmed' || $d < $from || $d > $to || !preg_match('/^(\d{1,2}):(\d{2})$/', (string) ($j['time'] ?? ''), $t)) {
+                continue;
+            }
+            $busy[] = ['d' => $d, 'm' => (int) $t[1] * 60 + (int) $t[2], 'dur' => (int) ($j['dur'] ?? 30), 's' => (string) ($j['staffId'] ?? '')];
+        }
+        out(['ok' => true, 'busy' => $busy]);
 
     default:
         out(['ok' => false, 'error' => 'Неизвестное действие'], 404);

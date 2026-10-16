@@ -272,6 +272,12 @@
 
     staff: [],
 
+    // Сгенерированные портреты механиков: заглушка для мастеров без фото (только в шаблоне)
+    staffPortraits: ['/assets/img/auto/staff-1.webp', '/assets/img/auto/staff-2.webp', '/assets/img/auto/staff-3.webp', '/assets/img/auto/staff-4.webp'],
+
+    // Расписание записи: своя запись по графику (mode 'own') или внешняя система (mode 'external', url)
+    schedule: { mode: 'own', capacity: 3, off: [], blocks: [] },
+
     booking: {
       askStaff: false,
       step: 60,

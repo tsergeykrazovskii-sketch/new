@@ -162,6 +162,72 @@
     return `html:root{${tokensToCss(st.tokens)};color-scheme:${st.scheme}}html .invert{${tokensToCss(st.invert || {})}}`;
   };
 
+  /* ---------- расписание ---------- */
+
+  /*
+   * Своя запись (schedule есть, mode не 'external'): окна считаются по графику, выходным,
+   * закрытому вручную и ПОДТВЕРЖДЁННЫМ заявкам. Неподтверждённая заявка время не занимает.
+   * Ресурс записи — мастер (если клиент выбирает мастера) или общий график с числом мест
+   * (schedule.capacity — например, постов в автосервисе).
+   *   busy:   подтверждённые заявки [{ d: 'ГГГГ-ММ-ДД', m: минуты, dur: минуты, s: id мастера или '' }]
+   *   blocks: закрыто вручную в админке [{ d, m, s }] — s пустой: закрыто для всех
+   *   off:    выходные и отпуска [{ s, from, to, note }] — s пустой: для всех
+   *   staff[].days: график мастера на неделю [[c, по] | null] × 7, без него — часы работы
+   */
+  const hm = (x) => {
+    const [h, m] = String(x).split(':').map(Number);
+    return h * 60 + (m || 0);
+  };
+  const ymd = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  const wd = (d) => (d.getDay() + 6) % 7;
+  const S = {
+    ymd,
+    own: (c) => !!c.schedule && c.schedule.mode !== 'external',
+    externalUrl: (c) => (c.schedule && c.schedule.mode === 'external' && /^https:\/\/[^\s"'<>]+$/.test(c.schedule.url || '') ? c.schedule.url : ''),
+    byStaff: (c) => !!(c.booking && c.booking.askStaff && c.staff.length),
+    resources: (c) => (S.byStaff(c) ? c.staff.map((m) => m.id) : ['']),
+    cap: (c, rid) => (rid ? 1 : Math.max(1, Number((c.schedule && c.schedule.capacity) || 1))),
+    hours(c, rid, date) {
+      const m = rid && c.staff.find((x) => x.id === rid);
+      const h = m && Array.isArray(m.days) ? m.days[wd(date)] : c.hours[wd(date)];
+      return h && h[0] && h[1] ? [hm(h[0]), hm(h[1])] : null;
+    },
+    off(c, rid, d) {
+      return ((c.schedule && c.schedule.off) || []).some((o) => (!o.s || o.s === rid) && o.from && d >= o.from && d <= (o.to || o.from));
+    },
+    // сколько мест ресурса заняты в минуту m дня d
+    used(c, rid, d, m, busy) {
+      const blocks = (c.schedule && c.schedule.blocks) || [];
+      const step = c.booking.step || 30;
+      if (blocks.some((b) => b.d === d && (!b.s || b.s === rid) && m >= b.m && m < b.m + step)) return Infinity;
+      return (busy || []).filter((b) => b.d === d && (rid ? b.s === rid : true) && m >= b.m && m < b.m + (b.dur || step)).length;
+    },
+    free(c, rid, date, m, dur, busy) {
+      const h = S.hours(c, rid, date);
+      const d = ymd(date);
+      if (!h || S.off(c, rid, d) || m < h[0] || m + dur > h[1]) return false;
+      const step = c.booking.step || 30;
+      for (let t = m; t < m + dur; t += step) if (S.used(c, rid, d, t, busy) >= S.cap(c, rid)) return false;
+      return true;
+    },
+    // сетка дня: rid = null — «любой мастер» (свободно, если свободен хоть кто-то)
+    daySlots(c, date, rid, dur, busy, cut) {
+      const step = c.booking.step || 30;
+      const ids = rid ? [rid] : S.resources(c);
+      const spans = ids.map((id) => S.hours(c, id, date)).filter(Boolean);
+      if (!spans.length) return [];
+      const from = Math.min(...spans.map((x) => x[0]));
+      const to = Math.max(...spans.map((x) => x[1]));
+      const len = Math.max(step, dur || step);
+      const out = [];
+      for (let m = from; m + step <= to; m += step) {
+        out.push({ m, busy: !ids.some((id) => S.free(c, id, date, m, len, busy)), past: cut != null && m < cut });
+      }
+      return out.filter((x) => ids.some((id) => { const h = S.hours(c, id, date); return h && x.m >= h[0] && x.m + step <= h[1]; }));
+    },
+  };
+  Slot.sched = S;
+
   /* ---------- тема «Своя» ---------- */
 
   // Шрифты с кириллицей из Google Fonts. w — начертания, которые у шрифта точно есть
@@ -466,12 +532,14 @@
         </li>`
       )
       .join('');
-    const widget = !h.widget ? '' : h.widget.type === 'estimate' ? widgetEstimate(c, h.widget) : widgetSlots(c, h.widget);
+    // при записи через внешнюю систему (YCLIENTS и т. п.) окон у нас нет — блок «Свободные окна» не показываем
+    const w = h.widget && !(h.widget.type === 'slots' && Slot.sched.externalUrl(c)) ? h.widget : null;
+    const widget = !w ? '' : w.type === 'estimate' ? widgetEstimate(c, w) : widgetSlots(c, w);
     const words = h.title.split(/\s+/);
     const title = words.map((w, i) => `<span class="w"><span style="--i:${i + 1}">${esc(w)}</span></span>`).join(' ');
     const k = Math.min(words.length, 6) + 1; // дальше заголовка задержка не растёт
     return `
-<section class="hero${h.image ? ' hero--photo' : ''}${h.widget ? '' : ' hero--solo'}" aria-labelledby="hero-title">
+<section class="hero${h.image ? ' hero--photo' : ''}${w ? '' : ' hero--solo'}" aria-labelledby="hero-title">
   ${
     h.image
       ? `<div class="hero__bg"><img src="${esc(h.image)}" alt="${esc(h.imageAlt || '')}" fetchpriority="high">${
@@ -490,7 +558,7 @@
       </div>
       <ul class="proof rise" style="--i:${k + 2}">${proof}</ul>
     </div>
-    ${widget ? `<aside class="hero__widget card card--stripe" aria-label="${esc(h.widget.title)}">${widget}</aside>` : ''}
+    ${widget ? `<aside class="hero__widget card card--stripe" aria-label="${esc(w.title)}">${widget}</aside>` : ''}
   </div>
 </section>`;
   };
@@ -1056,7 +1124,7 @@
 
   // Контент демо-ниши в формате данных клиента: так шаблон ниши правится той же админкой,
   // а Slot.compose(ниша, Slot.nicheData(id)) собирает ту же страницу, что и сама ниша
-  const NICHE_CONTENT = ['brand', 'promo', 'contacts', 'hours', 'nav', 'hero', 'services', 'staff', 'sections', 'legal'];
+  const NICHE_CONTENT = ['brand', 'promo', 'contacts', 'hours', 'nav', 'hero', 'services', 'staff', 'sections', 'legal', 'schedule'];
   Slot.nicheData = (id) => {
     const n = Slot.niches[id];
     const d = { slug: id, niche: id };

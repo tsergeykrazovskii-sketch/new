@@ -297,6 +297,9 @@
     // Сгенерированные портреты: у вымышленных мастеров и заглушкой для мастеров без фото (только в шаблоне)
     staffPortraits: ['/assets/img/barber/staff-1.webp', '/assets/img/barber/staff-2.webp', '/assets/img/barber/staff-3.webp', '/assets/img/barber/staff-4.webp'],
 
+    // Расписание записи: своя запись по графику (mode 'own') или внешняя система (mode 'external', url)
+    schedule: { mode: 'own', off: [], blocks: [] },
+
     booking: { askStaff: true, step: 30, contactMethods: ['Звонок', 'Telegram', 'MAX'], fields: [] },
 
     sections: [

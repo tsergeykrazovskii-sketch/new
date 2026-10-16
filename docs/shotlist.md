@@ -48,3 +48,4 @@
 | `g-storage` | 3:2 | Хранение шин | `neat racks of stored tires in bags with tags` |
 | `g-brakes` | 4:5 | Тормоза | `close-up of a new brake disc and red caliper on a lifted car` |
 | `g-lounge` | 3:2 | Комната ожидания | `customer lounge with a coffee machine, sofa and a window into the workshop` |
+- 16.10.2026: `auto/staff-1…4` — портреты вымышленных механиков (4 кредита). В шаблоне автосервиса изначально нет мастеров; портреты — заглушки для мастеров без своего фото, в админке с пометкой «замените до запуска».

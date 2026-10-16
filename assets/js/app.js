@@ -93,8 +93,55 @@
     return h >>> 0;
   }
 
+  /*
+   * Своя запись по расписанию (cfg.schedule): окна считает Slot.sched по графику, выходным,
+   * закрытому вручную и подтверждённым заявкам (BUSY). На хостинге клиента занятость приходит
+   * из admin/api.php?action=busy, в демо — из заявок, подтверждённых в демо-админке этого браузера.
+   * Без cfg.schedule остаётся демо-имитация ниже (сайты, которые ещё не перевели на расписание).
+   */
+  let BUSY = [];
+  const schedOn = () => Slot.sched && Slot.sched.own(cfg);
+  const DEMO_BOOKINGS = () => 'slot-bookings-' + cfg.id;
+  function demoBookings() {
+    try {
+      return JSON.parse(store.get(DEMO_BOOKINGS()) || '[]');
+    } catch (e) {
+      return [];
+    }
+  }
+  const asBusy = (list) =>
+    list
+      .filter((b) => b.status === 'confirmed' && b.date && b.time)
+      .map((b) => ({ d: b.date, m: toMin(b.time), dur: Number(b.dur) || cfg.booking.step, s: b.staffId || '' }));
+
+  function loadBusy() {
+    if (!schedOn()) return;
+    if (!cfg.booking.endpoint) {
+      BUSY = asBusy(demoBookings());
+      return;
+    }
+    fetch(cfg.booking.endpoint.replace('action=book', 'action=busy'), { credentials: 'same-origin' })
+      .then((r) => r.json())
+      .then((res) => {
+        if (res && res.ok && Array.isArray(res.busy)) {
+          BUSY = res.busy;
+          renderQuickSlots();
+          if (doc.querySelector('[data-widget="estimate"]')) updateEstimate(true);
+        }
+      })
+      .catch(() => {
+        /* нет связи — окна по графику без учёта заявок, администратор всё равно подтверждает время */
+      });
+  }
+
   // Сетка времени на день. staffId = null — «любой мастер» (свободно, если свободен хоть кто-то).
-  function daySlots(date, staffId) {
+  // dur — длительность услуги: окно свободно, только если хватает времени подряд.
+  function daySlots(date, staffId, dur) {
+    if (schedOn()) {
+      const now = bizNow();
+      const cut = sameDay(date, now) ? now.getHours() * 60 + now.getMinutes() + 30 : null;
+      return Slot.sched.daySlots(cfg, date, staffId, dur, BUSY, cut);
+    }
     const h = cfg.hours[dow(date)];
     if (!h) return [];
     const step = cfg.booking.step;
@@ -111,13 +158,13 @@
     }
     return out;
   }
-  const freeSlots = (date, staffId) => daySlots(date, staffId).filter((s) => !s.busy && !s.past);
+  const freeSlots = (date, staffId, dur) => daySlots(date, staffId, dur).filter((s) => !s.busy && !s.past);
 
-  function nearest(staffId) {
+  function nearest(staffId, dur) {
     const today = addDays(bizNow(), 0);
     for (let i = 0; i < 14; i++) {
       const day = addDays(today, i);
-      const free = freeSlots(day, staffId);
+      const free = freeSlots(day, staffId, dur);
       if (free.length) return { date: day, time: free[0].m };
     }
     return null;
@@ -181,7 +228,20 @@
       li.classList.toggle('is-today', today >= a && today <= b);
     });
 
-    // Окна в первом экране: сегодня, если есть хоть одно, иначе ближайший рабочий день
+    renderQuickSlots();
+
+    if (doc.querySelector('[data-widget="estimate"]')) updateEstimate(true);
+    placeIndicators(true);
+    onScroll();
+
+    // Плашку про cookie показываем после первой прокрутки, чтобы она не закрывала первый экран
+    const cookie = doc.querySelector('[data-cookie]');
+    if (cookie) cookie.hidden = true;
+    cookieArmed = !!cookie && !store.get('slot-cookie');
+  }
+
+  // Окна в первом экране: сегодня, если есть хоть одно, иначе ближайший рабочий день
+  function renderQuickSlots() {
     const slotsBox = doc.querySelectorAll('[data-qw-slots]');
     if (slotsBox.length) {
       const base = addDays(bizNow(), 0);
@@ -205,15 +265,6 @@
           : '<span class="qw__none">Окон нет</span>';
       });
     }
-
-    if (doc.querySelector('[data-widget="estimate"]')) updateEstimate(true);
-    placeIndicators(true);
-    onScroll();
-
-    // Плашку про cookie показываем после первой прокрутки, чтобы она не закрывала первый экран
-    const cookie = doc.querySelector('[data-cookie]');
-    if (cookie) cookie.hidden = true;
-    cookieArmed = !!cookie && !store.get('slot-cookie');
   }
 
   let priceShown = null;
@@ -365,21 +416,26 @@
     );
   }
 
+  const bookDur = () => {
+    const svc = B.data.service && Slot.findService(cfg, B.data.service);
+    return (svc && svc.duration) || cfg.booking.step;
+  };
+
   function stepTime() {
     const today = addDays(bizNow(), 0);
     if (!B.data.date) {
-      const near = nearest(B.data.staff);
+      const near = nearest(B.data.staff, bookDur());
       B.data.date = near ? near.date : today;
     }
     const days = Array.from({ length: 14 }, (_, i) => addDays(today, i))
       .map((day) => {
-        const closed = !cfg.hours[dow(day)];
+        const closed = schedOn() ? !daySlots(day, B.data.staff, bookDur()).length : !cfg.hours[dow(day)];
         const on = sameDay(day, B.data.date);
         return `<button class="day${on ? ' is-on' : ''}" type="button" data-day="${day.getTime()}" aria-pressed="${on}"${closed ? ' disabled' : ''}>
           <span>${i18nWeekday(day, today)}</span><b>${day.getDate()}</b></button>`;
       })
       .join('');
-    const slots = daySlots(B.data.date, B.data.staff);
+    const slots = daySlots(B.data.date, B.data.staff, bookDur());
     const avail = slots.filter((s) => !s.busy && !s.past);
     const grid = avail.length
       ? slots
@@ -457,7 +513,7 @@
     return `
       <div class="done">
         <span class="done__ic">${ic('check')}</span>
-        <h3 class="done__title">Вы записаны</h3>
+        <h3 class="done__title">${schedOn() ? 'Заявка отправлена' : 'Вы записаны'}</h3>
         <p class="done__when">${esc(dayLabel(x.date))}, ${fmtMin(x.time)}</p>
         <ul class="done__list">
           <li><span>Услуга</span><b>${esc(svc.name)}</b></li>
@@ -466,9 +522,12 @@
           <li><span>Подтверждение</span><b>${esc(x.contact)}</b></li>
         </ul>
         <p class="done__note">${
-          cfg.booking.endpoint
-            ? 'Мы получили заявку и свяжемся с вами, чтобы подтвердить время.'
-            : 'Это демо: заявка никуда не отправлена. В рабочей версии она уходит администратору.'
+          schedOn()
+            ? 'Время закрепится за вами, когда администратор подтвердит заявку. Мы свяжемся с вами.' +
+              (cfg.booking.endpoint ? '' : ' Это демо: заявка видна во вкладке «Заявки» демо-админки в этом браузере.')
+            : cfg.booking.endpoint
+              ? 'Мы получили заявку и свяжемся с вами, чтобы подтвердить время.'
+              : 'Это демо: заявка никуда не отправлена. В рабочей версии она уходит администратору.'
         }</p>
       </div>`;
   }
@@ -524,6 +583,7 @@
         return;
       }
       if (cfg.booking.endpoint) return sendBooking();
+      if (schedOn()) saveDemoBooking();
       B.i = B.steps.length; // экран «Готово»
     } else {
       if (!isComplete(step)) return;
@@ -535,29 +595,48 @@
     focusStep();
   }
 
-  // Боевой сайт: заявка уходит на сервер (admin/api.php), оттуда — администратору
-  function sendBooking() {
+  function bookingPayload() {
     const x = B.data;
     const svc = Slot.findService(cfg, x.service);
     const staff = cfg.staff.find((m) => m.id === x.staff);
-    const next = dlg().querySelector('[data-book-next]');
-    next.disabled = true;
-    next.textContent = 'Отправляем…';
     const pad = (n) => String(n).padStart(2, '0');
-    const payload = {
+    return {
       service: svc ? svc.name : '',
       staff: cfg.booking.askStaff ? (staff ? staff.name : 'Любой свободный') : '',
+      staffId: cfg.booking.askStaff && staff ? staff.id : '',
       date: `${x.date.getFullYear()}-${pad(x.date.getMonth() + 1)}-${pad(x.date.getDate())}`,
       time: fmtMin(x.time),
+      dur: (svc && svc.duration) || cfg.booking.step,
       name: x.name.trim(),
       phone: x.phone,
       comment: x.comment.trim(),
       contact: x.contact,
-      // в письмо и админку — с подписями полей, как на сайте («Госномер: …»)
       extra: Object.fromEntries((cfg.booking.fields || []).filter((f) => (x.extra[f.id] || '').trim()).map((f) => [f.label, x.extra[f.id].trim()])),
-      consent: x.consent,
-      website: '',
     };
+  }
+
+  function saveDemoBooking() {
+    const list = demoBookings();
+    const d = new Date();
+    const pad = (n) => String(n).padStart(2, '0');
+    list.push(
+      Object.assign(bookingPayload(), {
+        id: Math.random().toString(36).slice(2, 10),
+        at: `${pad(d.getDate())}.${pad(d.getMonth() + 1)}.${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}`,
+        status: 'new',
+        phone: '+' + String(B.data.phone).replace(/\D/g, ''),
+      })
+    );
+    store.set(DEMO_BOOKINGS(), JSON.stringify(list.slice(-100)));
+  }
+
+  // Боевой сайт: заявка уходит на сервер (admin/api.php), оттуда — администратору
+  function sendBooking() {
+    const x = B.data;
+    const next = dlg().querySelector('[data-book-next]');
+    next.disabled = true;
+    next.textContent = 'Отправляем…';
+    const payload = Object.assign(bookingPayload(), { consent: x.consent, website: '' });
     fetch(cfg.booking.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
       .then((r) => r.json())
       .then((res) => {
@@ -619,6 +698,12 @@
     }
 
     const book = t.closest('[data-book]');
+    const ext = book && Slot.sched && Slot.sched.externalUrl(cfg);
+    if (ext) {
+      e.preventDefault();
+      g.open(ext, '_blank', 'noopener');
+      return;
+    }
     if (book) {
       const ds = book.dataset;
       const preset = {};
@@ -947,6 +1032,7 @@
       bar.hidden = false;
       bar.innerHTML = demoBar();
     }
+    loadBusy();
     hydrate();
     syncDoc();
   };

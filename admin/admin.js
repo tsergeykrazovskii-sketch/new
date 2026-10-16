@@ -111,7 +111,8 @@
     { id: 'contacts', label: 'Контакты и часы', anchor: 'contacts' },
     { id: 'style', label: 'Оформление', anchor: 'top' },
     { id: 'docs', label: 'Документы', anchor: 'top' },
-    { id: 'bookings', label: 'Заявки', anchor: 'top', server: true },
+    { id: 'schedule', label: 'Расписание', anchor: 'top', sched: true },
+    { id: 'bookings', label: 'Заявки', anchor: 'top', bookings: true },
   ];
 
   const PANELS = {};
@@ -530,20 +531,240 @@
 
   PANELS.bookings = () => `
     <h2>Заявки</h2>
-    <p class="lead">Последние заявки с сайта. Они же приходят на почту или в Telegram, если это настроено.</p>
+    <p class="lead">${
+      data.schedule
+        ? 'Заявка с сайта занимает время только после того, как вы её подтвердите. Новые заявки — сверху.'
+        : 'Последние заявки с сайта. Они же приходят на почту или в Telegram, если это настроено.'
+    }${mode === 'server' ? '' : ' В демо заявки хранятся в этом браузере.'}</p>
+    <div class="bk-filter segs" data-bk-filter>${[
+      ['new', 'Новые'],
+      ['confirmed', 'Подтверждённые'],
+      ['cancelled', 'Отменённые'],
+      ['all', 'Все'],
+    ]
+      .map(([v, l]) => `<button type="button" class="seg-btn${bkFilter === v ? ' is-on' : ''}" data-act="bk-filter" data-v="${v}">${l}</button>`)
+      .join('')}</div>
     <div class="bookings" data-bookings><p class="lead">Загружаем…</p></div>`;
+
+  /* ---------- расписание ---------- */
+
+  let bkFilter = 'new';
+  let bookingsCache = [];
+  let schedDay = null; // день, открытый в сетке
+  const DAYS_SHORT = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+  const DEMO_BK = () => 'slot-bookings-' + S.slug;
+  const pad2 = (n) => String(n).padStart(2, '0');
+  const hmToMin = (x) => {
+    const [h, m] = String(x).split(':').map(Number);
+    return h * 60 + (m || 0);
+  };
+  const minToHm = (m) => Math.floor(m / 60) + ':' + pad2(m % 60);
+  const dayStart = (d) => {
+    const x = new Date(d);
+    x.setHours(0, 0, 0, 0);
+    return x;
+  };
+  const busyOf = (list) =>
+    list
+      .filter((b) => b.status === 'confirmed' && b.date && b.time)
+      .map((b) => ({ d: b.date, m: hmToMin(b.time), dur: Number(b.dur) || 30, s: b.staffId || '', id: b.id }));
+
+  function siteCfg() {
+    return Slot.compose(niche, data);
+  }
+
+  PANELS.schedule = () => {
+    const sc = data.schedule || {};
+    const ext = sc.mode === 'external';
+    const head = `
+      <h2>Расписание</h2>
+      <p class="lead">Как клиенты записываются на сайте и когда вы свободны.</p>
+      <div class="f"><span class="f__lbl">Запись на сайте</span><div class="segs">
+        ${choice('schedule.mode', 'own', 'Своя — по расписанию ниже', ext ? 'external' : 'own')}
+        ${choice('schedule.mode', 'external', 'Через вашу систему записи', ext ? 'external' : 'own')}
+      </div></div>`;
+    if (ext) {
+      const ok = /^https:\/\/[^\s"'<>]+$/.test(sc.url || '');
+      return `${head}
+      <div class="card">
+        ${input('Ссылка на онлайн-запись', 'schedule.url', {
+          placeholder: 'https://n123456.yclients.com',
+          hint: 'YCLIENTS, DIKIDI, Сонлайн или другая система: скопируйте ссылку на вашу страницу записи. Все кнопки «Записаться» на сайте откроют её в новой вкладке, блок «Свободные окна» скрывается.',
+        })}
+        ${
+          sc.url && !ok
+            ? '<p class="own__warn">Ссылка должна начинаться с https://</p>'
+            : ok
+              ? `<p class="f__hint">Проверить: <a href="${esc(sc.url)}" target="_blank" rel="noopener">открыть страницу записи</a></p>`
+              : ''
+        }
+      </div>`;
+    }
+    const c = siteCfg();
+    const byStaff = Slot.sched.byStaff(c);
+    return `${head}
+      ${byStaff ? '' : `<div class="card">${input('Сколько клиентов принимаем одновременно', 'schedule.capacity', { type: 'number', hint: 'Например, число постов или кресел, на которые можно записаться онлайн. Мастера при записи не выбирают.' })}</div>`}
+      <h3 class="sub">График работы</h3>
+      ${byStaff ? staffWeeks() : '<p class="lead">Окна для записи — в часы работы из вкладки «Контакты и часы».</p>'}
+      <h3 class="sub">Выходные и отпуска</h3>
+      ${offList(byStaff)}
+      <h3 class="sub">Сетка на день</h3>
+      <p class="lead">Нажмите на свободное время, чтобы закрыть его (например, под клиента, записанного по телефону), и ещё раз — чтобы открыть. Подтверждённые заявки занимают время сами. После правок нажмите «Сохранить».</p>
+      <div data-grid>${dayGrid()}</div>`;
+  };
+
+  // График мастера: по умолчанию — часы работы салона, можно задать свой
+  function staffWeeks() {
+    return (data.staff || [])
+      .map((m, i) => {
+        const own = Array.isArray(m.days);
+        const days = own ? m.days : data.hours;
+        const rows = days
+          .map(
+            (h, d) => `
+          <div class="hour">
+            <span class="hour__day">${DAYS[d]}</span>
+            <label class="check"><input type="checkbox" data-kind="sday-open" data-i="${i}" data-d="${d}"${h ? ' checked' : ''}${own ? '' : ' disabled'}> работает</label>
+            <input type="time" data-kind="sday" data-i="${i}" data-d="${d}" data-part="0" value="${h ? h[0] : '10:00'}"${h && own ? '' : ' disabled'} aria-label="${esc(m.name)}, ${DAYS[d]}, с">
+            <span>—</span>
+            <input type="time" data-kind="sday" data-i="${i}" data-d="${d}" data-part="1" value="${h ? h[1] : '20:00'}"${h && own ? '' : ' disabled'} aria-label="${esc(m.name)}, ${DAYS[d]}, до">
+          </div>`
+          )
+          .join('');
+        return `
+        <div class="card">
+          <div class="card__head"><b>${esc(m.name || 'Мастер без имени')}</b></div>
+          <label class="check"><input type="checkbox" data-kind="sday-own" data-i="${i}"${own ? ' checked' : ''}> Свой график (иначе — часы работы салона)</label>
+          <div class="hours${own ? '' : ' is-muted'}">${rows}</div>
+        </div>`;
+      })
+      .join('');
+  }
+
+  function offList(byStaff) {
+    const off = (data.schedule && data.schedule.off) || [];
+    const who = (sel) =>
+      `<option value=""${sel ? '' : ' selected'}>${byStaff ? 'Все' : 'Вся запись'}</option>` +
+      (byStaff ? (data.staff || []).map((m) => `<option value="${esc(m.id)}"${sel === m.id ? ' selected' : ''}>${esc(m.name || 'Мастер')}</option>`).join('') : '');
+    return `
+      ${off
+        .map(
+          (o, i) => `
+        <div class="card off">
+          <div class="row3">
+            <div class="f"><label for="off-s-${i}">Кто</label><select id="off-s-${i}" data-path="schedule.off.${i}.s">${who(o.s)}</select></div>
+            <div class="f"><label for="off-f-${i}">С</label><input id="off-f-${i}" type="date" data-path="schedule.off.${i}.from" value="${esc(o.from || '')}"></div>
+            <div class="f"><label for="off-t-${i}">По</label><input id="off-t-${i}" type="date" data-path="schedule.off.${i}.to" value="${esc(o.to || '')}"></div>
+          </div>
+          <div class="row2">${input('Причина (видна только вам)', `schedule.off.${i}.note`, { placeholder: 'Отпуск' })}
+            <div class="f"><span class="f__lbl">&nbsp;</span><button type="button" class="btn" data-act="off-del" data-i="${i}">Удалить</button></div></div>
+        </div>`
+        )
+        .join('')}
+      <button type="button" class="add" data-act="off-add">+ Добавить выходной или отпуск</button>`;
+  }
+
+  // Сетка дня: строки — время, столбцы — мастера (или «Запись» с числом мест)
+  function dayGrid() {
+    const c = siteCfg();
+    const today = dayStart(new Date());
+    if (!schedDay) schedDay = today;
+    const days = Array.from({ length: 14 }, (_, i) => new Date(today.getFullYear(), today.getMonth(), today.getDate() + i));
+    const dayBtns = days
+      .map((d) => {
+        const on = d.getTime() === schedDay.getTime();
+        return `<button type="button" class="gday${on ? ' is-on' : ''}" data-act="sched-day" data-t="${d.getTime()}"><span>${DAYS_SHORT[(d.getDay() + 6) % 7]}</span><b>${d.getDate()}</b></button>`;
+      })
+      .join('');
+    const ymd = Slot.sched.ymd(schedDay);
+    const busy = busyOf(bookingsCache);
+    const pending = bookingsCache.filter((b) => b.status === 'new' && b.date === ymd);
+    const ids = Slot.sched.resources(c);
+    const step = c.booking.step || 30;
+    const spans = ids.map((id) => Slot.sched.hours(c, id, schedDay)).filter(Boolean);
+    let body = '<p class="lead">В этот день записи нет — выходной по графику.</p>';
+    if (spans.length) {
+      const from = Math.min(...spans.map((x) => x[0]));
+      const to = Math.max(...spans.map((x) => x[1]));
+      const heads = ids.map((id) => `<th>${esc(id ? (c.staff.find((m) => m.id === id) || {}).name || '' : `Запись · мест: ${Slot.sched.cap(c, '')}`)}</th>`).join('');
+      const rows = [];
+      for (let m = from; m + step <= to; m += step) {
+        const cells = ids
+          .map((id) => {
+            const h = Slot.sched.hours(c, id, schedDay);
+            if (!h || Slot.sched.off(c, id, ymd) || m < h[0] || m + step > h[1]) return '<td class="gc gc--off">—</td>';
+            const blocked = ((data.schedule && data.schedule.blocks) || []).some((b) => b.d === ymd && b.m === m && (b.s || '') === id);
+            const taken = busy.filter((b) => b.d === ymd && (id ? b.s === id : true) && m >= b.m && m < b.m + b.dur);
+            const wait = pending.filter((b) => hmToMin(b.time) === m && (id ? (b.staffId || '') === id || !b.staffId : true));
+            const label = taken.length
+              ? esc(taken.map((b) => (bookingsCache.find((x) => x.id === b.id) || {}).name || 'Заявка').join(', '))
+              : blocked
+                ? 'закрыто'
+                : 'свободно';
+            const cls = taken.length >= Slot.sched.cap(c, id) ? 'gc--busy' : blocked ? 'gc--block' : taken.length ? 'gc--part' : 'gc--free';
+            return `<td class="gc ${cls}">${
+              taken.length >= Slot.sched.cap(c, id)
+                ? `<span>${label}</span>`
+                : `<button type="button" data-act="cell" data-d="${ymd}" data-m="${m}" data-s="${esc(id)}">${label}</button>`
+            }${wait.length ? `<span class="gc__wait">ждёт подтверждения: ${wait.length}</span>` : ''}</td>`;
+          })
+          .join('');
+        rows.push(`<tr><th>${minToHm(m)}</th>${cells}</tr>`);
+      }
+      body = `<div class="grid-wrap"><table class="grid"><thead><tr><th></th>${heads}</tr></thead><tbody>${rows.join('')}</tbody></table></div>`;
+    }
+    return `<div class="gdays">${dayBtns}</div>${body}`;
+  }
+
+  // Заявки: хранилище — сервер или (в демо) этот браузер
+  function bookingsLoad() {
+    if (mode === 'server') return api('bookings').then((res) => res.items || []);
+    try {
+      return Promise.resolve(JSON.parse(store.get(DEMO_BK()) || '[]').slice().reverse());
+    } catch (e) {
+      return Promise.resolve([]);
+    }
+  }
+  function bookingSetStatus(id, status, staff) {
+    if (mode === 'server') return api('booking-status', Object.assign({ id, status }, staff || {}));
+    let list = [];
+    try {
+      list = JSON.parse(store.get(DEMO_BK()) || '[]');
+    } catch (e) {
+      /* пусто */
+    }
+    list.forEach((b) => {
+      if (b.id === id) Object.assign(b, { status }, staff || {});
+    });
+    store.set(DEMO_BK(), JSON.stringify(list));
+    return Promise.resolve({ ok: true });
+  }
+
+  // Подтверждение: время должно быть свободно (кроме самой заявки), а при выборе мастера — мастер назначен
+  function conflictOf(b, staffId) {
+    const c = siteCfg();
+    if (!b.date || !b.time) return '';
+    const date = new Date(b.date + 'T00:00:00');
+    const busy = busyOf(bookingsCache.filter((x) => x.id !== b.id));
+    const rid = Slot.sched.byStaff(c) ? staffId : '';
+    if (Slot.sched.byStaff(c) && !rid) return 'Выберите мастера';
+    return Slot.sched.free(c, rid, date, hmToMin(b.time), Number(b.dur) || c.booking.step || 30, busy) ? '' : 'Это время уже занято или нерабочее';
+  }
 
   /* ---------- отрисовка ---------- */
 
   function renderTabs() {
-    doc.querySelector('[data-tabs]').innerHTML = TABS.filter((t) => !t.server || mode === 'server')
+    // «Расписание» — у сайтов с расписанием; «Заявки» — на хостинге и в демо сайтов с расписанием
+    doc.querySelector('[data-tabs]').innerHTML = TABS.filter(
+      (t) => (!t.sched || data.schedule) && (!t.bookings || mode === 'server' || data.schedule)
+    )
       .map((t) => `<button type="button" class="tab" data-tab="${t.id}" aria-pressed="${t.id === tab}">${t.label}</button>`)
       .join('');
   }
 
   function renderPanel() {
     doc.querySelector('[data-panel]').innerHTML = PANELS[tab]();
-    if (tab === 'bookings') loadBookings();
+    if (tab === 'bookings' || tab === 'schedule') loadBookings();
   }
 
   function setStatus() {
@@ -854,23 +1075,44 @@
   /* ---------- заявки ---------- */
 
   function loadBookings() {
-    api('bookings')
-      .then((res) => {
+    bookingsLoad()
+      .then((items) => {
+        bookingsCache = items;
+        const grid = doc.querySelector('[data-grid]');
+        if (grid) grid.innerHTML = dayGrid();
         const box = doc.querySelector('[data-bookings]');
         if (!box) return;
-        box.innerHTML = res.items.length
-          ? res.items
-              .map(
-                (b) => `<div class="card"><div class="card__head"><b>${esc(b.name)} · ${esc(b.phone)}</b><span class="muted">${esc(b.at)}</span></div>
-                <p>${esc(b.service)}${b.staff ? ' · ' + esc(b.staff) : ''} · ${esc(b.date.split('-').reverse().join('.'))} в ${esc(b.time)}</p>
+        const c = siteCfg();
+        const byStaff = Slot.sched.byStaff(c);
+        const ST = { new: 'Новая', confirmed: 'Подтверждена', cancelled: 'Отменена' };
+        const shown = items.filter((b) => bkFilter === 'all' || (b.status || 'new') === bkFilter);
+        box.innerHTML = shown.length
+          ? shown
+              .map((b) => {
+                const st = b.status || 'new';
+                const pick =
+                  data.schedule && byStaff && b.id && st !== 'confirmed'
+                    ? `<div class="f"><label for="bk-${esc(b.id)}">Мастер</label><select id="bk-${esc(b.id)}" data-bk-staff="${esc(b.id)}"><option value="">выберите мастера</option>${c.staff
+                        .map((m) => `<option value="${esc(m.id)}"${(b.staffId || '') === m.id ? ' selected' : ''}>${esc(m.name)}</option>`)
+                        .join('')}</select></div>`
+                    : '';
+                const acts =
+                  data.schedule && b.id
+                    ? `<div class="bk-acts">${st !== 'confirmed' ? `<button type="button" class="btn btn--primary" data-act="bk-confirm" data-id="${esc(b.id)}">Подтвердить</button>` : ''}${
+                        st !== 'cancelled' ? `<button type="button" class="btn" data-act="bk-status" data-st="cancelled" data-id="${esc(b.id)}">Отменить</button>` : ''
+                      }${st !== 'new' ? `<button type="button" class="btn" data-act="bk-status" data-st="new" data-id="${esc(b.id)}">Вернуть в новые</button>` : ''}</div>`
+                    : '';
+                return `<div class="card bk bk--${st}"><div class="card__head"><b>${esc(b.name)} · ${esc(b.phone)}</b><span class="bk__st">${ST[st] || st}</span></div>
+                <p>${esc(b.service)}${b.staff ? ' · ' + esc(b.staff) : ''} · ${esc((b.date || '').split('-').reverse().join('.'))} в ${esc(b.time)}${b.dur ? ` · ${esc(b.dur)} мин` : ''}</p>
                 ${Object.entries(b.extra || {})
                   .filter(([, v]) => v)
                   .map(([k, v]) => `<p class="muted">${esc(k)}: ${esc(v)}</p>`)
                   .join('')}
-                ${b.comment ? `<p class="muted">${esc(b.comment)}</p>` : ''}<p class="muted">Подтвердить: ${esc(b.contact)}</p></div>`
-              )
+                ${b.comment ? `<p class="muted">${esc(b.comment)}</p>` : ''}<p class="muted">Подтвердить: ${esc(b.contact)} · заявка от ${esc(b.at || '')}</p>
+                ${pick}<p class="own__warn" data-bk-err="${esc(b.id || '')}" hidden></p>${acts}</div>`;
+              })
               .join('')
-          : '<p class="lead">Заявок пока нет.</p>';
+          : `<p class="lead">${bkFilter === 'new' ? 'Новых заявок нет.' : 'Заявок нет.'}</p>`;
       })
       .catch((err) => toast(err.message, true));
   }
@@ -903,7 +1145,13 @@
         return touch(false);
       }
       setPath(data, t.dataset.path, v);
-      if (t.dataset.path === 'brand.logoTone') return touch(true);
+      if (t.dataset.path === 'brand.logoTone' || t.dataset.path === 'schedule.mode') return touch(true);
+      if (/^schedule\.(off|capacity)/.test(t.dataset.path)) {
+        touch(false);
+        const grid = doc.querySelector('[data-grid]');
+        if (grid) grid.innerHTML = dayGrid();
+        return;
+      }
       if (t.dataset.path === 'promo.show' && v && !(data.promo && data.promo.text)) {
         data.promo = Object.assign({ text: 'Скидка на первый визит при записи онлайн', cta: 'Записаться', icon: 'percent' }, data.promo, { show: true });
         return touch(true);
@@ -938,6 +1186,23 @@
       if (t.value.trim()) list.push({ label: t.dataset.label, icon: t.dataset.label === 'Telegram' ? 'send' : 'message', url: t.value.trim() });
       const order = ['Telegram', 'MAX', 'ВКонтакте'];
       data.contacts.messengers = list.sort((a, b) => order.indexOf(a.label) - order.indexOf(b.label));
+      return touch(false);
+    }
+    if (kind === 'sday-own') {
+      const m = data.staff[Number(t.dataset.i)];
+      if (t.checked) m.days = data.hours.map((h) => (h ? h.slice() : null));
+      else delete m.days;
+      return touch(true);
+    }
+    if (kind === 'sday-open') {
+      const m = data.staff[Number(t.dataset.i)];
+      m.days[Number(t.dataset.d)] = t.checked ? (data.hours[Number(t.dataset.d)] || ['10:00', '20:00']).slice() : null;
+      return touch(true);
+    }
+    if (kind === 'sday') {
+      const m = data.staff[Number(t.dataset.i)];
+      const h = m.days && m.days[Number(t.dataset.d)];
+      if (h) h[Number(t.dataset.part)] = t.value;
       return touch(false);
     }
     if (kind === 'hours-open') {
@@ -1058,6 +1323,67 @@
     if (act === 'logo-del') {
       delete data.brand.logo;
       delete data.brand.logoTone;
+      return touch(true);
+    }
+    if (act === 'bk-filter') {
+      bkFilter = t.dataset.v;
+      return renderPanel();
+    }
+    if (act === 'bk-confirm' || act === 'bk-status') {
+      const id = t.dataset.id;
+      const b = bookingsCache.find((x) => x.id === id);
+      if (!b) return;
+      let extra = null;
+      if (act === 'bk-confirm') {
+        const sel = doc.querySelector(`[data-bk-staff="${id}"]`);
+        const staffId = sel ? sel.value : b.staffId || '';
+        const err = conflictOf(b, staffId);
+        const box = doc.querySelector(`[data-bk-err="${id}"]`);
+        if (err) {
+          if (box) {
+            box.textContent = err;
+            box.hidden = false;
+          }
+          return;
+        }
+        if (sel) extra = { staffId, staff: (siteCfg().staff.find((m) => m.id === staffId) || {}).name || '' };
+      }
+      return bookingSetStatus(id, act === 'bk-confirm' ? 'confirmed' : t.dataset.st, extra)
+        .then(() => {
+          toast(act === 'bk-confirm' ? 'Подтверждено — время занято' : 'Готово');
+          loadBookings();
+        })
+        .catch((err) => toast(err.message, true));
+    }
+    if (act === 'sched-day') {
+      schedDay = new Date(Number(t.dataset.t));
+      const grid = doc.querySelector('[data-grid]');
+      if (grid) grid.innerHTML = dayGrid();
+      return;
+    }
+    if (act === 'cell') {
+      const sc = (data.schedule = data.schedule || { mode: 'own' });
+      const blocks = (sc.blocks = sc.blocks || []);
+      const m = Number(t.dataset.m);
+      const i = blocks.findIndex((b) => b.d === t.dataset.d && b.m === m && (b.s || '') === t.dataset.s);
+      if (i >= 0) blocks.splice(i, 1);
+      else blocks.push({ d: t.dataset.d, m, s: t.dataset.s });
+      // старые закрытия (прошедшие дни) не храним
+      const today = Slot.sched.ymd(new Date());
+      sc.blocks = blocks.filter((b) => b.d >= today);
+      touch(false);
+      const grid = doc.querySelector('[data-grid]');
+      if (grid) grid.innerHTML = dayGrid();
+      return;
+    }
+    if (act === 'off-add') {
+      const sc = (data.schedule = data.schedule || { mode: 'own' });
+      const d = Slot.sched.ymd(new Date());
+      (sc.off = sc.off || []).push({ s: '', from: d, to: d, note: '' });
+      return touch(true);
+    }
+    if (act === 'off-del') {
+      data.schedule.off.splice(Number(t.dataset.i), 1);
       return touch(true);
     }
     if (act === 'favicon-del') {
