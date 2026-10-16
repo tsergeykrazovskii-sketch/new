@@ -10,6 +10,7 @@
     "Досье: лиды/Бункер № 3 (Москва).md; разбор: разборы/Бункер № 3 (Москва).md (данные проверены 15–16.10.2026)"
   ],
   "_todo": [
+    "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
     "логотип и фото (в картах есть, права у владельца)",
     "реквизиты для подвала и политики ПД",
     "длительность услуг для записи",
@@ -110,14 +111,42 @@
       "title": "Свободные окна",
       "more": "Все услуги и время",
       "limit": 1
-    }
+    },
+    "image": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
       "id": "any",
-      "name": "Любой свободный барбер",
-      "dative": "первому свободному барберу",
-      "role": "Ближайшие свободные окна"
+      "name": "Барбер",
+      "role": "Фото для примера",
+      "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/staff-1.webp",
+      "_placeholder": true,
+      "dative": "барберу"
+    },
+    {
+      "id": "m2",
+      "name": "Барбер",
+      "role": "Фото для примера",
+      "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/staff-2.webp",
+      "_placeholder": true,
+      "dative": "барберу"
+    },
+    {
+      "id": "m3",
+      "name": "Барбер",
+      "role": "Фото для примера",
+      "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/staff-3.webp",
+      "_placeholder": true,
+      "dative": "барберу"
+    },
+    {
+      "id": "m4",
+      "name": "Барбер",
+      "role": "Фото для примера",
+      "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/staff-4.webp",
+      "_placeholder": true,
+      "dative": "барберу"
     }
   ],
   "services": [
@@ -263,6 +292,48 @@
       "type": "services",
       "title": "Услуги и цены",
       "lead": "Цены по прайсу барбершопа в Яндекс Картах."
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото для примера: на сайте будут ваши мастера."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото для примера — на сайте будут ваши работы и зал.",
+      "items": [
+        {
+          "caption": "Фейд",
+          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-fade.webp",
+          "_placeholder": true
+        },
+        {
+          "caption": "Борода и опасная бритва",
+          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-beard.webp",
+          "_placeholder": true
+        },
+        {
+          "caption": "Укладка",
+          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-styling.webp",
+          "_placeholder": true
+        },
+        {
+          "caption": "Отец и сын",
+          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-family.webp",
+          "_placeholder": true
+        },
+        {
+          "caption": "Атмосфера",
+          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-interior.webp",
+          "_placeholder": true
+        },
+        {
+          "caption": "Инструменты",
+          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-tools.webp",
+          "_placeholder": true
+        }
+      ]
     },
     {
       "type": "faq",

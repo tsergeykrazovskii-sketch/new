@@ -10,6 +10,7 @@
     "Досье: лиды/Бикард (Москва).md; разбор: разборы/Бикард (Москва).md (проверено 14.10.2026)"
   ],
   "_todo": [
+    "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
     "ТОЧНЫЙ АДРЕС: в Яндексе — Марьино без улицы, в 2ГИС — Плеханова, 10а (Перово); на демо стоит адрес из 2ГИС",
     "график (Яндекс и 2ГИС расходятся)",
     "оплата картой",
@@ -134,7 +135,9 @@
       ],
       "note": "Цены «от» по прайсу сервиса, без запчастей. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
-    }
+    },
+    "image": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "services": [
     {
@@ -312,6 +315,48 @@
       "lead": "Цены «от», без запчастей. Итоговая стоимость зависит от марки и состояния автомобиля."
     },
     {
+      "type": "staff",
+      "title": "Команда",
+      "lead": "Фото для примера: на сайте будут ваши мастера."
+    },
+    {
+      "type": "gallery",
+      "title": "Сервис",
+      "lead": "Фото для примера — на сайте будут ваши работы и зал.",
+      "items": [
+        {
+          "caption": "Подъёмники",
+          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-lift.webp",
+          "_placeholder": true
+        },
+        {
+          "caption": "Диагностика",
+          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-diag.webp",
+          "_placeholder": true
+        },
+        {
+          "caption": "Шиномонтаж",
+          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-tires.webp",
+          "_placeholder": true
+        },
+        {
+          "caption": "Приёмка",
+          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-reception.webp",
+          "_placeholder": true
+        },
+        {
+          "caption": "Зона ожидания",
+          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-lounge.webp",
+          "_placeholder": true
+        },
+        {
+          "caption": "Хранение шин",
+          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-storage.webp",
+          "_placeholder": true
+        }
+      ]
+    },
+    {
       "type": "faq",
       "title": "Частые вопросы",
       "items": [
@@ -340,5 +385,35 @@
     "capacity": 1,
     "off": [],
     "blocks": []
-  }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Мастер-приёмщик",
+      "role": "Фото для примера",
+      "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Мастер",
+      "role": "Фото для примера",
+      "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Мастер",
+      "role": "Фото для примера",
+      "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Диагност",
+      "role": "Фото для примера",
+      "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-4.webp",
+      "_placeholder": true
+    }
+  ]
 }
