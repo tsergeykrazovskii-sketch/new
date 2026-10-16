@@ -8,10 +8,11 @@
     "Яндекс https://yandex.ru/maps/org/borodachev/24657002512/ — 5,0 / 226, цены, часы",
     "2ГИС https://2gis.ru/moscow/firm/70000001078834308 — 4,8 / 24, сайт borodachev.2gis.biz (404)",
     "Досье: лиды/Бородачёвъ (Москва).md; разбор: разборы/Бородачёвъ (Москва).md (данные проверены 15–16.10.2026)",
-    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026",
+    "Страница владельца в Яндекс Бизнесе https://borodachevbarber.clients.site/ (16.10.2026): логотип, слоган, описания услуг, фото зала и услуг, реквизиты ИП"
   ],
   "_todo": [
-    "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
+    "Мастера — заглушки (портреты и имена для примера); баннер, галерея и логотип — настоящие, со страницы владельца",
     "Имена мастеров на демо вымышленные (как в шаблоне ниши) — заменить на настоящих",
     "логотип и фото (в картах есть, права у владельца)",
     "реквизиты для подвала и политики ПД",
@@ -25,7 +26,9 @@
   ],
   "brand": {
     "name": "Бородачёвъ",
-    "kind": "Барбершоп"
+    "kind": "Барбершоп",
+    "logo": "data:image/png;base64,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",
+    "logoTone": "light"
   },
   "contacts": {
     "city": "Москва",
@@ -103,8 +106,8 @@
     }
   ],
   "hero": {
-    "title": "«Бородачёвъ» — барбершоп на Волгоградском проспекте",
-    "lead": "Стрижки, борода, королевское бритьё опасной бритвой, камуфляж седины и СПА-уход. 390 метров от метро, ежедневно с 10 до 22. 5,0 по 226 оценкам в Яндекс Картах.",
+    "title": "Стричь и брить — наша профессия",
+    "lead": "Барбершоп «Бородачёвъ» на Волгоградском проспекте: стрижки любой сложности, борода, королевское бритьё опасной бритвой, камуфляж седины и уход. Мастера внимательно выслушают пожелания и помогут создать идеальный образ. 5,0 по 226 оценкам в Яндекс Картах.",
     "cta": "Записаться онлайн",
     "secondary": "Услуги и цены",
     "proof": [
@@ -126,8 +129,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/hero.webp",
-    "imageAlt": "Барбер делает фейд машинкой"
+    "image": "https://avatars.mds.yandex.net/get-altay/14907397/2a00000199234970046e9c23293322743356/XXXL",
+    "imageAlt": "Зал барбершопа «Бородачёвъ»"
   },
   "staff": [
     {
@@ -170,7 +173,7 @@
         {
           "id": "cut",
           "name": "Мужская стрижка",
-          "desc": "",
+          "desc": "Стрижка любого стиля и уровня сложности, советы по уходу. Мытьё головы и укладка входят в услугу.",
           "price": {
             "value": 1800,
             "from": false
@@ -179,7 +182,7 @@
         {
           "id": "buzz1",
           "name": "Стрижка машинкой, одна насадка",
-          "desc": "",
+          "desc": "Короткая стрижка для тех, кому некогда ухаживать за причёской.",
           "price": {
             "value": 700,
             "from": false
@@ -188,7 +191,7 @@
         {
           "id": "buzz",
           "name": "Стрижка машинкой, несколько насадок",
-          "desc": "",
+          "desc": "Простая стрижка по форме головы и окантовка: 1–2 насадки, для чётких линий — опасная бритва.",
           "price": {
             "value": 1500,
             "from": false
@@ -197,7 +200,7 @@
         {
           "id": "kids",
           "name": "Детская стрижка",
-          "desc": "До 12 лет",
+          "desc": "Для детей от 4 до 12 лет — стрижка не хуже, чем у папы.",
           "price": {
             "value": 1300,
             "from": false
@@ -206,7 +209,7 @@
         {
           "id": "wash",
           "name": "Мытьё и укладка",
-          "desc": "",
+          "desc": "Укладка стайлингами премиум-брендов.",
           "price": {
             "value": 600,
             "from": false
@@ -215,7 +218,7 @@
         {
           "id": "tattoo",
           "name": "Рисунок на волосах (hair tattoo)",
-          "desc": "",
+          "desc": "Стильное решение для креативных людей.",
           "price": {
             "value": 200,
             "from": false
@@ -229,7 +232,7 @@
         {
           "id": "beard",
           "name": "Моделирование бороды",
-          "desc": "",
+          "desc": "Подберём форму бороды с учётом формы лица и головы.",
           "price": {
             "value": 1300,
             "from": false
@@ -238,7 +241,7 @@
         {
           "id": "cut-beard",
           "name": "Стрижка и борода",
-          "desc": "",
+          "desc": "Стрижка, которая удачно подходит под бороду, — под форму лица, образ жизни и настроение.",
           "price": {
             "value": 2900,
             "from": false
@@ -247,7 +250,7 @@
         {
           "id": "royal",
           "name": "Королевское бритьё опасной бритвой",
-          "desc": "",
+          "desc": "Опасной бритвой по росту волос и против, с распариванием кожи — для идеально гладкого лица.",
           "price": {
             "value": 1600,
             "from": false
@@ -256,7 +259,7 @@
         {
           "id": "head",
           "name": "Бритьё головы",
-          "desc": "",
+          "desc": "Бритьё головы острым клинком: распаривание кожи, итальянский лосьон и пена для гладкого скольжения.",
           "price": {
             "value": 1600,
             "from": false
@@ -270,7 +273,7 @@
         {
           "id": "camo",
           "name": "Камуфляж седины",
-          "desc": "",
+          "desc": "Тонирование головы убирает седину и даёт ровный тон — стрижка выглядит чётче.",
           "price": {
             "value": 1300,
             "from": false
@@ -279,7 +282,7 @@
         {
           "id": "camo-beard",
           "name": "Камуфляж бороды",
-          "desc": "",
+          "desc": "Тонирование бороды убирает седину и даёт ровный тон.",
           "price": {
             "value": 1300,
             "from": false
@@ -360,37 +363,39 @@
     {
       "type": "gallery",
       "title": "Работы",
-      "lead": "Фото для примера — на сайте будут ваши работы и зал.",
+      "lead": "Фото барбершопа и работ мастеров.",
       "items": [
         {
-          "caption": "Фейд",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-fade.webp",
-          "_placeholder": true
+          "caption": "Зал",
+          "img": "https://avatars.mds.yandex.net/get-altay/14907397/2a00000199234970046e9c23293322743356/XXXL"
         },
         {
-          "caption": "Борода и опасная бритва",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-beard.webp",
-          "_placeholder": true
+          "caption": "Стрижка и борода",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/10324913/2a0000018c0ac0f971b97387cc26aec1b510/XXL"
         },
         {
-          "caption": "Укладка",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-styling.webp",
-          "_placeholder": true
+          "caption": "Мужская стрижка",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/5234963/2a0000018c1190037253b6ccd9efe645578a/XXL"
         },
         {
-          "caption": "Отец и сын",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-family.webp",
-          "_placeholder": true
+          "caption": "Моделирование бороды",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/10324913/2a0000018c45070c4d5bc5084de07bbafdbd/XXL"
         },
         {
-          "caption": "Атмосфера",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-interior.webp",
-          "_placeholder": true
+          "caption": "Королевское бритьё",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/12412149/2a0000018c45070cbae77255811f4dfcd1d1/XXL"
         },
         {
-          "caption": "Инструменты",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-tools.webp",
-          "_placeholder": true
+          "caption": "Камуфляж седины",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/12411943/2a0000018c45070c11625a067214206e8b56/XXL"
+        },
+        {
+          "caption": "Детская стрижка",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/12412149/2a0000018c45070cc4df779b1afcb41e44e4/XXL"
+        },
+        {
+          "caption": "Зона ожидания",
+          "img": "https://avatars.mds.yandex.net/get-altay/16378552/2a0000019923498f888711999542c70ad660/XXXL"
         }
       ]
     },
@@ -456,5 +461,8 @@
       "title": "Как нас найти"
     }
   ],
-  "legal": {}
+  "legal": {
+    "operator": "ИП Набугорнова Татьяна Алексеевна",
+    "inn": "503407773892"
+  }
 }
