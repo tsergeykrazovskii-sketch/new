@@ -363,7 +363,7 @@
   };
   const logoMark = (c, small) => {
     const src = logoSrc(c);
-    if (!src) return `<span class="logo__name">${esc(c.brand.name)}</span>${small ? '' : `<span class="logo__kind">${esc(c.brand.kind)}</span>`}`;
+    if (!src) return `<span class="logo__name">${esc(c.brand.name)}</span>${small ? '' : `\n      <span class="logo__kind">${esc(c.brand.kind)}</span>`}`;
     const tone = c.brand.logoTone === 'light' || c.brand.logoTone === 'dark' ? ` logo__img--${c.brand.logoTone}` : '';
     return `<img class="logo__img${tone}" src="${esc(src)}" alt="${esc(c.brand.kind)} «${esc(c.brand.name)}»">`;
   };
@@ -1034,28 +1034,6 @@
       CONTENT_KEYS.forEach((k) => delete base[k]);
       return Object.assign(base, o);
     });
-    // Пока у клиента нет своих фото — универсальные кадры ниши: баннер и блок фото.
-    // Только атмосфера (руки, инструменты, детали): ни зала, ни людей, которых можно принять за команду клиента.
-    const u = niche.universal;
-    if (u && client.universalPhotos !== false) {
-      if (!c.hero.image && u.hero) {
-        c.hero.image = u.hero.image;
-        c.hero.imageAlt = u.hero.imageAlt;
-        c.hero.universal = true;
-      }
-      const own = (x) => (x.items || []).some((it) => it.img);
-      let gi = c.sections.findIndex((x) => x.type === 'gallery');
-      if (gi < 0) {
-        const at = c.sections.findIndex((x) => ['reviews', 'faq', 'contacts'].includes(x.type));
-        c.sections.splice(at < 0 ? c.sections.length : at, 0, { type: 'gallery', title: u.title, lead: u.lead });
-        gi = at < 0 ? c.sections.length - 1 : at;
-      }
-      const g = c.sections[gi];
-      if (!own(g)) {
-        c.sections[gi] = Object.assign({}, g, { items: u.gallery.map((it) => Object.assign({}, it)), universal: true });
-        if (!g.title) Object.assign(c.sections[gi], { title: u.title, lead: u.lead });
-      }
-    }
     return c;
   };
 

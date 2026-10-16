@@ -301,7 +301,6 @@
           ${data.brand.favicon ? '<button type="button" class="btn" data-act="favicon-del">Вернуть букву</button>' : ''}
         </div>
       </div>
-      ${universalNote()}
       <h3 class="sub">Первый экран</h3>
       <div class="card">${photoBox(data.hero.image, 'hero.image', 'Загрузить фото')}
         ${input('Что на фото (для поисковиков и незрячих)', 'hero.imageAlt', { placeholder: 'Барбер стрижёт клиента' })}</div>
@@ -697,23 +696,6 @@
       });
   }
 
-  // Универсальные кадры ниши: показываются, пока у сайта нет своих фото баннера или галереи
-  function universalNote() {
-    if (!niche.universal || S.slug === S.nicheId) return '';
-    const gi = sectionIndex('gallery');
-    const ownGallery = gi >= 0 && (data.sections[gi].items || []).some((it) => it.img);
-    const missing = [!data.hero.image && 'баннер первого экрана', !ownGallery && 'блок фото'].filter(Boolean);
-    return `
-      <div class="card">
-        <label class="check"><input type="checkbox" data-path="universalPhotos"${data.universalPhotos !== false ? ' checked' : ''}> Пока нет своих фото — показывать универсальные</label>
-        <p class="f__hint">${
-          missing.length
-            ? `Сейчас универсальные: ${missing.join(' и ')}. Это крупные планы работы — руки, инструменты, детали — без лиц и без узнаваемого помещения, чтобы никто не принял их за ваш зал или команду. Загрузите свои фото, и они заменят универсальные.`
-            : 'Все фото на сайте ваши, универсальные не используются.'
-        }</p>
-      </div>`;
-  }
-
   // Логотип: обрезаем однотонные поля по краям и уменьшаем до 600×200 — шапка сама впишет его по высоте
   function makeLogo(file) {
     return new Promise((resolve, reject) => {
@@ -910,7 +892,7 @@
         return touch(false);
       }
       setPath(data, t.dataset.path, v);
-      if (t.dataset.path === 'universalPhotos' || t.dataset.path === 'brand.logoTone') return touch(true);
+      if (t.dataset.path === 'brand.logoTone') return touch(true);
       if (t.dataset.path === 'promo.show' && v && !(data.promo && data.promo.text)) {
         data.promo = Object.assign({ text: 'Скидка на первый визит при записи онлайн', cta: 'Записаться', icon: 'percent' }, data.promo, { show: true });
         return touch(true);
