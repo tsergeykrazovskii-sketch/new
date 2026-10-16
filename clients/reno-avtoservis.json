@@ -12,6 +12,7 @@
   ],
   "_todo": [
     "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
+    "Имена мастеров на демо вымышленные (как в шаблоне ниши) — заменить на настоящих",
     "можно ли «Рено» в названии сайта",
     "актуальность прайса по моделям (на демо — пример Duster)",
     "оплата картой",
@@ -119,7 +120,7 @@
       "defaultBrand": 0,
       "brands": [
         {
-          "name": "Renault Duster",
+          "name": "Renault",
           "k": 1
         }
       ],
@@ -131,7 +132,7 @@
         "grm16",
         "grm20"
       ],
-      "note": "Цены на примере Renault Duster, работа без запчастей. Для других моделей — по прайсу сервиса.",
+      "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
     },
     "image": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/hero.webp",
@@ -316,7 +317,7 @@
     {
       "type": "staff",
       "title": "Мастера",
-      "lead": "Фото для примера: на сайте будут ваши мастера."
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
     },
     {
       "type": "gallery",
@@ -427,29 +428,29 @@
   "staff": [
     {
       "id": "m1",
-      "name": "Мастер-приёмщик",
-      "role": "Фото для примера",
+      "name": "Евгений",
+      "role": "Мастер-приёмщик",
       "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-1.webp",
       "_placeholder": true
     },
     {
       "id": "m2",
-      "name": "Мастер",
-      "role": "Фото для примера",
+      "name": "Андрей",
+      "role": "Старший мастер",
       "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-2.webp",
       "_placeholder": true
     },
     {
       "id": "m3",
-      "name": "Мастер",
-      "role": "Фото для примера",
+      "name": "Сергей",
+      "role": "Мастер",
       "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-3.webp",
       "_placeholder": true
     },
     {
       "id": "m4",
-      "name": "Диагност",
-      "role": "Фото для примера",
+      "name": "Дмитрий",
+      "role": "Диагност",
       "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-4.webp",
       "_placeholder": true
     }

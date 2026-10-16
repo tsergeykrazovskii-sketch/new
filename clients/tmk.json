@@ -12,6 +12,7 @@
   ],
   "_todo": [
     "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
+    "Имена мастеров на демо вымышленные (как в шаблоне ниши) — заменить на настоящих",
     "актуальность цен (в Яндексе «давно не обновлялось»; похоже, без запчастей)",
     "основной телефон (в 2ГИС другой)",
     "фото, логотип",
@@ -117,8 +118,48 @@
       "defaultBrand": 0,
       "brands": [
         {
-          "name": "Любая марка",
+          "name": "Kia",
           "k": 1
+        },
+        {
+          "name": "Hyundai",
+          "k": 1
+        },
+        {
+          "name": "Lada",
+          "k": 0.8
+        },
+        {
+          "name": "Haval",
+          "k": 1.05
+        },
+        {
+          "name": "Chery",
+          "k": 1.05
+        },
+        {
+          "name": "Geely",
+          "k": 1.05
+        },
+        {
+          "name": "Toyota",
+          "k": 1.1
+        },
+        {
+          "name": "Skoda",
+          "k": 1
+        },
+        {
+          "name": "VW",
+          "k": 1.05
+        },
+        {
+          "name": "BMW",
+          "k": 1.6
+        },
+        {
+          "name": "Другая марка",
+          "k": 1.07
         }
       ],
       "services": [
@@ -129,7 +170,7 @@
         "grm",
         "ac"
       ],
-      "note": "Цены «от» по прайсу сервиса, работа без запчастей. Итог назовёт мастер после осмотра.",
+      "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
     },
     "image": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/hero.webp",
@@ -307,7 +348,7 @@
     {
       "type": "staff",
       "title": "Мастера",
-      "lead": "Фото для примера: на сайте будут ваши мастера."
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
     },
     {
       "type": "gallery",
@@ -422,29 +463,29 @@
   "staff": [
     {
       "id": "m1",
-      "name": "Мастер-приёмщик",
-      "role": "Фото для примера",
+      "name": "Евгений",
+      "role": "Мастер-приёмщик",
       "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-1.webp",
       "_placeholder": true
     },
     {
       "id": "m2",
-      "name": "Мастер",
-      "role": "Фото для примера",
+      "name": "Юрий",
+      "role": "Старший мастер",
       "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-2.webp",
       "_placeholder": true
     },
     {
       "id": "m3",
-      "name": "Мастер",
-      "role": "Фото для примера",
+      "name": "Николай",
+      "role": "Мастер",
       "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-3.webp",
       "_placeholder": true
     },
     {
       "id": "m4",
-      "name": "Диагност",
-      "role": "Фото для примера",
+      "name": "Михаил",
+      "role": "Диагност",
       "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-4.webp",
       "_placeholder": true
     }

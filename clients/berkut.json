@@ -12,6 +12,7 @@
   ],
   "_todo": [
     "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
+    "Имена мастеров на демо вымышленные (как в шаблоне ниши) — заменить на настоящих",
     "логотип и фото (в картах есть, права у владельца)",
     "реквизиты для подвала и политики ПД",
     "длительность услуг для записи",
@@ -117,8 +118,7 @@
     "widget": {
       "type": "slots",
       "title": "Свободные окна",
-      "more": "Все услуги и время",
-      "limit": 1
+      "more": "Все услуги и время"
     },
     "image": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/hero.webp",
     "imageAlt": "Барбер делает фейд машинкой"
@@ -126,35 +126,35 @@
   "staff": [
     {
       "id": "any",
-      "name": "Барбер",
-      "role": "Фото для примера",
+      "name": "Тимур",
+      "role": "Старший барбер",
       "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/staff-1.webp",
       "_placeholder": true,
-      "dative": "барберу"
+      "dative": "Тимуру"
     },
     {
       "id": "m2",
-      "name": "Барбер",
-      "role": "Фото для примера",
+      "name": "Никита",
+      "role": "Барбер",
       "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/staff-2.webp",
       "_placeholder": true,
-      "dative": "барберу"
+      "dative": "Никите"
     },
     {
       "id": "m3",
-      "name": "Барбер",
-      "role": "Фото для примера",
+      "name": "Артём",
+      "role": "Барбер",
       "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/staff-3.webp",
       "_placeholder": true,
-      "dative": "барберу"
+      "dative": "Артёму"
     },
     {
       "id": "m4",
-      "name": "Барбер",
-      "role": "Фото для примера",
+      "name": "Глеб",
+      "role": "Барбер",
       "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/staff-4.webp",
       "_placeholder": true,
-      "dative": "барберу"
+      "dative": "Глебу"
     }
   ],
   "services": [
@@ -256,7 +256,7 @@
     }
   ],
   "booking": {
-    "askStaff": false,
+    "askStaff": true,
     "contactMethods": [
       "Звонок",
       "WhatsApp",
@@ -299,7 +299,7 @@
     {
       "type": "staff",
       "title": "Мастера",
-      "lead": "Фото для примера: на сайте будут ваши мастера."
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
     },
     {
       "type": "gallery",

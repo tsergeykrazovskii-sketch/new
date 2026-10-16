@@ -12,6 +12,7 @@
   ],
   "_todo": [
     "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
+    "Имена мастеров на демо вымышленные (как в шаблоне ниши) — заменить на настоящих",
     "полный прайс (в картах одна цена)",
     "фото бокса и команды, логотип",
     "реквизиты",
@@ -130,29 +131,29 @@
   "staff": [
     {
       "id": "priem",
-      "name": "Мастер-приёмщик",
-      "role": "Фото для примера",
+      "name": "Евгений",
+      "role": "Мастер-приёмщик",
       "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-1.webp",
       "_placeholder": true
     },
     {
       "id": "m2",
-      "name": "Мастер",
-      "role": "Фото для примера",
+      "name": "Алексей",
+      "role": "Старший мастер",
       "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-2.webp",
       "_placeholder": true
     },
     {
       "id": "m3",
-      "name": "Мастер",
-      "role": "Фото для примера",
+      "name": "Дмитрий",
+      "role": "Мастер",
       "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-3.webp",
       "_placeholder": true
     },
     {
       "id": "m4",
-      "name": "Диагност",
-      "role": "Фото для примера",
+      "name": "Юрий",
+      "role": "Диагност",
       "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-4.webp",
       "_placeholder": true
     }
@@ -314,7 +315,7 @@
     {
       "type": "staff",
       "title": "Мастера",
-      "lead": "Фото для примера: на сайте будут ваши мастера."
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
     },
     {
       "type": "gallery",
