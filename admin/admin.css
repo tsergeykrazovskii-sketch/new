@@ -733,3 +733,42 @@ h2 {
 .fav .lead {
   margin: 0;
 }
+
+/* логотип */
+.logo-card {
+  display: grid;
+  gap: 12px;
+}
+.logo-card__pv {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 72px;
+  padding: 12px 16px;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  background: var(--bg);
+}
+.logo-card__pv img {
+  display: block;
+  height: 48px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+.logo-card__pv span {
+  font-size: 22px;
+  font-weight: 700;
+}
+.logo-card__pv[data-tone="light"] {
+  background: #16181c;
+}
+.logo-card__pv[data-tone="light"] img {
+  filter: brightness(0) invert(1);
+}
+.logo-card__pv[data-tone="dark"] img {
+  filter: brightness(0);
+}
+.logo-card .lead {
+  margin: 0;
+}

@@ -358,6 +358,19 @@
       { type: 'contacts', title: 'Как нас найти' },
     ],
 
+    // Универсальные кадры для клиентов без своих фото: только атмосфера, без зала и без лиц
+    universal: {
+      hero: { image: '/assets/img/barber/hero.webp', imageAlt: 'Барбер делает фейд машинкой' },
+      title: 'Атмосфера',
+      lead: 'Стрижки, борода и уход — с вниманием к деталям.',
+      gallery: [
+        { caption: 'Скин-фейд', img: '/assets/img/barber/g-fade.webp' },
+        { caption: 'Борода и опасная бритва', img: '/assets/img/barber/g-beard.webp' },
+        { caption: 'Укладка', img: '/assets/img/barber/g-styling.webp' },
+        { caption: 'Инструменты', img: '/assets/img/barber/g-tools.webp' },
+      ],
+    },
+
     legal: { operator: 'ИП Ковалёв Артём Сергеевич', inn: '000000000000', address: 'г. Москва, Лесная ул., д. 7', email: 'hello@remeslo-demo.ru', year: '2026' },
   };
 })(typeof globalThis !== 'undefined' ? globalThis : window);

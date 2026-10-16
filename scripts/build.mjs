@@ -210,6 +210,15 @@ for (const f of clientFiles) {
   write(base, '.htaccess', read('admin/site.htaccess'));
   write(base, 'uploads/.htaccess', read('admin/uploads.htaccess'));
   setupCodes.push(`${slug}: ${code}`);
+  // универсальные кадры ниши (баннер и блок фото, пока у клиента нет своих) — в комплект, по тем же путям
+  const u = Slot.niches[nicheId].universal;
+  if (u) {
+    for (const img of [u.hero && u.hero.image].concat((u.gallery || []).map((it) => it.img)).filter(Boolean)) {
+      const rel = img.replace(/^.*?\/assets\/img\//, 'assets/img/');
+      fs.mkdirSync(path.dirname(path.join(base, rel)), { recursive: true });
+      fs.copyFileSync(path.join(root, rel), path.join(base, rel));
+    }
+  }
   const n = copyDir(`clients/${slug}/img`, path.join(dist, slug, 'img'));
   copyDir(`clients/${slug}/img`, path.join(base, 'img'));
   if (n) console.log(`${slug}/img/ — фото: ${n}`);

@@ -353,6 +353,19 @@
       { type: 'contacts', title: 'Как добраться' },
     ],
 
+    // Универсальные кадры для клиентов без своих фото: детали работы, без зала и без лиц
+    universal: {
+      hero: { image: '/assets/img/auto/hero.webp', imageAlt: 'Мастер осматривает машину на подъёмнике' },
+      title: 'В работе',
+      lead: 'Диагностика, шиномонтаж, тормоза и хранение шин.',
+      gallery: [
+        { caption: 'Диагностика', img: '/assets/img/auto/g-diag.webp' },
+        { caption: 'Шиномонтаж', img: '/assets/img/auto/g-tires.webp' },
+        { caption: 'Тормоза', img: '/assets/img/auto/g-brakes.webp' },
+        { caption: 'Хранение шин', img: '/assets/img/auto/g-storage.webp' },
+      ],
+    },
+
     legal: { operator: 'ООО «Поршень»', inn: '0000000000', address: 'г. Екатеринбург, Монтёрская ул., д. 3', email: 'service@porshen-demo.ru', year: '2026' },
   };
 })(typeof globalThis !== 'undefined' ? globalThis : window);

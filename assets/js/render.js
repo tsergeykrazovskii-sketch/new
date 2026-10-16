@@ -356,14 +356,26 @@
 
   const R = {};
 
+  // Логотип: загруженная в админке картинка (data URL или файл сайта) или название текстом
+  const logoSrc = (c) => {
+    const src = c.brand && c.brand.logo;
+    return src && /^(data:image\/(png|jpeg|webp|svg\+xml)[;,]|(img|uploads)\/|\/assets\/)/.test(src) ? src : '';
+  };
+  const logoMark = (c, small) => {
+    const src = logoSrc(c);
+    if (!src) return `<span class="logo__name">${esc(c.brand.name)}</span>${small ? '' : `<span class="logo__kind">${esc(c.brand.kind)}</span>`}`;
+    const tone = c.brand.logoTone === 'light' || c.brand.logoTone === 'dark' ? ` logo__img--${c.brand.logoTone}` : '';
+    return `<img class="logo__img${tone}" src="${esc(src)}" alt="${esc(c.brand.kind)} «${esc(c.brand.name)}»">`;
+  };
+  Slot.logoSrc = logoSrc;
+
   R.header = (c) => {
     const links = c.nav.map((n) => `<a href="#${esc(n.id)}">${esc(n.label)}</a>`).join('');
     return `
 <header class="hdr">
   <div class="wrap hdr__in">
-    <a class="logo" href="#top" aria-label="${esc(c.brand.kind)} «${esc(c.brand.name)}», наверх">
-      <span class="logo__name">${esc(c.brand.name)}</span>
-      <span class="logo__kind">${esc(c.brand.kind)}</span>
+    <a class="logo${logoSrc(c) ? ' logo--img' : ''}" href="#top" aria-label="${esc(c.brand.kind)} «${esc(c.brand.name)}», наверх">
+      ${logoMark(c)}
     </a>
     <nav class="hdr__nav" aria-label="Разделы">${links}</nav>
     <div class="hdr__aside">
@@ -918,7 +930,7 @@
   R.footer = (c) => `
 <footer class="ftr">
   <div class="wrap ftr__in">
-    <div class="ftr__brand"><span class="logo__name">${esc(c.brand.name)}</span>${c.legal && legalEntity(c.legal) ? `<span>${esc(legalEntity(c.legal))}</span>` : ''}</div>
+    <div class="ftr__brand">${logoMark(c, true)}${c.legal && legalEntity(c.legal) ? `<span>${esc(legalEntity(c.legal))}</span>` : ''}</div>
     <nav class="ftr__links" aria-label="Документы">
       <a href="#privacy">Политика обработки персональных данных</a>
       <a href="#consent">Согласие на обработку персональных данных</a>
@@ -928,8 +940,9 @@
 </footer>`;
 
   // Рекламная плашка над шапкой: одна акция и кнопка записи на неё
+  // Плашка с акцией: владелец меняет текст и выключает её в админке (promo.show = false)
   R.promo = (c) =>
-    c.promo
+    c.promo && c.promo.show !== false && String(c.promo.text || '').trim()
       ? `
 <div class="promo">
   <div class="wrap promo__in">
@@ -1021,6 +1034,28 @@
       CONTENT_KEYS.forEach((k) => delete base[k]);
       return Object.assign(base, o);
     });
+    // Пока у клиента нет своих фото — универсальные кадры ниши: баннер и блок фото.
+    // Только атмосфера (руки, инструменты, детали): ни зала, ни людей, которых можно принять за команду клиента.
+    const u = niche.universal;
+    if (u && client.universalPhotos !== false) {
+      if (!c.hero.image && u.hero) {
+        c.hero.image = u.hero.image;
+        c.hero.imageAlt = u.hero.imageAlt;
+        c.hero.universal = true;
+      }
+      const own = (x) => (x.items || []).some((it) => it.img);
+      let gi = c.sections.findIndex((x) => x.type === 'gallery');
+      if (gi < 0) {
+        const at = c.sections.findIndex((x) => ['reviews', 'faq', 'contacts'].includes(x.type));
+        c.sections.splice(at < 0 ? c.sections.length : at, 0, { type: 'gallery', title: u.title, lead: u.lead });
+        gi = at < 0 ? c.sections.length - 1 : at;
+      }
+      const g = c.sections[gi];
+      if (!own(g)) {
+        c.sections[gi] = Object.assign({}, g, { items: u.gallery.map((it) => Object.assign({}, it)), universal: true });
+        if (!g.title) Object.assign(c.sections[gi], { title: u.title, lead: u.lead });
+      }
+    }
     return c;
   };
 

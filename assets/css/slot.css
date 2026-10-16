@@ -355,6 +355,31 @@ h3 {
 .logo__name {
   font-size: min(calc(1.7rem * var(--display-scale)), 7.4vw);
 }
+.logo__img {
+  display: block;
+  width: auto;
+  height: 40px;
+  max-width: min(220px, 52vw);
+  object-fit: contain;
+  object-position: left center;
+}
+/* однотонный логотип можно перекрасить под тёмную или светлую шапку */
+.logo__img--light {
+  filter: brightness(0) invert(1);
+}
+.logo__img--dark {
+  filter: brightness(0);
+}
+@media (min-width: 1024px) {
+  .logo__img {
+    height: 48px;
+    max-width: 260px;
+  }
+}
+.ftr__brand .logo__img {
+  height: 32px;
+  max-width: 200px;
+}
 .logo__kind {
   margin-top: 3px;
   font-size: calc(12px * var(--text-scale));

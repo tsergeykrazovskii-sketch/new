@@ -139,8 +139,39 @@
       ${input('Заголовок первого экрана', 'hero.title', { multiline: true, rows: 2 })}
       ${input('Текст под заголовком', 'hero.lead', { multiline: true, rows: 4 })}
       ${input('Кнопка записи', 'hero.cta')}
+      ${promoBlock()}
       ${perks}`;
   };
+
+  // Плашка с акцией над шапкой: включается галочкой, ведёт на запись (можно сразу на нужную услугу)
+  const PROMO_ICONS = [
+    ['percent', 'Скидка %'],
+    ['gift', 'Подарок'],
+    ['sparkle', 'Звёздочка'],
+    ['calendar', 'Календарь'],
+    ['scissors', 'Ножницы'],
+    ['tire', 'Колесо'],
+  ];
+  function promoBlock() {
+    const p = data.promo || {};
+    const on = !!p.text && p.show !== false;
+    const svc = (data.services || [])
+      .flatMap((cat) => cat.items || [])
+      .map((it) => `<option value="${esc(it.id)}"${p.service === it.id ? ' selected' : ''}>${esc(it.name || 'Без названия')}</option>`)
+      .join('');
+    return `
+      <h3 class="sub">Плашка с акцией над шапкой</h3>
+      <div class="card">
+        <label class="check"><input type="checkbox" data-path="promo.show"${on ? ' checked' : ''}> Показывать плашку на сайте</label>
+        ${input('Текст акции', 'promo.text', { placeholder: '−15% на первую стрижку при записи онлайн', hint: 'Коротко, в одну-две строки на телефоне. Пустой текст — плашки нет.' })}
+        <div class="row2">
+          ${input('Текст кнопки', 'promo.cta', { placeholder: 'Записаться' })}
+          <div class="f"><label for="f-promo-service">Кнопка открывает запись на</label>
+            <select id="f-promo-service" data-path="promo.service"><option value=""${p.service ? '' : ' selected'}>любую услугу</option>${svc}</select></div>
+        </div>
+        <div class="f"><span class="f__lbl">Значок</span><div class="segs">${PROMO_ICONS.map(([id, label]) => choice('promo.icon', id, label, p.icon || 'sparkle')).join('')}</div></div>
+      </div>`;
+  }
 
   PANELS.services = () => {
     const cats = (data.services || [])
@@ -233,6 +264,34 @@
     return `
       <h2>Фото</h2>
       <p class="lead">Фото с телефона подойдут. Сайт сам уменьшит их, чтобы страница открывалась быстро.</p>
+      <h3 class="sub">Логотип</h3>
+      <div class="card logo-card">
+        <div class="logo-card__pv" data-tone="${esc(data.brand.logoTone || '')}">${
+          data.brand.logo
+            ? `<img src="${esc(imgUrl(data.brand.logo))}" alt="">`
+            : `<span>${esc(data.brand.name)}</span>`
+        }</div>
+        <p class="lead">${
+          data.brand.logo
+            ? 'Логотип уже подогнан под шапку: лишние поля обрезаны, размер уменьшен.'
+            : 'Сейчас в шапке название текстом. Загрузите логотип — PNG с прозрачным фоном или SVG подойдут лучше всего, но и JPG справится: сайт сам обрежет поля и подгонит размер.'
+        }</p>
+        <div class="fav__acts">
+          <label class="btn">${data.brand.logo ? 'Заменить' : 'Загрузить логотип'}<input type="file" accept="image/*" data-kind="logo" hidden></label>
+          ${data.brand.logo ? '<button type="button" class="btn" data-act="logo-del">Показывать название текстом</button>' : ''}
+        </div>
+        ${
+          data.brand.logo
+            ? `<div class="f"><span class="f__lbl">Цвет логотипа</span><div class="segs">${[
+                ['', 'Как есть'],
+                ['light', 'Белый — для тёмной шапки'],
+                ['dark', 'Чёрный — для светлой шапки'],
+              ]
+                .map(([v, l]) => choice('brand.logoTone', v, l, data.brand.logoTone || ''))
+                .join('')}</div><p class="f__hint">«Белый» и «Чёрный» превращают логотип в однотонный силуэт — подходит для однотонных знаков. Цветной логотип оставьте как есть.</p></div>`
+            : ''
+        }
+      </div>
       <h3 class="sub">Иконка сайта</h3>
       <div class="card fav">
         <div class="fav__tab" aria-hidden="true"><img src="${esc(siteIcon())}" alt=""><span>${esc(data.brand.name)}</span></div>
@@ -242,6 +301,7 @@
           ${data.brand.favicon ? '<button type="button" class="btn" data-act="favicon-del">Вернуть букву</button>' : ''}
         </div>
       </div>
+      ${universalNote()}
       <h3 class="sub">Первый экран</h3>
       <div class="card">${photoBox(data.hero.image, 'hero.image', 'Загрузить фото')}
         ${input('Что на фото (для поисковиков и незрячих)', 'hero.imageAlt', { placeholder: 'Барбер стрижёт клиента' })}</div>
@@ -637,6 +697,115 @@
       });
   }
 
+  // Универсальные кадры ниши: показываются, пока у сайта нет своих фото баннера или галереи
+  function universalNote() {
+    if (!niche.universal || S.slug === S.nicheId) return '';
+    const gi = sectionIndex('gallery');
+    const ownGallery = gi >= 0 && (data.sections[gi].items || []).some((it) => it.img);
+    const missing = [!data.hero.image && 'баннер первого экрана', !ownGallery && 'блок фото'].filter(Boolean);
+    return `
+      <div class="card">
+        <label class="check"><input type="checkbox" data-path="universalPhotos"${data.universalPhotos !== false ? ' checked' : ''}> Пока нет своих фото — показывать универсальные</label>
+        <p class="f__hint">${
+          missing.length
+            ? `Сейчас универсальные: ${missing.join(' и ')}. Это крупные планы работы — руки, инструменты, детали — без лиц и без узнаваемого помещения, чтобы никто не принял их за ваш зал или команду. Загрузите свои фото, и они заменят универсальные.`
+            : 'Все фото на сайте ваши, универсальные не используются.'
+        }</p>
+      </div>`;
+  }
+
+  // Логотип: обрезаем однотонные поля по краям и уменьшаем до 600×200 — шапка сама впишет его по высоте
+  function makeLogo(file) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      const url = URL.createObjectURL(file);
+      img.onload = () => {
+        URL.revokeObjectURL(url);
+        const W = img.naturalWidth || 600;
+        const H = img.naturalHeight || 200;
+        const cv = doc.createElement('canvas');
+        cv.width = W;
+        cv.height = H;
+        const ctx = cv.getContext('2d');
+        ctx.drawImage(img, 0, 0, W, H);
+        let box = { x: 0, y: 0, w: W, h: H };
+        try {
+          const px = ctx.getImageData(0, 0, W, H).data;
+          const at = (x, y) => (y * W + x) * 4;
+          const c0 = at(0, 0);
+          const bg = [px[c0], px[c0 + 1], px[c0 + 2], px[c0 + 3]];
+          // фон — цвет угла; прозрачный фон — любой почти прозрачный пиксель
+          const isBg = (i) =>
+            bg[3] < 16 ? px[i + 3] < 16 : Math.abs(px[i] - bg[0]) + Math.abs(px[i + 1] - bg[1]) + Math.abs(px[i + 2] - bg[2]) < 36 && px[i + 3] > 200;
+          let x0 = W, y0 = H, x1 = -1, y1 = -1;
+          for (let y = 0; y < H; y++)
+            for (let x = 0; x < W; x++)
+              if (!isBg(at(x, y))) {
+                if (x < x0) x0 = x;
+                if (x > x1) x1 = x;
+                if (y < y0) y0 = y;
+                if (y > y1) y1 = y;
+              }
+          if (x1 >= x0 && y1 >= y0) {
+            const pad = Math.round(Math.max(x1 - x0, y1 - y0) * 0.02);
+            x0 = Math.max(0, x0 - pad);
+            y0 = Math.max(0, y0 - pad);
+            box = { x: x0, y: y0, w: Math.min(W, x1 + pad + 1) - x0, h: Math.min(H, y1 + pad + 1) - y0 };
+          }
+        } catch (e) {
+          /* картинка без доступа к пикселям — берём целиком */
+        }
+        const k = Math.min(1, 600 / box.w, 200 / box.h);
+        const out = doc.createElement('canvas');
+        out.width = Math.max(1, Math.round(box.w * k));
+        out.height = Math.max(1, Math.round(box.h * k));
+        const o = out.getContext('2d');
+        o.imageSmoothingQuality = 'high';
+        o.drawImage(cv, box.x, box.y, box.w, box.h, 0, 0, out.width, out.height);
+        knockOut(o, out.width, out.height);
+        resolve(out.toDataURL('image/png'));
+      };
+      img.onerror = () => {
+        URL.revokeObjectURL(url);
+        reject(new Error('Это не похоже на картинку. Подойдут PNG, JPG, WebP или SVG'));
+      };
+      img.src = url;
+    });
+  }
+
+  // Однотонный фон логотипа (например, белый у JPG) делаем прозрачным: заливка от краёв картинки,
+  // поэтому белое внутри знака (просветы букв) остаётся. Прозрачный PNG не трогаем.
+  function knockOut(ctx, W, H) {
+    let im;
+    try {
+      im = ctx.getImageData(0, 0, W, H);
+    } catch (e) {
+      return;
+    }
+    const px = im.data;
+    if (px[3] < 250) return;
+    const bg = [px[0], px[1], px[2]];
+    const near = (i) => Math.abs(px[i] - bg[0]) + Math.abs(px[i + 1] - bg[1]) + Math.abs(px[i + 2] - bg[2]) < 48;
+    const seen = new Uint8Array(W * H);
+    const stack = [];
+    for (let x = 0; x < W; x++) stack.push(x, (H - 1) * W + x);
+    for (let y = 0; y < H; y++) stack.push(y * W, y * W + W - 1);
+    while (stack.length) {
+      const p = stack.pop();
+      if (seen[p]) continue;
+      seen[p] = 1;
+      const i = p * 4;
+      if (!near(i)) continue;
+      px[i + 3] = 0;
+      const x = p % W;
+      if (x > 0) stack.push(p - 1);
+      if (x < W - 1) stack.push(p + 1);
+      if (p >= W) stack.push(p - W);
+      if (p < W * (H - 1)) stack.push(p + W);
+    }
+    ctx.putImageData(im, 0, 0);
+  }
+
   // Иконка сайта: квадрат по центру картинки, 128×128 PNG прямо в данных сайта (без загрузки на сервер)
   function makeIcon(file) {
     return new Promise((resolve, reject) => {
@@ -741,6 +910,11 @@
         return touch(false);
       }
       setPath(data, t.dataset.path, v);
+      if (t.dataset.path === 'universalPhotos' || t.dataset.path === 'brand.logoTone') return touch(true);
+      if (t.dataset.path === 'promo.show' && v && !(data.promo && data.promo.text)) {
+        data.promo = Object.assign({ text: 'Скидка на первый визит при записи онлайн', cta: 'Записаться', icon: 'percent' }, data.promo, { show: true });
+        return touch(true);
+      }
       if (/^legal\.(privacy|consent)$/.test(t.dataset.path)) {
         previewDoc = t.dataset.path.split('.')[1];
         const warn = doc.querySelector(`[data-doc-warn="${previewDoc}"]`);
@@ -787,7 +961,14 @@
 
   function onChange(e) {
     const t = e.target;
-    if (t.dataset.kind === 'favicon' && t.files && t.files[0]) {
+    if (t.dataset.kind === 'logo' && t.files && t.files[0]) {
+      makeLogo(t.files[0])
+        .then((logo) => {
+          data.brand.logo = logo;
+          touch(true);
+        })
+        .catch((err) => toast(err.message, true));
+    } else if (t.dataset.kind === 'favicon' && t.files && t.files[0]) {
       makeIcon(t.files[0])
         .then((icon) => {
           data.brand.favicon = icon;
@@ -879,6 +1060,11 @@
     }
     if (act === 'img-del') {
       setPath(data, t.dataset.target, '');
+      return touch(true);
+    }
+    if (act === 'logo-del') {
+      delete data.brand.logo;
+      delete data.brand.logoTone;
       return touch(true);
     }
     if (act === 'favicon-del') {
