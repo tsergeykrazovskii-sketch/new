@@ -748,7 +748,22 @@
     const busy = busyOf(bookingsCache.filter((x) => x.id !== b.id));
     const rid = Slot.sched.byStaff(c) ? staffId : '';
     if (Slot.sched.byStaff(c) && !rid) return 'Выберите мастера';
-    return Slot.sched.free(c, rid, date, hmToMin(b.time), Number(b.dur) || c.booking.step || 30, busy) ? '' : 'Это время уже занято или нерабочее';
+    const m = hmToMin(b.time);
+    const dur = Number(b.dur) || c.booking.step || 30;
+    if (Slot.sched.free(c, rid, date, m, dur, busy)) return '';
+    // почему нельзя: выходной, вне графика, закрыто вручную или занято другой заявкой
+    const who = rid ? `У мастера «${(c.staff.find((x) => x.id === rid) || {}).name || ''}»` : 'У записи';
+    const h = Slot.sched.hours(c, rid, date);
+    if (!h) return `${who} в этот день выходной по графику`;
+    if (Slot.sched.off(c, rid, b.date)) return `${who} в этот день выходной или отпуск (вкладка «Расписание»)`;
+    if (m < h[0] || m + dur > h[1]) return `Не помещается в график: в этот день работа с ${minToHm(h[0])} до ${minToHm(h[1])}, а заявка ${minToHm(m)}–${minToHm(m + dur)}`;
+    if (!Slot.sched.free(c, rid, date, m, dur, [])) return 'Это время закрыто вручную в сетке на вкладке «Расписание»';
+    const hit = busy
+      .filter((x) => x.d === b.date && (!rid || x.s === rid) && x.m < m + dur && m < x.m + x.dur)
+      .map((x) => bookingsCache.find((y) => y.id === x.id))
+      .filter(Boolean)
+      .map((y) => `${y.name || 'заявка'}, ${y.time}`);
+    return `Время уже занято подтверждённой заявкой${hit.length ? ': ' + hit.join('; ') : ''}`;
   }
 
   /* ---------- отрисовка ---------- */
@@ -1108,7 +1123,7 @@
                   .filter(([, v]) => v)
                   .map(([k, v]) => `<p class="muted">${esc(k)}: ${esc(v)}</p>`)
                   .join('')}
-                ${b.comment ? `<p class="muted">${esc(b.comment)}</p>` : ''}<p class="muted">Подтвердить: ${esc(b.contact)} · заявка от ${esc(b.at || '')}</p>
+                ${b.comment ? `<p class="muted">${esc(b.comment)}</p>` : ''}${b.contact || b.at ? `<p class="muted">${[b.contact ? `Подтвердить: ${esc(b.contact)}` : '', b.at ? `заявка от ${esc(b.at)}` : ''].filter(Boolean).join(' · ')}</p>` : ''}
                 ${pick}<p class="own__warn" data-bk-err="${esc(b.id || '')}" hidden></p>${acts}</div>`;
               })
               .join('')

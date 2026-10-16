@@ -807,15 +807,20 @@ h2 {
 .gday.is-on b {
   color: var(--on-primary);
 }
+/* сетка листается внутри рамки: имена мастеров и время всегда на виду */
 .grid-wrap {
-  overflow-x: auto;
+  overflow: auto;
+  max-height: max(320px, calc(100vh - 200px));
+  max-height: max(320px, calc(100dvh - 200px));
+  overscroll-behavior: contain;
   border: 1px solid var(--line);
   border-radius: 10px;
   background: var(--surface);
 }
 .grid {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   font-size: 13px;
 }
 .grid th,
@@ -826,16 +831,30 @@ h2 {
   vertical-align: top;
 }
 .grid thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
   padding: 10px 8px;
+  background: var(--surface);
   font-weight: 600;
   white-space: nowrap;
 }
 .grid tbody th {
+  position: sticky;
+  left: 0;
+  z-index: 1;
   width: 56px;
   padding: 10px 8px;
+  background: var(--surface);
+  box-shadow: 1px 0 0 var(--line);
   color: var(--muted);
   font-weight: 500;
   font-variant-numeric: tabular-nums;
+}
+.grid thead th:first-child {
+  left: 0;
+  z-index: 3;
+  box-shadow: 1px 0 0 var(--line);
 }
 .gc {
   min-width: 120px;
