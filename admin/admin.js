@@ -643,10 +643,12 @@
 
   function offList(byStaff) {
     const off = (data.schedule && data.schedule.off) || [];
+    const staff = (data.staff || []).filter((m) => m.id);
     const who = (sel) =>
-      `<option value=""${sel ? '' : ' selected'}>${byStaff ? 'Все' : 'Вся запись'}</option>` +
-      (byStaff ? (data.staff || []).map((m) => `<option value="${esc(m.id)}"${sel === m.id ? ' selected' : ''}>${esc(m.name || 'Мастер')}</option>`).join('') : '');
+      `<option value=""${sel ? '' : ' selected'}>Все (запись закрыта)</option>` +
+      staff.map((m) => `<option value="${esc(m.id)}"${sel === m.id ? ' selected' : ''}>${esc(m.name || 'Мастер')}</option>`).join('');
     return `
+      ${!byStaff && staff.length ? '<p class="lead">Отпуск мастера уменьшает число мест для записи на эти дни: мест будет не больше, чем мастеров на работе.</p>' : ''}
       ${off
         .map(
           (o, i) => `
@@ -686,7 +688,7 @@
     if (spans.length) {
       const from = Math.min(...spans.map((x) => x[0]));
       const to = Math.max(...spans.map((x) => x[1]));
-      const heads = ids.map((id) => `<th>${esc(id ? (c.staff.find((m) => m.id === id) || {}).name || '' : `Запись · мест: ${Slot.sched.cap(c, '')}`)}</th>`).join('');
+      const heads = ids.map((id) => `<th>${esc(id ? (c.staff.find((m) => m.id === id) || {}).name || '' : `Запись · мест: ${Slot.sched.cap(c, '', ymd)}`)}</th>`).join('');
       const rows = [];
       for (let m = from; m + step <= to; m += step) {
         const cells = ids
@@ -701,9 +703,9 @@
               : blocked
                 ? 'закрыто'
                 : 'свободно';
-            const cls = taken.length >= Slot.sched.cap(c, id) ? 'gc--busy' : blocked ? 'gc--block' : taken.length ? 'gc--part' : 'gc--free';
+            const cls = taken.length >= Slot.sched.cap(c, id, ymd) ? 'gc--busy' : blocked ? 'gc--block' : taken.length ? 'gc--part' : 'gc--free';
             return `<td class="gc ${cls}">${
-              taken.length >= Slot.sched.cap(c, id)
+              taken.length >= Slot.sched.cap(c, id, ymd)
                 ? `<span>${label}</span>`
                 : `<button type="button" data-act="cell" data-d="${ymd}" data-m="${m}" data-s="${esc(id)}">${label}</button>`
             }${wait.length ? `<span class="gc__wait">ждёт подтверждения: ${wait.length}</span>` : ''}</td>`;
@@ -757,13 +759,15 @@
     if (!h) return `${who} в этот день выходной по графику`;
     if (Slot.sched.off(c, rid, b.date)) return `${who} в этот день выходной или отпуск (вкладка «Расписание»)`;
     if (m < h[0] || m + dur > h[1]) return `Не помещается в график: в этот день работа с ${minToHm(h[0])} до ${minToHm(h[1])}, а заявка ${minToHm(m)}–${minToHm(m + dur)}`;
+    if (!rid && !Slot.sched.cap(c, '', b.date)) return 'В этот день все мастера в отпуске или на выходном';
     if (!Slot.sched.free(c, rid, date, m, dur, [])) return 'Это время закрыто вручную в сетке на вкладке «Расписание»';
     const hit = busy
       .filter((x) => x.d === b.date && (!rid || x.s === rid) && x.m < m + dur && m < x.m + x.dur)
       .map((x) => bookingsCache.find((y) => y.id === x.id))
       .filter(Boolean)
       .map((y) => `${y.name || 'заявка'}, ${y.time}`);
-    return `Время уже занято подтверждённой заявкой${hit.length ? ': ' + hit.join('; ') : ''}`;
+    const fewer = !rid && Slot.sched.cap(c, '', b.date) < Slot.sched.cap(c, '') ? ` (в этот день мест: ${Slot.sched.cap(c, '', b.date)} — часть мастеров в отпуске)` : '';
+    return `${rid ? 'Время уже занято подтверждённой заявкой' : 'Все места на это время заняты'}${fewer}${hit.length ? ': ' + hit.join('; ') : ''}`;
   }
 
   /* ---------- отрисовка ---------- */

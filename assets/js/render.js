@@ -171,7 +171,8 @@
    * (schedule.capacity — например, постов в автосервисе).
    *   busy:   подтверждённые заявки [{ d: 'ГГГГ-ММ-ДД', m: минуты, dur: минуты, s: id мастера или '' }]
    *   blocks: закрыто вручную в админке [{ d, m, s }] — s пустой: закрыто для всех
-   *   off:    выходные и отпуска [{ s, from, to, note }] — s пустой: для всех
+   *   off:    выходные и отпуска [{ s, from, to, note }] — s пустой: для всех; в общем графике
+ *           отпуск мастера уменьшает число мест, если работающих мастеров меньше, чем мест
    *   staff[].days: график мастера на неделю [[c, по] | null] × 7, без него — часы работы
    */
   const hm = (x) => {
@@ -186,7 +187,15 @@
     externalUrl: (c) => (c.schedule && c.schedule.mode === 'external' && /^https:\/\/[^\s"'<>]+$/.test(c.schedule.url || '') ? c.schedule.url : ''),
     byStaff: (c) => !!(c.booking && c.booking.askStaff && c.staff.length),
     resources: (c) => (S.byStaff(c) ? c.staff.map((m) => m.id) : ['']),
-    cap: (c, rid) => (rid ? 1 : Math.max(1, Number((c.schedule && c.schedule.capacity) || 1))),
+    // мест в общем графике: не больше, чем мастеров на работе в день d (остальные в отпуске или выходной)
+    cap(c, rid, d) {
+      if (rid) return 1;
+      const max = Math.max(1, Number((c.schedule && c.schedule.capacity) || 1));
+      if (!d || !c.staff.length) return max;
+      const day = wd(new Date(d + 'T00:00:00'));
+      const on = c.staff.filter((m) => !(Array.isArray(m.days) && !m.days[day]) && !S.off(c, m.id, d)).length;
+      return Math.min(max, on);
+    },
     hours(c, rid, date) {
       const m = rid && c.staff.find((x) => x.id === rid);
       const h = m && Array.isArray(m.days) ? m.days[wd(date)] : c.hours[wd(date)];
@@ -207,7 +216,7 @@
       const d = ymd(date);
       if (!h || S.off(c, rid, d) || m < h[0] || m + dur > h[1]) return false;
       const step = c.booking.step || 30;
-      for (let t = m; t < m + dur; t += step) if (S.used(c, rid, d, t, busy) >= S.cap(c, rid)) return false;
+      for (let t = m; t < m + dur; t += step) if (S.used(c, rid, d, t, busy) >= S.cap(c, rid, d)) return false;
       return true;
     },
     // сетка дня: rid = null — «любой мастер» (свободно, если свободен хоть кто-то)

@@ -429,7 +429,7 @@
     }
     const days = Array.from({ length: 14 }, (_, i) => addDays(today, i))
       .map((day) => {
-        const closed = schedOn() ? !daySlots(day, B.data.staff, bookDur()).length : !cfg.hours[dow(day)];
+        const closed = schedOn() ? !daySlots(day, B.data.staff, bookDur()).some((s) => !s.busy && !s.past) : !cfg.hours[dow(day)];
         const on = sameDay(day, B.data.date);
         return `<button class="day${on ? ' is-on' : ''}" type="button" data-day="${day.getTime()}" aria-pressed="${on}"${closed ? ' disabled' : ''}>
           <span>${i18nWeekday(day, today)}</span><b>${day.getDate()}</b></button>`;
