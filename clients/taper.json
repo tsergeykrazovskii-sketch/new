@@ -8,10 +8,12 @@
     "Яндекс https://yandex.ru/maps/org/taper/229345186493/ — 5,0 / 322, «Хорошее место 2026», цены, часы",
     "2ГИС https://2gis.ru/moscow/firm/70000001088133339 — 4,9 / 56",
     "Досье: лиды/Taper (Москва).md; разбор: разборы/Taper (Москва).md (данные проверены 15–16.10.2026)",
-    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026",
+    "Страница владельца в Яндекс Бизнесе https://taper.clients.site/ (17.10.2026): логотип, баннер, фото услуг, реквизиты",
+    "Фото карточки Яндекс Карт (gallery), 17.10.2026"
   ],
   "_todo": [
-    "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
+    "Мастера — заглушки (портреты и имена для примера); баннер и галерея — настоящие фото из карточки и страницы владельца",
     "Имена мастеров на демо вымышленные (как в шаблоне ниши) — заменить на настоящих",
     "логотип и фото (в картах есть, права у владельца)",
     "реквизиты для подвала и политики ПД",
@@ -25,7 +27,8 @@
   ],
   "brand": {
     "name": "Taper",
-    "kind": "Барбершоп"
+    "kind": "Барбершоп",
+    "logo": "https://avatars.mds.yandex.net/get-maps-adv-crm/11387709/2a0000018f8ba5b87b1ece93dff0f0c9c7ea/landing_logo_x2"
   },
   "contacts": {
     "city": "Москва",
@@ -131,8 +134,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/hero.webp",
-    "imageAlt": "Барбер делает фейд машинкой"
+    "image": "https://avatars.mds.yandex.net/get-altay/7883089/2a0000018f5dcc290d534d56f0dd05763881/XXXL",
+    "imageAlt": "Барбершоп «Taper»"
   },
   "staff": [
     {
@@ -357,37 +360,39 @@
     {
       "type": "gallery",
       "title": "Работы",
-      "lead": "Фото для примера — на сайте будут ваши работы и зал.",
+      "lead": "Фото барбершопа и работ мастеров.",
       "items": [
         {
-          "caption": "Фейд",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-fade.webp",
-          "_placeholder": true
+          "caption": "Классический массаж",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/2808945/2a00000199f6c5d036fb5581cdb8f4fa1148/XXL"
         },
         {
-          "caption": "Борода и опасная бритва",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-beard.webp",
-          "_placeholder": true
+          "caption": "Спортивный массаж",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/2413620/2a00000199f6c470de1c4e6de4bf0b308611/XXL"
         },
         {
-          "caption": "Укладка",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-styling.webp",
-          "_placeholder": true
+          "caption": "Окрашивание: пепельный блонд",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/2899371/2a00000196e32471d68ad31e65383ce1b8b7/XXL"
         },
         {
-          "caption": "Отец и сын",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-family.webp",
-          "_placeholder": true
+          "caption": "Окрашивание: натуральный блонд",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/3912342/2a00000196e323c7f9c2b419fa6f08ce200e/XXL"
         },
         {
-          "caption": "Атмосфера",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-interior.webp",
-          "_placeholder": true
+          "caption": "Калифорнийское окрашивание",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/2701203/2a00000196e322d8b0c23f5040a852a3473b/XXL"
         },
         {
-          "caption": "Инструменты",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-tools.webp",
-          "_placeholder": true
+          "caption": "Удаление волос воском",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/944742/2a00000196e32141647910da145cd7ca48bf/XXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/5115998/2a0000018f549a03bbedebcc842edfd983ca/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/11924971/2a0000018fb0eab34985afbfe8b5f5ff0a1b/XXXL"
         }
       ]
     },

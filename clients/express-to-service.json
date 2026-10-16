@@ -8,10 +8,11 @@
     "Яндекс Карты https://yandex.ru/maps/org/ekspress_to_servis/199146507403/ — 4,9 / 233, часы, телефон, WhatsApp, Telegram, MAX, цены (давно не обновлялись), удобства, оплата",
     "2ГИС https://2gis.ru/moscow/firm/70000001101920687 — метро, хранение шин, доставка",
     "Досье: лиды/Экспресс ТО сервис (Москва).md; разбор: разборы/Экспресс ТО сервис (Москва).md (проверено 14.10.2026)",
-    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026",
+    "Фото карточки Яндекс Карт (gallery), 17.10.2026"
   ],
   "_todo": [
-    "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
+    "Мастера — заглушки (портреты и имена для примера); баннер и галерея — настоящие фото из карточки и страницы владельца",
     "Имена мастеров на демо вымышленные (как в шаблоне ниши) — заменить на настоящих",
     "написание названия (на демо — «Экспресс ТО сервис»)",
     "прайс на ТО и шиномонтаж",
@@ -169,8 +170,8 @@
       "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться на время"
     },
-    "image": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/hero.webp",
-    "imageAlt": "Мастер осматривает машину на подъёмнике"
+    "image": "https://avatars.mds.yandex.net/get-altay/16390227/2a00000198f638206619715bba9b82130e3c/XXXL",
+    "imageAlt": "Автосервис «Экспресс ТО сервис»"
   },
   "services": [
     {
@@ -312,37 +313,39 @@
     {
       "type": "gallery",
       "title": "Сервис",
-      "lead": "Фото для примера — на сайте будут ваши работы и зал.",
+      "lead": "Фото сервиса и работ.",
       "items": [
         {
-          "caption": "Подъёмники",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-lift.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15650736/2a00000198f6381d7094e124c9cd5b7c098f/XXXL"
         },
         {
-          "caption": "Диагностика",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-diag.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16431464/2a00000198f638252eebb025174d8db2b126/XXXL"
         },
         {
-          "caption": "Шиномонтаж",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-tires.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16069310/2a00000198f638281892dc96424fc1c50a77/XXXL"
         },
         {
-          "caption": "Приёмка",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-reception.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15344725/2a00000198f63822a874b00e67d948203c3c/XXXL"
         },
         {
-          "caption": "Зона ожидания",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-lounge.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16873746/2a00000198aa82060357918afa4e208197c0/XXXL"
         },
         {
-          "caption": "Хранение шин",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-storage.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15219633/2a00000196bb30965579a9207ad9052bf07d/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/5584339/2a0000017efe93e832fd70229903f94bd8ce/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16319048/2a00000197a25ccb47325e448c7e961ca5eb/XXXL"
         }
       ]
     },

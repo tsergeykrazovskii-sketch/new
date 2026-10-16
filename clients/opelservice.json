@@ -8,10 +8,11 @@
     "Яндекс https://yandex.ru/maps/org/opelservice/15581166068/ — 5,0 / 636, «Хорошее место 2026», цены, акция −15%, часы",
     "2ГИС https://2gis.ru/moscow/firm/70000001033774148 — 5,0 / 2, телефон +7 499 380-81-31",
     "Досье: лиды/Опельсервис (Москва).md; разбор: разборы/Опельсервис (Москва).md (данные проверены 16.10.2026)",
-    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026",
+    "Фото карточки Яндекс Карт (gallery), 17.10.2026"
   ],
   "_todo": [
-    "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
+    "Мастера — заглушки (портреты и имена для примера); баннер и галерея — настоящие фото из карточки и страницы владельца",
     "Имена мастеров на демо вымышленные (как в шаблоне ниши) — заменить на настоящих",
     "логотип и фото (в картах есть, права у владельца)",
     "реквизиты для подвала и политики ПД",
@@ -130,8 +131,8 @@
       "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
     },
-    "image": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/hero.webp",
-    "imageAlt": "Мастер осматривает машину на подъёмнике"
+    "image": "https://avatars.mds.yandex.net/get-altay/20011141/2a0000019cfbc4f12f0ae1a5f5ee81ac1d4d/XXXL",
+    "imageAlt": "Автосервис «Опельсервис»"
   },
   "staff": [
     {
@@ -337,37 +338,39 @@
     {
       "type": "gallery",
       "title": "Сервис",
-      "lead": "Фото для примера — на сайте будут ваши работы и зал.",
+      "lead": "Фото сервиса и работ.",
       "items": [
         {
-          "caption": "Подъёмники",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-lift.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/7742431/2a000001833c3aad723e0b226cb908a7cbd5/XXXL"
         },
         {
-          "caption": "Диагностика",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-diag.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/5111241/2a00000182a1c7684cc591cd2ba93ce83cf1/XXXL"
         },
         {
-          "caption": "Шиномонтаж",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-tires.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/9827107/2a0000018a8d9041a33a7468101f775b4934/XXXL"
         },
         {
-          "caption": "Приёмка",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-reception.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/6200226/2a000001833c3a740dd0a989c7ad706dbf2c/XXXL"
         },
         {
-          "caption": "Зона ожидания",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-lounge.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/9849468/2a0000018c6a5df26ef52111de0f9771e933/XXXL"
         },
         {
-          "caption": "Хранение шин",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-storage.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/6322664/2a00000182a1c7aab3721960dad2987f24f7/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16483787/2a0000019c0048a4b2003306fb452153517c/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14712641/2a0000019cfbc540e8a5c8d154359b743101/XXXL"
         }
       ]
     },

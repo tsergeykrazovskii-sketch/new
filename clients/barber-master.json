@@ -8,10 +8,11 @@
     "Яндекс https://yandex.ru/maps/org/barber_master/194360176236/ — 5,0 / 208, «Хорошее место 2026», цены (обновлены 25 августа), часы",
     "2ГИС https://2gis.ru/moscow/firm/70000001080353128 — 5,0 / 14, сайт barber-master.ru (истёк, освобождается 30.10.2026)",
     "Досье: лиды/Барбер Мастер (Москва).md; разбор: разборы/Барбер Мастер (Москва).md (проверено 15.10.2026)",
-    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026",
+    "Фото карточки Яндекс Карт (gallery), 17.10.2026"
   ],
   "_todo": [
-    "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
+    "Мастера — заглушки (портреты и имена для примера); баннер и галерея — настоящие фото из карточки и страницы владельца",
     "Имена мастеров на демо вымышленные (как в шаблоне ниши) — заменить на настоящих",
     "логотип и фото (в картах есть, права у владельца)",
     "реквизиты для подвала и политики ПД",
@@ -126,8 +127,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/hero.webp",
-    "imageAlt": "Барбер делает фейд машинкой"
+    "image": "https://avatars.mds.yandex.net/get-altay/10702157/2a0000018aea9a93327dd6f4cc226d0eeb57/XXXL",
+    "imageAlt": "Барбершоп «Барбер Мастер»"
   },
   "staff": [
     {
@@ -341,37 +342,39 @@
     {
       "type": "gallery",
       "title": "Работы",
-      "lead": "Фото для примера — на сайте будут ваши работы и зал.",
+      "lead": "Фото барбершопа и работ мастеров.",
       "items": [
         {
-          "caption": "Фейд",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-fade.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/9691438/2a0000018b04b6e48008f45a1660916df2a9/XXXL"
         },
         {
-          "caption": "Борода и опасная бритва",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-beard.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/11400692/2a0000018fef5ca350f38febee44ebb0e846/XXXL"
         },
         {
-          "caption": "Укладка",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-styling.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/10175550/2a0000018b04b6e69940647eb183b004ee15/XXXL"
         },
         {
-          "caption": "Отец и сын",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-family.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14021655/2a00000192c32f100c861ccf1d182e78ff61/XXXL"
         },
         {
-          "caption": "Атмосфера",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-interior.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/13818104/2a00000192c32ee126be1248137f3a17af05/XXXL"
         },
         {
-          "caption": "Инструменты",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-tools.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/11487452/2a00000192c3364daaf12b3d66cd4503db1d/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14021521/2a00000192c32f1014bb6978e9a70145ea52/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/10702222/2a0000018b0b6b19836120dd9adcbda26047/XXXL"
         }
       ]
     },

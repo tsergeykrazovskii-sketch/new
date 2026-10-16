@@ -8,10 +8,11 @@
     "Яндекс https://yandex.ru/maps/org/astragaz/1120225467/ — 4,6 / 321, «Хорошее место 2026», цены (обновлены 1 октября), часы 9–19",
     "2ГИС https://2gis.ru/moscow/firm/4504127908542419 — «Астрагаз-сервис», 4,6 / 10, 139 цен; сайт astragaz.ru — Tilda 402",
     "Досье: лиды/Астрагаз (Москва).md; разбор: разборы/Астрагаз (Москва).md (данные проверены 16.10.2026)",
-    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026",
+    "Фото карточки Яндекс Карт (gallery), 17.10.2026"
   ],
   "_todo": [
-    "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
+    "Мастера — заглушки (портреты и имена для примера); баннер и галерея — настоящие фото из карточки и страницы владельца",
     "Имена мастеров на демо вымышленные (как в шаблоне ниши) — заменить на настоящих",
     "логотип и фото (в картах есть, права у владельца)",
     "реквизиты для подвала и политики ПД",
@@ -177,8 +178,8 @@
       "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
     },
-    "image": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/hero.webp",
-    "imageAlt": "Мастер осматривает машину на подъёмнике"
+    "image": "https://avatars.mds.yandex.net/get-altay/859900/2a0000015db6ef3862a782ad0a24117a575f/XXXL",
+    "imageAlt": "Автосервис «Астрагаз»"
   },
   "staff": [
     {
@@ -420,37 +421,39 @@
     {
       "type": "gallery",
       "title": "Сервис",
-      "lead": "Фото для примера — на сайте будут ваши работы и зал.",
+      "lead": "Фото сервиса и работ.",
       "items": [
         {
-          "caption": "Подъёмники",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-lift.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/19785895/2a0000019f428e3f6c0a005fceb19201a192/XXXL"
         },
         {
-          "caption": "Диагностика",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-diag.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16415892/2a0000019f428e3ed1696a779e32a27445fd/XXXL"
         },
         {
-          "caption": "Шиномонтаж",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-tires.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/2402012/2a000001766676a9533de6f7b6de48450f6f/XXXL"
         },
         {
-          "caption": "Приёмка",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-reception.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/2384989/2a000001766676f4d535fb030152b41ef1d4/XXXL"
         },
         {
-          "caption": "Зона ожидания",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-lounge.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/3683342/2a00000176668b8eb2d6276fcc74d08fae1b/XXXL"
         },
         {
-          "caption": "Хранение шин",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-storage.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/3836503/2a00000176668b215d75b5658616b9776530/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/9368060/2a0000018a045122091f64c9763b8eb2a2af/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/4336915/2a00000179c932b59eb4292bbfc4a809103a/XXXL"
         }
       ]
     },

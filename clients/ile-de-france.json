@@ -8,10 +8,12 @@
     "Яндекс https://yandex.ru/maps/org/ile_de_france/223821556577/ — 5,0 / 346, «Хорошее место 2026», цены (обновлены 21 сентября), часы",
     "2ГИС https://2gis.ru/moscow/firm/70000001030658961 — 5,0 / 10; в строке «сайт» pca-service.ru (спам-редирект с 08.10.2026)",
     "Досье: лиды/Иль Де Франс (Москва).md; разбор: разборы/Иль Де Франс (Москва).md (данные проверены 16.10.2026)",
-    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026",
+    "Страница владельца в Яндекс Бизнесе https://avtoservis-il-de-frans.clients.site/ (17.10.2026): логотип, баннер, фото услуг, реквизиты",
+    "Фото карточки Яндекс Карт (gallery), 17.10.2026"
   ],
   "_todo": [
-    "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
+    "Мастера — заглушки (портреты и имена для примера); баннер и галерея — настоящие фото из карточки и страницы владельца",
     "Имена мастеров на демо вымышленные (как в шаблоне ниши) — заменить на настоящих",
     "логотип и фото (в картах есть, права у владельца)",
     "реквизиты для подвала и политики ПД",
@@ -24,7 +26,8 @@
   ],
   "brand": {
     "name": "Иль Де Франс",
-    "kind": "Автосервис"
+    "kind": "Автосервис",
+    "logo": "https://avatars.mds.yandex.net/get-maps-adv-crm/3713455/2a000001787e6eeb128218448d4674c99542/landing_logo_x2"
   },
   "contacts": {
     "city": "Москва",
@@ -161,8 +164,8 @@
       "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
     },
-    "image": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/hero.webp",
-    "imageAlt": "Мастер осматривает машину на подъёмнике"
+    "image": "https://avatars.mds.yandex.net/get-altay/1359533/2a000001870de403e693bd40ac115e83fc71/XXXL",
+    "imageAlt": "Автосервис «Иль Де Франс»"
   },
   "staff": [
     {
@@ -398,37 +401,39 @@
     {
       "type": "gallery",
       "title": "Сервис",
-      "lead": "Фото для примера — на сайте будут ваши работы и зал.",
+      "lead": "Фото сервиса и работ.",
       "items": [
         {
-          "caption": "Подъёмники",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-lift.webp",
-          "_placeholder": true
+          "caption": "Заправка кондиционера",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/5632604/2a000001862c469e5a32c91996c26b8ac37b/XXL"
         },
         {
-          "caption": "Диагностика",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-diag.webp",
-          "_placeholder": true
+          "caption": "Сход-развал",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/5632604/2a000001862c40cd68f2ec1e97ac9b1ee361/XXL"
         },
         {
-          "caption": "Шиномонтаж",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-tires.webp",
-          "_placeholder": true
+          "caption": "Диагностика подвески",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/1356083/2a0000019daedd081fe02e4108d5af860aa8/XXL"
         },
         {
-          "caption": "Приёмка",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-reception.webp",
-          "_placeholder": true
+          "caption": "Замена ремня ГРМ и помпы",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/2808945/2a0000019daedcdfaccfa65439bf3f0ba6ff/XXL"
         },
         {
-          "caption": "Зона ожидания",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-lounge.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/904281/2a000001870de151ab2d107804905f120309/XXXL"
         },
         {
-          "caption": "Хранение шин",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-storage.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/992583/2a00000186f8ddf6dc708db997cdf4d8f590/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/7979184/2a00000186f8dd080abccad150f9e0f2af2d/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/6272620/2a00000186ad745c4e9094304e3ed8d29ee2/XXXL"
         }
       ]
     },

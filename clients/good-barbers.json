@@ -8,10 +8,12 @@
     "Яндекс https://yandex.ru/maps/org/good_barbers/1741888468/ — 4,8 / 437, «Хорошее место 2026», цены, часы, мессенджеры",
     "2ГИС https://2gis.ru/moscow/firm/70000001026622785 — 4,9 / 112, сайт goodbarbers.ru (Wix ConnectYourDomain Error)",
     "Досье: лиды/Good Barbers (Москва).md; разбор: разборы/Good Barbers (Москва).md (проверено 15.10.2026)",
-    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026",
+    "Страница владельца в Яндекс Бизнесе https://good-barbers.clients.site/ (17.10.2026): логотип, баннер, фото услуг, реквизиты",
+    "Фото карточки Яндекс Карт (gallery), 17.10.2026"
   ],
   "_todo": [
-    "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
+    "Мастера — заглушки (портреты и имена для примера); баннер и галерея — настоящие фото из карточки и страницы владельца",
     "Имена мастеров на демо вымышленные (как в шаблоне ниши) — заменить на настоящих",
     "логотип и фото (в картах есть, права у владельца)",
     "реквизиты для подвала и политики ПД",
@@ -24,7 +26,8 @@
   ],
   "brand": {
     "name": "Good Barbers",
-    "kind": "Барбершоп"
+    "kind": "Барбершоп",
+    "logo": "https://avatars.mds.yandex.net/get-maps-adv-crm/3927175/2a0000017c2785290b525d287a678eb17d7e/landing_logo_x2"
   },
   "contacts": {
     "city": "Москва",
@@ -130,8 +133,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/hero.webp",
-    "imageAlt": "Барбер делает фейд машинкой"
+    "image": "https://avatars.mds.yandex.net/get-altay/1594075/2a0000016d059e48b30887e9f9417da76700/XXXL",
+    "imageAlt": "Барбершоп «Good Barbers»"
   },
   "staff": [
     {
@@ -323,37 +326,39 @@
     {
       "type": "gallery",
       "title": "Работы",
-      "lead": "Фото для примера — на сайте будут ваши работы и зал.",
+      "lead": "Фото барбершопа и работ мастеров.",
       "items": [
         {
-          "caption": "Фейд",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-fade.webp",
-          "_placeholder": true
+          "caption": "Мытьё головы и укладка",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/1356083/2a0000017323756965e35600f6ef78fa03ab/XXL"
         },
         {
-          "caption": "Борода и опасная бритва",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-beard.webp",
-          "_placeholder": true
+          "caption": "Камуфляж седины",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/2899371/2a0000016fa92cce20230f2ee356b62c9a5d/XXL"
         },
         {
-          "caption": "Укладка",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-styling.webp",
-          "_placeholder": true
+          "caption": "Детская стрижка",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/2757887/2a00000173237198158a7411b526fbeb4b6f/XXL"
         },
         {
-          "caption": "Отец и сын",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-family.webp",
-          "_placeholder": true
+          "caption": "Моделирование бороды",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/1356083/2a000001732370724b6b6b195b8b5f249ad2/XXL"
         },
         {
-          "caption": "Атмосфера",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-interior.webp",
-          "_placeholder": true
+          "caption": "Стрижка бороды и усов",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/1356083/2a00000173236ff1c0d478637c312ba54e7e/XXL"
         },
         {
-          "caption": "Инструменты",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-tools.webp",
-          "_placeholder": true
+          "caption": "Стрижка",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/2701203/2a0000016fa92b21d2a56bd70b281c173c66/XXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/2389272/2a00000170d35ee9d440deb1ef58a2cb6f5d/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/1975185/2a00000170d35ecee31bfafcc217820475bc/XXXL"
         }
       ]
     },

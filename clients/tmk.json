@@ -8,10 +8,12 @@
     "Яндекс Карты https://yandex.ru/maps/org/tmk/179791296120/ — 5,0 / 298, «Хорошее место 2026», часы, телефон, WhatsApp, VK, 215 цен (давно не обновлялись), удобства, оплата",
     "2ГИС https://2gis.ru/moscow/firm/70000001050021212 — зал ожидания, комплексная мойка от 1 000 ₽",
     "Досье: лиды/ТМК (Москва).md; разбор: разборы/ТМК (Москва).md (проверено 14.10.2026)",
-    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026",
+    "Страница владельца в Яндекс Бизнесе https://autotmk.clients.site/ (17.10.2026): логотип, баннер, фото услуг, реквизиты",
+    "Фото карточки Яндекс Карт (gallery), 17.10.2026"
   ],
   "_todo": [
-    "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
+    "Мастера — заглушки (портреты и имена для примера); баннер и галерея — настоящие фото из карточки и страницы владельца",
     "Имена мастеров на демо вымышленные (как в шаблоне ниши) — заменить на настоящих",
     "актуальность цен (в Яндексе «давно не обновлялось»; похоже, без запчастей)",
     "основной телефон (в 2ГИС другой)",
@@ -173,8 +175,8 @@
       "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
     },
-    "image": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/hero.webp",
-    "imageAlt": "Мастер осматривает машину на подъёмнике"
+    "image": "https://avatars.mds.yandex.net/get-altay/6375058/2a000001822a19c0a9a9ccfc1f3b9ae04f46/XXXL",
+    "imageAlt": "Автосервис «ТМК»"
   },
   "services": [
     {
@@ -353,37 +355,39 @@
     {
       "type": "gallery",
       "title": "Сервис",
-      "lead": "Фото для примера — на сайте будут ваши работы и зал.",
+      "lead": "Фото сервиса и работ.",
       "items": [
         {
-          "caption": "Подъёмники",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-lift.webp",
-          "_placeholder": true
+          "caption": "Мойка топливных форсунок",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/13059590/2a0000018f777854deaf9e182381a8e3fe8e/XXL"
         },
         {
-          "caption": "Диагностика",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-diag.webp",
-          "_placeholder": true
+          "caption": "Замена пружин амортизатора",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/12411943/2a0000018c82b08d0347a54ecfaee7a8aa1b/XXL"
         },
         {
-          "caption": "Шиномонтаж",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-tires.webp",
-          "_placeholder": true
+          "caption": "Замена сайлентблоков",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/5399152/2a0000018953b6f42871e1dabe50e2ef7335/XXL"
         },
         {
-          "caption": "Приёмка",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-reception.webp",
-          "_placeholder": true
+          "caption": "Мойка радиаторов",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/9495815/2a00000188d9035c714b0e6bebcd5b653ed1/XXL"
         },
         {
-          "caption": "Зона ожидания",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-lounge.webp",
-          "_placeholder": true
+          "caption": "Компьютерная диагностика",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/5392818/2a0000018825b039e4b6ac5b91b64accd279/XXL"
         },
         {
-          "caption": "Хранение шин",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-storage.webp",
-          "_placeholder": true
+          "caption": "Кузовной ремонт",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/5399152/2a0000018825b0397c628a46107cbcdf8835/XXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/21525983/2a000001a0dd56695573e53d0865c3bb3565/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20781708/2a000001a0dd56904068c9399d8e3e8f2648/XXXL"
         }
       ]
     },
@@ -453,7 +457,10 @@
       "title": "Как добраться"
     }
   ],
-  "legal": {},
+  "legal": {
+    "operator": "ООО «ТМК»",
+    "inn": "7715446340"
+  },
   "schedule": {
     "mode": "own",
     "capacity": 1,

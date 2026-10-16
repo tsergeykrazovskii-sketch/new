@@ -8,10 +8,12 @@
     "Яндекс https://yandex.ru/maps/org/barbers_msk/101910156300/ — 5,0 / 479, «Хорошее место 2026», цены, часы",
     "2ГИС https://2gis.ru/moscow/firm/70000001041160153 — 4,7 / 23",
     "Досье: лиды/Barbers_msk (Москва).md; разбор: разборы/Barbers_msk (Москва).md (данные проверены 15–16.10.2026)",
-    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026",
+    "Страница владельца в Яндекс Бизнесе https://barbersmsk.clients.site/ (17.10.2026): логотип, баннер, фото услуг, реквизиты",
+    "Фото карточки Яндекс Карт (gallery), 17.10.2026"
   ],
   "_todo": [
-    "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
+    "Мастера — заглушки (портреты и имена для примера); баннер и галерея — настоящие фото из карточки и страницы владельца",
     "Имена мастеров на демо вымышленные (как в шаблоне ниши) — заменить на настоящих",
     "логотип и фото (в картах есть, права у владельца)",
     "реквизиты для подвала и политики ПД",
@@ -131,8 +133,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/hero.webp",
-    "imageAlt": "Барбер делает фейд машинкой"
+    "image": "https://avatars.mds.yandex.net/get-maps-adv-crm/3888992/2a00000179a2e4471e3cf3469b1e9ca282f4/landing_background_x2",
+    "imageAlt": "Барбершоп «Barbers_msk»"
   },
   "staff": [
     {
@@ -334,37 +336,39 @@
     {
       "type": "gallery",
       "title": "Работы",
-      "lead": "Фото для примера — на сайте будут ваши работы и зал.",
+      "lead": "Фото барбершопа и работ мастеров.",
       "items": [
         {
-          "caption": "Фейд",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-fade.webp",
-          "_placeholder": true
+          "caption": "Стрижка у барбера",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/3912342/2a000001960bb54d5a7c7ead021fd7fc9f9f/XXL"
         },
         {
-          "caption": "Борода и опасная бритва",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-beard.webp",
-          "_placeholder": true
+          "caption": "Стрижка у топ-барбера",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/1643978/2a000001960bb80c04f502cc263c4fdc3a4a/XXL"
         },
         {
-          "caption": "Укладка",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-styling.webp",
-          "_placeholder": true
+          "caption": "Стрижка под машинку",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/4079840/2a000001960bb644a258aae19b85d7806c3a/XXL"
         },
         {
-          "caption": "Отец и сын",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-family.webp",
-          "_placeholder": true
+          "caption": "Стрижка ножницами",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/2773996/2a000001960bb66ab2793f23cb700a895d58/XXL"
         },
         {
-          "caption": "Атмосфера",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-interior.webp",
-          "_placeholder": true
+          "caption": "Папа и сын",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/1644120/2a000001960bd0b5a50a19b3e5b334f58236/XXL"
         },
         {
-          "caption": "Инструменты",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-tools.webp",
-          "_placeholder": true
+          "caption": "Окантовка",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/2994796/2a000001960bb6ee31d411384da29d733491/XXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/6145759/2a00000182d822b85bb21444dedb18632270/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/6200226/2a00000182d82327c5f232a1686db91dbcda/XXXL"
         }
       ]
     },

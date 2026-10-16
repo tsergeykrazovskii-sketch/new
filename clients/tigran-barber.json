@@ -7,10 +7,12 @@
   "_sources": [
     "Яндекс https://yandex.ru/maps/org/tigran_barber/126483006509/ — 5,0 / 362, «Хорошее место 2026», цены (обновлены 5 октября), часы, акции",
     "Досье: лиды/Тигран Барбер (Москва).md; разбор: разборы/Тигран Барбер (Москва).md (проверено 15.10.2026)",
-    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026",
+    "Страница владельца в Яндекс Бизнесе https://tigranbarber.clients.site/ (17.10.2026): логотип, баннер, фото услуг, реквизиты",
+    "Фото карточки Яндекс Карт (gallery), 17.10.2026"
   ],
   "_todo": [
-    "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
+    "Мастера — заглушки (портреты и имена для примера); баннер и галерея — настоящие фото из карточки и страницы владельца",
     "Имена мастеров на демо вымышленные (как в шаблоне ниши) — заменить на настоящих",
     "логотип и фото (в картах есть, права у владельца)",
     "реквизиты для подвала и политики ПД",
@@ -25,7 +27,8 @@
   ],
   "brand": {
     "name": "Тигран Барбер",
-    "kind": "Барбершоп"
+    "kind": "Барбершоп",
+    "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKEAAAArCAYAAAAQeugIAAAOsklEQVR4AewcCVQUR/YXh1EjAq6iT11PjBeKChrR9Vg0Rl0w0Yg3cqgIiRxGg0e8D3RNAiiogKKAilE0Yki8b4eVSxBFfQomqJtLjQGv4FOp/b9lJjP0zDAM7cX2vKmuql//qPr1+9fV3SYg/2QNvGINyEb4ijtAFg8gG6FsBa9cA7IRvvIukCsgMsImTZrM7dGjB3dwdOSOjt1VoWfPnrxnTyfevXt3VXBEHMq3bm17oCqqtLGx+eijj0byFi1abK4KH320Dg6OfNo0f7506TK+YMECPnrUaN6gQQM3fTTGlllZWXXt3as3f/fddznpsnv3HmU668F7YNoR9dquXburxvKvDN2m2E3cw8ODV4amsrgtW7ZObt68eUxFdB06dLzt5OQkqovICGfMmLE8PT0dsjIzITMzQxXOnDkDZ878BzIyMlQhE3Eov2FDzPsVVUBfebeuXXft2pUEQ4YM8dSHZ0xZ506d+dGjR3lWViZERKyBefM+h8WLF8PXO76GGzdu7Fy4YKFIKcbIUafp379/tiJVAWlpaUC6zMhIL9NZOqRjOhP1evny5TZXr17lI0aMkFy+si7169cf5j7RHSZNmqwEvZDYz2/qBxkZmVNInj4BqP/6CkWqCEVkhFu2bAFPT09wd3eHiRMnggcGim9cvw5FfxRh3gMmlpW5T5ggpJcsWSJiXBnA06dP4dmzZ1BS8rgyZBXi9nLqxRVoDM7OzrB58yYY9N570MbW9mDnzp3B28sL8vPzYdHiRbB7925JDYHaU1paChs3bkR9TQQvL0/w8PAATwqeHmgUk+Crr76Cli1bkmzo06ePpPKVipk8afJeMzMz6N27F3Tt0vWFyCBZ9+/dAxubBrB9+/a9lNcVHj9+DH+W/CkqFhlhTk4Oi4+PZ1u3bmVokCxhyxYhvvP77/Dw0UNI2JLAtpSVbd22TUifOHGCiThXAsBMTMDU1BQYqxIbDYl0VyYl7YS3334bRgwfAd7ek9jhI0dYwbVrgy9cuMA2x8UxNEZGhoLeCFatWiVZJ3HOwQTbdPjQYUhA/cXFxbOEhAQWTyE+gW3atInNnDmTubq6CnUO8A8QYqkvn0z7BH744Qe8uUvgs+Bgqdmr+JnXMAdq88CBAyE6OlqnHk2wfxkT97HICFWcyyXMzc3QSAxGL0f98rPBnwXvbdykCQQGBMKe5D3ilpdVacqUKSw6KhoSt20rg0gX1bGoo5fZgQMH2P3796FV69Z68YwppDlv06ZNwe/jjwGdCowa5QaNGjXyMIZXRTQmzARtg0FeXh74+PhAQECATkPUxstEG1AbjJdWiq82FhXDdJpKxaTlMby9veDmzZsQuTayQq6+fr7sXG5uhXjlZejKKxmhQ9SFooKbm5sLnkoFkCgxZ+4cuHXrFhw6eJDFxMQII43PFJ84idhrsCEvSAC8oSErKwtWr16NU59BWgxGqRnC/isYbIR/kby4lPYqVl5ex4529/9Wvz58//33lSeWkOLRo4d6uS1cuJDXrFkTDh48qBevsoVOuIthb2+P885QgfTcuXMsAxeU/gH+Ql7qC+elAstff/11u9tIt033cI64/evtYGtrqxAKlBfsYPwrc6r4tTJCVa2qmKhnbV2Hoxu6hvMhbazat29/3dfXl+PQwadOncr9/Py4l5eXljtXG3XFMBNTUwFp/rz5QCvz48eO8aNHjnBK4zyR79+/nxcUFPBFixbBxYuXYM2a1d0EAoku5AVLSkpwYbTBSckyJCQEcJ4MY8aMlaydSt4Az03L2tp6bOH1wkkTcMFar149WnT1trS0tAblD/tEmVSPK2mEL6D+6rUpa4wGyKjM83rqmkIMHjy42fr162kSDVFRUbBu3TpMx4CFhUVbo8SVI2Lseac0b9EcHBwcoGu3buDo6AgOGPfp2wdQvmAQkZGR4Oz8z4lFRUU55VhUJquB26plqyRa8MTFx8Pdu3fTlIV79+5lP//8M8ydO1cJkjzG1W8xMU1JSWG41QedcRciNjb2LsGEUKYXIa12qaQRqlFKmdRxhxgrorj4HjDG4O9/b6qVBa76P3BE43Do5gBdunQBxWmFMC/DRUKhVoJKAmmLhkgCAwPBysqKUbCk2Nqa4WLBleZqv/zyC/j7+zNMbyFcqcL06UEjiRduAZ2iWD2Eh4dDp052oG3DWB1PinRoaCjbFBsLeAoBy5cvF7wC7YAAPL9BQe1nuBGKadXYVC0p1LBqLDSoz184z2heMnToUA24MnPnzp1vz2Zns+ycbJabm8t+x+2nmjXfUhZLFj99+kzEC2V/t2zZMsATEwgMDJK06Tj0tfL29oYDOMcsyM/vV1745s2b+6O3glmzZpUveiH5SZMns9OnTwned/D7gzm2HczMnk9V1AUaboTqVFKnJfaEVL1tuOXSpk0bGDu24jlQixYtgDEGeIxnTrRSBVPkqY1XREQE+/HHH4XTm1q1ajXRhmMMzMvT61pt3Bddvmy5VnI0gpO0XTNs2DBo1qxZuFYkiYFubqOm/PTTT8IJFR5jwoMHD0iCht1pZKhUX+D6CiUo4yCdhJUrV64mb0hzvt69e+tkjEMUt+9iD7iZDLdv3xY0JEFTBBY6hWLpnDlzhHkheqX/YlaS/4yZM3ChcxEUitM6xy0cJvMYY7iXh3MFSaQC3sBQ9mNPyhKq6LfffttIQzIdGtAJ0aNHj+hmr61CwITBRliK+4S6JvrIp8r/Ujzmwm33KvNRMsBz4SAPDw+oW7cudooCli5Zyukcub6lpUPDhg29cXHADx8+zGneplAoYPbs2RZK2irH6NmpPbRC18Vrx44dNBUAmsCjBx6iC89QuKuLK8f5JoSErNBLcuXKlU7Hjh0Tjg71IlaikNpJ7dVFgufnjPrieTkT3ewGG2Ht2rWgohOA50Iqf6XzTTrmqlFD2nlZcnIyo6OkSxcvwrz58yD3fC7cLvojC/ezYnGbBKiMju1cXFzqSekFTfG8ltpDx1n6tBGMR2l16tSBL7/4cp8+PEPKVq9ZDcXFxZCYuE2nF1TywVECF0yWNFfT56yV6BXG5jVqALUXg6Uu5MTERIZeGBo1aiRCqdAIlRQTxk8AVxcXZVbSOC09vRsZRErKt59LyhiZ4d4c62hnx4bhOe0Xq1bB7l27IQG3L/DsFjrZ2T3AXX6GnfcHokr2R8/qNGDAANi3b5/e3eFDhw6xvn37QnxCfFVlm0WsiYDhw4cbxAdHAObr6wv5V/MNwq8IKTo6Zjv1X17eBY1htjwden3Wv59ovQQGG2FmVhZD5VZ4l5UXbEie9snIWHACG2IIvjE4Kd99x4JnzWIj3dyYh6cnwy0MlnfxonRDsFqlaH8Ohzzal4tUA2tNnj59mhGu1kLDgU/DwsPY8ePHDe6f6OholrQryWB8fVUpLCwcR/2HOE8x6P0rUhUimQYboV7OcqGsgSpoQDbCKihPJpVGA7IRSqNHmUsVNCAbYRWUJ5NKowHZCEEaRcpcjNeAbITG606mlEgDshFKpEiZjfEakI3QeN3JlBJpQDZCiRQpszFeA7IRGq87mVIiDchGKJEiX2c2r3vdZCN83Xvo/6B+1cYIXV2H8eTkZB61fj2PiYnheEDPIyIieb169Xrq6kcsq3vy5Elua2t7VBcOPZaekpKCfKN4dFQU37BhAw8NDaNHoMzK0/j7+/OkpCQehXgkn3BDQkIItzwqPdn87wP7D/ANMRs44a7HeoeErNCKS58pITziGxMdzRMTE7mjo6NWXJGgNwBQbYywfft2cOLESfD182M+Pj5s6tSprFatWjB61Ogzuvrh008/LaZv4MyePdtZF847bd8RPmzk6+fLpvr6Mnr0i767EhgYKHqK2N7eHrZu3Qq+iEfyCde+sz09tygymIYNGwY/+vMRTPGZItTVD+s9d+4c0RMmDRo0cLO0tBTwiK8Ptis2NhZWrfpCV5XfOHi1McLi4mL419ChwhPUK1esRG8Vynv1coJjx4/laeuVtm3bXrCz6wTOzs6MngoeOHCgyFCI7sH9B8Kri+PHj+feXt7czc2NvCvk5ORQsUag9yfoQ1JLly7lK9CrkSdu0rQp5J7N7auBiJmHDx8Wt2rVil464rNnzebNm7dMQLDo/+TJkwK6mSaMn8DdJ7jz0aNH88GDh0BqqkKE+6YCqo0R0uc0zl84D9/s+QZwWBY8UlhYOAQFBdlp65yQkBC7e8VFMAY7tbioGD3LKm1oUMpLgZ5+trayBitrK1i7di2EhYXBqVOnRF7LzNRU8Jp7vsE67E2GuLjNkLRzJ/hPDxC9fon1taS3/FJTU0GRehoePLin9bl8U1PTEsQFm4Y2YFHXAqZNmwYNbWxg/vz5IvlaG/AGAKuNEdLrBzdv3iQPxdLS01h2djY7fz4XOnbsKOqGAQMGchriDh0+DNbW1pB3MY++VQg4hIq8IeHRME/ftAkNDWXTg6bDmDFjRDwJUKt2bbhy5Spk5+Qweq/i7NmzrOBaAXTo0J6KNcJbb70FRUVFQA8KKxSp9NrpZQ2EsgwaYA/y8iR73bp17MMPP+zQuHFjmlOGl6G88VHVjfA1UUF+fgH069cPwsPDeWRkJF+zJoLTF7mCg2eJakiP+uM8kLwlWx8VxeLj49nkyZM/cHJSfTVDRUMvqd8rLlbltyVuE4Zv+kKtCliWuHTpEowfN06oQ0REBC6MIriLiwu9RHWsDEUV3bp1a7uFhQVEYD0phIeFC1MIXCQpVEiYKCkpOV+AbcOk8EfveTkuPg4mursHCoBqcKk2Rrhnzx42fPhwFhQUZI5DFgsI8DcfN34cS0s7Ixq2AoMCWVZWlgb8zp0733p6emrAqH937tzJomOiNeC04MjMzNSAES69MjBm7BihDrhSZhRwjsgKCgoGULl6KCwsHDdo0CDmH+AvhKDpQQwXSoT7D3U89JY5fh/7acjCxQ9btny5Bkyd5k1LVxsjVFO88j0HZaxW9NKSr1L2S2ukVIKqoxFKpRuZz0vSgGyEL0nRshjdGvgfAAAA///NHZ+BAAAABklEQVQDAA8/iqI4gmuQAAAAAElFTkSuQmCC"
   },
   "contacts": {
     "city": "Москва",
@@ -120,8 +123,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/hero.webp",
-    "imageAlt": "Барбер делает фейд машинкой"
+    "image": "https://avatars.mds.yandex.net/get-maps-adv-crm/3736055/2a000001966ee1d187e79d93dffdb8a5206b/landing_background_x2",
+    "imageAlt": "Барбершоп «Тигран Барбер»"
   },
   "staff": [
     {
@@ -295,37 +298,39 @@
     {
       "type": "gallery",
       "title": "Работы",
-      "lead": "Фото для примера — на сайте будут ваши работы и зал.",
+      "lead": "Фото барбершопа и работ мастеров.",
       "items": [
         {
-          "caption": "Фейд",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-fade.webp",
-          "_placeholder": true
+          "caption": "Мужская стрижка",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/12412149/2a0000018c36a7a6a278cfbe21ee315f06ca/XXL"
         },
         {
-          "caption": "Борода и опасная бритва",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-beard.webp",
-          "_placeholder": true
-        },
-        {
-          "caption": "Укладка",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-styling.webp",
-          "_placeholder": true
+          "caption": "Стрижка с другом",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/9854027/2a0000018825ac18b8b74a9140c19527650a/XXL"
         },
         {
           "caption": "Отец и сын",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-family.webp",
-          "_placeholder": true
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/9854027/2a0000018825ac52b5d3ac4c902d55fa24e3/XXL"
         },
         {
-          "caption": "Атмосфера",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-interior.webp",
-          "_placeholder": true
+          "caption": "Коррекция бороды",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/9685839/2a0000018825ac29313c3fbb919809845d4c/XXL"
         },
         {
-          "caption": "Инструменты",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-tools.webp",
-          "_placeholder": true
+          "caption": "Стрижка и коррекция бороды",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/12412149/2a0000018c36a65711fbd4f5b1aa10d5e150/XXL"
+        },
+        {
+          "caption": "Стрижка и моделирование бороды",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/5560664/2a00000183f7288558ee3d3fe1776b94f2a1/XXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14460769/2a0000019552015f289629ab7476e8137d3c/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14272474/2a0000019552014eaee9a99a36c7ecb62586/XXXL"
         }
       ]
     },

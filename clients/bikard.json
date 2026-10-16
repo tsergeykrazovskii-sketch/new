@@ -8,10 +8,11 @@
     "Яндекс Карты https://yandex.ru/maps/org/bikard/147298348853/ — 5,0 / 244, «Хорошее место 2026», телефоны, VK, часы по вкладке «График», цены",
     "2ГИС https://2gis.ru/moscow/firm/4504127915455323 — адрес ул. Плеханова, 10а, стр. 2, бокс 11; 95 цен (20.02.2025)",
     "Досье: лиды/Бикард (Москва).md; разбор: разборы/Бикард (Москва).md (проверено 14.10.2026)",
-    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026",
+    "Фото карточки Яндекс Карт (gallery), 17.10.2026"
   ],
   "_todo": [
-    "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
+    "Мастера — заглушки (портреты и имена для примера); баннер и галерея — настоящие фото из карточки и страницы владельца",
     "Имена мастеров на демо вымышленные (как в шаблоне ниши) — заменить на настоящих",
     "ТОЧНЫЙ АДРЕС: в Яндексе — Марьино без улицы, в 2ГИС — Плеханова, 10а (Перово); на демо стоит адрес из 2ГИС",
     "график (Яндекс и 2ГИС расходятся)",
@@ -170,8 +171,8 @@
       "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
     },
-    "image": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/hero.webp",
-    "imageAlt": "Мастер осматривает машину на подъёмнике"
+    "image": "https://avatars.mds.yandex.net/get-altay/247136/2a0000015b1626d167416d94e5e23f940c01/XXXL",
+    "imageAlt": "Автосервис «Бикард»"
   },
   "services": [
     {
@@ -356,37 +357,39 @@
     {
       "type": "gallery",
       "title": "Сервис",
-      "lead": "Фото для примера — на сайте будут ваши работы и зал.",
+      "lead": "Фото сервиса и работ.",
       "items": [
         {
-          "caption": "Подъёмники",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-lift.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16323929/2a0000019a8214393527cf828c2e89880e20/XXXL"
         },
         {
-          "caption": "Диагностика",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-diag.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/10285614/2a000001904f55e8f2dea4e80eab709b608c/XXXL"
         },
         {
-          "caption": "Шиномонтаж",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-tires.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16333276/2a0000019b4f23c4cd8406a1b871f31573ab/XXXL"
         },
         {
-          "caption": "Приёмка",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-reception.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/2044663/2a0000017ad7de92fb5c07058e22e893d0f8/XXXL"
         },
         {
-          "caption": "Зона ожидания",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-lounge.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16368192/2a0000019a793ecc47759bc92de3f13a28ef/XXXL"
         },
         {
-          "caption": "Хранение шин",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-storage.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15712112/2a0000019a6e47872f2eb8607a089eee12d4/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/5110793/2a00000180a489ff62261809cfc154d994e4/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/7979597/2a000001904f55e45b32e042225b0dfce547/XXXL"
         }
       ]
     },

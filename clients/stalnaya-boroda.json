@@ -8,10 +8,12 @@
     "Яндекс https://yandex.ru/maps/org/steel_beard/142543500281/ — 5,0 / 643, «Хорошее место 2026», цены (обновлены 25 сентября), часы",
     "2ГИС https://2gis.ru/moscow/firm/70000001096432797 — 3,9 / 12",
     "Досье: лиды/Стальная Борода (Москва).md; разбор: разборы/Стальная Борода (Москва).md (данные проверены 15–16.10.2026)",
-    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026",
+    "Страница владельца в Яндекс Бизнесе https://stalnaja-boroda.clients.site/ (17.10.2026): логотип, баннер, фото услуг, реквизиты",
+    "Фото карточки Яндекс Карт (gallery), 17.10.2026"
   ],
   "_todo": [
-    "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
+    "Мастера — заглушки (портреты и имена для примера); баннер и галерея — настоящие фото из карточки и страницы владельца",
     "Имена мастеров на демо вымышленные (как в шаблоне ниши) — заменить на настоящих",
     "логотип и фото (в картах есть, права у владельца)",
     "реквизиты для подвала и политики ПД",
@@ -119,8 +121,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/hero.webp",
-    "imageAlt": "Барбер делает фейд машинкой"
+    "image": "https://avatars.mds.yandex.net/get-altay/19541413/2a0000019cdc0050f8b8b1cf9756187bbcdc/XXXL",
+    "imageAlt": "Барбершоп «Стальная Борода»"
   },
   "staff": [
     {
@@ -363,37 +365,39 @@
     {
       "type": "gallery",
       "title": "Работы",
-      "lead": "Фото для примера — на сайте будут ваши работы и зал.",
+      "lead": "Фото барбершопа и работ мастеров.",
       "items": [
         {
-          "caption": "Фейд",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-fade.webp",
-          "_placeholder": true
-        },
-        {
-          "caption": "Борода и опасная бритва",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-beard.webp",
-          "_placeholder": true
+          "caption": "Удлинённая стрижка",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/17712810/2a0000019cc9160a905eb77da4da94d2748a/XXL"
         },
         {
           "caption": "Укладка",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-styling.webp",
-          "_placeholder": true
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/17712810/2a0000019cc91401b38b0cb599b2d0e15a35/XXL"
         },
         {
           "caption": "Отец и сын",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-family.webp",
-          "_placeholder": true
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/20222640/2a0000019cc91217d2937010b1c73936edf1/XXL"
         },
         {
-          "caption": "Атмосфера",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-interior.webp",
-          "_placeholder": true
+          "caption": "Бритьё шейвером",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/17763327/2a0000019cc910f3bfef002daa679804b2f1/XXL"
         },
         {
-          "caption": "Инструменты",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/g-tools.webp",
-          "_placeholder": true
+          "caption": "Стрижка, борода и воск",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/19253181/2a0000019cc90d6d82e5786d88721bd124a8/XXL"
+        },
+        {
+          "caption": "Стрижка и борода",
+          "img": "https://avatars.mds.yandex.net/get-sprav-products/17700615/2a0000019cc90c4c506b5b2eb6ce76e22ed5/XXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20390960/2a000001a020c7b7eb83986af5c8e8344754/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/18473509/2a0000019e736d6d23d722adfa49d3f24fb0/XXXL"
         }
       ]
     },
@@ -459,5 +463,8 @@
       "title": "Как нас найти"
     }
   ],
-  "legal": {}
+  "legal": {
+    "operator": "ИП Измаилов Ислам Исмаилович",
+    "inn": "056297321358"
+  }
 }

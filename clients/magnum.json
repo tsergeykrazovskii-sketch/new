@@ -8,10 +8,11 @@
     "Яндекс Карты https://yandex.ru/maps/org/magnum/152392082549/ — 4,7 / 406, часы, телефоны, WhatsApp, удобства, оплата",
     "2ГИС https://2gis.ru/moscow/firm/70000001059260221 — транспорт, услуги",
     "Досье: лиды/Магнум (Москва).md; разбор: разборы/Магнум (Москва).md (проверено 14.10.2026)",
-    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026",
+    "Фото карточки Яндекс Карт (gallery), 17.10.2026"
   ],
   "_todo": [
-    "Фото-заглушки шаблона (баннер, мастера, галерея) — заменить на настоящие фото владельца",
+    "Мастера — заглушки (портреты и имена для примера); баннер и галерея — настоящие фото из карточки и страницы владельца",
     "Имена мастеров на демо вымышленные (как в шаблоне ниши) — заменить на настоящих",
     "ЦЕНЫ: в Яндексе и 2ГИС противоречат друг другу (ремонт ДВС 1 000 ₽ / от 30 000 ₽) — на сайт только после уточнения",
     "основной телефон",
@@ -114,8 +115,8 @@
       "more": "Выбрать работу и время",
       "limit": 1
     },
-    "image": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/hero.webp",
-    "imageAlt": "Мастер осматривает машину на подъёмнике"
+    "image": "https://avatars.mds.yandex.net/get-altay/225456/2a0000015fa020935976adf9fde483334133/XXXL",
+    "imageAlt": "Автосервис «Магнум»"
   },
   "staff": [
     {
@@ -293,37 +294,39 @@
     {
       "type": "gallery",
       "title": "Сервис",
-      "lead": "Фото для примера — на сайте будут ваши работы и зал.",
+      "lead": "Фото сервиса и работ.",
       "items": [
         {
-          "caption": "Подъёмники",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-lift.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/4476499/2a00000181805db900ac7d1721f33f072709/XXXL"
         },
         {
-          "caption": "Диагностика",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-diag.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/5503221/2a0000017d13974ffeb07e2a6c7ec8a3ce43/XXXL"
         },
         {
-          "caption": "Шиномонтаж",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-tires.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/4716261/2a00000181875f70c0da9ac22eb8cb3d8636/XXXL"
         },
         {
-          "caption": "Приёмка",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-reception.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/897342/2a0000018b3c9451870ddde1c4750d33ca3d/XXXL"
         },
         {
-          "caption": "Зона ожидания",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-lounge.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/10878699/2a000001937dfd3a4a6d6d1738e71580e345/XXXL"
         },
         {
-          "caption": "Хранение шин",
-          "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/g-storage.webp",
-          "_placeholder": true
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/5098556/2a00000181ecbd7ae6dcb2b670e7fd9f71b5/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/467304/2a0000015e957eb7e73412c14a2c3b8848b0/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/11072941/2a0000018b6c66d05a1cbbc3759a3c258043/XXXL"
         }
       ]
     },
