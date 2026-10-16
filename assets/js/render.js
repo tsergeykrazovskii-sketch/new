@@ -555,17 +555,29 @@
       ? `<img class="photo ${cls || ''}" src="${esc(item.img)}" alt="${esc(item.alt || item.caption || '')}" loading="lazy">`
       : `<div class="photo ${cls || ''}" role="img" aria-label="Место для фото: ${esc(item.caption || item.name)}"><span class="photo__mark">${esc(item.mark || '')}</span><span class="photo__hint">${ic('camera')}фото</span></div>`;
 
-  R.staff = (c, s) => `
+  // Фото мастеров. В шаблонах ниш мастер без фото получает сгенерированный портрет-заглушку из staffPortraits
+  // (сначала те, что ещё не стоят у других мастеров). У сайтов клиентов заглушек нет — там инициалы.
+  Slot.staffPhotos = (c) => {
+    const pool = c.staffPortraits || [];
+    const free = pool.filter((p) => !c.staff.some((m) => m.img === p));
+    const list = free.length ? free : pool;
+    let k = 0;
+    return c.staff.map((m) => m.img || (list.length ? list[k++ % list.length] : ''));
+  };
+
+  R.staff = (c, s) => {
+    const photos = Slot.staffPhotos(c);
+    return `
 <section class="${secCls(s)}" id="staff" aria-labelledby="staff-title">
   <div class="wrap">
     ${secHead('staff', s)}
     <ul class="staff">${c.staff
       .map(
-        (m) => `
+        (m, i) => `
       <li class="staff__card">
         ${
-          m.img
-            ? photo({ img: m.img, alt: m.name }, 'photo--portrait')
+          photos[i]
+            ? photo({ img: photos[i], alt: m.name }, 'photo--portrait')
             : `<div class="photo photo--portrait photo--mono" aria-hidden="true"><span class="photo__mark">${esc(initials(m.name))}</span></div>`
         }
         <div class="staff__body">
@@ -579,6 +591,7 @@
       .join('')}</ul>
   </div>
 </section>`;
+  };
 
   // Уровни мастеров: одна карточка на уровень, в ней цены ключевых услуг
   R.levels = (c, s) => `
@@ -1013,6 +1026,8 @@
     Object.assign(c, client);
     c.id = client.slug;
     c.staff = client.staff || [];
+    // портреты-заглушки — только для самого шаблона ниши (его правят в демо-админке), не для клиентов
+    if (client.slug === niche.id && niche.staffPortraits) c.staffPortraits = niche.staffPortraits;
     c.services = client.services || [];
     // фирменный стиль клиента — первым, своя тема из админки — последней
     c.styles = (client.styles || []).concat(niche.styles, client.customTheme ? [Slot.customStyle(client.customTheme)] : []);

@@ -320,7 +320,12 @@
       <label class="add add--file">+ Добавить фото<input type="file" accept="image/*" multiple data-kind="photo-add" hidden></label>`;
   };
 
-  PANELS.staff = () => `
+  PANELS.staff = () => {
+    // как на сайте: своё фото, а в шаблоне ниши — сгенерированный портрет, если своего нет
+    const site = Slot.compose(niche, data);
+    const photos = Slot.staffPhotos(site);
+    const generated = site.staffPortraits || [];
+    return `
     <h2>Мастера</h2>
     <p class="lead">Фото лучше вертикальное, по пояс. Его можно снять на телефон.</p>
     ${(data.staff || [])
@@ -328,11 +333,16 @@
         (m, i) => `
       <div class="card card--staff">
         <div class="card__head"><b>${esc(m.name || 'Новый мастер')}</b>${tools('staff', i, data.staff.length)}</div>
+        ${
+          generated.includes(photos[i])
+            ? '<p class="own__warn">Сгенерированное фото — замените до запуска. Пока это заглушка: на рабочем сайте у мастера должно быть его настоящее фото.</p>'
+            : ''
+        }
         <div class="staff-row">
           <div class="ph">
-            ${m.img ? `<img src="${esc(imgUrl(m.img))}" alt="">` : `<span>${esc(Slot.util.initials(m.name || '?'))}</span>`}
-            <label class="ph__btn">${m.img ? 'Заменить' : 'Загрузить фото'}<input type="file" accept="image/*" data-kind="photo" data-target="staff.${i}.img" hidden></label>
-            ${m.img ? `<button type="button" class="ph__del" data-act="img-del" data-target="staff.${i}.img">Убрать фото</button>` : ''}
+            ${photos[i] ? `<img src="${esc(imgUrl(photos[i]))}" alt="">` : `<span>${esc(Slot.util.initials(m.name || '?'))}</span>`}
+            <label class="ph__btn">${photos[i] && !generated.includes(photos[i]) ? 'Заменить' : 'Загрузить фото'}<input type="file" accept="image/*" data-kind="photo" data-target="staff.${i}.img" hidden></label>
+            ${m.img && !generated.includes(m.img) ? `<button type="button" class="ph__del" data-act="img-del" data-target="staff.${i}.img">Убрать фото</button>` : ''}
           </div>
           <div class="staff-fields">
             ${input('Имя', `staff.${i}.name`)}
@@ -348,6 +358,7 @@
       )
       .join('')}
     <button type="button" class="add" data-act="add-staff">+ Добавить мастера</button>`;
+  };
 
   PANELS.reviews = () => {
     const ri = sectionIndex('reviews');

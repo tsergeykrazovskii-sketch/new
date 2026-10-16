@@ -294,6 +294,9 @@
       { id: 'denis', name: 'Денис Ахмедов', dative: 'Денису', role: 'Барбер', years: 5, note: 'Детские стрижки, «отец и сын»', img: '/assets/img/barber/staff-4.webp', demoSlots: ['14:00', '15:00', '18:30'] },
     ],
 
+    // Сгенерированные портреты: у вымышленных мастеров и заглушкой для мастеров без фото (только в шаблоне)
+    staffPortraits: ['/assets/img/barber/staff-1.webp', '/assets/img/barber/staff-2.webp', '/assets/img/barber/staff-3.webp', '/assets/img/barber/staff-4.webp'],
+
     booking: { askStaff: true, step: 30, contactMethods: ['Звонок', 'Telegram', 'MAX'], fields: [] },
 
     sections: [
