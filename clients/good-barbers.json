@@ -85,7 +85,15 @@
   "nav": [
     {
       "id": "services",
-      "label": "Цены"
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
     },
     {
       "id": "faq",
