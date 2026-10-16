@@ -270,7 +270,13 @@
       },
     ],
 
-    staff: [],
+    // Вымышленные мастера демо «Поршень» — с сгенерированными портретами
+    staff: [
+      { id: 'andrey', name: 'Андрей Морозов', role: 'Старший мастер', years: 15, note: 'Двигатель, ходовая, сложные случаи', img: '/assets/img/auto/staff-1.webp' },
+      { id: 'nikita', name: 'Никита Орлов', role: 'Мастер', years: 5, note: 'ТО по регламенту и шиномонтаж', img: '/assets/img/auto/staff-2.webp' },
+      { id: 'ruslan', name: 'Руслан Гарипов', role: 'Мастер', years: 11, note: 'Тормоза и подвеска', img: '/assets/img/auto/staff-3.webp' },
+      { id: 'dmitry', name: 'Дмитрий Ким', role: 'Диагност', years: 8, note: 'Компьютерная диагностика и электрика', img: '/assets/img/auto/staff-4.webp' },
+    ],
 
     // Сгенерированные портреты механиков: заглушка для мастеров без фото (только в шаблоне)
     staffPortraits: ['/assets/img/auto/staff-1.webp', '/assets/img/auto/staff-2.webp', '/assets/img/auto/staff-3.webp', '/assets/img/auto/staff-4.webp'],
@@ -301,6 +307,7 @@
         ],
       },
       { type: 'services', title: 'Работы и цены', lead: 'Цены на работы без запчастей. Итог зависит от марки и состояния авто — смету согласуем до начала ремонта.' },
+      { type: 'staff', title: 'Мастера', lead: 'Кто будет заниматься вашей машиной.' },
       {
         type: 'steps',
         invert: true,

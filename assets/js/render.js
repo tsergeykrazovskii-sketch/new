@@ -652,7 +652,12 @@
           <h3 class="staff__name">${esc(m.name)}</h3>
           <p class="staff__role">${esc(m.role)}${m.years ? ` · стаж ${m.years}${NBSP}${plural(m.years, ['год', 'года', 'лет'])}` : ''}</p>
           <p class="staff__note">${esc(m.note || '')}</p>
-          <button class="btn btn--line btn--block" type="button" data-book data-staff="${esc(m.id)}">${m.dative ? `Записаться к${NBSP}${esc(m.dative)}` : 'Записаться'}</button>
+          ${
+            // запись к мастеру — только там, где при записи выбирают мастера (барбершоп); в автосервисе блок без кнопок
+            !c.booking || c.booking.askStaff
+              ? `<button class="btn btn--line btn--block" type="button" data-book data-staff="${esc(m.id)}">${m.dative ? `Записаться к${NBSP}${esc(m.dative)}` : 'Записаться'}</button>`
+              : ''
+          }
         </div>
       </li>`
       )

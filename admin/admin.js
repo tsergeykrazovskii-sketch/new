@@ -347,7 +347,7 @@
           </div>
           <div class="staff-fields">
             ${input('Имя', `staff.${i}.name`)}
-            ${input('Для кнопки «Записаться к …»', `staff.${i}.dative`, { placeholder: 'Артёму' })}
+            ${site.booking && site.booking.askStaff === false ? '' : input('Для кнопки «Записаться к …»', `staff.${i}.dative`, { placeholder: 'Артёму' })}
             <div class="row2">
               ${input('Должность или уровень', `staff.${i}.role`)}
               ${input('Стаж, лет', `staff.${i}.years`, { type: 'number' })}
