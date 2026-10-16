@@ -1,0 +1,314 @@
+{
+  "slug": "good-barbers",
+  "niche": "barber",
+  "style": "classic",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для барбершопа «Good Barbers» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/good_barbers/1741888468/ — 4,8 / 437, «Хорошее место 2026», цены, часы, мессенджеры",
+    "2ГИС https://2gis.ru/moscow/firm/70000001026622785 — 4,9 / 112, сайт goodbarbers.ru (Wix ConnectYourDomain Error)",
+    "Досье: лиды/Good Barbers (Москва).md; разбор: разборы/Good Barbers (Москва).md (проверено 15.10.2026)"
+  ],
+  "_todo": [
+    "логотип и фото (в картах есть, права у владельца)",
+    "реквизиты для подвала и политики ПД",
+    "длительность услуг для записи",
+    "мастера (имена из отзывов на демо не брал)",
+    "доступ к домену goodbarbers.ru",
+    "актуальный прайс",
+    "запись SOnline placeid 7130",
+    "Расписание: число одновременных мест (постов / кресел) и график мастеров — уточнить у владельца, пока 1 место по часам работы"
+  ],
+  "brand": {
+    "name": "Good Barbers",
+    "kind": "Барбершоп"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "2-й Автозаводский проезд, 5",
+    "addressNote": "Цокольный этаж",
+    "metro": "Автозаводская",
+    "phone": "+7 964 790-44-41",
+    "phoneHref": "+79647904441",
+    "hoursShort": "Ежедневно 10:00–22:00",
+    "yandexMaps": "https://yandex.ru/maps/org/good_barbers/1741888468/",
+    "twoGis": "https://2gis.ru/moscow/firm/70000001026622785",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79647904441"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/good_barbers"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/good_barbers"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Цены"
+    },
+    {
+      "id": "faq",
+      "label": "Вопросы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "Good Barbers — барбершоп у метро «Автозаводская»",
+    "lead": "Стрижки, борода и усы, бритьё опасной бритвой, камуфляж седины. 140 метров от метро, ежедневно с 10 до 22. 4,8 по 437 оценкам в Яндексе и 4,9 в 2ГИС.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "4,8",
+        "count": 437,
+        "url": "https://yandex.ru/maps/org/good_barbers/1741888468/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,9",
+        "count": 112,
+        "url": "https://2gis.ru/moscow/firm/70000001026622785"
+      }
+    ],
+    "widget": {
+      "type": "slots",
+      "title": "Свободные окна",
+      "more": "Все услуги и время",
+      "limit": 1
+    }
+  },
+  "staff": [
+    {
+      "id": "any",
+      "name": "Любой свободный барбер",
+      "dative": "первому свободному барберу",
+      "role": "Ближайшие свободные окна"
+    }
+  ],
+  "services": [
+    {
+      "category": "Стрижки",
+      "items": [
+        {
+          "id": "cut",
+          "name": "Стрижка",
+          "desc": "",
+          "price": {
+            "value": 2000,
+            "from": false
+          }
+        },
+        {
+          "id": "buzz",
+          "name": "Под машинку",
+          "desc": "",
+          "price": {
+            "value": 700,
+            "from": false
+          }
+        },
+        {
+          "id": "kids",
+          "name": "Детская стрижка",
+          "desc": "",
+          "price": {
+            "value": 1300,
+            "from": false
+          }
+        },
+        {
+          "id": "style",
+          "name": "Мытьё и укладка",
+          "desc": "",
+          "price": {
+            "value": 700,
+            "from": false
+          }
+        }
+      ]
+    },
+    {
+      "category": "Борода и бритьё",
+      "items": [
+        {
+          "id": "beard-mus",
+          "name": "Стрижка бороды и усов",
+          "desc": "",
+          "price": {
+            "value": 1100,
+            "from": false
+          }
+        },
+        {
+          "id": "beard",
+          "name": "Моделирование бороды",
+          "desc": "",
+          "price": {
+            "value": 2000,
+            "from": false
+          }
+        },
+        {
+          "id": "head",
+          "name": "Бритьё головы",
+          "desc": "",
+          "price": {
+            "value": 2000,
+            "from": false
+          }
+        },
+        {
+          "id": "shave",
+          "name": "Бритьё опасной бритвой",
+          "desc": "",
+          "price": {
+            "value": 2000,
+            "from": false
+          }
+        }
+      ]
+    },
+    {
+      "category": "Уход",
+      "items": [
+        {
+          "id": "grey",
+          "name": "Камуфляж седины",
+          "desc": "",
+          "price": {
+            "value": 1600,
+            "from": false
+          }
+        },
+        {
+          "id": "wax",
+          "name": "Горячий воск",
+          "desc": "",
+          "price": {
+            "value": 550,
+            "from": false
+          }
+        }
+      ]
+    }
+  ],
+  "booking": {
+    "askStaff": false,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ]
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Удобства",
+      "items": [
+        {
+          "icon": "pin",
+          "title": "У метро",
+          "text": "«Автозаводская» — около 140 метров"
+        },
+        {
+          "icon": "clock",
+          "title": "Ежедневно до 22:00",
+          "text": "С 10:00 до 22:00"
+        },
+        {
+          "icon": "gift",
+          "title": "Сертификаты",
+          "text": "Подарочные сертификаты"
+        },
+        {
+          "icon": "card",
+          "title": "Удобная оплата",
+          "text": "Карта, наличные, QR"
+        }
+      ]
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу барбершопа."
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "2-й Автозаводский проезд, 5, цокольный этаж — около 140 метров от метро «Автозаводская»."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 22:00."
+        },
+        {
+          "q": "Есть подарочные сертификаты?",
+          "a": "Да."
+        },
+        {
+          "q": "Как оплатить?",
+          "a": "Картой, наличными или по QR-коду."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {},
+  "schedule": {
+    "mode": "own",
+    "capacity": 1,
+    "off": [],
+    "blocks": []
+  }
+}
