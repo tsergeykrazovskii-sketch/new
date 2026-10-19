@@ -354,6 +354,10 @@ h3 {
 }
 .logo__name {
   font-size: min(calc(1.7rem * var(--display-scale)), 7.4vw);
+  /* обрезка (overflow) не должна срезать хвосты букв Д, Ц, Щ, у, р, ф и Й, Ё сверху:
+     поле для них внутри, а отрицательные отступы оставляют шапку той же высоты */
+  padding: 0.26em 0.08em 0.28em 0;
+  margin: -0.26em -0.08em -0.28em 0;
 }
 .logo__img {
   display: block;
