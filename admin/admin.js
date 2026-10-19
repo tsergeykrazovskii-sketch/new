@@ -113,6 +113,7 @@
     { id: 'docs', label: 'Документы', anchor: 'top' },
     { id: 'schedule', label: 'Расписание', anchor: 'top', sched: true },
     { id: 'bookings', label: 'Заявки', anchor: 'top', bookings: true },
+    { id: 'notify', label: 'Уведомления', anchor: 'top' },
   ];
 
   const PANELS = {};
@@ -545,6 +546,228 @@
       .map(([v, l]) => `<button type="button" class="seg-btn${bkFilter === v ? ' is-on' : ''}" data-act="bk-filter" data-v="${v}">${l}</button>`)
       .join('')}</div>
     <div class="bookings" data-bookings><p class="lead">Загружаем…</p></div>`;
+
+  /* ---------- уведомления: куда присылать заявки ---------- */
+
+  // Настройки хранятся на сервере (admin/private), пароли и ключи обратно в браузер не приходят.
+  // В демо — в этом браузере, без отправки.
+  let nf = null; // { email: { on, to, via, user, hasPass, pass }, tg|vk|max: { on, connected, name, tokenHint } }
+  let nfLast = null;
+  let nfDirty = false;
+  const nfMsg = {}; // канал → { ok, text } — итог последней проверки
+  const NF_KEY = () => 'slot-notify-' + S.slug;
+  const NF_CH = { tg: 'Telegram', vk: 'ВКонтакте', max: 'MAX' };
+  const nfDefaults = () => {
+    const ch = { on: false, connected: false, name: '', tokenHint: '' };
+    return { email: { on: false, to: '', via: 'yandex', user: '', hasPass: false, pass: '' }, tg: clone(ch), vk: clone(ch), max: clone(ch) };
+  };
+
+  function loadNotify() {
+    const done = (set, last) => {
+      nf = Object.assign(nfDefaults(), set || {});
+      nf.email.pass = '';
+      nfLast = last || null;
+      nfDirty = false;
+      if (tab === 'notify') renderPanel();
+    };
+    if (mode !== 'server') {
+      let saved = null;
+      try {
+        saved = JSON.parse(store.get(NF_KEY()) || 'null');
+      } catch (e) {
+        /* нет сохранённых — пустые */
+      }
+      return done(saved);
+    }
+    api('notify-get')
+      .then((res) => done(res.settings, res.last))
+      .catch((err) => toast(err.message, true));
+  }
+
+  // Пошаговые инструкции — простым языком, чтобы владелец справился сам
+  const GUIDE = {
+    yandex: [
+      'Откройте <b>id.yandex.ru</b> под тем ящиком Яндекса, с которого будут уходить письма (можно тот же, куда они будут приходить).',
+      'Нажмите «Безопасность» → «Пароли приложений».',
+      'Нажмите «Создать пароль» → выберите «Почта» → название, например «Сайт».',
+      'Яндекс покажет пароль из 16 букв. Скопируйте его — второй раз его не покажут.',
+      'Здесь в поле «Ящик, с которого отправлять» впишите свой адрес на Яндексе, в «Пароль приложения» — скопированный пароль.',
+      'Нажмите «Сохранить настройки», потом «Отправить проверку». Через минуту загляните в почту (и в «Спам»).',
+      'Если пишет «ящик или пароль не принят»: в Яндекс Почте откройте «Все настройки» → «Почтовые программы» и включите обе галочки (IMAP и «Пароли приложений»), затем повторите проверку.',
+    ],
+    mailru: [
+      'Войдите в почту Mail.ru, с которой будут уходить письма.',
+      'Откройте «Настройки» → «Безопасность» → «Пароли для внешних приложений» → «Добавить».',
+      'Название — «Сайт», доступ — к почте. Нажмите «Продолжить».',
+      'Скопируйте пароль, который покажет Mail.ru (второй раз его не покажут).',
+      'Здесь впишите свой адрес Mail.ru и этот пароль, нажмите «Сохранить настройки», потом «Отправить проверку».',
+    ],
+    host: ['Ничего настраивать не нужно: письма отправит ваш хостинг.', 'Но такие письма часто попадают в «Спам». Если проверка не пришла — выберите Яндекс Почту.'],
+    tg: [
+      'Откройте Telegram и найдите в поиске <b>@BotFather</b> (с синей галочкой).',
+      'Нажмите «Запустить», затем отправьте ему сообщение <b>/newbot</b>.',
+      'Напишите название бота, например «Заявки с сайта».',
+      'Придумайте имя-ссылку латиницей, которое заканчивается на <b>bot</b>, например <i>remeslo_zayavki_bot</i>.',
+      'BotFather пришлёт длинный ключ вида <i>123456789:AAH…</i> — нажмите на него, он скопируется.',
+      'Откройте своего нового бота (ссылка в том же сообщении) и нажмите «Запустить».',
+      'Вставьте ключ сюда и нажмите «Подключить». Бот пришлёт вам «Готово!».',
+    ],
+    vk: [
+      'Нужно сообщество ВКонтакте, где вы администратор (подойдёт сообщество вашего бизнеса).',
+      'В сообществе откройте «Управление» → «Сообщения» и включите «Сообщения сообщества». Сохраните.',
+      'Там же: «Управление» → «Дополнительно» → «Работа с API» → «Ключи доступа» → «Создать ключ».',
+      'Поставьте галочку «Разрешить приложению доступ к сообщениям сообщества» и нажмите «Создать». ВКонтакте попросит подтвердить кодом.',
+      'Скопируйте ключ — длинную строку из букв и цифр.',
+      'Со своей личной страницы напишите сообществу любое сообщение, например «Привет».',
+      'Вставьте ключ сюда и нажмите «Подключить». Сообщество ответит вам «Готово!» — заявки будут приходить в личные сообщения.',
+    ],
+    max: [
+      'Бота в MAX может создать только ИП или ООО: MAX проверяет организацию, а бота смотрит модератор (обычно около суток).',
+      'Откройте <b>business.max.ru</b>, нажмите «Подключить» и войдите через MAX.',
+      'Зарегистрируйте свою организацию (понадобится ИНН) и создайте бота, например «Заявки с сайта».',
+      'Когда бота одобрят, откройте раздел «Интеграция» и скопируйте ключ (токен) бота.',
+      'В приложении MAX найдите своего бота и нажмите «Начать».',
+      'Вставьте ключ сюда и нажмите «Подключить». Бот пришлёт вам «Готово!».',
+    ],
+  };
+  const guide = (key, title) => `<details class="guide"><summary>${title || 'Как подключить — по шагам'}</summary><ol>${GUIDE[key].map((x) => `<li>${x}</li>`).join('')}</ol></details>`;
+  const nfNote = (ch) => (nfMsg[ch] ? `<p class="nf-msg${nfMsg[ch].ok ? ' is-ok' : ''}">${esc(nfMsg[ch].text)}</p>` : '');
+
+  PANELS.notify = () => {
+    if (!nf) {
+      Promise.resolve().then(loadNotify); // после того как панель отрисуется
+      return '<h2>Уведомления о заявках</h2><p class="lead">Загружаем…</p>';
+    }
+    const e = nf.email;
+    const via = (v, label) => `<button type="button" class="seg-btn${e.via === v ? ' is-on' : ''}" data-act="nf-via" data-v="${v}">${label}</button>`;
+    const RES = { email: 'Почта' };
+    const last = nfLast
+      ? `<div class="card nf-last"><b>Последняя заявка, ${esc(nfLast.at)}:</b> ${Object.entries(nfLast.res || {})
+          .map(([k, r]) => `${RES[k] || NF_CH[k]} — ${r === 'ok' ? '<span class="nf-ok">доставлено</span>' : `<span class="nf-bad">не дошло: ${esc(r)}</span>`}`)
+          .join('; ')}</div>`
+      : '';
+    const channel = (ch, warn) => {
+      const c = nf[ch];
+      return `<div class="card nf">
+        <div class="card__head"><b>${NF_CH[ch]}</b>${c.connected ? `<span class="nf-ok">подключено${c.name ? ': ' + esc(c.name) : ''}</span>` : '<span class="muted">не подключено</span>'}</div>
+        ${warn ? `<p class="own__warn">${warn}</p>` : ''}
+        <label class="check"><input type="checkbox" data-nf="${ch}.on"${c.on ? ' checked' : ''}${c.connected ? '' : ' disabled'}> Присылать заявки в ${NF_CH[ch]}</label>
+        ${guide(ch)}
+        <div class="f"><label for="nf-${ch}-token">${ch === 'vk' ? 'Ключ доступа сообщества' : 'Ключ (токен) бота'}</label>
+          <input id="nf-${ch}-token" data-nf-token="${ch}" type="password" autocomplete="off" spellcheck="false" placeholder="${c.tokenHint ? 'сохранён ' + esc(c.tokenHint) : 'вставьте ключ'}"></div>
+        <div class="bk-acts"><button type="button" class="btn btn--primary" data-act="nf-connect" data-ch="${ch}">Подключить</button>${
+          c.connected
+            ? `<button type="button" class="btn" data-act="nf-test" data-ch="${ch}">Отправить проверку</button><button type="button" class="btn" data-act="nf-forget" data-ch="${ch}">Отключить</button>`
+            : ''
+        }</div>${nfNote(ch)}
+      </div>`;
+    };
+    return `<h2>Уведомления о заявках</h2>
+      <p class="lead">Каждая заявка с сайта сохраняется во вкладке «Заявки». Здесь можно включить, чтобы она сразу приходила вам на почту или в мессенджер — можно включить несколько сразу.${
+        mode === 'server' ? '' : ' <b>Это демо:</b> настройки сохраняются в этом браузере, письма и сообщения не отправляются. На вашем хостинге всё заработает по-настоящему.'
+      }</p>
+      ${last}
+      <div class="card nf">
+        <div class="card__head"><b>Почта</b>${e.on ? '<span class="nf-ok">включена</span>' : '<span class="muted">выключена</span>'}</div>
+        <label class="check"><input type="checkbox" data-nf="email.on"${e.on ? ' checked' : ''}> Присылать заявки на почту</label>
+        <div class="f"><label for="nf-to">Куда присылать заявки</label><input id="nf-to" type="email" data-nf="email.to" value="${esc(e.to)}" placeholder="owner@yandex.ru" autocomplete="email" multiple>
+          <p class="f__hint">Можно до трёх адресов через запятую.</p></div>
+        <p class="f__lbl">Откуда отправлять письма</p>
+        <div class="segs">${via('yandex', 'Яндекс Почта')}${via('mailru', 'Mail.ru')}${via('host', 'Почта хостинга')}${e.via === 'custom' ? via('custom', 'Свой сервер') : ''}</div>
+        ${
+          e.via === 'yandex' || e.via === 'mailru'
+            ? `<div class="row2">
+          <div class="f"><label for="nf-user">Ящик, с которого отправлять</label><input id="nf-user" type="email" data-nf="email.user" value="${esc(e.user)}" placeholder="${e.via === 'yandex' ? 'owner@yandex.ru' : 'owner@mail.ru'}" autocomplete="off"></div>
+          <div class="f"><label for="nf-pass">Пароль приложения</label><input id="nf-pass" type="password" data-nf="email.pass" value="" placeholder="${e.hasPass ? 'сохранён ••••••' : '16 букв, без пробелов'}" autocomplete="new-password" spellcheck="false">
+            <p class="f__hint">Это не пароль от почты, а отдельный пароль для сайта. Как его получить — ниже.</p></div></div>
+          ${guide(e.via, 'Где взять пароль приложения — по шагам')}`
+            : e.via === 'custom'
+              ? '<p class="f__hint">Письма уходят через почтовый сервер из файла config.php.</p>'
+              : guide('host', 'Как это работает')
+        }
+        <div class="bk-acts"><button type="button" class="btn" data-act="nf-test" data-ch="email"${e.on && !nfDirty ? '' : ' disabled'}>Отправить проверку</button></div>${nfNote('email')}
+      </div>
+      ${channel('vk')}
+      ${channel('max')}
+      ${channel('tg', 'Telegram в России ограничивают: с вашего хостинга сообщения могут не доходить. Кроме того, заявки (имя и телефон клиента) попадут на зарубежные серверы. Надёжнее — почта, ВКонтакте или MAX.')}
+      <div class="nf-save"><button type="button" class="btn btn--primary" data-act="nf-save"${nfDirty ? '' : ' disabled'}>Сохранить настройки</button>
+        <span class="muted">${nfDirty ? 'Есть несохранённые изменения' : 'Настройки сохранены'}</span></div>`;
+  };
+
+  function nfApply(res) {
+    nf = Object.assign(nfDefaults(), res.settings);
+    nf.email.pass = '';
+    nfDirty = false;
+  }
+
+  function nfAction(act, ch, btn) {
+    if (act === 'nf-via') {
+      nf.email.via = btn.dataset.v;
+      nfDirty = true;
+      return renderPanel();
+    }
+    if (act === 'nf-save') {
+      const body = { email: nf.email, tg: { on: nf.tg.on }, vk: { on: nf.vk.on }, max: { on: nf.max.on } };
+      if (mode !== 'server') {
+        const keep = clone(nf);
+        if (keep.email.pass) keep.email.hasPass = true;
+        keep.email.pass = '';
+        store.set(NF_KEY(), JSON.stringify(keep));
+        nf = keep;
+        nfDirty = false;
+        toast('Сохранено в этом браузере (демо)');
+        return renderPanel();
+      }
+      btn.disabled = true;
+      return api('notify-save', body)
+        .then((res) => {
+          nfApply(res);
+          toast('Настройки уведомлений сохранены');
+          renderPanel();
+        })
+        .catch((err) => {
+          btn.disabled = false;
+          toast(err.message, true);
+        });
+    }
+    const label = ch === 'email' ? 'Почта' : NF_CH[ch];
+    if (mode !== 'server') {
+      nfMsg[ch] = { ok: false, text: 'Это демо: письма и сообщения отсюда не отправляются. На вашем хостинге здесь сразу будет видно, дошла ли проверка.' };
+      return renderPanel();
+    }
+    const token = (doc.querySelector(`[data-nf-token="${ch}"]`) || {}).value || '';
+    const call =
+      act === 'nf-connect'
+        ? api('notify-connect', { ch, token: token.trim() })
+        : act === 'nf-forget'
+          ? g.confirm(`Отключить ${label}? Заявки туда приходить перестанут.`)
+            ? api('notify-forget', { ch })
+            : null
+          : api('notify-test', { ch });
+    if (!call) return;
+    btn.disabled = true;
+    btn.textContent = act === 'nf-connect' ? 'Подключаем…' : act === 'nf-test' ? 'Отправляем…' : btn.textContent;
+    call
+      .then((res) => {
+        if (res.settings) nfApply(res);
+        nfMsg[ch] = {
+          ok: true,
+          text:
+            act === 'nf-connect'
+              ? `Подключено! Мы отправили вам сообщение «Готово!» в ${label}. Новые заявки будут приходить туда.`
+              : act === 'nf-test'
+                ? ch === 'email'
+                  ? 'Письмо отправлено. Проверьте почту через минуту — и папку «Спам».'
+                  : `Проверка отправлена — посмотрите ${label}.`
+                : `${label} отключён.`,
+        };
+        renderPanel();
+      })
+      .catch((err) => {
+        nfMsg[ch] = { ok: false, text: err.message };
+        renderPanel();
+      });
+  }
 
   /* ---------- расписание ---------- */
 
@@ -1140,6 +1363,19 @@
 
   function onInput(e) {
     const t = e.target;
+    if (t.dataset.nf) {
+      setPath(nf, t.dataset.nf, t.type === 'checkbox' ? t.checked : t.value);
+      nfDirty = true;
+      const save = doc.querySelector('[data-act="nf-save"]');
+      if (save) {
+        save.disabled = false;
+        save.nextElementSibling.textContent = 'Есть несохранённые изменения';
+      }
+      doc.querySelectorAll('[data-act="nf-test"][data-ch="email"]').forEach((b) => (b.disabled = true));
+      if (t.type === 'checkbox') renderPanel();
+      return;
+    }
+    if (t.dataset.nfToken) return;
     const kind = t.dataset.kind;
     if (t.dataset.path && !kind) {
       let v = t.type === 'checkbox' ? t.checked : t.value;
@@ -1264,6 +1500,7 @@
     if (!t) return;
     if (t.dataset.tab) {
       tab = t.dataset.tab;
+      if (tab === 'notify' && !nfDirty) nf = null; // свежие настройки и итог последней заявки
       previewDoc = tab === 'docs' ? previewDoc || 'privacy' : '';
       showPreviewDoc(previewDoc);
       renderTabs();
@@ -1344,6 +1581,7 @@
       delete data.brand.logoTone;
       return touch(true);
     }
+    if (/^nf-/.test(act)) return nfAction(act, t.dataset.ch, t);
     if (act === 'bk-filter') {
       bkFilter = t.dataset.v;
       return renderPanel();

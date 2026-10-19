@@ -947,3 +947,71 @@ h2 {
 .bk p {
   margin: 4px 0;
 }
+
+/* уведомления о заявках */
+.nf .card__head {
+  gap: 10px;
+}
+.nf .own__warn {
+  margin-bottom: 12px;
+}
+.nf .segs {
+  margin-bottom: 14px;
+}
+.nf-ok {
+  color: var(--ok);
+  font-weight: 600;
+}
+.nf-bad {
+  color: var(--danger);
+}
+.nf-msg {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fdecea;
+  color: var(--danger);
+  font-size: 14px;
+}
+.nf-msg.is-ok {
+  background: #e7f3ec;
+  color: var(--ok);
+}
+.nf-last {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.nf-save {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 0 -4px;
+  padding: 12px 4px calc(12px + env(safe-area-inset-bottom, 0px));
+  background: var(--bg);
+}
+.guide {
+  margin: 4px 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+}
+.guide summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.guide ol {
+  margin: 0;
+  padding: 0 16px 14px 36px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.guide li + li {
+  margin-top: 6px;
+}
