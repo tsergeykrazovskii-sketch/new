@@ -304,7 +304,8 @@
         </div>
       </div>
       <h3 class="sub">Первый экран</h3>
-      <div class="card">${photoBox(data.hero.image, 'hero.image', 'Загрузить фото')}
+      <div class="card" data-hero-card>${photoBox(data.hero.image, 'hero.image', 'Загрузить фото')}
+        <p class="f__hint" data-hero-size hidden></p>
         ${input('Что на фото (для поисковиков и незрячих)', 'hero.imageAlt', { placeholder: 'Барбер стрижёт клиента' })}</div>
       <h3 class="sub">Галерея и лента атмосферы</h3>
       ${items
@@ -1004,8 +1005,29 @@
       .join('');
   }
 
+  // Размер фото первого экрана: маленькое на широком экране выглядит размытым
+  function heroSizeNote() {
+    const img = doc.querySelector('[data-hero-card] .ph img');
+    const note = doc.querySelector('[data-hero-size]');
+    if (!img || !note) return;
+    const show = () => {
+      const w = img.naturalWidth;
+      const h = img.naturalHeight;
+      if (!w) return;
+      const small = w < 1600;
+      note.className = small ? 'own__warn' : 'f__hint';
+      note.textContent = small
+        ? `Фото ${w}×${h} px — маленькое для первого экрана: на компьютере оно будет размытым. Загрузите фото шириной от 1920 px.`
+        : `Фото ${w}×${h} px — подходит для первого экрана.`;
+      note.hidden = false;
+    };
+    if (img.complete) show();
+    else img.addEventListener('load', show, { once: true });
+  }
+
   function renderPanel() {
     doc.querySelector('[data-panel]').innerHTML = PANELS[tab]();
+    if (tab === 'photos') heroSizeNote();
     if (tab === 'bookings' || tab === 'schedule') loadBookings();
   }
 
