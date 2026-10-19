@@ -1028,3 +1028,60 @@ h2 {
 .guide li + li {
   margin-top: 6px;
 }
+
+/* первый экран: марки и наценка */
+.w-type {
+  margin-bottom: 14px;
+}
+.brands {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.brand-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 110px;
+  gap: 0 10px;
+  align-items: end;
+  padding: 10px 12px 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+.brand-row .f {
+  margin-bottom: 10px;
+}
+.brand-row__eff {
+  align-self: center;
+  color: var(--muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.brand-row .tools {
+  justify-self: end;
+  margin-bottom: 10px;
+}
+@media (min-width: 640px) {
+  .brand-row {
+    grid-template-columns: minmax(0, 1fr) 110px 96px auto;
+  }
+}
+@media (max-width: 639px) {
+  .brand-row__eff {
+    margin-bottom: 10px;
+  }
+}
+.svc-pick {
+  display: grid;
+  gap: 2px;
+  margin-bottom: 14px;
+}
+.check--sm {
+  min-height: 40px;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+.check.is-off {
+  color: var(--muted);
+  cursor: default;
+}

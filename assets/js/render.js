@@ -551,7 +551,8 @@
       )
       .join('');
     // при записи через внешнюю систему (YCLIENTS и т. п.) окон у нас нет — блок «Свободные окна» не показываем
-    const w = h.widget && !(h.widget.type === 'slots' && Slot.sched.externalUrl(c)) ? h.widget : null;
+    const hw = Slot.heroWidget(c);
+    const w = hw && !(hw.type === 'slots' && Slot.sched.externalUrl(c)) ? hw : null;
     const widget = !w ? '' : w.type === 'estimate' ? widgetEstimate(c, w) : widgetSlots(c, w);
     const words = h.title.split(/\s+/);
     const title = words.map((w, i) => `<span class="w"><span style="--i:${i + 1}">${esc(w)}</span></span>`).join(' ');
@@ -1094,6 +1095,20 @@
 </div>`;
 
   /* ---------- данные ---------- */
+
+  // Виджет первого экрана, как его надо показать: в калькуляторе — только существующие работы с ценой
+  // и хотя бы одна марка; если считать нечего — вместо калькулятора ближайшее время для записи
+  Slot.heroWidget = (c) => {
+    const w = c.hero && c.hero.widget;
+    if (!w || w.type !== 'estimate') return w || null;
+    const services = (w.services || []).filter((id) => {
+      const s = Slot.findService(c, id);
+      return s && s.price && s.price.value > 0;
+    });
+    const brands = (w.brands || []).filter((b) => b && b.name && b.k > 0);
+    if (!services.length || !brands.length) return { type: 'slots', title: 'Запись онлайн', more: w.more || 'Выбрать работу и время' };
+    return Object.assign({}, w, { services, brands, defaultBrand: Math.min(Math.max(0, w.defaultBrand || 0), brands.length - 1) });
+  };
 
   Slot.findService = (c, id) => {
     for (const cat of c.services) for (const it of cat.items) if (it.id === id) return Object.assign({ category: cat.category }, it);

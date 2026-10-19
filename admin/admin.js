@@ -221,11 +221,96 @@
         : '';
     return `
       <h2>Услуги и цены</h2>
+      ${heroWidgetBlock()}
+      <h3 class="sub">Прайс</h3>
       <p class="lead">Пустая цена показывается как «по запросу». Галочка «от» добавляет «от» перед ценой.</p>
       ${cats}
       <button type="button" class="add" data-act="add-cat">+ Добавить категорию</button>
       ${levels}`;
   };
+
+  /* ---------- первый экран автосервиса: калькулятор цены или ближайшее время ---------- */
+
+  const W_TITLES = { estimate: 'Сколько стоит работа', slots: 'Запись онлайн' };
+  const pct = (k) => Math.round((Number(k) - 1) * 100);
+  const pctLabel = (p) => (p > 0 ? `+${p} %` : p < 0 ? `−${-p} %` : 'как в прайсе');
+
+  // Виджет хранится в hero.widget; если его нет — берём калькулятор из шаблона ниши
+  function heroWidget() {
+    if (!data.hero.widget) {
+      const base = niche.hero && niche.hero.widget && niche.hero.widget.type === 'estimate' ? clone(niche.hero.widget) : { brands: [{ name: 'Любая марка', k: 1 }] };
+      data.hero.widget = Object.assign({ type: 'estimate', title: W_TITLES.estimate, defaultBrand: 0, services: [], note: '', cta: 'Записаться' }, base, { type: 'estimate' });
+    }
+    const w = data.hero.widget;
+    if (!Array.isArray(w.brands)) w.brands = [];
+    if (!Array.isArray(w.services)) w.services = [];
+    return w;
+  }
+
+  function heroWidgetBlock() {
+    // только там, где мастера при записи не выбирают (автосервис): у барбершопа на первом экране — окна мастеров
+    if (siteCfg().booking.askStaff !== false) return '';
+    const w = heroWidget();
+    const isCalc = w.type === 'estimate';
+    const seg = (v, label) => `<button type="button" class="seg-btn${w.type === v ? ' is-on' : ''}" data-act="w-type" data-v="${v}">${label}</button>`;
+    let body = `<p class="lead">На первом экране — ближайшее свободное время: клиент сразу выбирает время и записывается.</p>
+        ${input('Заголовок', 'hero.widget.title', { placeholder: W_TITLES.slots })}`;
+    if (isCalc) {
+      const brands = w.brands
+        .map(
+          (b, i) => `<div class="brand-row">
+            <div class="f"><label for="wb-${i}">Марка</label><input id="wb-${i}" data-kind="w-brand-name" data-i="${i}" value="${esc(b.name)}"></div>
+            <div class="f"><label for="wk-${i}">Наценка, %</label><input id="wk-${i}" type="number" inputmode="numeric" step="5" data-kind="w-brand-pct" data-i="${i}" value="${pct(b.k)}"></div>
+            <span class="brand-row__eff" data-brand-eff="${i}">${pctLabel(pct(b.k))}</span>
+            <span class="tools">
+              <button type="button" class="tool" data-act="w-brand-move" data-i="${i}" data-d="-1" aria-label="Выше"${i === 0 ? ' disabled' : ''}>↑</button>
+              <button type="button" class="tool" data-act="w-brand-move" data-i="${i}" data-d="1" aria-label="Ниже"${i === w.brands.length - 1 ? ' disabled' : ''}>↓</button>
+              <button type="button" class="tool tool--del" data-act="w-brand-del" data-i="${i}">Удалить</button>
+            </span>
+          </div>`
+        )
+        .join('');
+      const priced = [];
+      (data.services || []).forEach((cat) => (cat.items || []).forEach((it) => priced.push(it)));
+      const svcs = priced
+        .map((it) => {
+          const has = it.price && it.price.value > 0;
+          const on = has && w.services.includes(it.id);
+          return `<label class="check check--sm${has ? '' : ' is-off'}"><input type="checkbox" data-kind="w-svc" data-id="${esc(it.id)}"${on ? ' checked' : ''}${has ? '' : ' disabled'}> ${esc(it.name || 'Без названия')}${
+            has ? ` <span class="muted">· ${esc(price({ from: true, value: it.price.value }))}</span>` : ' <span class="muted">· нет цены</span>'
+          }</label>`;
+        })
+        .join('');
+      const chosen = w.services.filter((id) => priced.some((it) => it.id === id && it.price && it.price.value > 0)).length;
+      body = `
+        <p class="lead">Клиент выбирает марку и работу и сразу видит цену: цена работы из прайса плюс наценка марки, округлённая до 100 ₽. Например, работа «от 2 000 ₽» с наценкой +60 % — «от 3 200 ₽», с −20 % — «от 1 600 ₽».</p>
+        ${input('Заголовок', 'hero.widget.title', { placeholder: W_TITLES.estimate })}
+        <p class="f__lbl">Марки и наценка</p>
+        <div class="brands">${brands || '<p class="lead">Марок нет — добавьте хотя бы одну.</p>'}</div>
+        <button type="button" class="add" data-act="w-brand-add">+ Добавить марку</button>
+        <p class="f__lbl">Работы в калькуляторе</p>
+        <p class="f__hint">Отметьте 3–6 самых частых работ. Работу без цены выбрать нельзя — сначала укажите цену в прайсе ниже.</p>
+        <div class="svc-pick">${svcs}</div>
+        ${chosen ? '' : '<p class="own__warn">Не выбрано ни одной работы с ценой — пока на сайте вместо калькулятора будет ближайшее время.</p>'}
+        ${input('Пояснение под ценой', 'hero.widget.note', { multiline: true, rows: 2, placeholder: 'Цены «от», работа без запчастей. Точную стоимость назовём после осмотра.' })}`;
+    }
+    return `<h3 class="sub">Первый экран</h3>
+      <div class="card">
+        <p class="f__lbl">Что показывать рядом с заголовком</p>
+        <div class="segs w-type">${seg('estimate', 'Калькулятор цены')}${seg('slots', 'Ближайшее время для записи')}</div>
+        ${body}
+      </div>`;
+  }
+
+  // У калькулятора и окон записи — свои заголовки: при переключении запоминаем текущий и возвращаем нужный
+  function widgetSetType(type) {
+    const w = heroWidget();
+    if (w.type === type) return;
+    w.titles = Object.assign({}, w.titles, { [w.type]: w.title });
+    w.title = w.titles[type] || W_TITLES[type];
+    w.type = type;
+    if (type === 'slots' && !w.more) w.more = 'Выбрать работу и время';
+  }
 
   // Блок «Мастера» создаётся при первом мастере (в шаблоне автосервиса его изначально нет) — сразу после цен
   function ensureStaff() {
@@ -1465,6 +1550,27 @@
       if (head && /\.(name|text)$/.test(t.dataset.path) && t.value) head.textContent = t.value;
       return touch(false);
     }
+    if (kind === 'w-brand-name') {
+      heroWidget().brands[Number(t.dataset.i)].name = t.value;
+      return touch(false);
+    }
+    if (kind === 'w-brand-pct') {
+      const p = Math.max(-70, Math.min(400, Number(t.value) || 0));
+      heroWidget().brands[Number(t.dataset.i)].k = Math.round((1 + p / 100) * 100) / 100;
+      const eff = doc.querySelector(`[data-brand-eff="${t.dataset.i}"]`);
+      if (eff) eff.textContent = pctLabel(p);
+      return touch(false);
+    }
+    if (kind === 'w-svc') {
+      const w = heroWidget();
+      const order = [];
+      (data.services || []).forEach((cat) => (cat.items || []).forEach((it) => order.push(it.id)));
+      const set = new Set(w.services);
+      if (t.checked) set.add(t.dataset.id);
+      else set.delete(t.dataset.id);
+      w.services = order.filter((id) => set.has(id));
+      return touch(true);
+    }
     if (kind === 'price' || kind === 'price-from') {
       const it = getPath(data, t.dataset.path);
       const box = t.closest('.row3');
@@ -1601,6 +1707,28 @@
     }
     if (act === 'add-service') {
       data.services[i].items.push({ id: uid('s'), name: '', desc: '', duration: 60, price: { value: 1000, from: false } });
+      return touch(true);
+    }
+    if (act === 'w-type') {
+      widgetSetType(t.dataset.v);
+      return touch(true);
+    }
+    if (act === 'w-brand-add') {
+      heroWidget().brands.push({ name: 'Новая марка', k: 1 });
+      return touch(true);
+    }
+    if (act === 'w-brand-del') {
+      const w = heroWidget();
+      w.brands.splice(Number(t.dataset.i), 1);
+      w.defaultBrand = Math.min(w.defaultBrand || 0, Math.max(0, w.brands.length - 1));
+      return touch(true);
+    }
+    if (act === 'w-brand-move') {
+      const w = heroWidget();
+      const i = Number(t.dataset.i);
+      const j = i + Number(t.dataset.d);
+      if (j < 0 || j >= w.brands.length) return;
+      [w.brands[i], w.brands[j]] = [w.brands[j], w.brands[i]];
       return touch(true);
     }
     if (act === 'add-cat') {

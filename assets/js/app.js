@@ -300,7 +300,7 @@
   }
 
   function updateEstimate(instant) {
-    const w = cfg.hero.widget;
+    const w = Slot.heroWidget(cfg);
     const checked = doc.querySelector('input[name="qw-brand"]:checked');
     const brand = w.brands[checked ? Number(checked.value) : w.defaultBrand];
     const sel = doc.querySelector('[data-est-service]');
