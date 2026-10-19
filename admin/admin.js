@@ -136,7 +136,7 @@
       <h2>Главное</h2>
       <div class="row2">
         ${input('Название', 'brand.name')}
-        ${input('Тип заведения', 'brand.kind', { placeholder: 'Барбершоп' })}
+        ${input('Тип заведения', 'brand.kind', { placeholder: 'Например: салон, студия, сервис' })}
       </div>
       ${input('Заголовок первого экрана', 'hero.title', { multiline: true, rows: 2 })}
       ${input('Текст под заголовком', 'hero.lead', { multiline: true, rows: 4 })}
@@ -165,7 +165,7 @@
       <h3 class="sub">Плашка с акцией над шапкой</h3>
       <div class="card">
         <label class="check"><input type="checkbox" data-path="promo.show"${on ? ' checked' : ''}> Показывать плашку на сайте</label>
-        ${input('Текст акции', 'promo.text', { placeholder: '−15% на первую стрижку при записи онлайн', hint: 'Коротко, в одну-две строки на телефоне. Пустой текст — плашки нет.' })}
+        ${input('Текст акции', 'promo.text', { placeholder: '−15% на первый визит при записи онлайн', hint: 'Коротко, в одну-две строки на телефоне. Пустой текст — плашки нет.' })}
         <div class="row2">
           ${input('Текст кнопки', 'promo.cta', { placeholder: 'Записаться' })}
           <div class="f"><label for="f-promo-service">Кнопка открывает запись на</label>
@@ -306,7 +306,7 @@
       <h3 class="sub">Первый экран</h3>
       <div class="card" data-hero-card>${photoBox(data.hero.image, 'hero.image', 'Загрузить фото')}
         <p class="f__hint" data-hero-size hidden></p>
-        ${input('Что на фото (для поисковиков и незрячих)', 'hero.imageAlt', { placeholder: 'Барбер стрижёт клиента' })}</div>
+        ${input('Что на фото (для поисковиков и незрячих)', 'hero.imageAlt', { placeholder: 'Например: мастер за работой' })}</div>
       <h3 class="sub">Галерея и лента атмосферы</h3>
       ${items
         .map(
@@ -315,7 +315,7 @@
           <div class="card__head"><b>Фото ${i + 1}</b>${tools(`sections.${gi}.items`, i, items.length)}</div>
           <div class="staff-row">
             ${photoBox(it.img, `sections.${gi}.items.${i}.img`, 'Загрузить')}
-            <div>${input('Подпись', `sections.${gi}.items.${i}.caption`, { placeholder: 'Скин-фейд' })}</div>
+            <div>${input('Подпись', `sections.${gi}.items.${i}.caption`, { placeholder: 'Пара слов о том, что на фото' })}</div>
           </div>
         </div>`
         )
@@ -349,7 +349,7 @@
           </div>
           <div class="staff-fields">
             ${input('Имя', `staff.${i}.name`)}
-            ${site.booking && site.booking.askStaff === false ? '' : input('Для кнопки «Записаться к …»', `staff.${i}.dative`, { placeholder: 'Артёму' })}
+            ${site.booking && site.booking.askStaff === false ? '' : input('Для кнопки «Записаться к …»', `staff.${i}.dative`, { placeholder: 'Например: Ивану' })}
             <div class="row2">
               ${input('Должность или уровень', `staff.${i}.role`)}
               ${input('Стаж, лет', `staff.${i}.years`, { type: 'number' })}
@@ -608,7 +608,7 @@
       'Откройте Telegram и найдите в поиске <b>@BotFather</b> (с синей галочкой).',
       'Нажмите «Запустить», затем отправьте ему сообщение <b>/newbot</b>.',
       'Напишите название бота, например «Заявки с сайта».',
-      'Придумайте имя-ссылку латиницей, которое заканчивается на <b>bot</b>, например <i>remeslo_zayavki_bot</i>.',
+      'Придумайте имя-ссылку латиницей, которое заканчивается на <b>bot</b>, например <i>zayavki_s_saita_bot</i>.',
       'BotFather пришлёт длинный ключ вида <i>123456789:AAH…</i> — нажмите на него, он скопируется.',
       'Откройте своего нового бота (ссылка в том же сообщении) и нажмите «Запустить».',
       'Вставьте ключ сюда и нажмите «Подключить». Бот пришлёт вам «Готово!».',
