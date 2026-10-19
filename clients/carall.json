@@ -22,7 +22,8 @@
     "оплата кроме карты",
     "воскресенье (2ГИС — ежедневно)",
     "фото (в Яндексе 18)",
-    "домен: свободны carall-service.ru, carallservice.ru"
+    "домен: свободны carall-service.ru, carallservice.ru",
+    "Цены 1000 ₽ — временные, для демо (на сайте помечены «для примера»); заменить прайсом владельца"
   ],
   "brand": {
     "name": "Carall Service",
@@ -109,10 +110,65 @@
       }
     ],
     "widget": {
-      "type": "slots",
-      "title": "Запись онлайн",
-      "more": "Выбрать работу и время",
-      "limit": 1
+      "type": "estimate",
+      "title": "Сколько стоит работа",
+      "defaultBrand": 0,
+      "brands": [
+        {
+          "name": "Kia",
+          "k": 1
+        },
+        {
+          "name": "Hyundai",
+          "k": 1
+        },
+        {
+          "name": "Lada",
+          "k": 0.8
+        },
+        {
+          "name": "Haval",
+          "k": 1.05
+        },
+        {
+          "name": "Chery",
+          "k": 1.05
+        },
+        {
+          "name": "Geely",
+          "k": 1.05
+        },
+        {
+          "name": "Toyota",
+          "k": 1.1
+        },
+        {
+          "name": "Skoda",
+          "k": 1
+        },
+        {
+          "name": "VW",
+          "k": 1.05
+        },
+        {
+          "name": "BMW",
+          "k": 1.6
+        },
+        {
+          "name": "Другая марка",
+          "k": 1.07
+        }
+      ],
+      "services": [
+        "oil",
+        "diag",
+        "engine",
+        "akpp",
+        "brakes",
+        "exhaust"
+      ],
+      "note": "Цены для примера: точную стоимость назовём после осмотра, работа без запчастей.",
+      "cta": "Записаться"
     },
     "image": "https://avatars.mds.yandex.net/get-altay/6506385/2a0000018abc3b66533e69792927032be371/XXXL",
     "imageAlt": "Автосервис «Carall Service»"
@@ -164,7 +220,10 @@
           "id": "diag",
           "name": "Диагностика",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         }
       ]
     },
@@ -175,13 +234,19 @@
           "id": "engine",
           "name": "Ремонт двигателя",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "akpp",
           "name": "Ремонт АКПП",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         }
       ]
     },
@@ -192,25 +257,37 @@
           "id": "brakes",
           "name": "Тормозная система",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "exhaust",
           "name": "Выхлопная система",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "starter",
           "name": "Стартеры",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "parktronic",
           "name": "Парктроники",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         }
       ]
     },
@@ -230,19 +307,28 @@
           "id": "body",
           "name": "Кузовной ремонт и покраска",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "bumper",
           "name": "Ремонт бамперов",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "tint",
           "name": "Тонировка",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         }
       ]
     }
@@ -290,7 +376,7 @@
     {
       "type": "services",
       "title": "Работы",
-      "lead": "Цены на большинство работ назовём после осмотра — они зависят от марки и состояния автомобиля."
+      "lead": "Цены на сайте — для примера: точную стоимость назовём после осмотра, она зависит от марки и состояния автомобиля."
     },
     {
       "type": "staff",

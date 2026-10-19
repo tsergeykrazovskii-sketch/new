@@ -20,7 +20,8 @@
     "Расписание: число постов, на которые можно записаться онлайн, — уточнить у владельца, пока 1 место по часам работы",
     "прайс (в картах нет)",
     "рабочая почта (в 2ГИС — личный ящик, не переносить)",
-    "домен: свободны stoavto54.ru, stoavto-nsk.ru"
+    "домен: свободны stoavto54.ru, stoavto-nsk.ru",
+    "Цены 1000 ₽ — временные, для демо (на сайте помечены «для примера»); заменить прайсом владельца"
   ],
   "brand": {
     "name": "STOAvto",
@@ -116,10 +117,65 @@
       }
     ],
     "widget": {
-      "type": "slots",
-      "title": "Запись онлайн",
-      "more": "Выбрать работу и время",
-      "limit": 1
+      "type": "estimate",
+      "title": "Сколько стоит работа",
+      "defaultBrand": 0,
+      "brands": [
+        {
+          "name": "Kia",
+          "k": 1
+        },
+        {
+          "name": "Hyundai",
+          "k": 1
+        },
+        {
+          "name": "Lada",
+          "k": 0.8
+        },
+        {
+          "name": "Haval",
+          "k": 1.05
+        },
+        {
+          "name": "Chery",
+          "k": 1.05
+        },
+        {
+          "name": "Geely",
+          "k": 1.05
+        },
+        {
+          "name": "Toyota",
+          "k": 1.1
+        },
+        {
+          "name": "Skoda",
+          "k": 1
+        },
+        {
+          "name": "VW",
+          "k": 1.05
+        },
+        {
+          "name": "BMW",
+          "k": 1.6
+        },
+        {
+          "name": "Другая марка",
+          "k": 1.07
+        }
+      ],
+      "services": [
+        "gbc",
+        "endo",
+        "cooling",
+        "fuel",
+        "cat",
+        "clutch"
+      ],
+      "note": "Цены для примера: точную стоимость назовём после осмотра, работа без запчастей.",
+      "cta": "Записаться"
     },
     "image": "https://avatars.mds.yandex.net/get-altay/15152716/2a00000196a5c648ea3169f450a12e8863bd/XXXL",
     "imageAlt": "Автосервис «STOAvto»"
@@ -162,31 +218,46 @@
           "id": "gbc",
           "name": "Ремонт ГБЦ",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "endo",
           "name": "Эндоскопия двигателя",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "cooling",
           "name": "Система охлаждения",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "fuel",
           "name": "Топливная система",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "cat",
           "name": "Катализаторы",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         }
       ]
     },
@@ -197,31 +268,46 @@
           "id": "clutch",
           "name": "Замена сцепления",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "gur",
           "name": "Ремонт ГУР",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "struts",
           "name": "Ремонт стоек и пневмоподвески",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "turn",
           "name": "Проточка тормозных дисков",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "rims",
           "name": "Ремонт дисков",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         }
       ]
     },
@@ -232,7 +318,10 @@
           "id": "electro",
           "name": "Автоэлектроника",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         }
       ]
     },
@@ -252,7 +341,10 @@
           "id": "dry",
           "name": "Химчистка",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         }
       ]
     }
@@ -300,7 +392,7 @@
     {
       "type": "services",
       "title": "Работы",
-      "lead": "Цены на работы назовём после осмотра — они зависят от марки и состояния автомобиля."
+      "lead": "Цены на сайте — для примера: точную стоимость назовём после осмотра, она зависит от марки и состояния автомобиля."
     },
     {
       "type": "staff",

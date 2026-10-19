@@ -21,7 +21,8 @@
     "omega-krd.ru зарегистрирован 21.09.2026 — их ли (возможно, сайт уже делают)",
     "прайс",
     "основной телефон",
-    "домен: свободен omegakrd.ru"
+    "домен: свободен omegakrd.ru",
+    "Цены 1000 ₽ — временные, для демо (на сайте помечены «для примера»); заменить прайсом владельца"
   ],
   "brand": {
     "name": "Омега",
@@ -122,10 +123,65 @@
       }
     ],
     "widget": {
-      "type": "slots",
-      "title": "Запись онлайн",
-      "more": "Выбрать работу и время",
-      "limit": 1
+      "type": "estimate",
+      "title": "Сколько стоит работа",
+      "defaultBrand": 0,
+      "brands": [
+        {
+          "name": "Kia",
+          "k": 1
+        },
+        {
+          "name": "Hyundai",
+          "k": 1
+        },
+        {
+          "name": "Lada",
+          "k": 0.8
+        },
+        {
+          "name": "Haval",
+          "k": 1.05
+        },
+        {
+          "name": "Chery",
+          "k": 1.05
+        },
+        {
+          "name": "Geely",
+          "k": 1.05
+        },
+        {
+          "name": "Toyota",
+          "k": 1.1
+        },
+        {
+          "name": "Skoda",
+          "k": 1
+        },
+        {
+          "name": "VW",
+          "k": 1.05
+        },
+        {
+          "name": "BMW",
+          "k": 1.6
+        },
+        {
+          "name": "Другая марка",
+          "k": 1.07
+        }
+      ],
+      "services": [
+        "to",
+        "engine",
+        "akpp",
+        "brakes",
+        "exhaust",
+        "ac"
+      ],
+      "note": "Цены для примера: точную стоимость назовём после осмотра, работа без запчастей.",
+      "cta": "Записаться"
     },
     "image": "https://avatars.mds.yandex.net/get-altay/4381564/2a000001820ec5e1f99e743f43ede34ea01d/XXXL",
     "imageAlt": "Автосервис «Омега»"
@@ -168,43 +224,64 @@
           "id": "to",
           "name": "ТО",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "engine",
           "name": "Ремонт двигателя",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "akpp",
           "name": "Ремонт АКПП",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "brakes",
           "name": "Тормозная система",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "exhaust",
           "name": "Выхлопная система",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "ac",
           "name": "Кондиционер",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "pre",
           "name": "Предрейсовый осмотр",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         }
       ]
     },
@@ -215,13 +292,19 @@
           "id": "body",
           "name": "Кузовной ремонт и покраска",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "bumper",
           "name": "Ремонт бамперов",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         }
       ]
     },
@@ -241,19 +324,28 @@
           "id": "self",
           "name": "Мойка самообслуживания",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "dry",
           "name": "Химчистка",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "polish",
           "name": "Полировка",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         }
       ]
     }
@@ -301,7 +393,7 @@
     {
       "type": "services",
       "title": "Работы",
-      "lead": "Цены на работы назовём после осмотра — они зависят от марки и состояния автомобиля."
+      "lead": "Цены на сайте — для примера: точную стоимость назовём после осмотра, она зависит от марки и состояния автомобиля."
     },
     {
       "type": "staff",

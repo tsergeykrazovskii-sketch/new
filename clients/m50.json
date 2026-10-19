@@ -20,7 +20,8 @@
     "Расписание: число постов, на которые можно записаться онлайн, — уточнить у владельца, пока 1 место по часам работы",
     "настоящий прайс (в Яндексе все позиции по «1 ₽»)",
     "какая группа VK основная (remont_bmw / club27874024)",
-    "доступ к домену m50bmw.ru"
+    "доступ к домену m50bmw.ru",
+    "Цены 1000 ₽ — временные, для демо (на сайте помечены «для примера»); заменить прайсом владельца"
   ],
   "brand": {
     "name": "M50",
@@ -121,10 +122,65 @@
       }
     ],
     "widget": {
-      "type": "slots",
-      "title": "Запись онлайн",
-      "more": "Выбрать работу и время",
-      "limit": 1
+      "type": "estimate",
+      "title": "Сколько стоит работа",
+      "defaultBrand": 0,
+      "brands": [
+        {
+          "name": "Kia",
+          "k": 1
+        },
+        {
+          "name": "Hyundai",
+          "k": 1
+        },
+        {
+          "name": "Lada",
+          "k": 0.8
+        },
+        {
+          "name": "Haval",
+          "k": 1.05
+        },
+        {
+          "name": "Chery",
+          "k": 1.05
+        },
+        {
+          "name": "Geely",
+          "k": 1.05
+        },
+        {
+          "name": "Toyota",
+          "k": 1.1
+        },
+        {
+          "name": "Skoda",
+          "k": 1
+        },
+        {
+          "name": "VW",
+          "k": 1.05
+        },
+        {
+          "name": "BMW",
+          "k": 1.6
+        },
+        {
+          "name": "Другая марка",
+          "k": 1.07
+        }
+      ],
+      "services": [
+        "to",
+        "diag",
+        "ecu",
+        "electric",
+        "engine",
+        "gbc"
+      ],
+      "note": "Цены для примера: точную стоимость назовём после осмотра, работа без запчастей.",
+      "cta": "Записаться"
     },
     "image": "https://avatars.mds.yandex.net/get-altay/2356223/2a00000174497c93cc688a2419cea7322ae9/XXXL",
     "imageAlt": "Автосервис «M50»"
@@ -167,25 +223,37 @@
           "id": "to",
           "name": "ТО по регламенту",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "diag",
           "name": "Компьютерная диагностика",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "ecu",
           "name": "Ремонт и программирование ЭБУ",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "electric",
           "name": "Автоэлектрика",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         }
       ]
     },
@@ -196,25 +264,37 @@
           "id": "engine",
           "name": "Ремонт двигателя",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "gbc",
           "name": "Ремонт ГБЦ",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "akpp",
           "name": "Ремонт АКПП, МКПП и РКПП",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "diesel",
           "name": "Дизельные двигатели",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         }
       ]
     },
@@ -225,37 +305,55 @@
           "id": "chassis",
           "name": "Ходовая и тормоза",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "ac",
           "name": "Кондиционер",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "body",
           "name": "Кузовной ремонт и покраска",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "anticor",
           "name": "Антикор",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "glass",
           "name": "Автостёкла",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "tire",
           "name": "Шиномонтаж и диски",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         }
       ]
     }
@@ -304,7 +402,7 @@
     {
       "type": "services",
       "title": "Работы",
-      "lead": "Цены на работы назовём после диагностики — они зависят от модели и состояния автомобиля."
+      "lead": "Цены на сайте — для примера: точную стоимость назовём после осмотра, она зависит от марки и состояния автомобиля."
     },
     {
       "type": "staff",

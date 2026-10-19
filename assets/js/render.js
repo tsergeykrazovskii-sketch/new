@@ -529,7 +529,7 @@
       </label>
       <div class="qw__result" aria-live="polite">
         <span class="qw__price" data-est-price>${price({ from: true, value: Slot.roundPrice(first.price.value * k) })}</span>
-        <span class="qw__dur" data-est-dur>${ic('clock')}около ${duration(first.duration)}</span>
+        <span class="qw__dur" data-est-dur>${first.duration ? ic('clock') + 'около ' + duration(first.duration) : ''}</span>
       </div>
       <p class="qw__note">${esc(w.note)}</p>
       <p class="qw__slot">${ic('calendar')}Ближайшее окно: <b data-est-slot>${esc(w.slotLabel || 'завтра, 09:00')}</b></p>

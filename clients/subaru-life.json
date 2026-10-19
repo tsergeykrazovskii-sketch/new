@@ -22,7 +22,8 @@
     "полный список услуг (вариаторы, чип-тюнинг, запчасти — со слов Алисы)",
     "точный адрес (256А, корп. 2 или 256Б, корп. 5)",
     "фото (в Яндексе 4)",
-    "домен: свободны subarulife54.ru, subaru-life.ru"
+    "домен: свободны subarulife54.ru, subaru-life.ru",
+    "Цены 1000 ₽ — временные, для демо (на сайте помечены «для примера»); заменить прайсом владельца"
   ],
   "brand": {
     "name": "Subaru Life",
@@ -117,10 +118,65 @@
       }
     ],
     "widget": {
-      "type": "slots",
-      "title": "Запись онлайн",
-      "more": "Выбрать работу и время",
-      "limit": 1
+      "type": "estimate",
+      "title": "Сколько стоит работа",
+      "defaultBrand": 0,
+      "brands": [
+        {
+          "name": "Kia",
+          "k": 1
+        },
+        {
+          "name": "Hyundai",
+          "k": 1
+        },
+        {
+          "name": "Lada",
+          "k": 0.8
+        },
+        {
+          "name": "Haval",
+          "k": 1.05
+        },
+        {
+          "name": "Chery",
+          "k": 1.05
+        },
+        {
+          "name": "Geely",
+          "k": 1.05
+        },
+        {
+          "name": "Toyota",
+          "k": 1.1
+        },
+        {
+          "name": "Skoda",
+          "k": 1
+        },
+        {
+          "name": "VW",
+          "k": 1.05
+        },
+        {
+          "name": "BMW",
+          "k": 1.6
+        },
+        {
+          "name": "Другая марка",
+          "k": 1.07
+        }
+      ],
+      "services": [
+        "to",
+        "repair",
+        "chassis",
+        "tune-exhaust",
+        "tune-engine",
+        "tune-susp"
+      ],
+      "note": "Цены для примера: точную стоимость назовём после осмотра, работа без запчастей.",
+      "cta": "Записаться"
     },
     "image": "https://avatars.mds.yandex.net/get-altay/11048854/2a0000018a6f10b1dabfe5e6f906a10d5d05/XXXL",
     "imageAlt": "Автосервис «Subaru Life»"
@@ -163,19 +219,28 @@
           "id": "to",
           "name": "ТО Subaru",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "repair",
           "name": "Ремонт Subaru",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "chassis",
           "name": "Ходовая",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         }
       ]
     },
@@ -186,19 +251,28 @@
           "id": "tune-exhaust",
           "name": "Тюнинг выхлопа",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "tune-engine",
           "name": "Тюнинг двигателя",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         },
         {
           "id": "tune-susp",
           "name": "Тюнинг подвески",
           "desc": "",
-          "price": null
+          "price": {
+            "value": 1000,
+            "from": true
+          }
         }
       ]
     }
@@ -241,7 +315,7 @@
     {
       "type": "services",
       "title": "Работы",
-      "lead": "Цены на работы назовём после осмотра — они зависят от модели и состояния автомобиля."
+      "lead": "Цены на сайте — для примера: точную стоимость назовём после осмотра, она зависит от марки и состояния автомобиля."
     },
     {
       "type": "staff",
