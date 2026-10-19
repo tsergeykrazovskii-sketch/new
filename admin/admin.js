@@ -636,7 +636,7 @@
 
   /* ---------- настройки: поиск, статистика, пароль, прошлые версии ---------- */
 
-  let versions = null; // список резервных копий с сервера
+  let versions = null; // список резервных копий: с сервера, в демо — из IndexedDB браузера
   const SEO_GUIDE = {
     verify: [
       'Откройте <b>webmaster.yandex.ru</b> и войдите под своим Яндекс ID.',
@@ -660,7 +660,7 @@
     const seo = data.seo || {};
     const m = String(seo.metrika || '').trim();
     const site = Slot.seo(Slot.compose(niche, data));
-    if (mode === 'server' && !versions) Promise.resolve().then(loadVersions);
+    if (!versions && !versionsLoading) Promise.resolve().then(loadVersions);
     return `<h2>Настройки</h2>
       <h3 class="sub">Сайт в поиске и в соцсетях</h3>
       <p class="lead">Когда ссылку на сайт отправляют в мессенджере или соцсети, рядом показывается фото первого экрана, название и описание. Карта сайта и robots.txt для поисковиков обновляются сами при каждом сохранении.</p>
@@ -692,27 +692,33 @@
           : '<p class="lead">В демо пароля нет. На хостинге здесь можно сменить пароль от админки.</p>'
       }
       <h3 class="sub">Прошлые версии</h3>
-      <p class="lead">Перед каждым сохранением админка откладывает копию сайта — хранятся последние 30. Если что-то пошло не так, откройте нужную версию, проверьте её в предпросмотре и нажмите «Сохранить».</p>
+      <p class="lead">Перед каждым сохранением админка откладывает копию сайта — хранятся последние 30. Если что-то пошло не так, откройте нужную версию, проверьте её в предпросмотре и нажмите «Сохранить».${
+        mode === 'server' ? '' : ' В демо копии хранятся в этом браузере.'
+      }</p>
       ${
-        mode !== 'server'
-          ? '<p class="lead">В демо прошлые версии не хранятся. Вернуть исходные данные можно кнопкой «Вернуть исходные данные» вверху.</p>'
-          : !versions
+        !versions
             ? '<p class="lead">Загружаем…</p>'
             : versions.length
               ? `<div class="vers">${versions
-                  .map((v) => `<div class="vers__row"><span>${esc(v.at)}</span><button type="button" class="btn" data-act="ver-open" data-id="${esc(v.id)}" data-at="${esc(v.at)}">Открыть</button></div>`)
+                  .map((v) => `<div class="vers__row"><span>${esc(v.at)}${v.label ? ` <span class="muted">· ${esc(v.label)}</span>` : ''}</span><button type="button" class="btn" data-act="ver-open" data-id="${esc(v.id)}" data-at="${esc(v.at)}">Открыть</button></div>`)
                   .join('')}</div>`
               : '<p class="lead">Копий пока нет: они появятся после первого сохранения.</p>'
       }`;
   };
 
+  let versionsLoading = false;
   function loadVersions() {
-    api('versions')
-      .then((res) => {
-        versions = res.items || [];
-        if (tab === 'settings') renderPanel();
+    versionsLoading = true;
+    (mode === 'server' ? api('versions').then((res) => res.items || []) : Slot.demoStore.versions(S.slug))
+      .then((items) => (versions = items))
+      .catch((err) => {
+        versions = [];
+        if (mode === 'server') toast(err.message, true);
       })
-      .catch((err) => toast(err.message, true));
+      .then(() => {
+        versionsLoading = false;
+        if (tab === 'settings') renderPanel();
+      });
   }
 
   function settingsAction(act, t) {
@@ -739,9 +745,9 @@
     if (act === 'ver-open') {
       if (dirty && !g.confirm('Несохранённые изменения пропадут. Открыть прошлую версию?')) return;
       t.disabled = true;
-      return api('version&id=' + encodeURIComponent(t.dataset.id))
-        .then((res) => {
-          data = res.data;
+      return (mode === 'server' ? api('version&id=' + encodeURIComponent(t.dataset.id)).then((res) => res.data) : Slot.demoStore.version(S.slug, t.dataset.id))
+        .then((d) => {
+          data = d;
           touch(true);
           toast(`Открыта версия от ${t.dataset.at}. Проверьте её в предпросмотре и нажмите «Сохранить», чтобы вернуть её на сайт.`);
         })
@@ -1336,11 +1342,11 @@
       toast(mode === 'server' ? 'Сохранено. Сайт обновлён.' : 'Сохранено в этом браузере. Откройте сайт, чтобы увидеть изменения.');
     };
     if (mode === 'demo') {
-      // фото — в IndexedDB, в localStorage только данные со ссылками на них (см. Slot.demoPhotos)
+      // фото — в IndexedDB, в localStorage только данные со ссылками на них (см. Slot.demoStore)
       let noIdb = false;
       const put = (light) => store.set(KEY, JSON.stringify(light));
-      return Slot.demoPhotos
-        .pack(S.slug, data)
+      return demoKeepVersion()
+        .then(() => Slot.demoStore.pack(S.slug, data))
         .catch(() => {
           noIdb = true; // IndexedDB недоступна — храним фото прямо в данных, как раньше
           return data;
@@ -1348,7 +1354,7 @@
         .then((light) => {
           if (put(light)) return true;
           // место заняли старые сохранения других демо — переносим их фото и пробуем ещё раз
-          return Slot.demoPhotos.migrate().then(() => put(light));
+          return Slot.demoStore.migrate().then(() => put(light));
         })
         .then((ok) => {
           if (ok) return done(new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' }));
@@ -1369,6 +1375,21 @@
         btn.disabled = false;
         toast(err.message, true);
       });
+  }
+
+  // Демо: как резервная копия на хостинге — перед сохранением откладываем то, что было на сайте
+  // (в первый раз — исходные данные). Фото версий тоже лежат в IndexedDB.
+  function demoKeepVersion(label) {
+    let prev = null;
+    try {
+      prev = JSON.parse(store.get(KEY) || 'null');
+    } catch (e) {
+      /* повреждённые данные — откладываем исходные */
+    }
+    return Slot.demoStore
+      .addVersion(S.slug, prev || S.data, label || (prev ? '' : 'исходные данные'))
+      .catch(() => {}) // без IndexedDB истории нет, но сохранение работает
+      .then(() => (versions = null));
   }
 
   function api(action, body) {
@@ -1419,7 +1440,7 @@
   }
 
   // Загружает фото и возвращает адрес: на сервере — файл в /uploads, в демо — data:-строка
-  // (при сохранении демо она уходит в IndexedDB браузера, см. Slot.demoPhotos).
+  // (при сохранении демо она уходит в IndexedDB браузера, см. Slot.demoStore).
   function uploadPhoto(file, max) {
     return shrink(file, max)
       .then((blob) => {
@@ -1940,17 +1961,19 @@
     }
     if (t.matches('[data-save]')) return save();
     if (t.matches('[data-reset]')) {
-      if (!g.confirm('Вернуть исходные тексты, цены и фото? Ваши правки в этом браузере удалятся.')) return;
-      try {
-        localStorage.removeItem(KEY);
-        Slot.demoPhotos.clear(S.slug).catch(() => {});
-      } catch (err) {
-        /* хранилище недоступно — правок там и нет */
-      }
-      data = clone(S.data);
-      dirty = false;
-      savedAt = null;
-      return start();
+      if (!g.confirm('Вернуть исходные тексты, цены и фото? Ваши сохранённые правки останутся в «Настройках» → «Прошлые версии».')) return;
+      const reset = () => {
+        try {
+          localStorage.removeItem(KEY);
+        } catch (err) {
+          /* хранилище недоступно — правок там и нет */
+        }
+        data = clone(S.data);
+        dirty = false;
+        savedAt = null;
+        start();
+      };
+      return store.get(KEY) ? demoKeepVersion('до «Вернуть исходные данные»').then(reset) : reset();
     }
     if (t.matches('[data-preview-open]')) return doc.body.classList.add('show-preview');
     if (t.matches('[data-preview-close]')) return doc.body.classList.remove('show-preview');
@@ -2219,9 +2242,9 @@
         } catch (e) {
           /* повреждённые данные — берём исходные */
         }
-        Slot.demoPhotos.migrate().catch(() => {}); // освобождаем место от старых сохранений заранее
+        Slot.demoStore.migrate().catch(() => {}); // освобождаем место от старых сохранений заранее
         if (!saved) return start();
-        Slot.demoPhotos
+        Slot.demoStore
           .unpack(S.slug, saved)
           .then((full) => (data = full))
           .catch(() => (data = saved))

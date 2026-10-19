@@ -1059,10 +1059,10 @@
         /* повреждённые данные — показываем исходные */
       }
       // фото из демо-админки лежат в IndexedDB: пока читаем их, страницу не показываем
-      if (saved && Slot.demoPhotos.has(raw)) {
+      if (saved && Slot.demoStore.has(raw)) {
         const app = doc.getElementById('app');
         app.style.visibility = 'hidden';
-        return Slot.demoPhotos
+        return Slot.demoStore
           .unpack(id, saved)
           .catch(() => saved)
           .then((full) => {

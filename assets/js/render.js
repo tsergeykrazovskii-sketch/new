@@ -1190,13 +1190,16 @@
   };
   Slot.util = { esc, num, price, duration, plural, initials, ic, DAYS };
 
-  /* ---------- демо: фото из демо-админки — в IndexedDB браузера ---------- */
+  /* ---------- демо: фото и прошлые версии из демо-админки — в IndexedDB браузера ---------- */
 
   // localStorage вмещает около 5 МБ на весь адрес (на Pages — все демо вместе), а фото в виде
   // data:-строк быстро его заполняют. Поэтому в localStorage лежат данные со ссылками «idb:<ключ>»,
-  // а сами фото — в IndexedDB (там сотни мегабайт). На хостинге фото — файлы в /uploads, это не нужно.
-  Slot.demoPhotos = (() => {
+  // а сами фото — в IndexedDB (там сотни мегабайт). Там же — прошлые версии (последние 30), как
+  // резервные копии на хостинге. На хостинге фото — файлы в /uploads, это всё не нужно.
+  // Ключи: «<сайт>/<хеш>» — фото, «<сайт>|v|<ГГГГММДД-ччммсс>» — версия { at, data }.
+  Slot.demoStore = (() => {
     const REF = 'idb:';
+    const KEEP = 30;
     let dbp = null;
     const open = () =>
       dbp ||
@@ -1223,6 +1226,7 @@
         : v && typeof v === 'object'
           ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, walk(x, fn)]))
           : fn(v);
+    const refs = (data, set) => walk(data, (v) => (typeof v === 'string' && v.startsWith(REF) && set.add(v.slice(REF.length)), v));
     const hash = (s) => {
       let h1 = 0xdeadbeef;
       let h2 = 0x41c6ce57;
@@ -1235,26 +1239,47 @@
       h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
       return (h2 >>> 0).toString(36) + (h1 >>> 0).toString(36) + s.length.toString(36);
     };
-    const range = (slug) => IDBKeyRange.bound(slug + '/', slug + '/\uffff');
-    // данные → те же данные со ссылками; фото записаны, ненужные фото этого сайта удалены
-    function pack(slug, data) {
-      const found = {};
-      const light = walk(data, (v) => {
+    const photos = (slug) => IDBKeyRange.bound(slug + '/', slug + '/\uffff');
+    const vers = (slug) => IDBKeyRange.bound(slug + '|v|', slug + '|v|\uffff');
+    // фото → ссылки; новые фото кладём в store
+    const toRefs = (s, slug, data) =>
+      walk(data, (v) => {
         if (typeof v !== 'string' || !v.startsWith('data:') || v.length < 2048) return v;
         const h = hash(v);
-        found[h] = v;
+        s.put(v, slug + '/' + h);
         return REF + h;
       });
+    // данные → те же данные со ссылками; удаляем фото сайта, на которые не ссылаются ни данные, ни версии
+    function pack(slug, data) {
       return run('readwrite', (s) => {
-        Object.keys(found).forEach((h) => s.put(found[h], slug + '/' + h));
-        s.getAllKeys(range(slug)).onsuccess = (e) =>
-          e.target.result.forEach((k) => {
-            if (!found[k.slice(slug.length + 1)]) s.delete(k);
-          });
-      }).then(() => light);
+        const out = { light: toRefs(s, slug, data) };
+        const used = new Set();
+        refs(out.light, used);
+        s.getAll(vers(slug)).onsuccess = (e) => {
+          e.target.result.forEach((v) => refs(v && v.data, used));
+          s.getAllKeys(photos(slug)).onsuccess = (e2) =>
+            e2.target.result.forEach((k) => {
+              if (!used.has(k.slice(slug.length + 1))) s.delete(k);
+            });
+        };
+        return out;
+      }).then((out) => out.light);
     }
+    function unpack(slug, data) {
+      const need = new Set();
+      refs(data, need);
+      if (!need.size) return Promise.resolve(data);
+      return run('readonly', (s) => {
+        const got = {};
+        need.forEach((h) => (s.get(slug + '/' + h).onsuccess = (e) => (got[h] = e.target.result)));
+        return got;
+      }).then((got) => walk(data, (v) => (typeof v === 'string' && v.startsWith(REF) ? got[v.slice(REF.length)] || '' : v)));
+    }
+    const pad = (n) => String(n).padStart(2, '0');
     return {
       pack,
+      unpack,
+      has: (json) => typeof json === 'string' && json.indexOf('"' + REF) >= 0,
       // Сохранения, сделанные до IndexedDB, держат фото прямо в localStorage и занимают всё место —
       // переносим их фото в IndexedDB (сайты этих демо продолжают их показывать)
       migrate() {
@@ -1273,19 +1298,33 @@
         }
         return Promise.all(jobs.map((j) => j.catch(() => {})));
       },
-      has: (json) => typeof json === 'string' && json.indexOf('"' + REF) >= 0,
-      // ссылки → фото (потерянное фото становится пустым полем)
-      unpack(slug, data) {
-        const need = [];
-        walk(data, (v) => (typeof v === 'string' && v.startsWith(REF) && need.push(v.slice(REF.length)), v));
-        if (!need.length) return Promise.resolve(data);
-        return run('readonly', (s) => {
-          const got = {};
-          need.forEach((h) => (s.get(slug + '/' + h).onsuccess = (e) => (got[h] = e.target.result)));
-          return got;
-        }).then((got) => walk(data, (v) => (typeof v === 'string' && v.startsWith(REF) ? got[v.slice(REF.length)] || '' : v)));
+      // прошлая версия сайта (перед сохранением или сбросом); хранится KEEP последних
+      addVersion(slug, data, label) {
+        const d = new Date();
+        const id = `${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}`;
+        const at = `${pad(d.getDate())}.${pad(d.getMonth() + 1)}.${d.getFullYear()} в ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+        return run('readwrite', (s) => {
+          s.put({ at, label: label || '', data: toRefs(s, slug, data) }, slug + '|v|' + id);
+          s.getAllKeys(vers(slug)).onsuccess = (e) => e.target.result.slice(0, -KEEP).forEach((k) => s.delete(k));
+        });
       },
-      clear: (slug) => run('readwrite', (s) => s.delete(range(slug))),
+      versions: (slug) =>
+        run('readonly', (s) => {
+          const out = [];
+          const r = s.getAllKeys(vers(slug));
+          s.getAll(vers(slug)).onsuccess = (e) =>
+            e.target.result.forEach((v, i) => out.unshift({ id: r.result[i].split('|v|')[1], at: v.at, label: v.label }));
+          return out;
+        }),
+      version: (slug, id) =>
+        run('readonly', (s) => {
+          const out = {};
+          s.get(slug + '|v|' + id).onsuccess = (e) => (out.v = e.target.result);
+          return out;
+        }).then((out) => {
+          if (!out.v) throw new Error('Такой версии нет');
+          return unpack(slug, out.v.data);
+        }),
     };
   })();
 
