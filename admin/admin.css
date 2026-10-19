@@ -339,13 +339,26 @@ h2 {
 }
 .card {
   margin-bottom: 12px;
-  padding: 14px 14px 2px;
+  padding: 14px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
 }
 .card p {
   margin: 0 0 8px;
+}
+/* у последнего элемента карточки свой нижний отступ не нужен — его даёт сама карточка,
+   иначе кнопка в конце прилипает к рамке, а поле — отходит слишком далеко */
+.card > :last-child,
+.card > :last-child > .f:last-child,
+.card > :last-child > :last-child > .f:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 640px) {
+  .card > .row2:last-child > .f,
+  .card > .row3:last-child > .f {
+    margin-bottom: 0;
+  }
 }
 .card__head {
   display: flex;
