@@ -960,6 +960,28 @@ h2 {
 .bk p {
   margin: 4px 0;
 }
+.bk-export {
+  margin-left: auto;
+}
+.bk-call {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 2px 0 8px;
+}
+.bk-call__btn {
+  min-height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+}
+.bk-call__btn.is-pref {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+.bk-call__note {
+  font-size: 13px;
+}
 
 /* уведомления о заявках */
 .nf .card__head {
@@ -1084,4 +1106,21 @@ h2 {
 .check.is-off {
   color: var(--muted);
   cursor: default;
+}
+
+/* настройки: прошлые версии */
+.vers {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.vers__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
 }

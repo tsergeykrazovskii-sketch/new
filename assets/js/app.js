@@ -326,6 +326,7 @@
   const dlg = () => doc.getElementById('book');
 
   function openBooking(preset) {
+    goal('booking_open');
     B.data = Object.assign(
       {
         service: null,
@@ -649,6 +650,7 @@
       .then((r) => r.json())
       .then((res) => {
         if (!res.ok) throw new Error(res.error || 'Заявка не отправилась');
+        goal('booking');
         B.i = B.steps.length;
         B.dir = 'next';
         renderBooking();
@@ -757,8 +759,10 @@
     if (t.closest('[data-cookie-ok]')) {
       store.set('slot-cookie', '1');
       doc.querySelector('[data-cookie]').hidden = true;
+      metrika();
       return;
     }
+    if (t.closest('a[href^="tel:"]')) goal('call');
 
     const lb = t.closest('[data-lb]');
     if (lb) return openLightbox(Number(lb.dataset.lb));
@@ -991,6 +995,34 @@
     g.scrollTo(0, 0);
   }
 
+  /* ---------- статистика: Яндекс Метрика, только после согласия на cookie ---------- */
+
+  // Не подключаем в демо и в предпросмотре админки. Цели для отчётов: booking_open — открыли запись,
+  // booking — заявка ушла на сервер, call — нажали на номер телефона.
+  function metrika() {
+    const id = Slot.metrikaId(cfg);
+    if (!id || opts.demo || g.ym || !store.get('slot-cookie')) return;
+    try {
+      if (g.top !== g) return;
+    } catch (e) {
+      return;
+    }
+    g.ym = function () {
+      (g.ym.a = g.ym.a || []).push(arguments);
+    };
+    g.ym.l = Date.now();
+    const s = doc.createElement('script');
+    s.async = true;
+    s.src = 'https://mc.yandex.ru/metrika/tag.js';
+    doc.head.appendChild(s);
+    g.ym(Number(id), 'init', { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: false });
+  }
+
+  function goal(name) {
+    const id = Slot.metrikaId(cfg);
+    if (id && g.ym) g.ym(Number(id), 'reachGoal', name);
+  }
+
   /* ---------- запуск ---------- */
 
   Slot.boot = function (o) {
@@ -1043,5 +1075,6 @@
     loadBusy();
     hydrate();
     syncDoc();
+    metrika();
   };
 })(window);

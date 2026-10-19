@@ -5,7 +5,9 @@
  *   ?action=setup    — задать пароль при первом входе: только пока его нет и только с кодом
  *                      первого входа из admin/config.php (иначе пароль задал бы любой посетитель)
  *   ?action=login / logout
- *   ?action=save     — сохранить data.json и index.html сайта
+ *   ?action=save     — сохранить data.json и index.html сайта (заодно robots.txt и sitemap.xml)
+ *   ?action=password — сменить пароль (нужен старый)
+ *   ?action=versions / version — прошлые версии данных сайта (резервные копии при сохранении)
  *   ?action=upload   — загрузить фото мастера в /uploads
  *   ?action=book     — заявка с сайта: сохраняем и отправляем администратору (статус «новая»)
  *   ?action=bookings — последние заявки для админки
@@ -62,12 +64,19 @@ function authed(): bool
     if (empty($_SESSION['slot_auth'])) {
         return false;
     }
-    if (time() - (int) ($_SESSION['slot_seen'] ?? 0) > SESSION_IDLE) {
+    // после смены пароля входы на других устройствах больше не действуют
+    if (time() - (int) ($_SESSION['slot_seen'] ?? 0) > SESSION_IDLE || ($_SESSION['slot_pw'] ?? '') !== pw_stamp()) {
         $_SESSION = [];
         return false;
     }
     $_SESSION['slot_seen'] = time();
     return true;
+}
+
+function pw_stamp(): string
+{
+    global $AUTH_FILE;
+    return is_file($AUTH_FILE) ? (string) md5_file($AUTH_FILE) : '';
 }
 
 function need_auth(): void
@@ -108,6 +117,7 @@ function start_session(): string
     $_SESSION['slot_auth'] = true;
     $_SESSION['slot_seen'] = time();
     $_SESSION['slot_csrf'] = bin2hex(random_bytes(16));
+    $_SESSION['slot_pw'] = pw_stamp();
     return $_SESSION['slot_csrf'];
 }
 
@@ -591,6 +601,31 @@ function site_name(): string
     return (string) ($d['brand']['name'] ?? 'сайт');
 }
 
+// robots.txt и sitemap.xml для поисковиков: адрес сайта — из «Настроек» или тот, с которого открыта админка.
+// Файл robots.txt, который владелец положил сам (без нашей пометки), не трогаем.
+function write_seo_files(array $data): void
+{
+    global $ROOT;
+    $url = trim((string) ($data['seo']['url'] ?? ''));
+    if (!preg_match('~^https?://[^\s"\'<>]+$~', $url)) {
+        $host = (string) ($_SERVER['HTTP_HOST'] ?? '');
+        if (!preg_match('/^[a-z0-9.-]+(:\d+)?$/i', $host)) {
+            return;
+        }
+        $https = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
+        $url = ($https ? 'https' : 'http') . '://' . $host . rtrim(dirname(dirname((string) $_SERVER['SCRIPT_NAME'])), '/\\');
+    }
+    $url = rtrim($url, '/') . '/';
+    $path = (string) (parse_url($url, PHP_URL_PATH) ?: '/');
+    $mark = '# Слот: файл обновляется при сохранении в админке';
+    $robots = $ROOT . '/robots.txt';
+    if (!is_file($robots) || strpos((string) file_get_contents($robots), $mark) !== false) {
+        @file_put_contents($robots, "$mark\nUser-agent: *\nDisallow: {$path}admin/\n\nSitemap: {$url}sitemap.xml\n");
+    }
+    $loc = htmlspecialchars($url, ENT_XML1);
+    @file_put_contents($ROOT . '/sitemap.xml', "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <url><loc>$loc</loc><lastmod>" . date('Y-m-d') . "</lastmod></url>\n</urlset>\n");
+}
+
 $action = (string) ($_GET['action'] ?? '');
 
 switch ($action) {
@@ -681,7 +716,53 @@ switch ($action) {
         }
         write_atomic($ROOT . '/data.json', json_encode($b['data'], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
         write_atomic($ROOT . '/index.html', $b['html']);
+        write_seo_files($b['data']);
         out(['ok' => true, 'savedAt' => date('H:i')]);
+
+    case 'password':
+        need_post();
+        need_auth();
+        $key = limit_key('password');
+        if (limit_hits($key, 900) >= 5) {
+            out(['ok' => false, 'error' => 'Слишком много попыток. Попробуйте через 15 минут.'], 429);
+        }
+        $b = body();
+        $hash = (string) require $AUTH_FILE;
+        if (!password_verify((string) ($b['old'] ?? ''), $hash)) {
+            limit_add($key);
+            sleep(1);
+            out(['ok' => false, 'error' => 'Текущий пароль введён неверно'], 403);
+        }
+        $pass = (string) ($b['password'] ?? '');
+        if (mb_strlen($pass) < 8) {
+            out(['ok' => false, 'error' => 'Новый пароль должен быть не короче 8 символов'], 400);
+        }
+        write_atomic($AUTH_FILE, "<?php return " . var_export(password_hash($pass, PASSWORD_DEFAULT), true) . ";\n");
+        limit_clear($key);
+        out(['ok' => true, 'csrf' => start_session()]);
+
+    case 'versions':
+        need_auth();
+        $items = [];
+        foreach (array_reverse(glob($PRIVATE . '/backups/data-*.json') ?: []) as $f) {
+            if (preg_match('/data-(\d{4})(\d{2})(\d{2})-(\d{2})(\d{2})(\d{2})\.json$/', $f, $m)) {
+                $items[] = ['id' => "$m[1]$m[2]$m[3]-$m[4]$m[5]$m[6]", 'at' => "$m[3].$m[2].$m[1] в $m[4]:$m[5]:$m[6]", 'size' => filesize($f)];
+            }
+        }
+        out(['ok' => true, 'items' => $items]);
+
+    case 'version':
+        need_auth();
+        $id = (string) ($_GET['id'] ?? '');
+        $file = $PRIVATE . '/backups/data-' . $id . '.json';
+        if (!preg_match('/^\d{8}-\d{6}$/', $id) || !is_file($file)) {
+            out(['ok' => false, 'error' => 'Такой версии нет'], 404);
+        }
+        $d = json_decode((string) file_get_contents($file), true);
+        if (!is_array($d)) {
+            out(['ok' => false, 'error' => 'Версия повреждена'], 500);
+        }
+        out(['ok' => true, 'data' => $d]);
 
     case 'upload':
         need_post();
@@ -779,7 +860,9 @@ switch ($action) {
     case 'bookings':
         need_auth();
         $items = [];
-        foreach (array_reverse(array_slice(read_bookings(), -200)) as $j) {
+        // для списка — последние 200, для выгрузки в Excel (all=1) — все
+        $all = read_bookings();
+        foreach (array_reverse(empty($_GET['all']) ? array_slice($all, -200) : $all) as $j) {
             unset($j['ip']);
             $items[] = $j;
         }

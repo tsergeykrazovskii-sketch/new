@@ -114,6 +114,7 @@
     { id: 'schedule', label: 'Расписание', anchor: 'top', sched: true },
     { id: 'bookings', label: 'Заявки', anchor: 'top', bookings: true },
     { id: 'notify', label: 'Уведомления', anchor: 'top' },
+    { id: 'settings', label: 'Настройки', anchor: 'top' },
   ];
 
   const PANELS = {};
@@ -621,7 +622,7 @@
     <p class="lead">${
       data.schedule
         ? 'Заявка с сайта занимает время только после того, как вы её подтвердите. Новые заявки — сверху.'
-        : 'Последние заявки с сайта. Они же приходят на почту или в Telegram, если это настроено.'
+        : 'Последние заявки с сайта. Они же приходят на почту или в мессенджер, если это настроено во вкладке «Уведомления».'
     }${mode === 'server' ? '' : ' В демо заявки хранятся в этом браузере.'}</p>
     <div class="bk-filter segs" data-bk-filter>${[
       ['new', 'Новые'],
@@ -630,8 +631,126 @@
       ['all', 'Все'],
     ]
       .map(([v, l]) => `<button type="button" class="seg-btn${bkFilter === v ? ' is-on' : ''}" data-act="bk-filter" data-v="${v}">${l}</button>`)
-      .join('')}</div>
+      .join('')}<button type="button" class="seg-btn bk-export" data-act="bk-export">Скачать в Excel</button></div>
     <div class="bookings" data-bookings><p class="lead">Загружаем…</p></div>`;
+
+  /* ---------- настройки: поиск, статистика, пароль, прошлые версии ---------- */
+
+  let versions = null; // список резервных копий с сервера
+  const SEO_GUIDE = {
+    verify: [
+      'Откройте <b>webmaster.yandex.ru</b> и войдите под своим Яндекс ID.',
+      'Нажмите «Добавить сайт» и впишите адрес сайта.',
+      'Яндекс предложит способы подтверждения — выберите «Метатег».',
+      'Скопируйте строку <i>&lt;meta name="yandex-verification" …&gt;</i> целиком и вставьте сюда.',
+      'Нажмите «Сохранить» вверху админки, затем в Вебмастере — «Проверить».',
+      'Там же, в разделе «Индексирование» → «Файлы Sitemap», можно добавить адрес карты сайта (он ниже).',
+    ],
+    metrika: [
+      'Откройте <b>metrika.yandex.ru</b> и нажмите «Добавить счётчик».',
+      'Впишите имя (например, название бизнеса) и адрес сайта. Вебвизор не включайте — сайт его всё равно не использует.',
+      'Нажмите «Создать счётчик». Код вставлять никуда не нужно — скопируйте только номер счётчика (цифры рядом с названием).',
+      'Вставьте номер сюда и нажмите «Сохранить» вверху админки.',
+      'Чтобы видеть заявки в отчётах, в Метрике откройте «Цели» → «Добавить цель» → «JavaScript-событие» и создайте цели с идентификаторами <b>booking</b> (отправили заявку), <b>booking_open</b> (открыли запись) и <b>call</b> (нажали на телефон).',
+    ],
+  };
+  const seoGuide = (key, title) => `<details class="guide"><summary>${title}</summary><ol>${SEO_GUIDE[key].map((x) => `<li>${x}</li>`).join('')}</ol></details>`;
+
+  PANELS.settings = () => {
+    const seo = data.seo || {};
+    const m = String(seo.metrika || '').trim();
+    const site = Slot.seo(Slot.compose(niche, data));
+    if (mode === 'server' && !versions) Promise.resolve().then(loadVersions);
+    return `<h2>Настройки</h2>
+      <h3 class="sub">Сайт в поиске и в соцсетях</h3>
+      <p class="lead">Когда ссылку на сайт отправляют в мессенджере или соцсети, рядом показывается фото первого экрана, название и описание. Карта сайта и robots.txt для поисковиков обновляются сами при каждом сохранении.</p>
+      ${input('Адрес сайта', 'seo.url', { placeholder: 'https://moy-sait.ru/', hint: mode === 'server' ? 'Заполнится сам при первом сохранении. Поменяйте, если сайт открывается по другому адресу (например, с https).' : 'На хостинге заполнится сам при первом сохранении.' })}
+      ${site.url ? `<p class="f__hint">Карта сайта: ${esc(site.url)}sitemap.xml${site.image ? '' : ' · Чтобы у ссылки была картинка, добавьте фото первого экрана во вкладке «Фото».'}</p>` : ''}
+      <div class="card">
+        <div class="card__head"><b>Яндекс Вебмастер</b>${site.verify ? '<span class="nf-ok">код вставлен</span>' : '<span class="muted">не подключён</span>'}</div>
+        <p class="muted">Подтверждает, что сайт ваш: в Вебмастере видно, как сайт ищется в Яндексе и есть ли на нём ошибки.</p>
+        ${input('Код подтверждения', 'seo.verify', { placeholder: '<meta name="yandex-verification" content="…">', hint: 'Можно вставить всю строку из Вебмастера — админка сама возьмёт код.' })}
+        ${seoGuide('verify', 'Как подключить — по шагам')}
+      </div>
+      <div class="card">
+        <div class="card__head"><b>Яндекс Метрика</b>${Slot.metrikaId(data) ? '<span class="nf-ok">включена</span>' : '<span class="muted">выключена</span>'}</div>
+        <p class="muted">Статистика: сколько людей заходит на сайт, откуда и сколько из них записывается. Метрика включается у посетителя только после того, как он нажал «Понятно» в сообщении о cookie, — так требует закон. В политике конфиденциальности (шаблон во вкладке «Документы») про Метрику допишется само.</p>
+        ${input('Номер счётчика', 'seo.metrika', { placeholder: '12345678', hint: m && !Slot.metrikaId(data) ? 'Нужен только номер — цифры, без кода счётчика.' : '' })}
+        ${seoGuide('metrika', 'Как подключить — по шагам')}
+      </div>
+      <h3 class="sub">Пароль от админки</h3>
+      ${
+        mode === 'server'
+          ? `<div class="card">
+        <div class="row2">
+          <div class="f"><label for="pw-old">Текущий пароль</label><input id="pw-old" data-pw type="password" autocomplete="current-password"></div>
+          <div class="f"><label for="pw-new">Новый пароль</label><input id="pw-new" data-pw type="password" autocomplete="new-password" minlength="8"><p class="f__hint">Не короче 8 символов. На других устройствах после смены нужно будет войти заново.</p></div>
+        </div>
+        <div class="bk-acts"><button type="button" class="btn btn--primary" data-act="pw-save">Сменить пароль</button></div>
+        <p class="nf-msg" data-pw-msg hidden></p>
+      </div>`
+          : '<p class="lead">В демо пароля нет. На хостинге здесь можно сменить пароль от админки.</p>'
+      }
+      <h3 class="sub">Прошлые версии</h3>
+      <p class="lead">Перед каждым сохранением админка откладывает копию сайта — хранятся последние 30. Если что-то пошло не так, откройте нужную версию, проверьте её в предпросмотре и нажмите «Сохранить».</p>
+      ${
+        mode !== 'server'
+          ? '<p class="lead">В демо прошлые версии не хранятся. Вернуть исходные данные можно кнопкой «Вернуть исходные данные» вверху.</p>'
+          : !versions
+            ? '<p class="lead">Загружаем…</p>'
+            : versions.length
+              ? `<div class="vers">${versions
+                  .map((v) => `<div class="vers__row"><span>${esc(v.at)}</span><button type="button" class="btn" data-act="ver-open" data-id="${esc(v.id)}" data-at="${esc(v.at)}">Открыть</button></div>`)
+                  .join('')}</div>`
+              : '<p class="lead">Копий пока нет: они появятся после первого сохранения.</p>'
+      }`;
+  };
+
+  function loadVersions() {
+    api('versions')
+      .then((res) => {
+        versions = res.items || [];
+        if (tab === 'settings') renderPanel();
+      })
+      .catch((err) => toast(err.message, true));
+  }
+
+  function settingsAction(act, t) {
+    if (act === 'pw-save') {
+      const old = doc.getElementById('pw-old').value;
+      const pass = doc.getElementById('pw-new').value;
+      const msg = doc.querySelector('[data-pw-msg]');
+      const say = (text, ok) => {
+        msg.hidden = false;
+        msg.textContent = text;
+        msg.classList.toggle('is-ok', !!ok);
+      };
+      if (pass.length < 8) return say('Новый пароль должен быть не короче 8 символов');
+      t.disabled = true;
+      return api('password', { old, password: pass })
+        .then((res) => {
+          csrf = res.csrf;
+          doc.querySelectorAll('[data-pw]').forEach((x) => (x.value = ''));
+          say('Пароль изменён. Запомните его — восстановить пароль можно только через хостинг.', true);
+        })
+        .catch((err) => say(err.message))
+        .then(() => (t.disabled = false));
+    }
+    if (act === 'ver-open') {
+      if (dirty && !g.confirm('Несохранённые изменения пропадут. Открыть прошлую версию?')) return;
+      t.disabled = true;
+      return api('version&id=' + encodeURIComponent(t.dataset.id))
+        .then((res) => {
+          data = res.data;
+          touch(true);
+          toast(`Открыта версия от ${t.dataset.at}. Проверьте её в предпросмотре и нажмите «Сохранить», чтобы вернуть её на сайт.`);
+        })
+        .catch((err) => {
+          t.disabled = false;
+          toast(err.message, true);
+        });
+    }
+  }
 
   /* ---------- уведомления: куда присылать заявки ---------- */
 
@@ -1212,6 +1331,7 @@
     const done = (time) => {
       dirty = false;
       savedAt = time;
+      versions = null; // появилась новая резервная копия — список перечитаем
       setStatus();
       toast(mode === 'server' ? 'Сохранено. Сайт обновлён.' : 'Сохранено в этом браузере. Откройте сайт, чтобы увидеть изменения.');
     };
@@ -1222,6 +1342,8 @@
       }
       return done(new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' }));
     }
+    // адрес сайта для ссылок в соцсетях и карты сайта — тот, с которого открыта админка
+    if (!(data.seo && String(data.seo.url || '').trim())) setPath(data, 'seo.url', new URL(S.base || '../', location.href).href);
     api('save', { data, html: buildHtml(false) })
       .then((res) => done(res.savedAt))
       .catch((err) => {
@@ -1449,6 +1571,139 @@
 
   /* ---------- заявки ---------- */
 
+  // Номер для ссылок: только цифры, российский — с 7 в начале
+  function phoneDigits(p) {
+    let d = String(p || '').replace(/\D/g, '');
+    if (d.length === 11 && d[0] === '8') d = '7' + d.slice(1);
+    if (d.length === 10) d = '7' + d;
+    return d.length >= 11 && d.length <= 15 ? d : '';
+  }
+
+  // Связаться с клиентом в одно касание. Способ, который клиент выбрал при записи, выделен.
+  // У MAX нет ссылки на чат по номеру — его ищут в приложении.
+  function contactLinks(b) {
+    const d = phoneDigits(b.phone);
+    if (!d) return '';
+    const want = String(b.contact || '').toLowerCase();
+    const a = (href, label, key) =>
+      `<a class="btn bk-call__btn${want.includes(key) ? ' is-pref' : ''}" href="${href}"${href.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${label}</a>`;
+    return `<div class="bk-call">${a('tel:+' + d, 'Позвонить', 'звон')}${a('https://wa.me/' + d, 'WhatsApp', 'whatsapp')}${a('https://t.me/+' + d, 'Telegram', 'telegram')}${
+      want.includes('max') ? '<span class="muted bk-call__note">MAX: найдите клиента по номеру в приложении</span>' : ''
+    }</div>`;
+  }
+
+  /* ---------- выгрузка заявок в Excel (.xlsx) ---------- */
+
+  // Настоящий файл Excel, а не CSV: телефон «+7 …» не превращается в формулу, кириллица не ломается.
+  // .xlsx — это zip с XML внутри; собираем его без сжатия.
+  const CRC = (() => {
+    const t = [];
+    for (let n = 0; n < 256; n++) {
+      let c = n;
+      for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1;
+      t[n] = c >>> 0;
+    }
+    return t;
+  })();
+  const crc32 = (u8) => {
+    let c = 0xffffffff;
+    for (let i = 0; i < u8.length; i++) c = CRC[(c ^ u8[i]) & 0xff] ^ (c >>> 8);
+    return (c ^ 0xffffffff) >>> 0;
+  };
+  function zip(files) {
+    const enc = new TextEncoder();
+    const parts = [];
+    const dir = [];
+    let off = 0;
+    files.forEach(([name, text]) => {
+      const nm = enc.encode(name);
+      const body = enc.encode(text);
+      const crc = crc32(body);
+      const head = (sig, extra) => {
+        const h = new DataView(new ArrayBuffer(extra ? 46 : 30));
+        let i = 0;
+        const u32 = (v) => (h.setUint32(i, v, true), (i += 4));
+        const u16 = (v) => (h.setUint16(i, v, true), (i += 2));
+        u32(sig);
+        if (extra) u16(20);
+        u16(20), u16(0x0800), u16(0), u16(0), u16(0x21);
+        u32(crc), u32(body.length), u32(body.length), u16(nm.length), u16(0);
+        if (extra) u16(0), u16(0), u16(0), u32(0), u32(off);
+        return new Uint8Array(h.buffer);
+      };
+      const local = head(0x04034b50);
+      parts.push(local, nm, body);
+      dir.push(head(0x02014b50, true), nm);
+      off += local.length + nm.length + body.length;
+    });
+    const size = dir.reduce((n, x) => n + x.length, 0);
+    const end = new DataView(new ArrayBuffer(22));
+    end.setUint32(0, 0x06054b50, true);
+    end.setUint16(8, files.length, true);
+    end.setUint16(10, files.length, true);
+    end.setUint32(12, size, true);
+    end.setUint32(16, off, true);
+    return new Blob(parts.concat(dir, [new Uint8Array(end.buffer)]), { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+  }
+  function xlsx(rows, widths) {
+    const x = (v) => String(v == null ? '' : v).replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g, '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const col = (i) => (i >= 26 ? String.fromCharCode(64 + Math.floor(i / 26)) : '') + String.fromCharCode(65 + (i % 26));
+    const sheet =
+      '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">' +
+      '<sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews>' +
+      `<cols>${widths.map((w, i) => `<col min="${i + 1}" max="${i + 1}" width="${w}" customWidth="1"/>`).join('')}</cols><sheetData>` +
+      rows
+        .map(
+          (r, ri) =>
+            `<row r="${ri + 1}">${r
+              .map((v, ci) =>
+                typeof v === 'number' && isFinite(v)
+                  ? `<c r="${col(ci)}${ri + 1}"><v>${v}</v></c>`
+                  : `<c r="${col(ci)}${ri + 1}" t="inlineStr"${ri ? '' : ' s="1"'}><is><t xml:space="preserve">${x(v)}</t></is></c>`
+              )
+              .join('')}</row>`
+        )
+        .join('') +
+      '</sheetData></worksheet>';
+    const X = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
+    const R = 'http://schemas.openxmlformats.org/officeDocument/2006/relationships';
+    return zip([
+      ['[Content_Types].xml', X + '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>'],
+      ['_rels/.rels', X + `<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="${R}/officeDocument" Target="xl/workbook.xml"/></Relationships>`],
+      ['xl/workbook.xml', X + `<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="${R}"><sheets><sheet name="Заявки" sheetId="1" r:id="rId1"/></sheets></workbook>`],
+      ['xl/_rels/workbook.xml.rels', X + `<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="${R}/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="${R}/styles" Target="styles.xml"/></Relationships>`],
+      ['xl/styles.xml', X + '<styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="2"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><name val="Calibri"/></font></fonts><fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill></fills><borders count="1"><border/></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="2"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>'],
+      ['xl/worksheets/sheet1.xml', sheet],
+    ]);
+  }
+
+  function exportBookings() {
+    const btn = doc.querySelector('[data-act="bk-export"]');
+    if (btn) btn.disabled = true;
+    (mode === 'server' ? api('bookings&all=1').then((res) => res.items || []) : bookingsLoad())
+      .then((items) => {
+        if (!items.length) return toast('Заявок пока нет — выгружать нечего');
+        const ST = { new: 'Новая', confirmed: 'Подтверждена', cancelled: 'Отменена' };
+        const extras = [];
+        items.forEach((b) => Object.keys(b.extra || {}).forEach((k) => extras.includes(k) || extras.push(k)));
+        const head = ['Статус', 'Дата визита', 'Время', 'Услуга', 'Мастер', 'Минут', 'Имя', 'Телефон', 'Как связаться', 'Комментарий'].concat(extras, ['Заявка от']);
+        const rows = items.map((b) =>
+          [ST[b.status || 'new'] || b.status, (b.date || '').split('-').reverse().join('.'), b.time, b.service, b.staff, b.dur, b.name, b.phone, b.contact, b.comment]
+            .concat(extras.map((k) => (b.extra || {})[k]), [b.at])
+        );
+        const widths = head.map((h, i) => Math.min(40, Math.max(8, h.length + 2, ...rows.map((r) => String(r[i] == null ? '' : r[i]).length + 1))));
+        const a = doc.createElement('a');
+        a.href = URL.createObjectURL(xlsx([head].concat(rows), widths));
+        a.download = `zayavki-${S.slug}-${new Date().toISOString().slice(0, 10)}.xlsx`;
+        doc.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+      })
+      .catch((err) => toast(err.message, true))
+      .then(() => btn && (btn.disabled = false));
+  }
+
   function loadBookings() {
     bookingsLoad()
       .then((items) => {
@@ -1477,7 +1732,7 @@
                         st !== 'cancelled' ? `<button type="button" class="btn" data-act="bk-status" data-st="cancelled" data-id="${esc(b.id)}">Отменить</button>` : ''
                       }${st !== 'new' ? `<button type="button" class="btn" data-act="bk-status" data-st="new" data-id="${esc(b.id)}">Вернуть в новые</button>` : ''}</div>`
                     : '';
-                return `<div class="card bk bk--${st}"><div class="card__head"><b>${esc(b.name)} · ${esc(b.phone)}</b><span class="bk__st">${ST[st] || st}</span></div>
+                return `<div class="card bk bk--${st}"><div class="card__head"><b>${esc(b.name)} · ${esc(b.phone)}</b><span class="bk__st">${ST[st] || st}</span></div>${contactLinks(b)}
                 <p>${esc(b.service)}${b.staff ? ' · ' + esc(b.staff) : ''} · ${esc((b.date || '').split('-').reverse().join('.'))} в ${esc(b.time)}${b.dur ? ` · ${esc(b.dur)} мин` : ''}</p>
                 ${Object.entries(b.extra || {})
                   .filter(([, v]) => v)
@@ -1758,6 +2013,8 @@
       return touch(true);
     }
     if (/^nf-/.test(act)) return nfAction(act, t.dataset.ch, t);
+    if (act === 'bk-export') return exportBookings();
+    if (act === 'pw-save' || act === 'ver-open') return settingsAction(act, t);
     if (act === 'bk-filter') {
       bkFilter = t.dataset.v;
       return renderPanel();

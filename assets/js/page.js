@@ -31,6 +31,22 @@
     };
   };
 
+  // Поиск и соцсети (вкладка «Настройки»): адрес сайта нужен, чтобы дать полные ссылки на страницу и картинку
+  Slot.seo = (c) => {
+    const s = c.seo || {};
+    const url = /^https?:\/\/[^\s"'<>]+$/.test(String(s.url || '').trim()) ? String(s.url).trim().replace(/\/?$/, '/') : '';
+    const abs = (u) => {
+      if (!u || /^data:/.test(u)) return '';
+      if (/^https?:\/\//.test(u)) return u;
+      if (!url) return '';
+      return u[0] === '/' ? url.replace(/^(https?:\/\/[^/]+).*$/, '$1') + u : url + u.replace(/^\.\//, '');
+    };
+    // код подтверждения Вебмастера: владелец может вставить и сам код, и всю строку <meta …>
+    const v = String(s.verify || '').trim();
+    const verify = ((/content=["']?([^"'\s>]+)/.exec(v) || [])[1] || v).replace(/[^\w-]/g, '').slice(0, 64);
+    return { url, image: abs(c.hero && c.hero.image), verify };
+  };
+
   // Скрипт, который регистрирует сайт клиента: шаблон ниши + данные клиента
   Slot.clientScript = (slug, nicheId, data) =>
     `Slot.niches[${JSON.stringify(slug)}] = Slot.compose(Slot.niches[${JSON.stringify(nicheId)}], ${JSON.stringify(data)});\n` +
@@ -44,6 +60,18 @@
    *       { fontBase } — путь от страницы к папке шрифтов (по умолчанию 'fonts/'; null — с Google);
    *       { edits } — страница показывает правки из демо-админки в этом браузере (шаблоны ниш на Vercel)
    */
+  const seoTags = (c, title) => {
+    const esc = Slot.util.esc;
+    const s = Slot.seo(c);
+    return (
+      (s.url ? `<link rel="canonical" href="${esc(s.url)}">\n<meta property="og:url" content="${esc(s.url)}">\n` : '') +
+      (s.image
+        ? `<meta property="og:image" content="${esc(s.image)}">\n<meta property="og:image:alt" content="${esc(title)}">\n<meta name="twitter:card" content="summary_large_image">\n`
+        : '') +
+      (s.verify ? `<meta name="yandex-verification" content="${esc(s.verify)}">\n` : '')
+    );
+  };
+
   Slot.page = (c, id, mode, src, opts) => {
     const o = opts || {};
     const esc = Slot.util.esc;
@@ -74,7 +102,8 @@ ${mode === 'demo' ? '<meta name="robots" content="noindex, nofollow">\n' : ''}<m
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(c.hero.lead)}">
 <meta property="og:locale" content="ru_RU">
-${styles}
+<meta property="og:type" content="website">
+${mode === 'site' ? seoTags(c, title) : ''}${styles}
 <script type="application/ld+json">${JSON.stringify(Slot.schema(c)).replace(/</g, '\\u003c')}</script>
 </head>
 <body>
