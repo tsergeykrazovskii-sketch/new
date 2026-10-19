@@ -248,7 +248,8 @@
       widgetDay = base;
       for (let i = 0; i < 7; i++) {
         const day = addDays(base, i);
-        if (cfg.staff.some((s) => freeSlots(day, s.id).length)) {
+        const ids = [...slotsBox].map((x) => x.dataset.qwSlots);
+        if (ids.some((id) => freeSlots(day, id).length)) {
           widgetDay = day;
           break;
         }
@@ -257,10 +258,11 @@
       if (dateEl) dateEl.textContent = dayLabel(widgetDay);
       slotsBox.forEach((box) => {
         const id = box.dataset.qwSlots;
-        const free = freeSlots(widgetDay, id).slice(0, 3);
+        // общая строка (без мастера) — шире, в ней больше окон
+        const free = freeSlots(widgetDay, id).slice(0, id ? 3 : 6);
         box.innerHTML = free.length
           ? free
-              .map((s, j) => `<button class="chip" type="button" style="--j:${j}" data-book data-staff="${esc(id)}" data-time="${s.m}">${fmtMin(s.m)}</button>`)
+              .map((s, j) => `<button class="chip" type="button" style="--j:${j}" data-book${id ? ` data-staff="${esc(id)}"` : ''} data-time="${s.m}">${fmtMin(s.m)}</button>`)
               .join('')
           : '<span class="qw__none">Окон нет</span>';
       });

@@ -469,7 +469,16 @@
   };
 
   function widgetSlots(c, w) {
-    const rows = c.staff
+    // Где мастера при записи не выбирают (автосервис) — одна строка с ближайшим свободным временем
+    const general = !!(c.booking && c.booking.askStaff === false);
+    const rows = general
+      ? `
+      <li class="qw__row qw__row--general" style="--i:0">
+        <span class="ava" aria-hidden="true">${ic('calendar')}</span>
+        <span class="qw__who"><b>Ближайшее время</b><span>Запись на любую работу</span></span>
+        <span class="qw__slots" data-qw-slots=""></span>
+      </li>`
+      : c.staff
       .slice(0, w.limit || 4)
       .map(
         (s, i) => `

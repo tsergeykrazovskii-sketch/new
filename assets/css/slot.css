@@ -1896,6 +1896,10 @@ div.photo::before {
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
+.ava svg {
+  width: 18px;
+  height: 18px;
+}
 .ava {
   display: grid;
   flex: none;
