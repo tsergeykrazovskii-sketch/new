@@ -1049,16 +1049,38 @@
     }
     // Демо: правки из админки (тот же браузер) показываем поверх исходных данных.
     // У клиента шаблон — его ниша, у демо-ниши — она сама (её контент правится как данные).
-    let edited = false;
     const nicheOf = (Slot.clients && Slot.clients[id]) || (opts.edits ? id : null);
+    let saved = null;
     if ((opts.demo || opts.edits) && nicheOf) {
+      const raw = store.get('slot-data-' + id);
       try {
-        const saved = JSON.parse(store.get('slot-data-' + id) || 'null');
-        if (saved) {
-          cfg = Slot.niches[id] = Slot.compose(Slot.niches[nicheOf], saved);
-          styleId = cfg.defaultStyle;
-          edited = true;
-        }
+        saved = JSON.parse(raw || 'null');
+      } catch (e) {
+        /* повреждённые данные — показываем исходные */
+      }
+      // фото из демо-админки лежат в IndexedDB: пока читаем их, страницу не показываем
+      if (saved && Slot.demoPhotos.has(raw)) {
+        const app = doc.getElementById('app');
+        app.style.visibility = 'hidden';
+        return Slot.demoPhotos
+          .unpack(id, saved)
+          .catch(() => saved)
+          .then((full) => {
+            app.style.visibility = '';
+            start(id, nicheOf, full);
+          });
+      }
+    }
+    start(id, nicheOf, saved);
+  };
+
+  function start(id, nicheOf, saved) {
+    let edited = false;
+    if (saved) {
+      try {
+        cfg = Slot.niches[id] = Slot.compose(Slot.niches[nicheOf], saved);
+        styleId = cfg.defaultStyle;
+        edited = true;
       } catch (e) {
         /* повреждённые данные — показываем исходные */
       }
@@ -1076,5 +1098,5 @@
     hydrate();
     syncDoc();
     metrika();
-  };
+  }
 })(window);

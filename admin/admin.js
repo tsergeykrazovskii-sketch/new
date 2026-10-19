@@ -1336,11 +1336,17 @@
       toast(mode === 'server' ? 'Сохранено. Сайт обновлён.' : 'Сохранено в этом браузере. Откройте сайт, чтобы увидеть изменения.');
     };
     if (mode === 'demo') {
-      if (!store.set(KEY, JSON.stringify(data))) {
-        btn.disabled = false;
-        return toast('В браузере не хватило места для фото. В демо загрузите меньше фото — на хостинге такого ограничения нет.', true);
-      }
-      return done(new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' }));
+      // фото — в IndexedDB, в localStorage только данные со ссылками на них (см. Slot.demoPhotos)
+      return Slot.demoPhotos
+        .pack(S.slug, data)
+        .catch(() => data) // IndexedDB недоступна (например, приватный режим) — храним как раньше
+        .then((light) => {
+          if (!store.set(KEY, JSON.stringify(light))) {
+            btn.disabled = false;
+            return toast('В памяти браузера не хватило места для фото. Это ограничение только демо — на хостинге фото хранятся файлами и места хватает.', true);
+          }
+          done(new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' }));
+        });
     }
     // адрес сайта для ссылок в соцсетях и карты сайта — тот, с которого открыта админка
     if (!(data.seo && String(data.seo.url || '').trim())) setPath(data, 'seo.url', new URL(S.base || '../', location.href).href);
@@ -1399,11 +1405,10 @@
     });
   }
 
-  // Загружает фото и возвращает адрес: на сервере — файл в /uploads, в демо — data:-строка.
-  // В демо фото хранятся в памяти браузера (около 5 МБ), поэтому мелкие фото там скромнее;
-  // фото первого экрана — всегда в полном размере, иначе на широком экране оно «мылится».
-  function uploadPhoto(file, max, full) {
-    return shrink(file, mode === 'server' || full ? max : Math.min(max, 1200))
+  // Загружает фото и возвращает адрес: на сервере — файл в /uploads, в демо — data:-строка
+  // (при сохранении демо она уходит в IndexedDB браузера, см. Slot.demoPhotos).
+  function uploadPhoto(file, max) {
+    return shrink(file, max)
       .then((blob) => {
         if (mode === 'server') {
           const fd = new FormData();
@@ -1551,7 +1556,7 @@
     // первый экран растягивается на всю ширину, на экранах Retina — до 2880 точек
     const hero = target === 'hero.image';
     const max = hero ? 2560 : target.startsWith('staff') ? 1000 : 1600;
-    uploadPhoto(file, max, hero)
+    uploadPhoto(file, max)
       .then((url) => {
         setPath(data, target, url);
         touch(true);
@@ -1925,6 +1930,7 @@
       if (!g.confirm('Вернуть исходные тексты, цены и фото? Ваши правки в этом браузере удалятся.')) return;
       try {
         localStorage.removeItem(KEY);
+        Slot.demoPhotos.clear(S.slug).catch(() => {});
       } catch (err) {
         /* хранилище недоступно — правок там и нет */
       }
@@ -2194,13 +2200,18 @@
       })
       .catch(() => {
         mode = 'demo';
+        let saved = null;
         try {
-          const saved = JSON.parse(store.get(KEY) || 'null');
-          if (saved) data = saved;
+          saved = JSON.parse(store.get(KEY) || 'null');
         } catch (e) {
           /* повреждённые данные — берём исходные */
         }
-        start();
+        if (!saved) return start();
+        Slot.demoPhotos
+          .unpack(S.slug, saved)
+          .then((full) => (data = full))
+          .catch(() => (data = saved))
+          .then(start);
       });
   }
 

@@ -1190,6 +1190,86 @@
   };
   Slot.util = { esc, num, price, duration, plural, initials, ic, DAYS };
 
+  /* ---------- демо: фото из демо-админки — в IndexedDB браузера ---------- */
+
+  // localStorage вмещает около 5 МБ на весь адрес (на Pages — все демо вместе), а фото в виде
+  // data:-строк быстро его заполняют. Поэтому в localStorage лежат данные со ссылками «idb:<ключ>»,
+  // а сами фото — в IndexedDB (там сотни мегабайт). На хостинге фото — файлы в /uploads, это не нужно.
+  Slot.demoPhotos = (() => {
+    const REF = 'idb:';
+    let dbp = null;
+    const open = () =>
+      dbp ||
+      (dbp = new Promise((res, rej) => {
+        const r = indexedDB.open('slot-demo', 1);
+        r.onupgradeneeded = () => r.result.createObjectStore('photos');
+        r.onsuccess = () => res(r.result);
+        r.onerror = () => rej(r.error);
+      }));
+    // fn ставит запросы в транзакцию и возвращает объект, который они заполнят
+    const run = (mode, fn) =>
+      open().then(
+        (db) =>
+          new Promise((res, rej) => {
+            const t = db.transaction('photos', mode);
+            const out = fn(t.objectStore('photos'));
+            t.oncomplete = () => res(out);
+            t.onerror = t.onabort = () => rej(t.error || new Error('IndexedDB'));
+          })
+      );
+    const walk = (v, fn) =>
+      Array.isArray(v)
+        ? v.map((x) => walk(x, fn))
+        : v && typeof v === 'object'
+          ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, walk(x, fn)]))
+          : fn(v);
+    const hash = (s) => {
+      let h1 = 0xdeadbeef;
+      let h2 = 0x41c6ce57;
+      for (let i = 0; i < s.length; i++) {
+        const c = s.charCodeAt(i);
+        h1 = Math.imul(h1 ^ c, 2654435761);
+        h2 = Math.imul(h2 ^ c, 1597334677);
+      }
+      h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+      h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+      return (h2 >>> 0).toString(36) + (h1 >>> 0).toString(36) + s.length.toString(36);
+    };
+    const range = (slug) => IDBKeyRange.bound(slug + '/', slug + '/￿');
+    return {
+      // данные → те же данные со ссылками; фото записаны, ненужные фото этого сайта удалены
+      pack(slug, data) {
+        const found = {};
+        const light = walk(data, (v) => {
+          if (typeof v !== 'string' || !v.startsWith('data:') || v.length < 2048) return v;
+          const h = hash(v);
+          found[h] = v;
+          return REF + h;
+        });
+        return run('readwrite', (s) => {
+          Object.keys(found).forEach((h) => s.put(found[h], slug + '/' + h));
+          s.getAllKeys(range(slug)).onsuccess = (e) =>
+            e.target.result.forEach((k) => {
+              if (!found[k.slice(slug.length + 1)]) s.delete(k);
+            });
+        }).then(() => light);
+      },
+      has: (json) => typeof json === 'string' && json.indexOf('"' + REF) >= 0,
+      // ссылки → фото (потерянное фото становится пустым полем)
+      unpack(slug, data) {
+        const need = [];
+        walk(data, (v) => (typeof v === 'string' && v.startsWith(REF) && need.push(v.slice(REF.length)), v));
+        if (!need.length) return Promise.resolve(data);
+        return run('readonly', (s) => {
+          const got = {};
+          need.forEach((h) => (s.get(slug + '/' + h).onsuccess = (e) => (got[h] = e.target.result)));
+          return got;
+        }).then((got) => walk(data, (v) => (typeof v === 'string' && v.startsWith(REF) ? got[v.slice(REF.length)] || '' : v)));
+      },
+      clear: (slug) => run('readwrite', (s) => s.delete(range(slug))),
+    };
+  })();
+
   /* ---------- страница ---------- */
 
   // Секции, которые без своих пунктов не имеют смысла, пропускаем
