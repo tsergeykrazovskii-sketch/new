@@ -1105,7 +1105,10 @@
       toast(mode === 'server' ? 'Сохранено. Сайт обновлён.' : 'Сохранено в этом браузере. Откройте сайт, чтобы увидеть изменения.');
     };
     if (mode === 'demo') {
-      store.set(KEY, JSON.stringify(data));
+      if (!store.set(KEY, JSON.stringify(data))) {
+        btn.disabled = false;
+        return toast('В браузере не хватило места для фото. В демо загрузите меньше фото — на хостинге такого ограничения нет.', true);
+      }
       return done(new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' }));
     }
     api('save', { data, html: buildHtml(false) })
@@ -1130,31 +1133,48 @@
 
   /* ---------- фото: уменьшаем в браузере, чтобы сайт грузился быстро ---------- */
 
+  // Фото уменьшаем до max по длинной стороне. Уже подходящий JPG/WebP оставляем как есть —
+  // повторное сжатие только портит картинку. Сохраняем в WebP (легче JPG при том же качестве),
+  // а если браузер WebP не умеет (старый Safari) — в JPG.
   function shrink(file, max) {
     return new Promise((resolve, reject) => {
       const img = new Image();
       const url = URL.createObjectURL(file);
       img.onload = () => {
-        const k = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight));
+        URL.revokeObjectURL(url);
+        const big = Math.max(img.naturalWidth, img.naturalHeight);
+        if (big <= max && /^image\/(jpeg|webp)$/.test(file.type) && file.size <= 1.5 * 1024 * 1024) return resolve(file);
+        const k = Math.min(1, max / big);
         const cv = doc.createElement('canvas');
         cv.width = Math.round(img.naturalWidth * k);
         cv.height = Math.round(img.naturalHeight * k);
-        cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height);
-        URL.revokeObjectURL(url);
-        cv.toBlob((b) => (b ? resolve(b) : reject(new Error('Не удалось обработать фото'))), 'image/jpeg', 0.84);
+        const ctx = cv.getContext('2d');
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(img, 0, 0, cv.width, cv.height);
+        const fail = () => reject(new Error('Не удалось обработать фото'));
+        cv.toBlob(
+          (b) => (b && b.type === 'image/webp' ? resolve(b) : cv.toBlob((j) => (j ? resolve(j) : fail()), 'image/jpeg', 0.86)),
+          'image/webp',
+          0.86
+        );
       };
-      img.onerror = () => reject(new Error('Это не похоже на фото'));
+      img.onerror = () => {
+        URL.revokeObjectURL(url);
+        reject(new Error('Это не похоже на фото'));
+      };
       img.src = url;
     });
   }
 
-  // Загружает фото и возвращает адрес: на сервере — файл в /uploads, в демо — data:-строка
-  function uploadPhoto(file, max) {
-    return shrink(file, mode === 'server' ? max : Math.min(max, 900))
+  // Загружает фото и возвращает адрес: на сервере — файл в /uploads, в демо — data:-строка.
+  // В демо фото хранятся в памяти браузера (около 5 МБ), поэтому мелкие фото там скромнее;
+  // фото первого экрана — всегда в полном размере, иначе на широком экране оно «мылится».
+  function uploadPhoto(file, max, full) {
+    return shrink(file, mode === 'server' || full ? max : Math.min(max, 1200))
       .then((blob) => {
         if (mode === 'server') {
           const fd = new FormData();
-          fd.append('photo', blob, 'photo.jpg');
+          fd.append('photo', blob, blob.type === 'image/webp' ? 'photo.webp' : 'photo.jpg');
           return fetch(`${API}?action=upload`, { method: 'POST', body: fd, headers: { 'X-CSRF': csrf || '' }, credentials: 'same-origin' })
             .then((r) => r.json())
             .then((res) => {
@@ -1295,8 +1315,10 @@
   }
 
   function putPhoto(target, file) {
-    const max = target === 'hero.image' ? 2000 : target.startsWith('staff') ? 1000 : 1600;
-    uploadPhoto(file, max)
+    // первый экран растягивается на всю ширину, на экранах Retina — до 2880 точек
+    const hero = target === 'hero.image';
+    const max = hero ? 2560 : target.startsWith('staff') ? 1000 : 1600;
+    uploadPhoto(file, max, hero)
       .then((url) => {
         setPath(data, target, url);
         touch(true);
