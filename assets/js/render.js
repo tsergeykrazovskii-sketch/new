@@ -1235,24 +1235,43 @@
       h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
       return (h2 >>> 0).toString(36) + (h1 >>> 0).toString(36) + s.length.toString(36);
     };
-    const range = (slug) => IDBKeyRange.bound(slug + '/', slug + '/￿');
+    const range = (slug) => IDBKeyRange.bound(slug + '/', slug + '/\uffff');
+    // данные → те же данные со ссылками; фото записаны, ненужные фото этого сайта удалены
+    function pack(slug, data) {
+      const found = {};
+      const light = walk(data, (v) => {
+        if (typeof v !== 'string' || !v.startsWith('data:') || v.length < 2048) return v;
+        const h = hash(v);
+        found[h] = v;
+        return REF + h;
+      });
+      return run('readwrite', (s) => {
+        Object.keys(found).forEach((h) => s.put(found[h], slug + '/' + h));
+        s.getAllKeys(range(slug)).onsuccess = (e) =>
+          e.target.result.forEach((k) => {
+            if (!found[k.slice(slug.length + 1)]) s.delete(k);
+          });
+      }).then(() => light);
+    }
     return {
-      // данные → те же данные со ссылками; фото записаны, ненужные фото этого сайта удалены
-      pack(slug, data) {
-        const found = {};
-        const light = walk(data, (v) => {
-          if (typeof v !== 'string' || !v.startsWith('data:') || v.length < 2048) return v;
-          const h = hash(v);
-          found[h] = v;
-          return REF + h;
-        });
-        return run('readwrite', (s) => {
-          Object.keys(found).forEach((h) => s.put(found[h], slug + '/' + h));
-          s.getAllKeys(range(slug)).onsuccess = (e) =>
-            e.target.result.forEach((k) => {
-              if (!found[k.slice(slug.length + 1)]) s.delete(k);
-            });
-        }).then(() => light);
+      pack,
+      // Сохранения, сделанные до IndexedDB, держат фото прямо в localStorage и занимают всё место —
+      // переносим их фото в IndexedDB (сайты этих демо продолжают их показывать)
+      migrate() {
+        const jobs = [];
+        for (let i = 0; i < localStorage.length; i++) {
+          const k = localStorage.key(i);
+          const raw = k && k.indexOf('slot-data-') === 0 ? localStorage.getItem(k) : '';
+          if (!raw || raw.length < 20000 || raw.indexOf('"data:') < 0) continue;
+          let d = null;
+          try {
+            d = JSON.parse(raw);
+          } catch (e) {
+            continue;
+          }
+          jobs.push(pack(k.slice(10), d).then((light) => localStorage.setItem(k, JSON.stringify(light))));
+        }
+        return Promise.all(jobs.map((j) => j.catch(() => {})));
       },
       has: (json) => typeof json === 'string' && json.indexOf('"' + REF) >= 0,
       // ссылки → фото (потерянное фото становится пустым полем)

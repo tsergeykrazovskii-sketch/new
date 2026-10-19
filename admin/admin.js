@@ -1337,15 +1337,28 @@
     };
     if (mode === 'demo') {
       // фото — в IndexedDB, в localStorage только данные со ссылками на них (см. Slot.demoPhotos)
+      let noIdb = false;
+      const put = (light) => store.set(KEY, JSON.stringify(light));
       return Slot.demoPhotos
         .pack(S.slug, data)
-        .catch(() => data) // IndexedDB недоступна (например, приватный режим) — храним как раньше
+        .catch(() => {
+          noIdb = true; // IndexedDB недоступна — храним фото прямо в данных, как раньше
+          return data;
+        })
         .then((light) => {
-          if (!store.set(KEY, JSON.stringify(light))) {
-            btn.disabled = false;
-            return toast('В памяти браузера не хватило места для фото. Это ограничение только демо — на хостинге фото хранятся файлами и места хватает.', true);
-          }
-          done(new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' }));
+          if (put(light)) return true;
+          // место заняли старые сохранения других демо — переносим их фото и пробуем ещё раз
+          return Slot.demoPhotos.migrate().then(() => put(light));
+        })
+        .then((ok) => {
+          if (ok) return done(new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' }));
+          btn.disabled = false;
+          toast(
+            noIdb
+              ? 'Браузер не дал сохранить фото: похоже, открыт приватный режим (инкогнито). Откройте демо в обычном окне. На хостинге такого ограничения нет.'
+              : 'В памяти браузера не хватило места. Это ограничение только демо — на хостинге фото хранятся файлами и места хватает.',
+            true
+          );
         });
     }
     // адрес сайта для ссылок в соцсетях и карты сайта — тот, с которого открыта админка
@@ -2206,6 +2219,7 @@
         } catch (e) {
           /* повреждённые данные — берём исходные */
         }
+        Slot.demoPhotos.migrate().catch(() => {}); // освобождаем место от старых сохранений заранее
         if (!saved) return start();
         Slot.demoPhotos
           .unpack(S.slug, saved)
