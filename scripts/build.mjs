@@ -79,8 +79,10 @@ const siteSrc = (scripts) => ({ css: src.css, render: src.render, app: src.app, 
 // Страница админки. mode: 'full' — отдельный HTML-файл, 'artifact' — предпросмотр в Claude.
 // base — путь от админки к сайту: от него считаются относительные пути фото в предпросмотре.
 // demo — админка на Vercel: PHP-сервера там нет, правки только в браузере, api.php не запрашиваем.
+// Шрифты: на Vercel/Pages одна папка dist/fonts на все сайты (от сайта — ../fonts/), в комплекте клиента — fonts/
 function adminPage(slug, nicheId, data, mode, siteUrl, base, demo) {
-  const payload = { slug, nicheId, data, siteUrl, base, demo: !!demo, src: { css: src.css, render: src.render, app: src.app, niche: src.niche[nicheId] } };
+  const fontBase = mode === 'artifact' ? null : demo ? '../fonts/' : 'fonts/';
+  const payload = { slug, nicheId, data, siteUrl, base, fontBase, demo: !!demo, src: { css: src.css, render: src.render, app: src.app, niche: src.niche[nicheId] } };
   const site = Slot.compose(Slot.niches[nicheId], data);
   const json = JSON.stringify(payload).replace(/</g, '\\u003c');
   const name = `${data.brand.kind} «${data.brand.name}»`;
@@ -124,9 +126,10 @@ ${inlineScript(src.page)}
 ${inlineScript(src.niche[nicheId])}
 ${inlineScript(src.adminJs)}
 `;
-  const head = `<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap">
+  const onest = 'https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap';
+  const head = `${fontBase == null
+    ? `<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="${onest}">`
+    : Slot.fontHrefs(onest, base + fontBase).map((h) => `<link rel="stylesheet" href="${h}">`).join('\n')}
 ${Slot.favicon(site, Slot.getStyle(site, site.defaultStyle))}
 <style>${src.adminCss}</style>`;
   if (mode === 'artifact') {
@@ -146,10 +149,19 @@ ${head}
 `;
 }
 
+// Шрифты в комплекте: каждое семейство из стилей ниш и «Своей» темы должно быть скачано (node scripts/fonts.mjs)
+function checkFonts(c, where) {
+  const names = new Set([...(c.styles || []).flatMap((s) => Slot.fontFamilies(s.fonts)), ...[...Slot.FONTS.display, ...Slot.FONTS.body].map((f) => f.name)]);
+  const missing = [...names].filter((n) => !fs.existsSync(path.join(root, 'assets', 'fonts', Slot.fontSlug(n) + '.css')));
+  if (missing.length) throw new Error(`${where}: нет шрифтов в assets/fonts: ${missing.join(', ')} — запустите node scripts/fonts.mjs`);
+}
+Object.entries(Slot.niches).forEach(([id, n]) => checkFonts(n, 'niches/' + id));
+copyDir('assets/fonts', path.join(dist, 'fonts'));
+
 // 1. Ниши: боевой файл и демо со всеми стилями
 for (const id of Object.keys(Slot.niches)) {
   const c = Slot.niches[id];
-  write(dist, `${id}/index.html`, Slot.page(c, id, 'site', siteSrc([src.niche[id]]), { edits: true }));
+  write(dist, `${id}/index.html`, Slot.page(c, id, 'site', siteSrc([src.niche[id]]), { edits: true, fontBase: '../fonts/' }));
   write(dist, `${id}/admin/index.html`, adminPage(id, id, Slot.nicheData(id), 'full', '../', '../', true));
   write(dist, `demo-${id}.html`, Slot.page(c, id, 'artifact', siteSrc([src.niche[id]])));
   const n = copyDir(`assets/img/${id}`, path.join(dist, 'assets', 'img', id));
@@ -189,7 +201,8 @@ for (const f of clientFiles) {
 
   // демо на Vercel и для предпросмотра
   const c = Slot.compose(Slot.niches[nicheId], data);
-  write(dist, `${slug}/index.html`, Slot.page(c, slug, 'demo', siteSrc(scripts(data))));
+  checkFonts(c, 'clients/' + f);
+  write(dist, `${slug}/index.html`, Slot.page(c, slug, 'demo', siteSrc(scripts(data)), { fontBase: '../fonts/' }));
   write(dist, `${slug}/preview.html`, Slot.page(c, slug, 'artifact', siteSrc(scripts(data))));
   write(dist, `${slug}/admin/index.html`, adminPage(slug, nicheId, data, 'full', '../', '../', true));
   write(dist, `${slug}/admin-preview.html`, adminPage(slug, nicheId, data, 'artifact', null, null, true));
@@ -208,6 +221,7 @@ for (const f of clientFiles) {
   const code = setupCode();
   write(base, 'admin/config.php', read('admin/config.example.php').replace("'setup_code' => ''", `'setup_code' => '${code}'`));
   write(base, '.htaccess', read('admin/site.htaccess'));
+  copyDir('assets/fonts', path.join(base, 'fonts'));
   write(base, 'uploads/.htaccess', read('admin/uploads.htaccess'));
   setupCodes.push(`${slug}: ${code}`);
   const n = copyDir(`clients/${slug}/img`, path.join(dist, slug, 'img'));

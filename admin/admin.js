@@ -10,7 +10,7 @@
   const Slot = g.Slot;
   const { esc, price } = Slot.util;
   const S = JSON.parse(doc.getElementById('slot-admin').textContent);
-  // S: { slug, nicheId, data, siteUrl, base, demo, src: { css, render, app, niche } }
+  // S: { slug, nicheId, data, siteUrl, base, fontBase, demo, src: { css, render, app, niche } }
   //    base — путь от админки к сайту ('../'); в предпросмотре для Claude его нет
 
   const niche = Slot.niches[S.nicheId];
@@ -1155,7 +1155,11 @@
       app: S.src.app,
       scripts: [S.src.niche, Slot.clientScript(S.slug, S.nicheId, d)],
     };
-    return Slot.page(c, S.slug, 'site', src, forPreview ? { noMotion: true, base: S.base || '' } : {});
+    const fontBase = S.fontBase == null ? null : S.fontBase;
+    if (!forPreview) return Slot.page(c, S.slug, 'site', src, { fontBase });
+    // в предпросмотре путь к шрифтам — полный: в srcdoc браузер успевает запросить их до <base>
+    const pf = fontBase == null ? null : new URL((S.base || '') + fontBase, location.href).href;
+    return Slot.page(c, S.slug, 'site', src, { noMotion: true, base: S.base || '', fontBase: pf });
   }
 
   function renderPreview() {

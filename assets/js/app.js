@@ -181,15 +181,21 @@
     }
     const style = Slot.getStyle(cfg, styleId);
     st.textContent = Slot.themeCss(cfg, style.id);
-    let ln = doc.getElementById('slot-fonts');
-    if (!ln) {
-      ln = doc.createElement('link');
-      ln.id = 'slot-fonts';
-      ln.rel = 'stylesheet';
-      doc.head.appendChild(ln);
-    }
-    if (ln.getAttribute('href') !== style.fonts) ln.setAttribute('href', style.fonts);
+    // шрифты: по ссылке на файл семейства (из комплекта сайта или с Google — см. Slot.fontHrefs)
     const root = doc.documentElement.dataset;
+    const want = Slot.fontHrefs(style.fonts, root.fontBase == null ? null : root.fontBase);
+    const links = Array.from(doc.querySelectorAll('link[data-slot-font], link#slot-fonts'));
+    if (want.join('|') !== links.map((l) => l.getAttribute('href')).join('|')) {
+      links.filter((l) => want.indexOf(l.getAttribute('href')) < 0).forEach((l) => l.remove());
+      const have = links.map((l) => l.getAttribute('href'));
+      want.filter((h) => have.indexOf(h) < 0).forEach((h) => {
+        const ln = doc.createElement('link');
+        ln.rel = 'stylesheet';
+        ln.setAttribute('data-slot-font', '');
+        ln.href = h;
+        (doc.head || doc.documentElement).appendChild(ln);
+      });
+    }
     root.niche = cfg.id;
     root.style = style.id;
     root.motion = style.motion;
@@ -490,7 +496,7 @@
     return `
       <div class="fields">
         ${field('name', 'Имя', `<input id="b-name" name="name" type="text" autocomplete="given-name" value="${esc(x.name)}"${aria('name')}>`)}
-        ${field('phone', 'Телефон', `<input id="b-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" value="${esc(x.phone)}"${aria('phone')}>`, 'Пришлём напоминание за 2 часа до визита')}
+        ${field('phone', 'Телефон', `<input id="b-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" value="${esc(x.phone)}"${aria('phone')}>`, 'Позвоним или напишем, чтобы подтвердить запись')}
         ${extra}
         <fieldset class="field">
           <legend>Как подтвердить запись</legend>

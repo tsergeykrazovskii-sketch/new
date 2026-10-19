@@ -8,10 +8,14 @@
   const Slot = (g.Slot = g.Slot || {});
 
   const inlineScript = (s) => '<script>\n' + s.replace(/<\/script/gi, '<\\/script') + '\n</script>';
-  const fontsLinks = (href) =>
-    '<link rel="preconnect" href="https://fonts.googleapis.com">\n' +
-    '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
-    `<link rel="stylesheet" id="slot-fonts" href="${href}">`;
+  // base — папка шрифтов в комплекте сайта; null — шрифты с Google (предпросмотр в Claude)
+  const fontsLinks = (spec, base) =>
+    (base == null
+      ? '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
+      : '') +
+    Slot.fontHrefs(spec, base)
+      .map((h) => `<link rel="stylesheet" data-slot-font href="${Slot.util.esc(h)}">`)
+      .join('\n');
 
   Slot.schema = (c) => {
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
@@ -37,6 +41,7 @@
    *       'artifact' — предпросмотр в Claude (без <html>/<head>, их добавляет площадка).
    * src:  { css, render, app, scripts: [исходники, после которых в Slot.niches[id] лежит конфиг] }
    * opts: { noMotion, base } — для предпросмотра в админке;
+   *       { fontBase } — путь от страницы к папке шрифтов (по умолчанию 'fonts/'; null — с Google);
    *       { edits } — страница показывает правки из демо-админки в этом браузере (шаблоны ниш на Vercel)
    */
   Slot.page = (c, id, mode, src, opts) => {
@@ -44,12 +49,13 @@
     const esc = Slot.util.esc;
     const st = Slot.getStyle(c);
     const demo = mode === 'demo' || mode === 'artifact';
+    const fontBase = mode === 'artifact' ? null : 'fontBase' in o ? o.fontBase : 'fonts/';
     const app =
       `${demo ? '<div class="demo" id="demo"></div>\n' : ''}<div id="app" data-niche="${id}" data-style="${st.id}">${Slot.render(c)}</div>\n` +
       `${inlineScript(src.render)}\n${src.scripts.map(inlineScript).join('\n')}\n${inlineScript(src.app)}\n` +
       `<script>Slot.boot({ ${demo ? 'demo: true, ' : ''}${o.edits ? 'edits: true, ' : ''}niche: ${JSON.stringify(id)} });</script>`;
     const styles =
-      `${fontsLinks(st.fonts)}\n<style>${src.css}</style>\n<style id="slot-theme">${Slot.themeCss(c, st.id)}</style>` +
+      `${fontsLinks(st.fonts, fontBase)}\n<style>${src.css}</style>\n<style id="slot-theme">${Slot.themeCss(c, st.id)}</style>` +
       (o.noMotion ? '\n<style>*,*::before,*::after{animation:none!important;transition:none!important}</style>' : '');
 
     if (mode === 'artifact') {
@@ -58,7 +64,7 @@
     }
     const title = `${c.brand.kind} «${c.brand.name}» — ${c.contacts.city}`;
     return `<!doctype html>
-<html lang="ru" data-niche="${id}" data-style="${st.id}" data-motion="${st.motion}" data-texture="${st.texture || 'none'}">
+<html lang="ru" data-niche="${id}" data-style="${st.id}" data-motion="${st.motion}" data-texture="${st.texture || 'none'}"${fontBase == null ? '' : ` data-font-base="${esc(fontBase)}"`}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">

@@ -322,6 +322,15 @@
   };
   Slot.color = { rgb, mix, contrast };
 
+  // Шрифты лежат в комплекте сайта (assets/fonts → fonts/, см. scripts/fonts.mjs): по адресу Google Fonts
+  // из стиля находим семейства и подключаем их файлы. base — путь к папке шрифтов от страницы;
+  // без него (предпросмотр в Claude) остаётся ссылка на Google.
+  Slot.fontFamilies = (spec) =>
+    Array.from(String(spec || '').matchAll(/family=([^&]+)/g), (m) => decodeURIComponent(m[1]).replace(/\+/g, ' ').split(':')[0]);
+  Slot.fontSlug = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  Slot.fontHrefs = (spec, base) =>
+    !spec ? [] : base == null ? [spec] : Slot.fontFamilies(spec).map((n) => base + Slot.fontSlug(n) + '.css');
+
   const fontQuery = (fonts) => {
     const fam = {};
     fonts.forEach(({ f, w }) => {
