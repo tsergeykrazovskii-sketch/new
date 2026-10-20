@@ -35,6 +35,8 @@ jobs:
       - run: node scripts/build.mjs
         env:
           SITE_BASE: ${{ steps.pages.outputs.base_path }}
+          # полный адрес (со своим доменом — он) — для картинки в превью ссылок на демо
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
       # корень — редирект на основной сайт, витрина — по секретному адресу из секретов репозитория
       - run: node scripts/private-index.mjs
         env:

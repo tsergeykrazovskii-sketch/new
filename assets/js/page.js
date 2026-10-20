@@ -32,9 +32,11 @@
   };
 
   // Поиск и соцсети (вкладка «Настройки»): адрес сайта нужен, чтобы дать полные ссылки на страницу и картинку
-  Slot.seo = (c) => {
+  // share — адрес страницы демо (сборка знает его сама) и готовая картинка для превью ссылки
+  Slot.seo = (c, share) => {
     const s = c.seo || {};
-    const url = /^https?:\/\/[^\s"'<>]+$/.test(String(s.url || '').trim()) ? String(s.url).trim().replace(/\/?$/, '/') : '';
+    const raw = String((share && share.url) || s.url || '').trim();
+    const url = /^https?:\/\/[^\s"'<>]+$/.test(raw) ? raw.replace(/\/?$/, '/') : '';
     const abs = (u) => {
       if (!u || /^data:/.test(u)) return '';
       if (/^https?:\/\//.test(u)) return u;
@@ -44,7 +46,7 @@
     // код подтверждения Вебмастера: владелец может вставить и сам код, и всю строку <meta …>
     const v = String(s.verify || '').trim();
     const verify = ((/content=["']?([^"'\s>]+)/.exec(v) || [])[1] || v).replace(/[^\w-]/g, '').slice(0, 64);
-    return { url, image: abs(c.hero && c.hero.image), verify };
+    return { url, image: abs((share && share.image) || (c.hero && c.hero.image)), verify };
   };
 
   // Скрипт, который регистрирует сайт клиента: шаблон ниши + данные клиента
@@ -57,18 +59,21 @@
    *       'artifact' — предпросмотр в Claude (без <html>/<head>, их добавляет площадка).
    * src:  { css, render, app, scripts: [исходники, после которых в Slot.niches[id] лежит конфиг] }
    * opts: { noMotion, base } — для предпросмотра в админке;
+   *       { share: { url, image } } — демо на Pages: адрес страницы и картинка для превью ссылки;
    *       { fontBase } — путь от страницы к папке шрифтов (по умолчанию 'fonts/'; null — с Google);
    *       { edits } — страница показывает правки из демо-админки в этом браузере (шаблоны ниш на Vercel)
    */
-  const seoTags = (c, title) => {
+  // share: демо на Pages — только превью ссылки (без canonical и Вебмастера: демо закрыто от поиска)
+  const seoTags = (c, title, share) => {
     const esc = Slot.util.esc;
-    const s = Slot.seo(c);
+    const s = Slot.seo(c, share);
+    const card = !!(share && share.image); // своя картинка демо — всегда 1200×630 (scripts/share.mjs)
     return (
-      (s.url ? `<link rel="canonical" href="${esc(s.url)}">\n<meta property="og:url" content="${esc(s.url)}">\n` : '') +
+      (s.url ? `${share ? '' : `<link rel="canonical" href="${esc(s.url)}">\n`}<meta property="og:url" content="${esc(s.url)}">\n` : '') +
       (s.image
-        ? `<meta property="og:image" content="${esc(s.image)}">\n<meta property="og:image:alt" content="${esc(title)}">\n<meta name="twitter:card" content="summary_large_image">\n`
+        ? `<meta property="og:image" content="${esc(s.image)}">\n${card ? '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n' : ''}<meta property="og:image:alt" content="${esc(title)}">\n<meta name="twitter:card" content="summary_large_image">\n`
         : '') +
-      (s.verify ? `<meta name="yandex-verification" content="${esc(s.verify)}">\n` : '')
+      (s.verify && !share ? `<meta name="yandex-verification" content="${esc(s.verify)}">\n` : '')
     );
   };
 
@@ -103,7 +108,7 @@ ${mode === 'demo' ? '<meta name="robots" content="noindex, nofollow">\n' : ''}<m
 <meta property="og:description" content="${esc(c.hero.lead)}">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:type" content="website">
-${mode === 'site' ? seoTags(c, title) : ''}${styles}
+${o.share ? seoTags(c, title, o.share) : mode === 'site' ? seoTags(c, title) : ''}${styles}
 <script type="application/ld+json">${JSON.stringify(Slot.schema(c)).replace(/</g, '\\u003c')}</script>
 </head>
 <body>

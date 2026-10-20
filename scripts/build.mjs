@@ -21,6 +21,9 @@ const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
 // Сайт может жить в подпапке (GitHub Pages: /new/). Фото ниш указаны от корня — добавляем приставку.
 // SITE_BASE=/new node scripts/build.mjs; по умолчанию — корень домена (Vercel, свой хостинг)
 const BASE = (process.env.SITE_BASE || '').replace(/\/+$/, '');
+// Полный адрес выкладки демо (на Pages — base_url из configure-pages, со своим доменом — он) — для превью
+// ссылок в мессенджерах: og:url и og:image. Без него превью без картинки.
+const SITE_URL = (process.env.SITE_URL || '').replace(/\/+$/, '');
 const withBase = (code) => (BASE ? code.replace(/(['"])\/assets\/img\//g, `$1${BASE}/assets/img/`) : code);
 
 const nicheFiles = fs.readdirSync(path.join(root, 'niches')).filter((f) => f.endsWith('.js')).sort();
@@ -72,6 +75,17 @@ function setupCode() {
   const abc = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
   const bytes = crypto.randomBytes(12);
   return Array.from(bytes, (b, i) => (i && i % 4 === 0 ? '-' : '') + abc[b % abc.length]).join('');
+}
+
+// Картинка для превью ссылки на демо: assets/share/<сайт>.jpg (снимок первого экрана, scripts/share.mjs)
+function share(slug) {
+  const src = path.join(root, 'assets', 'share', slug + '.jpg');
+  const has = fs.existsSync(src);
+  if (has) {
+    fs.mkdirSync(path.join(dist, slug), { recursive: true });
+    fs.copyFileSync(src, path.join(dist, slug, 'share.jpg'));
+  }
+  return SITE_URL ? { url: `${SITE_URL}/${slug}/`, image: has ? 'share.jpg' : '' } : undefined;
 }
 
 const siteSrc = (scripts) => ({ css: src.css, render: src.render, app: src.app, scripts });
@@ -161,7 +175,7 @@ copyDir('assets/fonts', path.join(dist, 'fonts'));
 // 1. Ниши: боевой файл и демо со всеми стилями
 for (const id of Object.keys(Slot.niches)) {
   const c = Slot.niches[id];
-  write(dist, `${id}/index.html`, Slot.page(c, id, 'site', siteSrc([src.niche[id]]), { edits: true, fontBase: '../fonts/' }));
+  write(dist, `${id}/index.html`, Slot.page(c, id, 'site', siteSrc([src.niche[id]]), { edits: true, fontBase: '../fonts/', share: share(id) }));
   write(dist, `${id}/admin/index.html`, adminPage(id, id, Slot.nicheData(id), 'full', '../', '../', true));
   write(dist, `demo-${id}.html`, Slot.page(c, id, 'artifact', siteSrc([src.niche[id]])));
   const n = copyDir(`assets/img/${id}`, path.join(dist, 'assets', 'img', id));
@@ -202,7 +216,7 @@ for (const f of clientFiles) {
   // демо на Vercel и для предпросмотра
   const c = Slot.compose(Slot.niches[nicheId], data);
   checkFonts(c, 'clients/' + f);
-  write(dist, `${slug}/index.html`, Slot.page(c, slug, 'demo', siteSrc(scripts(data)), { fontBase: '../fonts/' }));
+  write(dist, `${slug}/index.html`, Slot.page(c, slug, 'demo', siteSrc(scripts(data)), { fontBase: '../fonts/', share: share(slug) }));
   write(dist, `${slug}/preview.html`, Slot.page(c, slug, 'artifact', siteSrc(scripts(data))));
   write(dist, `${slug}/admin/index.html`, adminPage(slug, nicheId, data, 'full', '../', '../', true));
   write(dist, `${slug}/admin-preview.html`, adminPage(slug, nicheId, data, 'artifact', null, null, true));
