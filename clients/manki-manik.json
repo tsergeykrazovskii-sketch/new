@@ -1,0 +1,528 @@
+{
+  "slug": "manki-manik",
+  "niche": "nails",
+  "style": "moloko",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Manki Manik» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/beauty_salon_manki_manik/52613450955/ — 5,0 / 1654, «Хорошее место 2026», прайс",
+    "2ГИС https://2gis.ru/moscow/firm/70000001032572018 — 4,9 / 165 (+ ещё 2 салона)",
+    "Досье: лиды/Manki Manik (Москва).md; разбор: разборы/Manki Manik (Москва).md (данные проверены исследователем 20.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 20.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 20.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "телефоны салонов на Амурской и Хромова",
+    "чей manki-manik.ru; ссылка на приложение лояльности",
+    "сейчас запись через sonline (Taplink) — можно оставить: schedule.mode external",
+    "домен: свободны mankimanik.ru, manki-manik-msk.ru"
+  ],
+  "brand": {
+    "name": "Manki Manik",
+    "kind": "Салон маникюра"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "9-я Парковая ул., 43/26",
+    "addressNote": "Ещё салоны: Амурская ул., 1а к2; ул. Хромова, 3",
+    "metro": "м. Щёлковская, 730 м",
+    "phone": "+7 495 070-57-77",
+    "phoneHref": "+74950705777",
+    "hoursShort": "Ежедневно 10:00–22:00",
+    "yandexMaps": "https://yandex.ru/maps/org/beauty_salon_manki_manik/52613450955/",
+    "twoGis": "https://2gis.ru/moscow/firm/70000001032572018",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79957004777"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/mankimanik"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/manki_manik"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "Manki Manik — маникюр и педикюр, три салона на востоке Москвы",
+    "lead": "Маникюр и педикюр с гель-лаком, наращивание, укрепление гелем и пудрой, детский и мужской сервис, стрижки. 5,0 по 1 654 оценкам на Яндекс Картах.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 1654,
+        "url": "https://yandex.ru/maps/org/beauty_salon_manki_manik/52613450955/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,9",
+        "count": 165,
+        "url": "https://2gis.ru/moscow/firm/70000001032572018"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani-gel",
+        "pedi-gel",
+        "combo",
+        "ext"
+      ],
+      "labels": {
+        "mani-gel": "Маникюр с покрытием",
+        "pedi-gel": "Педикюр с покрытием",
+        "combo": "Руки и ноги",
+        "ext": "Наращивание"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Екатерина",
+      "dative": "Екатерине",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Алёна",
+      "dative": "Алёне",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Ольга",
+      "dative": "Ольге",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Виктория",
+      "dative": "Виктории",
+      "role": "Мастер наращивания",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani-gel",
+          "name": "Маникюр + гель-лак",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3800,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "remove",
+              "name": "Снятие",
+              "price": 200,
+              "duration": 20
+            },
+            {
+              "id": "gel",
+              "name": "Укрепление гелем",
+              "price": 1100,
+              "duration": 30
+            },
+            {
+              "id": "powder",
+              "name": "Укрепление пудрой",
+              "price": 900,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani",
+          "name": "Комбинированный или аппаратный маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2000,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2500,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-kids",
+          "name": "Детский или европейский маникюр",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 1100,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 1 100 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-gel",
+          "name": "Педикюр + гель-лак",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 4600,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "remove",
+              "name": "Снятие",
+              "price": 200,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "pedi",
+          "name": "Педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3000,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-express",
+          "name": "Экспресс-педикюр + гель-лак",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3600,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 4000,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-kids",
+          "name": "Детский педикюр",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 1600,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 1 600 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Наращивание до 5-й длины",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 7700,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 7 700 ₽"
+    },
+    {
+      "category": "Комплексы",
+      "items": [
+        {
+          "id": "combo",
+          "name": "Маникюр + педикюр со снятием",
+          "desc": "",
+          "duration": 240,
+          "price": {
+            "value": 7900,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "heart",
+      "from": "от 7 900 ₽"
+    },
+    {
+      "category": "Стрижки",
+      "items": [
+        {
+          "id": "cut-w",
+          "name": "Женская стрижка",
+          "desc": "У топ-мастера — 4 200 ₽",
+          "duration": 60,
+          "price": {
+            "value": 3600,
+            "from": false
+          }
+        },
+        {
+          "id": "cut-m",
+          "name": "Мужская стрижка",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 2000,
+            "from": false
+          }
+        }
+      ]
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "pin",
+          "title": "Три салона",
+          "text": "9-я Парковая, Амурская и Хромова"
+        },
+        {
+          "icon": "parking",
+          "title": "Парковка и Wi-Fi",
+          "text": "Рядом с салоном"
+        },
+        {
+          "icon": "gift",
+          "title": "Сертификаты",
+          "text": "Подарочные сертификаты и приложение лояльности"
+        },
+        {
+          "icon": "card",
+          "title": "Оплата картой",
+          "text": "И наличными"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу салона в Яндекс Картах."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15249330/2a00000194cb973ee7ccb56f02766e3d0a55/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/21012689/2a0000019fec106dfa2872eb5ccf632da083/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16318204/2a0000019779433f03b6eeb04d75ae2c4c55/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16404250/2a000001977942ea57a292f1ee0e32be7440/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16771051/2a000001977942e53e3b5d835003bf2f9469/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15709664/2a0000019a9237a3927ee811b15aef62f5c6/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Владислава",
+          "source": "Яндекс Карты",
+          "date": "15 сентября",
+          "rating": 5,
+          "text": "Самый лучший салон в котором я была🌸 Приветлевый администратор и внимательные специалисты🤍 Делала процедуру маникюр и педикюр в 4 руки, девочки сделали качественную работу всего за один час 15 минут Мне принесли вкусный кофе и включили моих любимых домохозяек Благодарю, я получила колосальное удовольствие🤍"
+        },
+        {
+          "name": "Мария Д.",
+          "source": "Яндекс Карты",
+          "date": "23 мая",
+          "rating": 5,
+          "text": "Делала брови, очень понравился результат и хочу отметить бережное удаление волос ❤️ В самом салоне очень уютно и дружеская обстановка, приятно проводить здесь время, обязательно вернусь сюда ещё ❤️"
+        },
+        {
+          "name": "Центр С.",
+          "source": "Яндекс Карты",
+          "date": "30 сентября",
+          "rating": 5,
+          "text": "Лучший салон! Мастера и администраторы всегда приветливы, мастер Влада (ногти) и Диана (брови) буквально за полчаса сделали именно то, что я хотела. Всегда и чай предложат, и пледик, если холодно — очень внимательны к клиентам. Уже пятый год хожу именно сюда, менять не намерена, всё на высшем уровне!"
+        },
+        {
+          "name": "Валентина",
+          "source": "Яндекс Карты",
+          "date": "23 мая",
+          "rating": 5,
+          "text": "Самый лучший салон. Мастера Дарья и Мила просто волшебницы. Всегда все аккуратно,красиво и прекрасно. Также замечательный мастер- бровист, быстро, четко, аккуратно и супер клиент ориентировано."
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Москва, 9-я Парковая ул., 43/26 — 10 минут от метро Щёлковская. Ещё салоны: Амурская ул., 1а к2 и ул. Хромова, 3."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 22:00."
+        },
+        {
+          "q": "Можно сделать маникюр и педикюр за один визит?",
+          "a": "Да, комплекс со снятием — 7 900 ₽."
+        },
+        {
+          "q": "Есть детский маникюр?",
+          "a": "Да: детский маникюр — 1 100 ₽, детский педикюр — 1 600 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}

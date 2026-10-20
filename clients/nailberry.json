@@ -1,0 +1,562 @@
+{
+  "slug": "nailberry",
+  "niche": "nails",
+  "style": "shalfey",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Nailberry» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/nailberry/1546532367/ — 4,9 / 347, прайс «давно не обновлялся»",
+    "2ГИС https://2gis.ru/moscow/firm/70000001019625521 — 4,0 / 5 (на сайте не показываем)",
+    "Досье: лиды/Nailberry (Москва).md; разбор: разборы/Nailberry (Москва).md (данные проверены исследователем 20.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 20.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 20.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "оплата картой (в отзывах — «только наличные»)",
+    "какую запись подключить: сейчас только звонок",
+    "актуальность прайса",
+    "домен nailberry.ru истёк 15.10.2026, освобождается 17.11.2026; свободны nail-berry.ru, nailberry-msk.ru"
+  ],
+  "brand": {
+    "name": "Nailberry",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "Соколово-Мещерская ул., 14",
+    "addressNote": "1 этаж, вход с пандусом",
+    "metro": "",
+    "phone": "+7 925 054-41-08",
+    "phoneHref": "+79250544108",
+    "hoursShort": "Ежедневно 10:00–22:00",
+    "yandexMaps": "https://yandex.ru/maps/org/nailberry/1546532367/",
+    "twoGis": "https://2gis.ru/moscow/firm/70000001019625521",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79250544108"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "Nailberry — маникюр и педикюр на Соколово-Мещерской",
+    "lead": "Маникюр с шеллаком и Luxio, укрепление пудрой, педикюр, а ещё депиляция воском, брови и ресницы. Ежедневно с 10 до 22 — теперь с записью онлайн.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "4,9",
+        "count": 347,
+        "url": "https://yandex.ru/maps/org/nailberry/1546532367/reviews/"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani-shellac",
+        "pedi-shellac",
+        "combo",
+        "mani"
+      ],
+      "labels": {
+        "mani-shellac": "Маникюр с покрытием",
+        "pedi-shellac": "Педикюр с покрытием",
+        "combo": "Руки и ноги",
+        "mani": "Без покрытия"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Елизавета",
+      "dative": "Елизавете",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Валерия",
+      "dative": "Валерии",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Ксения",
+      "dative": "Ксении",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Марина",
+      "dative": "Марине",
+      "role": "Мастер маникюра и педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani-shellac",
+          "name": "Маникюр + шеллак",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2400,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "remove",
+              "name": "Снятие",
+              "price": 400,
+              "duration": 20
+            },
+            {
+              "id": "french",
+              "name": "Френч",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "cateye",
+              "name": "«Кошачий глаз»",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "design",
+              "name": "Дизайн, 1 ноготь",
+              "price": 100,
+              "duration": 10
+            }
+          ]
+        },
+        {
+          "id": "mani",
+          "name": "Маникюр классический",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1500,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-lak",
+          "name": "Маникюр + лак",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 2200,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-luxio",
+          "name": "Маникюр + Luxio со снятием",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 3200,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-powder",
+          "name": "Укрепление пудрой со снятием",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 3400,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1700,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 1 500 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-shellac",
+          "name": "Педикюр + шеллак",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3200,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "remove",
+              "name": "Снятие",
+              "price": 300,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "pedi",
+          "name": "Педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2500,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2600,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 2 500 ₽"
+    },
+    {
+      "category": "Комплексы",
+      "items": [
+        {
+          "id": "combo",
+          "name": "Маникюр + педикюр с шеллаком",
+          "desc": "",
+          "duration": 240,
+          "price": {
+            "value": 5600,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "remove",
+              "name": "Снятие",
+              "price": 700,
+              "duration": 30
+            }
+          ]
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "heart",
+      "from": "от 5 600 ₽"
+    },
+    {
+      "category": "Уход и депиляция",
+      "items": [
+        {
+          "id": "paraffin",
+          "name": "Парафин",
+          "desc": "",
+          "duration": 20,
+          "price": {
+            "value": 500,
+            "from": false
+          }
+        },
+        {
+          "id": "wax-bikini",
+          "name": "Воск: бикини классическое",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 1500,
+            "from": false
+          }
+        },
+        {
+          "id": "wax-deep",
+          "name": "Воск: глубокое бикини",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 2000,
+            "from": false
+          }
+        },
+        {
+          "id": "wax-legs",
+          "name": "Воск: ноги полностью",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 1800,
+            "from": false
+          }
+        },
+        {
+          "id": "wax-arm",
+          "name": "Воск: подмышки",
+          "desc": "",
+          "duration": 15,
+          "price": {
+            "value": 750,
+            "from": false
+          }
+        }
+      ]
+    },
+    {
+      "category": "Брови и ресницы",
+      "items": [
+        {
+          "id": "brow-botox",
+          "name": "Ботокс бровей",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2300,
+            "from": false
+          }
+        },
+        {
+          "id": "lash-lam",
+          "name": "Ламинирование ресниц",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1700,
+            "from": false
+          }
+        }
+      ]
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "calendar",
+          "title": "Запись онлайн",
+          "text": "Свободное время видно сразу, без звонка"
+        },
+        {
+          "icon": "check",
+          "title": "Вход с пандусом",
+          "text": "Доступно для коляски"
+        },
+        {
+          "icon": "sparkle",
+          "title": "Не только ногти",
+          "text": "Депиляция воском, брови и ресницы"
+        },
+        {
+          "icon": "card",
+          "title": "Наличные и перевод",
+          "text": "Оплата наличными или переводом с карты"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу студии в Яндекс Картах."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/5479384/2a0000017f21ddcd9a8c3dd2fcd3647ca441/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/1680678/2a0000016ecd03bbf9b24af0ca92ff48680a/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/2809978/2a00000170fe4509081431c3e31cc8181c24/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/1880524/2a0000016ecd047fb744ef13437e9a8483db/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/2761244/2a00000170fe494f2ee73f379b1d46a2fa21/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/1583613/2a0000016ecd044f6987a2b41ccc231a353f/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Олеся С.",
+          "source": "Яндекс Карты",
+          "date": "9 декабря 2025",
+          "rating": 5,
+          "text": "Давно хотела написать отзыв о салоне и моем любимом мастере Азизе. Хожу сюда уже много много лет. Бесконечно красивое и уютное место. Выше всяческих похвал мой мастер Азизе. У нее волшебные руки и тонкий вкус, всегда поможет с выбором. От души рекомендую это место и своего талантливого мастера !!!!"
+        },
+        {
+          "name": "Светлана",
+          "source": "Яндекс Карты",
+          "date": "7 декабря 2025",
+          "rating": 5,
+          "text": "Хожу в этот салон почти с самого открытия, предпочитаю не менять мастера по маникюру - поэтому всегда только к Азизе❤️ Делает быстро и всегда качественно! Еще хочу отметить в этом году входную группу из веток ели-красиво ооочень😍"
+        },
+        {
+          "name": "Елена Г.",
+          "source": "Яндекс Карты",
+          "date": "13 апреля",
+          "rating": 5,
+          "text": "Классный салон, хожу более 10 лет, пробывала ходить в другие места, но всегда возвращаюсь в это место, все делают профессионально, большой выбор гель лаков"
+        },
+        {
+          "name": "Марина Х.",
+          "source": "Яндекс Карты",
+          "date": "28 ноября 2025",
+          "rating": 5,
+          "text": "Являюсь клиентом салона уже долгие годы) Огромная благодарность владельцу за скрупулезный подбор персонала! Рекомендую Вас всем своим знакомым, ведь такими контактами делаешься с гордостью❤️ Все мастера замечательные, НО особенно хочу выделить Азизу и Аню , девчонки ЮВЕЛИРЫ❤️"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Москва, Соколово-Мещерская ул., 14, 1 этаж."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 22:00."
+        },
+        {
+          "q": "Как записаться?",
+          "a": "Онлайн на сайте — выберите услугу, мастера и время. Или позвоните, напишите в WhatsApp."
+        },
+        {
+          "q": "Как оплатить?",
+          "a": "Наличными или переводом с карты."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}
