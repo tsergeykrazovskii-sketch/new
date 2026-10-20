@@ -164,7 +164,7 @@
   Slot.themeCss = (cfg, id) => {
     const st = Slot.getStyle(cfg, id);
     // html:root сильнее :root из slot.css, поэтому порядок подключения стилей не важен
-    return `html:root{${tokensToCss(st.tokens)};color-scheme:${st.scheme}}html .invert{${tokensToCss(st.invert || {})}}`;
+    return `html:root{${tokensToCss(st.tokens)};color-scheme:${st.scheme};--shade:${st.scheme === 'dark' ? 'var(--bg)' : 'color-mix(in srgb, var(--fg) 70%, #000)'}}html .invert{${tokensToCss(st.invert || {})}}`;
   };
 
   /* ---------- расписание ---------- */
@@ -248,31 +248,93 @@
   // (лишнее начертание в запросе ломает загрузку всего файла шрифтов).
   const serif = 'Georgia, "Times New Roman", serif';
   const sans = 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif';
+  const script = 'cursive';
+  // group — раздел в списке админки; порядок разделов — Slot.FONT_GROUPS
+  Slot.FONT_GROUPS = ['Антиква — с засечками', 'Гротеск — без засечек', 'Узкие', 'Технические', 'Рукописные и декоративные'];
+  const [ANT, GRO, NAR, TEC, HAND] = Slot.FONT_GROUPS;
   Slot.FONTS = {
     display: [
-      { id: 'cormorant', name: 'Cormorant', note: 'изящная антиква', w: [600, 700], weight: 700, scale: 1.1, fb: serif },
-      { id: 'playfair', name: 'Playfair Display', note: 'контрастная антиква', w: [600, 700], weight: 700, scale: 1, fb: serif },
-      { id: 'prata', name: 'Prata', note: 'классика, вывеска', w: [400], weight: 400, scale: 0.95, fb: serif },
-      { id: 'yeseva', name: 'Yeseva One', note: 'мягкая, «салонная»', w: [400], weight: 400, scale: 0.95, fb: serif },
-      { id: 'lora', name: 'Lora', note: 'спокойная антиква', w: [400, 500, 600, 700], weight: 700, scale: 1, fb: serif },
-      { id: 'oswald', name: 'Oswald', note: 'узкая, плакатная', w: [500, 600], weight: 600, scale: 1, fb: sans },
-      { id: 'russo', name: 'Russo One', note: 'техничная, «гаражная»', w: [400], weight: 400, scale: 0.9, fb: sans },
-      { id: 'unbounded', name: 'Unbounded', note: 'широкая, современная', w: [500, 600, 700], weight: 600, scale: 0.85, fb: sans },
-      { id: 'exo2', name: 'Exo 2', note: 'спортивная', w: [600, 700], weight: 700, scale: 1, fb: sans },
-      { id: 'manrope', name: 'Manrope', note: 'строгая гротеск', w: [400, 500, 600, 700, 800], weight: 800, scale: 0.95, fb: sans },
-      { id: 'montserrat', name: 'Montserrat', note: 'геометрическая', w: [400, 500, 600, 700, 800], weight: 700, scale: 0.92, fb: sans },
-      { id: 'comfortaa', name: 'Comfortaa', note: 'округлая, дружелюбная', w: [600, 700], weight: 700, scale: 0.92, fb: sans },
+      { id: 'cormorant', name: 'Cormorant', note: 'изящная антиква', w: [600, 700], weight: 700, scale: 1.1, fb: serif, group: ANT },
+      { id: 'playfair', name: 'Playfair Display', note: 'контрастная антиква', w: [600, 700], weight: 700, scale: 1, fb: serif, group: ANT },
+      { id: 'prata', name: 'Prata', note: 'классика, вывеска', w: [400], weight: 400, scale: 0.95, fb: serif, group: ANT },
+      { id: 'yeseva', name: 'Yeseva One', note: 'мягкая, «салонная»', w: [400], weight: 400, scale: 0.95, fb: serif, group: ANT },
+      { id: 'lora', name: 'Lora', note: 'спокойная антиква', w: [400, 500, 600, 700], weight: 700, scale: 1, fb: serif, group: ANT },
+      { id: 'alice', name: 'Alice', note: 'книжная, тёплая', w: [400], weight: 400, scale: 1, fb: serif, group: ANT },
+      { id: 'forum', name: 'Forum', note: 'римская, торжественная', w: [400], weight: 400, scale: 1.05, fb: serif, group: ANT },
+      { id: 'ptserif', name: 'PT Serif', note: 'строгая, деловая', w: [400, 700], weight: 700, scale: 0.95, fb: serif, group: ANT },
+      { id: 'garamond', name: 'EB Garamond', note: 'старинная, благородная', w: [500, 600, 700], weight: 600, scale: 1.05, fb: serif, group: ANT },
+      { id: 'literata', name: 'Literata', note: 'журнальная', w: [500, 600, 700], weight: 600, scale: 0.95, fb: serif, group: ANT },
+      { id: 'spectral', name: 'Spectral', note: 'тонкая, премиальная', w: [500, 600, 700], weight: 600, scale: 1, fb: serif, group: ANT },
+      { id: 'bona', name: 'Bona Nova', note: 'элегантная, с росчерками', w: [400, 700], weight: 700, scale: 1, fb: serif, group: ANT },
+      { id: 'oldstandard', name: 'Old Standard TT', note: 'дореволюционная', w: [400, 700], weight: 700, scale: 1, fb: serif, group: ANT },
+
+      { id: 'manrope', name: 'Manrope', note: 'строгая гротеск', w: [400, 500, 600, 700, 800], weight: 800, scale: 0.95, fb: sans, group: GRO },
+      { id: 'montserrat', name: 'Montserrat', note: 'геометрическая', w: [400, 500, 600, 700, 800], weight: 700, scale: 0.92, fb: sans, group: GRO },
+      { id: 'unbounded', name: 'Unbounded', note: 'широкая, современная', w: [500, 600, 700], weight: 600, scale: 0.85, fb: sans, group: GRO },
+      { id: 'comfortaa', name: 'Comfortaa', note: 'округлая, дружелюбная', w: [600, 700], weight: 700, scale: 0.92, fb: sans, group: GRO },
+      { id: 'raleway', name: 'Raleway', note: 'тонкая геометрия', w: [600, 700, 800], weight: 700, scale: 0.95, fb: sans, group: GRO },
+      { id: 'jost', name: 'Jost', note: 'в духе Futura', w: [500, 600, 700], weight: 600, scale: 0.95, fb: sans, group: GRO },
+      { id: 'geologica', name: 'Geologica', note: 'современная, мягкая', w: [600, 700], weight: 700, scale: 0.92, fb: sans, group: GRO },
+      { id: 'wix', name: 'Wix Madefor Display', note: 'чистая, для экранов', w: [600, 700, 800], weight: 700, scale: 0.95, fb: sans, group: GRO },
+      { id: 'intertight', name: 'Inter Tight', note: 'плотная, строгая', w: [600, 700, 800], weight: 700, scale: 0.95, fb: sans, group: GRO },
+      { id: 'tenor', name: 'Tenor Sans', note: 'модная, «бьюти»', w: [400], weight: 400, scale: 0.95, fb: sans, group: GRO },
+      { id: 'sofia', name: 'Sofia Sans', note: 'дружелюбная, плотная', w: [600, 700, 800], weight: 800, scale: 1, fb: sans, group: GRO },
+      { id: 'montalt', name: 'Montserrat Alternates', note: 'игривая геометрия', w: [600, 700], weight: 700, scale: 0.9, fb: sans, group: GRO },
+      { id: 'daysone', name: 'Days One', note: 'широкая, жирная', w: [400], weight: 400, scale: 0.85, fb: sans, group: GRO },
+      { id: 'dela', name: 'Dela Gothic One', note: 'тяжёлая, броская', w: [400], weight: 400, scale: 0.85, fb: sans, group: GRO },
+
+      { id: 'oswald', name: 'Oswald', note: 'узкая, плакатная', w: [500, 600], weight: 600, scale: 1, fb: sans, group: NAR },
+      { id: 'robotocond', name: 'Roboto Condensed', note: 'узкая, нейтральная', w: [600, 700], weight: 700, scale: 1, fb: sans, group: NAR },
+      { id: 'firacond', name: 'Fira Sans Extra Condensed', note: 'узкая, газетная', w: [600, 700], weight: 700, scale: 1.05, fb: sans, group: NAR },
+      { id: 'yanone', name: 'Yanone Kaffeesatz', note: 'узкая, «кофейня»', w: [500, 600, 700], weight: 700, scale: 1.15, fb: sans, group: NAR },
+      { id: 'alumni', name: 'Alumni Sans', note: 'высокая, афишная', w: [600, 700, 800], weight: 700, scale: 1.2, fb: sans, group: NAR },
+
+      { id: 'russo', name: 'Russo One', note: 'техничная, «гаражная»', w: [400], weight: 400, scale: 0.9, fb: sans, group: TEC },
+      { id: 'exo2', name: 'Exo 2', note: 'спортивная', w: [600, 700], weight: 700, scale: 1, fb: sans, group: TEC },
+      { id: 'tektur', name: 'Tektur', note: 'инженерная', w: [500, 600, 700], weight: 600, scale: 0.9, fb: sans, group: TEC },
+      { id: 'jura', name: 'Jura', note: 'футуристичная', w: [500, 600, 700], weight: 700, scale: 1, fb: sans, group: TEC },
+      { id: 'play', name: 'Play', note: 'спортивно-техничная', w: [400, 700], weight: 700, scale: 1, fb: sans, group: TEC },
+      { id: 'rubikmono', name: 'Rubik Mono One', note: 'тяжёлая, моноширинная', w: [400], weight: 400, scale: 0.75, fb: sans, group: TEC },
+
+      { id: 'lobster', name: 'Lobster', note: 'вывеска, кафе', w: [400], weight: 400, scale: 1, fb: script, group: HAND },
+      { id: 'marck', name: 'Marck Script', note: 'каллиграфия', w: [400], weight: 400, scale: 1.1, fb: script, group: HAND },
+      { id: 'badscript', name: 'Bad Script', note: 'лёгкая рукопись', w: [400], weight: 400, scale: 1, fb: script, group: HAND },
+      { id: 'caveat', name: 'Caveat', note: 'маркер, от руки', w: [600, 700], weight: 700, scale: 1.2, fb: script, group: HAND },
+      { id: 'greatvibes', name: 'Great Vibes', note: 'свадебная каллиграфия', w: [400], weight: 400, scale: 1.25, fb: script, group: HAND },
+      { id: 'pacifico', name: 'Pacifico', note: 'ретро-вывеска', w: [400], weight: 400, scale: 0.9, fb: script, group: HAND },
+      { id: 'amatic', name: 'Amatic SC', note: 'рисованная, узкая', w: [700], weight: 700, scale: 1.3, fb: script, group: HAND },
+      { id: 'poiret', name: 'Poiret One', note: 'ар-деко, тонкая', w: [400], weight: 400, scale: 1.05, fb: sans, group: HAND },
+      { id: 'philosopher', name: 'Philosopher', note: 'необычная, мягкая', w: [400, 700], weight: 700, scale: 1, fb: sans, group: HAND },
     ],
     body: [
-      { id: 'onest', name: 'Onest', note: 'нейтральный', w: [400, 500, 600, 700], fb: sans },
-      { id: 'golos', name: 'Golos Text', note: 'чёткий, для экранов', w: [400, 500, 600, 700], fb: sans },
-      { id: 'manrope', name: 'Manrope', note: 'строгий', w: [400, 500, 600, 700, 800], fb: sans },
-      { id: 'inter', name: 'Inter', note: 'универсальный', w: [400, 500, 600, 700], fb: sans },
-      { id: 'montserrat', name: 'Montserrat', note: 'геометрический', w: [400, 500, 600, 700, 800], fb: sans },
-      { id: 'rubik', name: 'Rubik', note: 'мягкий', w: [400, 500, 600, 700], fb: sans },
-      { id: 'nunito', name: 'Nunito', note: 'округлый', w: [400, 500, 600, 700], fb: sans },
-      { id: 'ptsans', name: 'PT Sans', note: 'привычный', w: [400, 700], fb: sans },
-      { id: 'lora', name: 'Lora', note: 'с засечками', w: [400, 500, 600, 700], fb: serif },
+      { id: 'onest', name: 'Onest', note: 'нейтральный', w: [400, 500, 600, 700], fb: sans, group: GRO },
+      { id: 'golos', name: 'Golos Text', note: 'чёткий, для экранов', w: [400, 500, 600, 700], fb: sans, group: GRO },
+      { id: 'manrope', name: 'Manrope', note: 'строгий', w: [400, 500, 600, 700, 800], fb: sans, group: GRO },
+      { id: 'inter', name: 'Inter', note: 'универсальный', w: [400, 500, 600, 700], fb: sans, group: GRO },
+      { id: 'montserrat', name: 'Montserrat', note: 'геометрический', w: [400, 500, 600, 700, 800], fb: sans, group: GRO },
+      { id: 'rubik', name: 'Rubik', note: 'мягкий', w: [400, 500, 600, 700], fb: sans, group: GRO },
+      { id: 'nunito', name: 'Nunito', note: 'округлый', w: [400, 500, 600, 700], fb: sans, group: GRO },
+      { id: 'ptsans', name: 'PT Sans', note: 'привычный', w: [400, 700], fb: sans, group: GRO },
+      { id: 'roboto', name: 'Roboto', note: 'как в Android', w: [400, 500, 700], fb: sans, group: GRO },
+      { id: 'opensans', name: 'Open Sans', note: 'спокойный', w: [400, 500, 600, 700], fb: sans, group: GRO },
+      { id: 'fira', name: 'Fira Sans', note: 'деловой', w: [400, 500, 600, 700], fb: sans, group: GRO },
+      { id: 'plex', name: 'IBM Plex Sans', note: 'технический', w: [400, 500, 600, 700], fb: sans, group: GRO },
+      { id: 'notosans', name: 'Noto Sans', note: 'максимально читаемый', w: [400, 500, 600, 700], fb: sans, group: GRO },
+      { id: 'raleway', name: 'Raleway', note: 'лёгкий, элегантный', w: [400, 500, 600, 700], fb: sans, group: GRO },
+      { id: 'jost', name: 'Jost', note: 'геометрический, модный', w: [400, 500, 600, 700], fb: sans, group: GRO },
+      { id: 'mulish', name: 'Mulish', note: 'минималистичный', w: [400, 500, 600, 700], fb: sans, group: GRO },
+      { id: 'ubuntu', name: 'Ubuntu', note: 'мягкий, характерный', w: [400, 500, 700], fb: sans, group: GRO },
+      { id: 'wixtext', name: 'Wix Madefor Text', note: 'чистый', w: [400, 500, 600, 700], fb: sans, group: GRO },
+      { id: 'commissioner', name: 'Commissioner', note: 'выразительный', w: [400, 500, 600, 700], fb: sans, group: GRO },
+      { id: 'geologica', name: 'Geologica', note: 'современный', w: [400, 500, 600, 700], fb: sans, group: GRO },
+      { id: 'sofia', name: 'Sofia Sans', note: 'дружелюбный', w: [400, 500, 600, 700], fb: sans, group: GRO },
+      { id: 'alegreyasans', name: 'Alegreya Sans', note: 'живой, «рукотворный»', w: [400, 500, 700], fb: sans, group: GRO },
+      { id: 'lora', name: 'Lora', note: 'с засечками', w: [400, 500, 600, 700], fb: serif, group: ANT },
+      { id: 'ptserif', name: 'PT Serif', note: 'книжный', w: [400, 700], fb: serif, group: ANT },
+      { id: 'literata', name: 'Literata', note: 'журнальный', w: [400, 500, 600, 700], fb: serif, group: ANT },
+      { id: 'sourceserif', name: 'Source Serif 4', note: 'строгий', w: [400, 500, 600, 700], fb: serif, group: ANT },
+      { id: 'garamond', name: 'EB Garamond', note: 'старинный', w: [400, 500, 600, 700], fb: serif, group: ANT },
+      { id: 'merriweather', name: 'Merriweather', note: 'газетный, крупный', w: [400, 700], fb: serif, group: ANT },
     ],
   };
   Slot.RADII = {
@@ -282,6 +344,7 @@
   };
   Slot.SPACES = { compact: { label: 'Плотные', k: 0.72 }, normal: { label: 'Обычные', k: 1 }, airy: { label: 'Просторные', k: 1.3 } };
   Slot.MOTIONS = { elegant: 'Плавная', mechanical: 'Чёткая', bold: 'Яркая' };
+  Slot.HEROES = { full: 'На всю ширину', card: 'Карточкой с отступом' };
   Slot.TEXT_SIZES = { s: { label: 'Мелкий', k: 0.93 }, m: { label: 'Обычный', k: 1 }, l: { label: 'Крупный', k: 1.1 } };
   Slot.HEAD_SIZES = { s: { label: 'Сдержанные', k: 0.85 }, m: { label: 'Обычные', k: 1 }, l: { label: 'Крупные', k: 1.15 } };
   Slot.CUSTOM_DEFAULT = {
@@ -375,6 +438,7 @@
       spec: `${D.name} + ${B.name} · ${tx.label.toLowerCase()} текст · ${r.label.toLowerCase()} углы · ${sp.label.toLowerCase()} отступы · ${Slot.MOTIONS[t.motion] ? Slot.MOTIONS[t.motion].toLowerCase() : 'чёткая'} анимация`,
       scheme: dark ? 'dark' : 'light',
       motion: Slot.MOTIONS[t.motion] ? t.motion : 'mechanical',
+      hero: t.hero === 'card' ? 'card' : 'full',
       texture: 'none',
       fonts: fontQuery([
         { f: D, w: [D.weight] },

@@ -62,6 +62,7 @@ for (const [name, ws] of [...fam].sort()) {
     blocks.push(`/* ${subset} */\n@font-face {${body.replace(/url\([^)]+\)/, `url(files/${file})`)}}`);
   }
   if (!blocks.length) throw new Error(`${name}: не нашлось кириллицы и латиницы`);
+  if (!/\/\* cyrillic \*\//.test(blocks.join(''))) throw new Error(`${name}: у шрифта нет кириллицы`);
   fs.writeFileSync(path.join(out, slug(name) + '.css'), `/* ${name} — Google Fonts, лицензия SIL OFL / Apache 2.0 */\n${blocks.join('\n')}\n`);
   console.log(`${name}: ${weights.join(', ')} — ${blocks.length} блоков`);
 }

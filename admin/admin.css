@@ -1148,3 +1148,18 @@ h2 {
   margin-top: 8px;
   font-size: 14px;
 }
+
+/* образец выбранного шрифта под списком «Своей» темы */
+.font-sample {
+  margin: 8px 0 0;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-size: 15px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.font-sample--head {
+  font-size: 24px;
+  line-height: 1.15;
+}

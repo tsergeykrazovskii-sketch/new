@@ -531,7 +531,31 @@
   };
 
   // Своя тема: что сейчас выбрано (или исходные значения, если владелец ещё не трогал)
-  const customOpts = () => Object.assign({}, Slot.CUSTOM_DEFAULT, data.customTheme || {});
+  // «Своя» тема в первый раз начинается с текущего стиля: сменили шрифт — цвета и углы остались прежними
+  function styleSeed() {
+    const cur = data.style || niche.defaultStyle;
+    const st = (data.styles || []).concat(niche.styles).find((x) => x.id === cur);
+    if (!st || st.custom) return {};
+    const t = st.tokens;
+    const fam = (v) => String(v || '').split(',')[0].replace(/["']/g, '').trim();
+    const pick = (list, v) => (list.find((f) => f.name === fam(v)) || {}).id;
+    const hexOk = (v) => (/^#[0-9a-f]{6}$/i.test(v) ? v : undefined);
+    const btn = parseFloat(t.radiusBtn) || 0;
+    const seed = {
+      bg: hexOk(t.bg),
+      fg: hexOk(t.fg),
+      accent: hexOk(t.accent),
+      display: pick(Slot.FONTS.display, t.display),
+      body: pick(Slot.FONTS.body, t.body),
+      upper: t.displayCase === 'uppercase',
+      radius: btn >= 100 ? 'round' : btn <= 4 ? 'sharp' : 'soft',
+      motion: Slot.MOTIONS[st.motion] ? st.motion : undefined,
+      hero: st.hero === 'card' ? 'card' : 'full',
+    };
+    Object.keys(seed).forEach((k) => seed[k] === undefined && delete seed[k]);
+    return seed;
+  }
+  const customOpts = () => Object.assign({}, Slot.CUSTOM_DEFAULT, data.customTheme ? {} : styleSeed(), data.customTheme || {});
 
   const swatches = (st) => ['bg', 'accent', 'fg'].map((k) => `<i style="background:${esc(st.tokens[k])}"></i>`).join('');
 
@@ -545,12 +569,43 @@
       : '';
   }
 
+  // Образец шрифта под списком: подключаем файлы выбранных шрифтов к самой админке
+  function fontSamples(o) {
+    const st = Slot.customStyle(o);
+    const base = S.fontBase == null ? null : new URL((S.base || '') + S.fontBase, location.href).href;
+    Slot.fontHrefs(st.fonts, base).forEach((href) => {
+      if (doc.querySelector(`link[data-sample-font][href="${CSS.escape(href)}"]`)) return;
+      const l = doc.createElement('link');
+      l.rel = 'stylesheet';
+      l.href = href;
+      l.dataset.sampleFont = '';
+      doc.head.appendChild(l);
+    });
+    const D = Slot.FONTS.display.find((f) => f.id === o.display) || Slot.FONTS.display[0];
+    const B = Slot.FONTS.body.find((f) => f.id === o.body) || Slot.FONTS.body[0];
+    const head = doc.querySelector('[data-font-sample="display"]');
+    const body = doc.querySelector('[data-font-sample="body"]');
+    if (head) {
+      head.style.fontFamily = st.tokens.display;
+      head.style.fontWeight = D.weight;
+      head.style.textTransform = o.upper ? 'uppercase' : 'none';
+    }
+    if (body) body.style.fontFamily = `"${B.name}", ${B.fb}`;
+  }
+
   PANELS.style = () => {
     const o = customOpts();
     const own = Slot.customStyle(o);
     const current = data.style || niche.defaultStyle;
+    // список по разделам: антиква, гротеск, узкие, технические, рукописные
     const fontOpts = (list, sel) =>
-      list.map((f) => `<option value="${f.id}"${f.id === sel ? ' selected' : ''}>${esc(f.name)} — ${esc(f.note)}</option>`).join('');
+      Slot.FONT_GROUPS.map((g) => {
+        const fs = list.filter((f) => f.group === g);
+        return fs.length
+          ? `<optgroup label="${esc(g)}">${fs.map((f) => `<option value="${f.id}"${f.id === sel ? ' selected' : ''}>${esc(f.name)} — ${esc(f.note)}</option>`).join('')}</optgroup>`
+          : '';
+      }).join('');
+    setTimeout(() => fontSamples(o));
     const color = (key, label) =>
       `<label class="clr"><input type="color" data-path="customTheme.${key}" value="${esc(o[key])}"><span><b>${esc(label)}</b><span data-clr="${key}">${esc(o[key].toUpperCase())}</span></span></label>`;
     return `
@@ -582,8 +637,8 @@
       <div class="own__row">${color('bg', 'Фон')}${color('fg', 'Текст')}${color('accent', 'Акцент — кнопки и выделения')}</div>
       <p class="own__warn" data-contrast-note${contrastNote(o) ? '' : ' hidden'}>${esc(contrastNote(o))}</p>
       <div class="row2">
-        <div class="f"><label for="f-own-display">Шрифт заголовков</label><select id="f-own-display" data-path="customTheme.display">${fontOpts(Slot.FONTS.display, o.display)}</select></div>
-        <div class="f"><label for="f-own-body">Шрифт текста</label><select id="f-own-body" data-path="customTheme.body">${fontOpts(Slot.FONTS.body, o.body)}</select></div>
+        <div class="f"><label for="f-own-display">Шрифт заголовков</label><select id="f-own-display" data-path="customTheme.display">${fontOpts(Slot.FONTS.display, o.display)}</select><p class="font-sample font-sample--head" data-font-sample="display">${esc(data.brand.name || 'Название')}: запись онлайн</p></div>
+        <div class="f"><label for="f-own-body">Шрифт текста</label><select id="f-own-body" data-path="customTheme.body">${fontOpts(Slot.FONTS.body, o.body)}</select><p class="font-sample" data-font-sample="body">Выберите услугу и удобное время — подтвердим запись за 10 минут. 2 600 ₽</p></div>
       </div>
       <label class="check"><input type="checkbox" data-path="customTheme.upper"${o.upper ? ' checked' : ''}> Заголовки заглавными буквами</label>
       <div class="f"><span class="f__lbl">Размер текста</span><div class="segs">${Object.keys(Slot.TEXT_SIZES)
@@ -594,6 +649,9 @@
         .join('')}</div></div>
       <div class="f"><span class="f__lbl">Углы кнопок и карточек</span><div class="segs">${Object.keys(Slot.RADII)
         .map((k) => choice('customTheme.radius', k, Slot.RADII[k].label, o.radius))
+        .join('')}</div></div>
+      <div class="f"><span class="f__lbl">Первый экран с фото</span><div class="segs">${Object.keys(Slot.HEROES)
+        .map((k) => choice('customTheme.hero', k, Slot.HEROES[k], o.hero || 'full'))
         .join('')}</div></div>
       <div class="f"><span class="f__lbl">Отступы между блоками</span><div class="segs">${Object.keys(Slot.SPACES)
         .map((k) => choice('customTheme.space', k, Slot.SPACES[k].label, o.space))
@@ -1834,6 +1892,7 @@
         data.customTheme = customOpts();
         if (t.dataset.path !== 'style') setPath(data, t.dataset.path, v);
         data.style = 'custom';
+        fontSamples(customOpts());
         const radio = doc.querySelector('input[name="style"][value="custom"]');
         if (radio) radio.checked = true;
         const o = customOpts();

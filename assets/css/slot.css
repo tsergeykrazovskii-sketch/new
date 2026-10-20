@@ -3168,8 +3168,8 @@ html.doc-open body {
 }
 
 /* первый экран карточкой: фото — скруглённый баннер с отступом от краёв, затемнение мягкое, в цвет темы */
+/* --shade — затемнение в цвет темы (Slot.themeCss): у светлой — тёмный оттенок текста, у тёмной — фон */
 [data-hero="card"] .hero--photo {
-  --shade: color-mix(in srgb, var(--fg) 70%, #000);
   margin: 10px max(10px, env(safe-area-inset-left, 0px)) 0;
   border-radius: var(--radius-lg);
   overflow: hidden;
