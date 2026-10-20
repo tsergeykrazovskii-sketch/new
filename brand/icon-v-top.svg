@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 440" width="440" height="440">
+  <title>В ТОП</title>
+  <defs>
+    <linearGradient id="facet" gradientUnits="userSpaceOnUse" x1="130" y1="350" x2="232.5" y2="293">
+      <stop offset="0" stop-color="#EC8A33"/>
+      <stop offset="1" stop-color="#F3AE70"/>
+    </linearGradient>
+  </defs>
+  <rect x="4.5" y="4.5" width="431" height="431" fill="none" stroke="#8C8A8B" stroke-width="9"/>
+  <polygon points="130,350 200,293 232.5,328" fill="url(#facet)"/>
+  <g fill="none" stroke="#000000" stroke-width="6" stroke-linejoin="round" stroke-linecap="butt">
+    <polyline points="70,435 220,221 343,374"/>
+    <polyline points="5,435 78,370 130,350 200,293 332,435"/>
+    <polyline points="232.5,328 260,318 276,329 435,435"/>
+    <polyline points="276,329 284,383"/>
+    <polyline points="130,350 232.5,328"/>
+  </g>
+</svg>
