@@ -243,6 +243,37 @@ for (const f of clientFiles) {
   if (n) console.log(`${slug}/img/ — фото: ${n}`);
 }
 
+// 404 на Pages: со своим доменом сайты живут с корня (demo.top-in.ru/svoi/), а по старой привычке пишут
+// с именем репозитория (demo.top-in.ru/new/svoi/) — если дальше в адресе известный сайт, переходим на него
+{
+  const sites = [...Object.keys(Slot.niches), ...clientFiles.map((f) => f.replace(/\.json$/, ''))];
+  write(dist, '404.html', `<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Страница не найдена</title>
+<script>
+(function () {
+  var sites = ${JSON.stringify(sites)};
+  var p = location.pathname.split('/');
+  for (var i = 1; i < p.length; i++) {
+    if (sites.indexOf(p[i]) >= 0) {
+      var to = '${BASE}/' + p.slice(i).join('/');
+      if (to !== location.pathname) location.replace(to + location.search + location.hash);
+      return;
+    }
+  }
+})();
+</script>
+<style>body{margin:0;padding:48px 20px;font:17px/1.6 system-ui,sans-serif;color:#16181b;background:#f4f4f2}main{max-width:560px;margin:0 auto}h1{font-size:28px;margin:0 0 8px}p{color:#5b6066}</style>
+</head>
+<body><main><h1>Страница не найдена</h1><p>Проверьте ссылку — возможно, в ней опечатка.</p></main></body>
+</html>
+`);
+}
+
 if (setupCodes.length) {
   console.log('\nКоды первого входа в админку (release/<клиент>/admin/config.php):\n  ' + setupCodes.join('\n  '));
 }
