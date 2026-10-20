@@ -35,6 +35,16 @@ const base = `http://127.0.0.1:${server.address().port}/`;
 
 const browser = await chromium.launch(process.env.CHROME ? { executablePath: process.env.CHROME } : {});
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
+// Фото по полному адресу выкладки (https://demo.top-in.ru/assets/img/…) берём из этой же сборки:
+// сайт может быть ещё не выложен или недоступен с этой машины
+await page.route(/^https?:\/\//, (route) => {
+  const u = new URL(route.request().url());
+  const local = path.join(dist, decodeURIComponent(u.pathname));
+  if (u.hostname !== '127.0.0.1' && local.startsWith(dist) && fs.existsSync(local) && fs.statSync(local).isFile()) {
+    return route.fulfill({ contentType: TYPES[path.extname(local)] || 'application/octet-stream', body: fs.readFileSync(local) });
+  }
+  return route.continue();
+});
 fs.mkdirSync(out, { recursive: true });
 let bad = 0;
 for (const slug of slugs) {
