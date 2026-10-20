@@ -97,7 +97,7 @@
     }
     const title = `${c.brand.kind} «${c.brand.name}» — ${c.contacts.city}`;
     return `<!doctype html>
-<html lang="ru" data-niche="${id}" data-style="${st.id}" data-motion="${st.motion}" data-texture="${st.texture || 'none'}"${fontBase == null ? '' : ` data-font-base="${esc(fontBase)}"`}>
+<html lang="ru" data-niche="${id}" data-style="${st.id}" data-motion="${st.motion}" data-texture="${st.texture || 'none'}" data-hero="${st.hero || 'full'}"${fontBase == null ? '' : ` data-font-base="${esc(fontBase)}"`}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">

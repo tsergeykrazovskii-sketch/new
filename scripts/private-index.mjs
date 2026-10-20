@@ -29,7 +29,7 @@ const clients = fs
   .filter((f) => f.endsWith('.json'))
   .map((f) => JSON.parse(fs.readFileSync(path.join(root, 'clients', f), 'utf8')))
   .filter((d) => fs.existsSync(path.join(dist, d.slug, 'index.html')));
-const NICHE = { auto: 'Автосервисы', barber: 'Барбершопы' };
+const NICHE = { auto: 'Автосервисы', barber: 'Барбершопы', nails: 'Маникюрные студии' };
 const row = (name, place, slug) =>
   `<li><span class="n">${esc(name)}</span><span class="p">${esc(place)}</span><a href="../${esc(slug)}/">сайт</a><a href="../${esc(slug)}/admin/">админка</a></li>`;
 const groups = Object.entries(NICHE)
@@ -52,7 +52,7 @@ h1{font-size:24px;margin:0 0 4px}h2{font-size:18px;margin:28px 0 8px}p{color:#66
 li{display:flex;gap:12px;align-items:baseline;padding:7px 0;border-bottom:1px solid #eee;flex-wrap:wrap}.n{font-weight:600;flex:1 1 200px}.p{color:#777;flex:1 1 200px}
 a{color:#0a66c2;text-decoration:none}a:hover{text-decoration:underline}</style></head><body>
 <h1>Слот — витрина</h1><p>Только для владельца: адрес нигде не публикуется. Демо клиентов открыты по своим ссылкам.</p>
-<h2>Шаблоны</h2><ul>${row('Техцентр «Поршень»', 'шаблон автосервиса', 'auto')}${row('Барбершоп «Ремесло»', 'шаблон барбершопа', 'barber')}</ul>
+<h2>Шаблоны</h2><ul>${row('Техцентр «Поршень»', 'шаблон автосервиса', 'auto')}${row('Барбершоп «Ремесло»', 'шаблон барбершопа', 'barber')}${row('Студия маникюра «Миндаль»', 'шаблон маникюрной студии', 'nails')}</ul>
 ${groups}</body></html>\n`
 );
 console.log(`витрина: /${secret}/ — демо: ${clients.length}`);

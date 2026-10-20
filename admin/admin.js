@@ -176,6 +176,25 @@
       </div>`;
   }
 
+  // Дополнения к услуге (снятие, дизайн, френч): клиент отмечает их при записи, цена и время прибавляются
+  const optionsBlock = (it, ci, i) => {
+    const opts = it.options || [];
+    const base = `services.${ci}.items.${i}.options`;
+    return `
+            ${opts.length ? `<p class="f__hint">Дополнения: клиент отмечает их при записи, цена и время прибавляются к услуге.</p>` : ''}
+            ${opts
+              .map(
+                (o, k) => `<div class="opt-row">
+              <div class="row3">
+                ${input('Дополнение', `${base}.${k}.name`)}
+                ${input('+ ₽', `${base}.${k}.price`, { type: 'number' })}
+                ${input('+ мин', `${base}.${k}.duration`, { type: 'number' })}
+              </div>${tools(base, k, opts.length)}</div>`
+              )
+              .join('')}
+            <button type="button" class="add add--sm" data-act="add-opt" data-ci="${ci}" data-i="${i}">+ Дополнение к услуге</button>`;
+  };
+
   PANELS.services = () => {
     const cats = (data.services || [])
       .map(
@@ -185,6 +204,7 @@
           ${input('Категория', `services.${ci}.category`)}
           ${tools('services', ci, data.services.length)}
         </div>
+        ${sectionIndex('cats') >= 0 ? `<div class="staff-row">${photoBox(cat.img, `services.${ci}.img`, 'Фото категории')}<div>${input('Цена на плитке', `services.${ci}.from`, { placeholder: 'от 1 400 ₽', hint: 'Плитка с фото над прайсом ведёт в эту категорию.' })}</div></div>` : ''}
         ${cat.items
           .map(
             (it, i) => `
@@ -198,6 +218,7 @@
               <label class="check"><input type="checkbox" data-kind="price-from" data-path="services.${ci}.items.${i}"${it.price && it.price.from ? ' checked' : ''}> «от»</label>
               ${input('Длительность, мин', `services.${ci}.items.${i}.duration`, { type: 'number' })}
             </div>
+            ${optionsBlock(it, ci, i)}
           </div>`
           )
           .join('')}
@@ -401,7 +422,8 @@
           <div class="card__head"><b>Фото ${i + 1}</b>${tools(`sections.${gi}.items`, i, items.length)}</div>
           <div class="staff-row">
             ${photoBox(it.img, `sections.${gi}.items.${i}.img`, 'Загрузить')}
-            <div>${input('Подпись', `sections.${gi}.items.${i}.caption`, { placeholder: 'Пара слов о том, что на фото' })}</div>
+            <div>${input('Подпись', `sections.${gi}.items.${i}.caption`, { placeholder: 'Пара слов о том, что на фото' })}
+            <div class="f"><label for="tg-${i}">Метки</label><input id="tg-${i}" data-kind="tags" data-path="sections.${gi}.items.${i}.tags" value="${esc((it.tags || []).join(', '))}" placeholder="Френч, Nude"><p class="f__hint">Через запятую. Над галереей появятся кнопки-фильтры.</p></div></div>
           </div>
         </div>`
         )
@@ -1877,6 +1899,11 @@
       it.price = val === '' ? null : { value: Number(val), from };
       return touch(false);
     }
+    if (kind === 'tags') {
+      const tags = t.value.split(',').map((x) => x.trim()).filter(Boolean);
+      setPath(data, t.dataset.path, [...new Set(tags)]);
+      return touch(false);
+    }
     if (kind === 'phone') {
       let d = t.value.replace(/\D/g, '');
       if (d[0] === '8') d = '7' + d.slice(1);
@@ -2004,6 +2031,11 @@
         const j = act === 'up' ? i - 1 : i + 1;
         [list[i], list[j]] = [list[j], list[i]];
       }
+      return touch(true);
+    }
+    if (act === 'add-opt') {
+      const it = data.services[Number(t.dataset.ci)].items[i];
+      (it.options = it.options || []).push({ id: uid('o'), name: '', price: 300, duration: 15 });
       return touch(true);
     }
     if (act === 'add-service') {

@@ -200,6 +200,7 @@
     root.style = style.id;
     root.motion = style.motion;
     root.texture = style.texture || 'none';
+    root.hero = style.hero || 'full';
     // иконка вкладки — как в данных сайта (в демо её могли сменить в админке)
     if (Slot.favicon && doc.head) {
       const want = Slot.favicon(cfg, style);
@@ -237,6 +238,7 @@
     renderQuickSlots();
 
     if (doc.querySelector('[data-widget="estimate"]')) updateEstimate(true);
+    if (doc.querySelector('[data-widget="combo"]')) updateCombo(false);
     placeIndicators(true);
     onScroll();
 
@@ -275,16 +277,14 @@
     }
   }
 
-  let priceShown = null;
-  let priceAnim = 0;
-
-  // Цена «докручивается» до нового значения, как счётчик
-  function tweenPrice(el, to, instant) {
-    const from = priceShown;
-    priceShown = to;
-    cancelAnimationFrame(priceAnim);
-    if (instant || from == null || from === to || reduceMotion()) {
-      el.textContent = price({ from: true, value: to });
+  // Цена «докручивается» до нового значения, как счётчик; показанное значение хранится на самом элементе
+  function tweenPrice(el, to, instant, isFrom) {
+    const fromP = isFrom !== false;
+    const from = el.__shown;
+    el.__shown = to;
+    cancelAnimationFrame(el.__anim);
+    if (instant || from == null || to == null || from === to || reduceMotion()) {
+      el.textContent = price({ from: fromP, value: to });
       return;
     }
     const t0 = performance.now();
@@ -292,11 +292,11 @@
     const step = (now) => {
       const k = Math.min(1, (now - t0) / dur);
       const e = 1 - Math.pow(1 - k, 3);
-      el.textContent = price({ from: true, value: Math.round((from + (to - from) * e) / 10) * 10 });
-      if (k < 1) priceAnim = requestAnimationFrame(step);
-      else el.textContent = price({ from: true, value: to });
+      el.textContent = price({ from: fromP, value: Math.round((from + (to - from) * e) / 10) * 10 });
+      if (k < 1) el.__anim = requestAnimationFrame(step);
+      else el.textContent = price({ from: fromP, value: to });
     };
-    priceAnim = requestAnimationFrame(step);
+    el.__anim = requestAnimationFrame(step);
     const box = el.closest('.qw__result');
     if (box) {
       box.classList.remove('is-bump');
@@ -340,6 +340,7 @@
         contact: cfg.booking.contactMethods[0],
         consent: false,
         extra: {},
+        options: [],
       },
       preset
     );
@@ -369,7 +370,10 @@
   function summary() {
     const x = B.data;
     const parts = [];
-    if (x.service) parts.push(Slot.findService(cfg, x.service).name);
+    if (x.service) {
+      const t = Slot.svcTotal(cfg, x.service, x.options);
+      parts.push(t.options.length ? `${t.service.name} + ${t.options.length}` : t.service.name);
+    }
     if (cfg.booking.askStaff && x.staffChosen) {
       const s = cfg.staff.find((m) => m.id === x.staff);
       parts.push(s ? s.name : 'Любой мастер');
@@ -392,13 +396,30 @@
             <input type="radio" name="b-service" value="${esc(it.id)}"${B.data.service === it.id ? ' checked' : ''}>
             <span class="opt__main"><b>${esc(it.name)}</b>${it.duration ? `<span>${duration(it.duration)}</span>` : ''}</span>
             <span class="opt__price">${price(it.price)}</span>
-          </label>`
+          </label>${B.data.service === it.id ? stepOptions(it) : ''}`
               )
               .join('')
         )
         .join('') +
       '</div>'
     );
+  }
+
+  // Дополнения к выбранной услуге и итог по ним
+  function stepOptions(it) {
+    if (!(it.options || []).length) return '';
+    const t = Slot.svcTotal(cfg, it.id, B.data.options);
+    return `
+      <div class="opt-add">
+        <p class="opts__cat">Добавить к услуге</p>
+        <div class="opt-add__list">${it.options
+          .map(
+            (o) =>
+              `<label class="opt-chip"><input type="checkbox" name="b-opt" value="${esc(o.id)}"${B.data.options.includes(o.id) ? ' checked' : ''}><span>${esc(o.name)}<small>${o.price ? '+' + Slot.util.num(o.price) + ' ₽' : ''}${o.duration ? ' · ' + duration(o.duration) : ''}</small></span></label>`
+          )
+          .join('')}</div>
+        <p class="opt-add__total">Итого: <b>${price({ from: t.from, value: t.price })}</b>${t.duration ? ` · ${duration(t.duration)}` : ''}</p>
+      </div>`;
   }
 
   function stepStaff() {
@@ -426,8 +447,8 @@
   }
 
   const bookDur = () => {
-    const svc = B.data.service && Slot.findService(cfg, B.data.service);
-    return (svc && svc.duration) || cfg.booking.step;
+    const t = B.data.service && Slot.svcTotal(cfg, B.data.service, B.data.options);
+    return (t && t.duration) || cfg.booking.step;
   };
 
   function stepTime() {
@@ -525,7 +546,11 @@
         <h3 class="done__title">${schedOn() ? 'Заявка отправлена' : 'Вы записаны'}</h3>
         <p class="done__when">${esc(dayLabel(x.date))}, ${fmtMin(x.time)}</p>
         <ul class="done__list">
-          <li><span>Услуга</span><b>${esc(svc.name)}</b></li>
+          <li><span>Услуга</span><b>${esc(Slot.svcTotal(cfg, x.service, x.options).name)}</b></li>
+          ${(() => {
+            const t = Slot.svcTotal(cfg, x.service, x.options);
+            return t.options.length && t.price != null ? `<li><span>Стоимость</span><b>${price({ from: t.from, value: t.price })}</b></li>` : '';
+          })()}
           ${cfg.booking.askStaff ? `<li><span>Мастер</span><b>${esc(staff ? staff.name : 'Любой свободный')}</b></li>` : ''}
           <li><span>Адрес</span><b>${esc(cfg.contacts.address)}</b></li>
           <li><span>Подтверждение</span><b>${esc(x.contact)}</b></li>
@@ -609,18 +634,21 @@
     const svc = Slot.findService(cfg, x.service);
     const staff = cfg.staff.find((m) => m.id === x.staff);
     const pad = (n) => String(n).padStart(2, '0');
+    const t = svc ? Slot.svcTotal(cfg, svc.id, x.options) : null;
+    const extra = Object.fromEntries((cfg.booking.fields || []).filter((f) => (x.extra[f.id] || '').trim()).map((f) => [f.label, x.extra[f.id].trim()]));
+    if (t && t.options.length && t.price != null) extra['Стоимость'] = price({ from: t.from, value: t.price });
     return {
-      service: svc ? svc.name : '',
+      service: t ? t.name : '',
       staff: cfg.booking.askStaff ? (staff ? staff.name : 'Любой свободный') : '',
       staffId: cfg.booking.askStaff && staff ? staff.id : '',
       date: `${x.date.getFullYear()}-${pad(x.date.getMonth() + 1)}-${pad(x.date.getDate())}`,
       time: fmtMin(x.time),
-      dur: (svc && svc.duration) || cfg.booking.step,
+      dur: (t && t.duration) || cfg.booking.step,
       name: x.name.trim(),
       phone: x.phone,
       comment: x.comment.trim(),
       contact: x.contact,
-      extra: Object.fromEntries((cfg.booking.fields || []).filter((f) => (x.extra[f.id] || '').trim()).map((f) => [f.label, x.extra[f.id].trim()])),
+      extra,
     };
   }
 
@@ -726,6 +754,15 @@
         preset.date = widgetDay;
         preset.time = Number(ds.time);
       }
+      if (ds.fromCombo !== undefined && combo) {
+        preset.service = combo.service;
+        preset.options = combo.options.slice();
+        if (combo.date) {
+          preset.date = combo.date;
+          preset.time = combo.time;
+          preset.staffChosen = true; // «любой мастер»: окно взято по всем мастерам
+        }
+      }
       if (ds.fromEstimate !== undefined && estimate) {
         preset.service = estimate.service;
         if (estimate.date) {
@@ -763,6 +800,15 @@
       return;
     }
     if (t.closest('a[href^="tel:"]')) goal('call');
+
+    const gf = t.closest('[data-gfilter]');
+    if (gf) return filterGallery(gf);
+    const cat = t.closest('[data-cat]');
+    if (cat) {
+      const tab = doc.getElementById('svc-t-' + cat.dataset.cat);
+      if (tab) selectTab(tab);
+      return;
+    }
 
     const lb = t.closest('[data-lb]');
     if (lb) return openLightbox(Number(lb.dataset.lb));
@@ -804,16 +850,24 @@
   function onChange(e) {
     const t = e.target;
     if (t.name === 'qw-brand' || t.matches('[data-est-service]')) return updateEstimate();
+    if (t.name === 'qw-base' || t.name === 'qw-opt') return updateCombo(t.name === 'qw-base');
     if (!B.data) return;
+    if (t.name === 'b-opt') {
+      B.data.options = Array.from(dlg().querySelectorAll('input[name="b-opt"]:checked')).map((x) => x.value);
+      if (B.data.date && B.data.time != null && !freeSlots(B.data.date, B.data.staff, bookDur()).some((s) => s.m === B.data.time)) B.data.time = null;
+      renderBooking();
+      return;
+    }
     if (t.name === 'b-service') {
       B.data.service = t.value;
+      B.data.options = [];
       renderBooking();
       dlg().querySelector('[data-book-next]').focus({ preventScroll: true });
     } else if (t.name === 'b-staff') {
       B.data.staff = t.value || null;
       B.data.staffChosen = true;
       if (B.data.date && B.data.time != null) {
-        const ok = freeSlots(B.data.date, B.data.staff).some((s) => s.m === B.data.time);
+        const ok = freeSlots(B.data.date, B.data.staff, bookDur()).some((s) => s.m === B.data.time);
         if (!ok) B.data.time = null;
       }
       renderBooking();
@@ -948,6 +1002,42 @@
     d.querySelector('.lb__cap').textContent = it.caption || '';
   }
 
+  /* ---------- конструктор услуги (маникюр) ---------- */
+
+  let combo = null; // { service, options, date, time }
+  function updateCombo(baseChanged) {
+    const box = doc.querySelector('[data-widget="combo"]');
+    if (!box) return;
+    const base = box.querySelector('input[name="qw-base"]:checked');
+    if (!base) return;
+    const svc = Slot.findService(cfg, base.value);
+    if (baseChanged) box.querySelector('[data-combo-opts]').innerHTML = Slot.comboOpts(svc);
+    const opts = Array.from(box.querySelectorAll('input[name="qw-opt"]:checked')).map((x) => x.value);
+    const t = Slot.svcTotal(cfg, svc.id, opts);
+    const near = nearest(null, t.duration || cfg.booking.step);
+    combo = { service: svc.id, options: opts, date: near && near.date, time: near && near.time };
+    tweenPrice(box.querySelector('[data-combo-price]'), t.price, baseChanged === false && !box.dataset.ready, t.from);
+    box.dataset.ready = '1';
+    box.querySelector('[data-combo-dur]').innerHTML = t.duration ? ic('clock') + duration(t.duration) : '';
+    box.querySelector('[data-combo-slot]').textContent = near ? dayLabel(near.date) + ', ' + fmtMin(near.time) : 'уточните по телефону';
+  }
+
+  /* ---------- галерея: фильтр по меткам дизайнов ---------- */
+
+  function filterGallery(btn) {
+    const tag = btn.dataset.gfilter;
+    const sec = btn.closest('.sec');
+    sec.querySelectorAll('[data-gfilter]').forEach((b) => {
+      const on = b === btn;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', String(on));
+    });
+    const list = sec.querySelector('.gallery--bento');
+    if (!list.__all) list.__all = Array.from(list.children);
+    // переставляем, а не прячем: плитка разного размера считается по порядку элементов
+    list.replaceChildren(...list.__all.filter((li) => !tag || li.dataset.tags.split('|').includes(tag)));
+  }
+
   function closeMenu() {
     const menu = doc.getElementById('menu');
     const btn = doc.querySelector('[data-menu]');
@@ -984,7 +1074,6 @@
     doc.getElementById('app').innerHTML = Slot.render(cfg);
     const bar = doc.getElementById('demo');
     if (bar) bar.innerHTML = demoBar();
-    priceShown = null;
     hydrate();
     store.set('slot-style-' + cfg.id, id);
     try {

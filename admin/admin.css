@@ -1124,3 +1124,27 @@ h2 {
   border-radius: 10px;
   background: var(--surface);
 }
+
+/* дополнения к услуге (маникюр: снятие, френч, дизайн) */
+.opt-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: end;
+  padding: 8px 0;
+  border-top: 1px dashed var(--line, #dde1e6);
+}
+.opt-row .row3 {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
+  align-items: end;
+}
+@media (max-width: 479px) {
+  .opt-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.add--sm {
+  min-height: 38px;
+  margin-top: 8px;
+  font-size: 14px;
+}

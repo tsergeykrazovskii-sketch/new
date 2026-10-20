@@ -2916,3 +2916,285 @@ html.doc-open body {
     padding-block: 48px 96px;
   }
 }
+
+/* ======================================================================
+ * Маникюр: дополнения к услугам, конструктор, плитки категорий,
+ * фильтр дизайнов, первый экран карточкой и плашка акции
+ * ====================================================================== */
+
+/* дополнения в прайсе: «+ снятие · 300 ₽ · 15 мин» */
+.svc__opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.svc__opts li {
+  padding: 4px 10px;
+  border-radius: var(--radius-btn);
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-size: calc(13px * var(--text-scale));
+  line-height: 1.35;
+}
+
+/* галочки дополнений: в конструкторе на первом экране и в окне записи */
+.qw__opts,
+.opt-add__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.opt-chip {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+}
+.opt-chip input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.opt-chip > span {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-height: 44px;
+  justify-content: center;
+  padding: 7px 14px 7px 34px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-weight: 600;
+  font-size: calc(14px * var(--text-scale));
+  line-height: 1.25;
+  transition: background-color var(--dur-fast), border-color var(--dur-fast);
+}
+.opt-chip > span::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  margin-top: -7px;
+  border: 1.5px solid var(--muted);
+  border-radius: 4px;
+  transition: background-color var(--dur-fast), border-color var(--dur-fast);
+}
+.opt-chip small {
+  font-weight: 500;
+  font-size: calc(12px * var(--text-scale));
+  color: var(--muted);
+}
+.opt-chip:hover > span {
+  border-color: var(--accent-text);
+}
+.opt-chip:has(input:checked) > span {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.opt-chip:has(input:checked) > span::before {
+  border-color: var(--accent);
+  background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E") center / 10px no-repeat;
+}
+.opt-chip:has(input:focus-visible) > span {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 2px;
+}
+.qw__bases .chip {
+  font-family: var(--font-body);
+  min-width: 0;
+}
+.opt-add {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: -2px 0 6px;
+  padding: 14px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+}
+.opt-add .opts__cat {
+  margin: 0;
+}
+.opt-add__total {
+  margin: 0;
+  font-size: calc(14px * var(--text-scale));
+  color: var(--muted);
+}
+.opt-add__total b {
+  color: var(--fg);
+  font-family: var(--font-price);
+}
+
+/* плитки категорий: фото с подписью, ведут в нужную вкладку прайса */
+.sec--tight {
+  padding-block: calc(28px * var(--space));
+}
+.cats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 768px) {
+  .cats {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+  }
+}
+.cat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  padding: 14px;
+  border-radius: var(--radius-lg);
+  background: var(--raised);
+  color: #fff;
+  text-decoration: none;
+  isolation: isolate;
+}
+@media (min-width: 768px) {
+  .cat {
+    aspect-ratio: 1;
+    padding: 18px;
+  }
+}
+.cat img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cat::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.62));
+}
+.cat:hover img {
+  transform: scale(1.06);
+}
+.cat__name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-size: calc(clamp(1.05rem, 0.95rem + 0.5vw, 1.35rem) * var(--display-scale));
+  letter-spacing: var(--display-tracking);
+  line-height: 1.15;
+}
+.cat__from {
+  margin-top: 4px;
+  font-size: calc(13px * var(--text-scale));
+  opacity: 0.9;
+}
+.cat:focus-visible {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 3px;
+}
+
+/* фильтр дизайнов над галереей: на телефоне листается вбок */
+.gfilter {
+  margin-bottom: 20px;
+}
+.gfilter .chip {
+  font-family: var(--font-body);
+  min-width: 0;
+}
+@media (max-width: 767px) {
+  .gfilter {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-inline: -16px;
+    padding-inline: 16px;
+    scrollbar-width: none;
+  }
+  .gfilter::-webkit-scrollbar {
+    display: none;
+  }
+  .gfilter .chip {
+    flex: none;
+  }
+}
+.gallery--bento .bento__item {
+  animation: g-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes g-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+/* плашка акции на первом экране: «−20% на первый визит» */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0 0;
+  padding: 6px 18px 6px 6px;
+  border-radius: 999px;
+  background: var(--photo-cta-bg, var(--surface));
+  color: var(--photo-cta-fg, var(--fg));
+  font-weight: 600;
+  font-size: calc(14px * var(--text-scale));
+  line-height: 1.25;
+}
+.hero__badge b {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-size: calc(1.5rem * var(--display-scale));
+  line-height: 1;
+}
+
+/* первый экран карточкой: фото — скруглённый баннер с отступом от краёв, затемнение мягкое, в цвет темы */
+[data-hero="card"] .hero--photo {
+  --shade: color-mix(in srgb, var(--fg) 70%, #000);
+  margin: 10px max(10px, env(safe-area-inset-left, 0px)) 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--shade);
+}
+[data-hero="card"] .hero__bg::after {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--shade) 5%, transparent) 0%, color-mix(in srgb, var(--shade) 50%, transparent) 50%, var(--shade) 100%);
+}
+@media (min-width: 960px) {
+  [data-hero="card"] .hero--photo {
+    margin: 16px 24px 0;
+    padding-block: 96px;
+  }
+  [data-hero="card"] .hero__bg::after {
+    background: linear-gradient(90deg, color-mix(in srgb, var(--shade) 85%, transparent) 0%, color-mix(in srgb, var(--shade) 45%, transparent) 50%, transparent 100%);
+  }
+}
+@media (max-width: 959px) {
+  [data-hero="card"] .hero--photo {
+    padding-top: 34vh;
+  }
+  [data-hero="card"] .hero__bg {
+    height: 62vh;
+  }
+}
+[data-hero="card"] .hero--photo .hero__widget {
+  box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.45);
+}

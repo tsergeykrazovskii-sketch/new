@@ -98,6 +98,11 @@
     battery: '<rect x="2" y="7" width="17" height="11" rx="2"/><path d="M22 11v3M6 12.5h4M8 10.5v4"/>',
     key: '<circle cx="7.5" cy="15.5" r="5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/>',
     box: '<path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>',
+    nail: '<path d="M8 22V10a4 4 0 0 1 8 0v12"/><path d="M9.5 10.5a2.5 2.5 0 0 1 5 0V14h-5z"/>',
+    foot: '<path d="M7 21c-2 0-3-1.5-3-3.5 0-3 2-4.5 2.5-7S7 6 9 6s2.5 2 2.5 4c0 3 2.5 4.5 2.5 7.5S12 21 7 21z"/><circle cx="14" cy="4" r="1.2"/><circle cx="17" cy="5.5" r="1.1"/><circle cx="19.2" cy="8" r="1"/>',
+    brush: '<path d="M18.4 2.6a2 2 0 0 1 2.9 2.9L12 14.8 9.2 12z"/><path d="M9 12.2c-2 0-3.6 1.6-3.6 3.6 0 1.6-1 2.6-2.4 3.2 1.2 1 2.8 1.6 4.4 1.6 2.7 0 4.8-2.1 4.8-4.8z"/>',
+    flower: '<circle cx="12" cy="12" r="2.5"/><path d="M12 9.5C10.5 7.5 10.5 4.5 12 3c1.5 1.5 1.5 4.5 0 6.5zM14.5 12c2-1.5 5-1.5 6.5 0-1.5 1.5-4.5 1.5-6.5 0zM12 14.5c1.5 2 1.5 5 0 6.5-1.5-1.5-1.5-4.5 0-6.5zM9.5 12c-2 1.5-5 1.5-6.5 0 1.5-1.5 4.5-1.5 6.5 0z"/>',
+    heart: '<path d="M19.5 12.6 12 20l-7.5-7.4A4.6 4.6 0 0 1 12 6.3a4.6 4.6 0 0 1 7.5 6.3z"/>',
     tire: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/>',
   };
 
@@ -546,6 +551,42 @@
     </div>`;
   }
 
+  // Конструктор услуги (маникюр): основа + дополнения → цена, время и ближайшее окно
+  function widgetCombo(c, w) {
+    const ids = (w.services && w.services.length ? w.services : c.services.flatMap((cat) => cat.items.filter((it) => (it.options || []).length).map((it) => it.id)))
+      .filter((id) => Slot.findService(c, id));
+    if (!ids.length) return '';
+    const first = Slot.findService(c, ids[0]);
+    const t = Slot.svcTotal(c, first.id, []);
+    return `
+    <div class="qw" data-widget="combo">
+      <div class="qw__head"><h2 class="qw__title">${esc(w.title || 'Соберите услугу')}</h2></div>
+      <div class="chips qw__bases" role="radiogroup" aria-label="Услуга">${ids
+        .map((id, i) => {
+          const s = Slot.findService(c, id);
+          return `<label class="chip chip--radio"><input type="radio" name="qw-base" value="${esc(id)}"${i ? '' : ' checked'}><span>${esc(w.labels && w.labels[id] ? w.labels[id] : s.name)}</span></label>`;
+        })
+        .join('')}</div>
+      <fieldset class="qw__field"><legend>Добавить</legend><div class="qw__opts" data-combo-opts>${comboOpts(first)}</div></fieldset>
+      <div class="qw__result" aria-live="polite">
+        <span class="qw__price" data-combo-price>${price({ from: t.from, value: t.price })}</span>
+        <span class="qw__dur" data-combo-dur>${t.duration ? ic('clock') + duration(t.duration) : ''}</span>
+      </div>
+      <p class="qw__slot">${ic('calendar')}Ближайшее окно: <b data-combo-slot>${esc(w.slotLabel || 'сегодня')}</b></p>
+      <button class="btn btn--accent btn--block" type="button" data-book data-from-combo>${esc(w.cta || 'Записаться')}</button>
+    </div>`;
+  }
+  const comboOpts = (s) =>
+    (s.options || []).length
+      ? s.options
+          .map(
+            (o) =>
+              `<label class="opt-chip"><input type="checkbox" name="qw-opt" value="${esc(o.id)}"><span>${esc(o.name)}<small>${o.price ? '+' + num(o.price) + NBSP + '₽' : ''}${o.duration ? ' · ' + duration(o.duration) : ''}</small></span></label>`
+          )
+          .join('')
+      : '<p class="qw__none">К этой услуге дополнений нет</p>';
+  Slot.comboOpts = comboOpts;
+
   const countText = (p) => (p.countText ? esc(p.countText) : num(p.count) + NBSP + plural(p.count, ['отзыв', 'отзыва', 'отзывов']));
 
   R.hero = (c) => {
@@ -562,7 +603,7 @@
     // при записи через внешнюю систему (YCLIENTS и т. п.) окон у нас нет — блок «Свободные окна» не показываем
     const hw = Slot.heroWidget(c);
     const w = hw && !(hw.type === 'slots' && Slot.sched.externalUrl(c)) ? hw : null;
-    const widget = !w ? '' : w.type === 'estimate' ? widgetEstimate(c, w) : widgetSlots(c, w);
+    const widget = !w ? '' : w.type === 'estimate' ? widgetEstimate(c, w) : w.type === 'combo' ? widgetCombo(c, w) : widgetSlots(c, w);
     const words = h.title.split(/\s+/);
     const title = words.map((w, i) => `<span class="w"><span style="--i:${i + 1}">${esc(w)}</span></span>`).join(' ');
     const k = Math.min(words.length, 6) + 1; // дальше заголовка задержка не растёт
@@ -585,6 +626,7 @@
         <a class="btn btn--ghost btn--lg" href="#services">${esc(h.secondary)}</a>
       </div>
       <ul class="proof rise" style="--i:${k + 2}">${proof}</ul>
+      ${h.badge && h.badge.big ? `<p class="hero__badge"><b>${esc(h.badge.big)}</b><span>${esc(h.badge.text || '')}</span></p>` : ''}
     </div>
     ${widget ? `<aside class="hero__widget card card--stripe" aria-label="${esc(w.title)}">${widget}</aside>` : ''}
   </div>
@@ -608,6 +650,30 @@
       ${s.lead ? `<p class="sec__lead">${esc(s.lead)}</p>` : ''}
     </div>`;
 
+  // Дополнения к услуге (снятие, выравнивание, френч, дизайн): цена и время прибавляются к основе
+  const optChips = (it) =>
+    (it.options || []).length
+      ? `<ul class="svc__opts">${it.options
+          .map((o) => `<li>+${NBSP}${esc(o.name)}${o.price ? ` · ${num(o.price)}${NBSP}₽` : ''}${o.duration ? ` · ${duration(o.duration)}` : ''}</li>`)
+          .join('')}</ul>`
+      : '';
+
+  // Итог услуги с выбранными дополнениями
+  Slot.svcTotal = (c, id, optIds) => {
+    const s = Slot.findService(c, id);
+    if (!s) return null;
+    const opts = (s.options || []).filter((o) => (optIds || []).includes(o.id));
+    const base = s.price && s.price.value != null ? s.price.value : null;
+    return {
+      service: s,
+      options: opts,
+      price: base == null ? null : base + opts.reduce((a, o) => a + (Number(o.price) || 0), 0),
+      from: !!(s.price && s.price.from),
+      duration: (Number(s.duration) || 0) + opts.reduce((a, o) => a + (Number(o.duration) || 0), 0),
+      name: [s.name].concat(opts.map((o) => o.name.toLowerCase())).join(' + '),
+    };
+  };
+
   R.services = (c, s) => {
     const tabs = c.services
       .map(
@@ -626,6 +692,7 @@
             <div class="svc__main">
               <h3 class="svc__name">${esc(it.name)}</h3>
               ${it.desc ? `<p class="svc__desc">${esc(it.desc)}</p>` : ''}
+              ${optChips(it)}
             </div>
             <span class="svc__dur">${it.duration ? ic('clock') + duration(it.duration) : ''}</span>
             <span class="svc__price">${price(it.price)}</span>
@@ -751,11 +818,19 @@
 
   R.gallery = (c, s) => {
     const real = photos(s);
+    // Метки дизайнов («Френч», «Nude»…) — фильтр над галереей
+    const tags = [...new Set(real.flatMap((it) => it.tags || []))];
+    const filters =
+      tags.length > 1
+        ? `<div class="gfilter chips" role="group" aria-label="Фильтр дизайнов"><button class="chip is-on" type="button" data-gfilter="" aria-pressed="true">Все</button>${tags
+            .map((t) => `<button class="chip" type="button" data-gfilter="${esc(t)}" aria-pressed="false">${esc(t)}</button>`)
+            .join('')}</div>`
+        : '';
     // С фото — плитка разного размера и просмотр по нажатию, без фото — места под фото
     const list = real.length
       ? `<ul class="gallery gallery--bento">${real
           .map(
-            (it, i) => `<li class="bento__item">
+            (it, i) => `<li class="bento__item" data-tags="${esc((it.tags || []).join('|'))}">
           <button class="bento__btn" type="button" data-lb="${i}" aria-label="Открыть фото: ${esc(it.caption || 'фото ' + (i + 1))}">
             <img src="${esc(it.img)}" alt="${esc(it.alt || it.caption || '')}" loading="lazy">
             ${it.caption ? `<span class="bento__cap">${esc(it.caption)}</span>` : ''}
@@ -769,7 +844,29 @@
 <section class="${secCls(s)}" id="gallery" aria-labelledby="gallery-title">
   <div class="wrap">
     ${secHead('gallery', s)}
+    ${filters}
     ${list}
+  </div>
+</section>`;
+  };
+
+  // Плитки категорий услуг с фото: нажатие открывает нужную вкладку прайса
+  R.cats = (c, s) => {
+    const cats = c.services.map((cat, i) => Object.assign({ i }, cat)).filter((cat) => cat.img);
+    if (cats.length < 2) return '';
+    return `
+<section class="${secCls(s)} sec--tight" id="cats" aria-label="${esc(s.title || 'Категории услуг')}">
+  <div class="wrap">
+    ${s.title ? secHead('cats', s) : ''}
+    <ul class="cats">${cats
+      .map(
+        (cat) => `<li><a class="cat" href="#services" data-cat="${cat.i}">
+        <img src="${esc(cat.img)}" alt="" loading="lazy">
+        <span class="cat__name">${cat.icon ? ic(cat.icon) : ''}${esc(cat.category)}</span>
+        ${cat.from ? `<span class="cat__from">${esc(cat.from)}</span>` : ''}
+      </a></li>`
+      )
+      .join('')}</ul>
   </div>
 </section>`;
   };
