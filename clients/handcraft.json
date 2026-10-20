@@ -126,8 +126,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://avatars.mds.yandex.net/get-maps-adv-crm/3736055/2a00000188d7d5bafc442744a07431bac15c/landing_background_x2",
-    "imageAlt": "Барбершоп «Handcraft»"
+    "image": "https://demo.top-in.ru/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
@@ -408,6 +408,10 @@
       "lead": "Фото барбершопа и работ мастеров.",
       "items": [
         {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-maps-adv-crm/3736055/2a00000188d7d5bafc442744a07431bac15c/landing_background_x2"
+        },
+        {
           "caption": "Кислородная маска",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/13944716/2a00000197adf6fb5ed22f3f42296cbdb16b/XXL"
         },
@@ -426,18 +430,6 @@
         {
           "caption": "Тонирование бороды",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/10118156/2a0000018d2332189bb733e8d31b22c9b439/XXL"
-        },
-        {
-          "caption": "Машинка и борода",
-          "img": "https://avatars.mds.yandex.net/get-sprav-products/12412149/2a0000018d232e544191d7f07d1b87d38b83/XXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/13322921/2a0000019446b093be1b591d2ad61071aea5/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/11748256/2a000001902d9d708045ec2c54285e750cca/XXXL"
         }
       ]
     },

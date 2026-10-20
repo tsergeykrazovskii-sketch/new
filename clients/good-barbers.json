@@ -133,8 +133,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/1594075/2a0000016d059e48b30887e9f9417da76700/XXXL",
-    "imageAlt": "Барбершоп «Good Barbers»"
+    "image": "https://demo.top-in.ru/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
@@ -329,6 +329,10 @@
       "lead": "Фото барбершопа и работ мастеров.",
       "items": [
         {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/1594075/2a0000016d059e48b30887e9f9417da76700/XXXL"
+        },
+        {
           "caption": "Мытьё головы и укладка",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/1356083/2a0000017323756965e35600f6ef78fa03ab/XXL"
         },
@@ -347,18 +351,6 @@
         {
           "caption": "Стрижка бороды и усов",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/1356083/2a00000173236ff1c0d478637c312ba54e7e/XXL"
-        },
-        {
-          "caption": "Стрижка",
-          "img": "https://avatars.mds.yandex.net/get-sprav-products/2701203/2a0000016fa92b21d2a56bd70b281c173c66/XXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/2389272/2a00000170d35ee9d440deb1ef58a2cb6f5d/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/1975185/2a00000170d35ecee31bfafcc217820475bc/XXXL"
         }
       ]
     },

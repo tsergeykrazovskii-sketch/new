@@ -170,8 +170,8 @@
       "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться на время"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/16390227/2a00000198f638206619715bba9b82130e3c/XXXL",
-    "imageAlt": "Автосервис «Экспресс ТО сервис»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "services": [
     {
@@ -317,6 +317,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16390227/2a00000198f638206619715bba9b82130e3c/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/15650736/2a00000198f6381d7094e124c9cd5b7c098f/XXXL"
         },
         {
@@ -334,18 +338,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/16873746/2a00000198aa82060357918afa4e208197c0/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/15219633/2a00000196bb30965579a9207ad9052bf07d/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/5584339/2a0000017efe93e832fd70229903f94bd8ce/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/16319048/2a00000197a25ccb47325e448c7e961ca5eb/XXXL"
         }
       ]
     },

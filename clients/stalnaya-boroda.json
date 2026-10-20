@@ -121,8 +121,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/19541413/2a0000019cdc0050f8b8b1cf9756187bbcdc/XXXL",
-    "imageAlt": "Барбершоп «Стальная Борода»"
+    "image": "https://demo.top-in.ru/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
@@ -368,6 +368,10 @@
       "lead": "Фото барбершопа и работ мастеров.",
       "items": [
         {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/19541413/2a0000019cdc0050f8b8b1cf9756187bbcdc/XXXL"
+        },
+        {
           "caption": "Удлинённая стрижка",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/17712810/2a0000019cc9160a905eb77da4da94d2748a/XXL"
         },
@@ -386,18 +390,6 @@
         {
           "caption": "Стрижка, борода и воск",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/19253181/2a0000019cc90d6d82e5786d88721bd124a8/XXL"
-        },
-        {
-          "caption": "Стрижка и борода",
-          "img": "https://avatars.mds.yandex.net/get-sprav-products/17700615/2a0000019cc90c4c506b5b2eb6ce76e22ed5/XXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/20390960/2a000001a020c7b7eb83986af5c8e8344754/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/18473509/2a0000019e736d6d23d722adfa49d3f24fb0/XXXL"
         }
       ]
     },

@@ -177,8 +177,8 @@
       "note": "Цены для примера: точную стоимость назовём после осмотра, работа без запчастей.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/15152716/2a00000196a5c648ea3169f450a12e8863bd/XXXL",
-    "imageAlt": "Автосервис «STOAvto»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "staff": [
     {
@@ -406,6 +406,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15152716/2a00000196a5c648ea3169f450a12e8863bd/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/10141118/2a0000018c4e9cf9b428944fb7fa11fec98b/XXXL"
         },
         {
@@ -423,18 +427,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/1583613/2a0000016e2cdae20f4ac9e2315697eb329a/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/13851722/2a0000019666a6b59ae7d27ad31fd9b3cefd/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/5456504/2a0000017c9767312834d752cc383787790e/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/906486/2a00000162de85d1238f0091ee9fc5dee1a0/XXXL"
         }
       ]
     },

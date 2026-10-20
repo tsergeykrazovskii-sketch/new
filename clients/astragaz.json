@@ -178,8 +178,8 @@
       "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/859900/2a0000015db6ef3862a782ad0a24117a575f/XXXL",
-    "imageAlt": "Автосервис «Астрагаз»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "staff": [
     {
@@ -425,6 +425,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/859900/2a0000015db6ef3862a782ad0a24117a575f/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/19785895/2a0000019f428e3f6c0a005fceb19201a192/XXXL"
         },
         {
@@ -442,18 +446,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/3683342/2a00000176668b8eb2d6276fcc74d08fae1b/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/3836503/2a00000176668b215d75b5658616b9776530/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/9368060/2a0000018a045122091f64c9763b8eb2a2af/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/4336915/2a00000179c932b59eb4292bbfc4a809103a/XXXL"
         }
       ]
     },

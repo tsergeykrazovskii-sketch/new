@@ -123,8 +123,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://avatars.mds.yandex.net/get-maps-adv-crm/3736055/2a000001966ee1d187e79d93dffdb8a5206b/landing_background_x2",
-    "imageAlt": "Барбершоп «Тигран Барбер»"
+    "image": "https://demo.top-in.ru/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
@@ -301,6 +301,10 @@
       "lead": "Фото барбершопа и работ мастеров.",
       "items": [
         {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-maps-adv-crm/3736055/2a000001966ee1d187e79d93dffdb8a5206b/landing_background_x2"
+        },
+        {
           "caption": "Мужская стрижка",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/12412149/2a0000018c36a7a6a278cfbe21ee315f06ca/XXL"
         },
@@ -319,18 +323,6 @@
         {
           "caption": "Стрижка и коррекция бороды",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/12412149/2a0000018c36a65711fbd4f5b1aa10d5e150/XXL"
-        },
-        {
-          "caption": "Стрижка и моделирование бороды",
-          "img": "https://avatars.mds.yandex.net/get-sprav-products/5560664/2a00000183f7288558ee3d3fe1776b94f2a1/XXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/14460769/2a0000019552015f289629ab7476e8137d3c/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/14272474/2a0000019552014eaee9a99a36c7ecb62586/XXXL"
         }
       ]
     },

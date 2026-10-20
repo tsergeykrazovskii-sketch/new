@@ -183,8 +183,8 @@
       "note": "Цены для примера: точную стоимость назовём после осмотра, работа без запчастей.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/4381564/2a000001820ec5e1f99e743f43ede34ea01d/XXXL",
-    "imageAlt": "Автосервис «Омега»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "staff": [
     {
@@ -407,6 +407,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/4381564/2a000001820ec5e1f99e743f43ede34ea01d/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/13530753/2a000001930030bbe93e8dd4e37926547ab1/XXXL"
         },
         {
@@ -424,18 +428,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/6545454/2a0000018ffc1d4ed38a2ffc09c3a4d20519/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/235931/2a00000185dae4065ba1c230b8823445ef66/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/14193233/2a000001939d8963117f5c3babc5eca92cc7/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/10470901/2a0000018ffc1d58740b523e8d84633cfb78/XXXL"
         }
       ]
     },

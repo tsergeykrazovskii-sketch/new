@@ -125,8 +125,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://avatars.mds.yandex.net/get-maps-adv-crm/3695124/2a0000019e08b8042f71bcdc6a53d5320392/landing_background_x2",
-    "imageAlt": "Барбершоп «Бункер № 3»"
+    "image": "https://demo.top-in.ru/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
@@ -317,6 +317,10 @@
       "lead": "Фото барбершопа и работ мастеров.",
       "items": [
         {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-maps-adv-crm/3695124/2a0000019e08b8042f71bcdc6a53d5320392/landing_background_x2"
+        },
+        {
           "caption": "Уход за лицом",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/2994796/2a0000019d914be263cbe6babb40e1580181/XXL"
         },
@@ -335,18 +339,6 @@
         {
           "caption": "Чёрная маска",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/1540730/2a0000019d914cca38bec9d025f9bbebbb04/XXL"
-        },
-        {
-          "caption": "Детская стрижка",
-          "img": "https://avatars.mds.yandex.net/get-sprav-products/2757887/2a0000019d914d5949d2b3d1c116fc959856/XXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/7742431/2a000001848780421fb589c5b4f6a7642b2c/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/4377463/2a00000182da910223458ee020ae53d3d593/XXXL"
         }
       ]
     },

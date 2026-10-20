@@ -178,8 +178,8 @@
       "note": "Цены для примера: точную стоимость назовём после осмотра, работа без запчастей.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/11048854/2a0000018a6f10b1dabfe5e6f906a10d5d05/XXXL",
-    "imageAlt": "Автосервис «Subaru Life»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "staff": [
     {
@@ -327,6 +327,10 @@
       "title": "Сервис",
       "lead": "Фото сервиса и работ.",
       "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/11048854/2a0000018a6f10b1dabfe5e6f906a10d5d05/XXXL"
+        },
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/9331640/2a00000188913fa5d4bf47558d448a684ca3/XXXL"

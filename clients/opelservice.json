@@ -131,8 +131,8 @@
       "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/20011141/2a0000019cfbc4f12f0ae1a5f5ee81ac1d4d/XXXL",
-    "imageAlt": "Автосервис «Опельсервис»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "staff": [
     {
@@ -342,6 +342,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20011141/2a0000019cfbc4f12f0ae1a5f5ee81ac1d4d/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/7742431/2a000001833c3aad723e0b226cb908a7cbd5/XXXL"
         },
         {
@@ -359,18 +363,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/9849468/2a0000018c6a5df26ef52111de0f9771e933/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/6322664/2a00000182a1c7aab3721960dad2987f24f7/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/16483787/2a0000019c0048a4b2003306fb452153517c/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/14712641/2a0000019cfbc540e8a5c8d154359b743101/XXXL"
         }
       ]
     },

@@ -180,8 +180,8 @@
       "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-maps-adv-crm/11387709/2a00000192299bdfb0f026c126462992fe4a/landing_background_x2",
-    "imageAlt": "Автосервис «А64»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "staff": [
     {
@@ -422,6 +422,10 @@
       "lead": "Фото сервиса и работ.",
       "items": [
         {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-maps-adv-crm/11387709/2a00000192299bdfb0f026c126462992fe4a/landing_background_x2"
+        },
+        {
           "caption": "Ремонт двигателя",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/20222640/2a000001a03447c5ca2c52689ffc8d41ff15/XXL"
         },
@@ -440,18 +444,6 @@
         {
           "caption": "Чистка форсунок",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/10253960/2a000001a034489a840038e0c3d0319a8d6c/XXL"
-        },
-        {
-          "caption": "Сварочные работы",
-          "img": "https://avatars.mds.yandex.net/get-sprav-products/9896919/2a000001a03448bcbe13606d29ca07f3bf7e/XXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/19707167/2a0000019d4439d352ed010fcd5b36d91958/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/15053227/2a00000195a929032c100f06a68087d237e7/XXXL"
         }
       ]
     },

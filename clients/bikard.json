@@ -171,8 +171,8 @@
       "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/247136/2a0000015b1626d167416d94e5e23f940c01/XXXL",
-    "imageAlt": "Автосервис «Бикард»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "services": [
     {
@@ -361,6 +361,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/247136/2a0000015b1626d167416d94e5e23f940c01/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/16323929/2a0000019a8214393527cf828c2e89880e20/XXXL"
         },
         {
@@ -378,18 +382,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/16368192/2a0000019a793ecc47759bc92de3f13a28ef/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/15712112/2a0000019a6e47872f2eb8607a089eee12d4/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/5110793/2a00000180a489ff62261809cfc154d994e4/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/7979597/2a000001904f55e45b32e042225b0dfce547/XXXL"
         }
       ]
     },

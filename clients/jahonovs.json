@@ -124,8 +124,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/15544497/2a0000019a3a779d340aa37d8456700a951b/XXXL",
-    "imageAlt": "Барбершоп «Jahonov's»"
+    "image": "https://demo.top-in.ru/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
@@ -389,6 +389,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15544497/2a0000019a3a779d340aa37d8456700a951b/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/15270672/2a00000196f2ee2e7f4669a4afe9984dea65/XXXL"
         },
         {
@@ -406,18 +410,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/16105135/2a00000196f2ee2479410102e5ec2d6bee01/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/16487000/2a0000019a3a779fd08fdbd8622e704932a8/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/14675612/2a00000196f2ee2e96c01c7453a13e9860ce/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/15282671/2a00000196f2ea7ee77c66b1632a4e6ac8e8/XXXL"
         }
       ]
     },

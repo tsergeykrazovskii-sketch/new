@@ -134,8 +134,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/7883089/2a0000018f5dcc290d534d56f0dd05763881/XXXL",
-    "imageAlt": "Барбершоп «Taper»"
+    "image": "https://demo.top-in.ru/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
@@ -363,6 +363,10 @@
       "lead": "Фото барбершопа и работ мастеров.",
       "items": [
         {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/7883089/2a0000018f5dcc290d534d56f0dd05763881/XXXL"
+        },
+        {
           "caption": "Классический массаж",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/2808945/2a00000199f6c5d036fb5581cdb8f4fa1148/XXL"
         },
@@ -381,18 +385,6 @@
         {
           "caption": "Калифорнийское окрашивание",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/2701203/2a00000196e322d8b0c23f5040a852a3473b/XXL"
-        },
-        {
-          "caption": "Удаление волос воском",
-          "img": "https://avatars.mds.yandex.net/get-sprav-products/944742/2a00000196e32141647910da145cd7ca48bf/XXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/5115998/2a0000018f549a03bbedebcc842edfd983ca/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/11924971/2a0000018fb0eab34985afbfe8b5f5ff0a1b/XXXL"
         }
       ]
     },

@@ -138,8 +138,8 @@
       "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-maps-adv-crm/3927175/2a0000017c7ef20f72efa9d8292fb9435c86/landing_background_x2",
-    "imageAlt": "Автосервис «Рено Автосервис»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "services": [
     {
@@ -328,6 +328,10 @@
       "lead": "Фото сервиса и работ.",
       "items": [
         {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-maps-adv-crm/3927175/2a0000017c7ef20f72efa9d8292fb9435c86/landing_background_x2"
+        },
+        {
           "caption": "ТО",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/2808945/2a000001956ac3723b1a36d584c8ed798eeb/XXL"
         },
@@ -346,18 +350,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/10488540/2a0000018b6bfda9cfbb8d7e7bf45a902c54/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/4398559/2a000001824ddb8e3fa0efd4eb6a6aa6b0c5/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/5104421/2a0000017bdac82b5834dad54464f25f898d/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/9237948/2a0000018a30e0c6f9584da726d6f4f519a4/XXXL"
         }
       ]
     },

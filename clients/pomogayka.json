@@ -181,8 +181,8 @@
       "note": "Цены для примера: точную стоимость назовём после осмотра, работа без запчастей.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/14563476/2a000001948c09e33c8dc4b02d49e0b9135f/XXXL",
-    "imageAlt": "Автосервис «ПомоГайка»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "staff": [
     {
@@ -328,6 +328,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14563476/2a000001948c09e33c8dc4b02d49e0b9135f/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/6477742/2a0000018b562ba992e3bd32401792ef9fcd/XXXL"
         },
         {
@@ -345,18 +349,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/13581124/2a0000018f3303926efe45034ae44ea7f202/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/18115183/2a0000019e4c4ba6b5a01b280f5ec918c8fc/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/15231053/2a000001972140ef8a6558f1310afc0709ab/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/16965486/2a000001989ee0c1c2ee1058b4938c0d443f/XXXL"
         }
       ]
     },

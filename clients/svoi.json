@@ -127,8 +127,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://avatars.mds.yandex.net/get-maps-adv-crm/11387709/2a0000018eaf21c0cc77f54f1b28863bc2fb/landing_background_x2",
-    "imageAlt": "Барбершоп «Свои»"
+    "image": "https://demo.top-in.ru/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
@@ -337,6 +337,10 @@
       "lead": "Фото барбершопа и работ мастеров.",
       "items": [
         {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-maps-adv-crm/11387709/2a0000018eaf21c0cc77f54f1b28863bc2fb/landing_background_x2"
+        },
+        {
           "caption": "Премиум-моделирование бороды",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/5514775/2a0000017de213af2758c7bbdd786b55d438/XXL"
         },
@@ -355,18 +359,6 @@
         {
           "caption": "Фейд",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/5632604/2a0000017de2132c744c0952de2649df024d/XXL"
-        },
-        {
-          "caption": "Камуфляж седины",
-          "img": "https://avatars.mds.yandex.net/get-sprav-products/1424222/2a0000017de1fb892fd762fec8bfae5efc44/XXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/1899727/2a0000018700412d732423a7353cb1d06d32/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/10637174/2a0000018ae6acab125ef7a769767b6d5b81/XXXL"
         }
       ]
     },

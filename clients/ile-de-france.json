@@ -164,8 +164,8 @@
       "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/1359533/2a000001870de403e693bd40ac115e83fc71/XXXL",
-    "imageAlt": "Автосервис «Иль Де Франс»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "staff": [
     {
@@ -404,6 +404,10 @@
       "lead": "Фото сервиса и работ.",
       "items": [
         {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/1359533/2a000001870de403e693bd40ac115e83fc71/XXXL"
+        },
+        {
           "caption": "Заправка кондиционера",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/5632604/2a000001862c469e5a32c91996c26b8ac37b/XXL"
         },
@@ -422,18 +426,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/904281/2a000001870de151ab2d107804905f120309/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/992583/2a00000186f8ddf6dc708db997cdf4d8f590/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/7979184/2a00000186f8dd080abccad150f9e0f2af2d/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/6272620/2a00000186ad745c4e9094304e3ed8d29ee2/XXXL"
         }
       ]
     },

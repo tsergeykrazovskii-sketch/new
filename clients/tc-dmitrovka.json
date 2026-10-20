@@ -172,8 +172,8 @@
       "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/2057543/2a0000016d92be7f753aeb3551526d2a0e37/XXXL",
-    "imageAlt": "Автосервис «Техцентр на Дмитровке»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "staff": [
     {
@@ -401,6 +401,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/2057543/2a0000016d92be7f753aeb3551526d2a0e37/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/2838749/2a000001707202805dd52346c17abf1cbef9/XXXL"
         },
         {
@@ -418,18 +422,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/1938975/2a0000016de4b33d4f1050219c345432868e/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/19532714/2a0000019caf537bacb0bb184fca1203989b/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/18140291/2a0000019caf53811cb0c3ecb5253b387578/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/18105464/2a0000019caf537ba3f9434433507cf40815/XXXL"
         }
       ]
     },

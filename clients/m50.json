@@ -182,8 +182,8 @@
       "note": "Цены для примера: точную стоимость назовём после осмотра, работа без запчастей.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/2356223/2a00000174497c93cc688a2419cea7322ae9/XXXL",
-    "imageAlt": "Автосервис «M50»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "staff": [
     {
@@ -416,6 +416,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/2356223/2a00000174497c93cc688a2419cea7322ae9/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/2805836/2a00000174497dc48453e9b18c002685c0ce/XXXL"
         },
         {
@@ -433,18 +437,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/2761244/2a00000174497a66cfb0dab4adbf57ece0b8/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/2804357/2a000001744979ff43ad96802587b8a678aa/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/1372264/2a000001658ca60f66708f3632695273180e/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/176734/2a000001658ca602f9a27c64076409f20fd8/XXXL"
         }
       ]
     },

@@ -184,8 +184,8 @@
       "note": "Цены для примера: точную стоимость назовём после осмотра, работа без запчастей.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/15285359/2a00000196526e9e4afa7986631a2de0042a/XXXL",
-    "imageAlt": "Автосервис «Лен-СТО»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "staff": [
     {
@@ -367,6 +367,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15285359/2a00000196526e9e4afa7986631a2de0042a/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/15157522/2a00000194f0879eeb4043af725d149f14bb/XXXL"
         },
         {
@@ -384,18 +388,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/15167717/2a0000019652574bd50ea77678c944445b1c/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/16230048/2a00000196b74ad2575b55033d2f5ea9d3b6/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/15397479/2a000001962f643a82ccb7287d7c5fdecaa3/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/4716261/2a00000178f8e65a872b3b2f57fe36e433ca/XXXL"
         }
       ]
     },

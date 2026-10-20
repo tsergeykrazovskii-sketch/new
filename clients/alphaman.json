@@ -126,8 +126,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/3923004/2a00000175bb85821c9d4f3ff34c693e59ce/XXXL",
-    "imageAlt": "Барбершоп «Alphaman»"
+    "image": "https://demo.top-in.ru/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
@@ -304,6 +304,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/3923004/2a00000175bb85821c9d4f3ff34c693e59ce/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/4598810/2a0000017af10b0cae71c93ea518840c8a07/XXXL"
         },
         {
@@ -321,10 +325,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/5509094/2a0000017ed39183e0ef9f78e95255ef53c2/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/4437253/2a0000017af109abd676539e2d2dabf8719e/XXXL"
         }
       ]
     },

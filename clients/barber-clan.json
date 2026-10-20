@@ -122,8 +122,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/16113897/2a000001997addfa427110972896fa03d753/XXXL",
-    "imageAlt": "Барбершоп «Barber Clan»"
+    "image": "https://demo.top-in.ru/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
@@ -282,6 +282,10 @@
       "lead": "Фото барбершопа и работ мастеров.",
       "items": [
         {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16113897/2a000001997addfa427110972896fa03d753/XXXL"
+        },
+        {
           "caption": "Уход для лица",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/2757887/2a0000019abf86bcd889d3317df9599246a5/XXL"
         },
@@ -300,18 +304,6 @@
         {
           "caption": "Оформление бороды",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/2510998/2a0000019abf7b6cada1a8fc9be1f3235f75/XXL"
-        },
-        {
-          "caption": "Барберская стрижка",
-          "img": "https://avatars.mds.yandex.net/get-sprav-products/2899371/2a0000019abf7957a863455e0569b237eb88/XXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/16136409/2a000001997ade0dc60c6b64317c9486c1e7/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/14917207/2a000001997ade11ad29dde8396ce8d336f1/XXXL"
         }
       ]
     },

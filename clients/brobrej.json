@@ -131,8 +131,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/11302718/2a0000018f20472955b57d180a0ad65b15a0/XXXL",
-    "imageAlt": "Барбершоп «Broбрей»"
+    "image": "https://demo.top-in.ru/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
@@ -410,6 +410,10 @@
       "lead": "Фото барбершопа и работ мастеров.",
       "items": [
         {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/11302718/2a0000018f20472955b57d180a0ad65b15a0/XXXL"
+        },
+        {
           "caption": "Стрижка ножницами",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/11939409/2a0000018e1ebd8fb0d6d018aadf81a34191/XXL"
         },
@@ -428,18 +432,6 @@
         {
           "caption": "Стрижка машинкой",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/11939409/2a0000018d4a59e714133bce4030268bc356/XXL"
-        },
-        {
-          "caption": "Бритьё головы",
-          "img": "https://avatars.mds.yandex.net/get-sprav-products/1643978/2a0000017a7d84d4dc1fa741aec59deb0fc8/XXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/11385489/2a0000018d39efcbb151de921562bba51800/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/10702775/2a0000018db8ddf09436720e420eaac278b5/XXXL"
         }
       ]
     },

@@ -175,8 +175,8 @@
       "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/6375058/2a000001822a19c0a9a9ccfc1f3b9ae04f46/XXXL",
-    "imageAlt": "Автосервис «ТМК»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "services": [
     {
@@ -358,6 +358,10 @@
       "lead": "Фото сервиса и работ.",
       "items": [
         {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/6375058/2a000001822a19c0a9a9ccfc1f3b9ae04f46/XXXL"
+        },
+        {
           "caption": "Мойка топливных форсунок",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/13059590/2a0000018f777854deaf9e182381a8e3fe8e/XXL"
         },
@@ -376,18 +380,6 @@
         {
           "caption": "Компьютерная диагностика",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/5392818/2a0000018825b039e4b6ac5b91b64accd279/XXL"
-        },
-        {
-          "caption": "Кузовной ремонт",
-          "img": "https://avatars.mds.yandex.net/get-sprav-products/5399152/2a0000018825b0397c628a46107cbcdf8835/XXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/21525983/2a000001a0dd56695573e53d0865c3bb3565/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/20781708/2a000001a0dd56904068c9399d8e3e8f2648/XXXL"
         }
       ]
     },

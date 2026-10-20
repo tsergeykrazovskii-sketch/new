@@ -123,8 +123,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://avatars.mds.yandex.net/get-maps-adv-crm/4771617/2a000001952792822c681d58dc7e815e4820/landing_background_x2",
-    "imageAlt": "Барбершоп «Беркут»"
+    "image": "https://demo.top-in.ru/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
@@ -310,6 +310,10 @@
       "lead": "Фото барбершопа и работ мастеров.",
       "items": [
         {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-maps-adv-crm/4771617/2a000001952792822c681d58dc7e815e4820/landing_background_x2"
+        },
+        {
           "caption": "Тонирование бороды",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/5373629/2a000001811e853830a137b3f9c3afb28e8a/XXL"
         },
@@ -328,18 +332,6 @@
         {
           "caption": "Бритьё опасной бритвой",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/5373629/2a000001811e7cf7886610e6ba707fb30135/XXL"
-        },
-        {
-          "caption": "Детская стрижка",
-          "img": "https://avatars.mds.yandex.net/get-sprav-products/4472294/2a00000181156b3761b5e82b4dcaaa0952fb/XXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/6529816/2a000001827e31491cab02dba71088b4e855/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/16325379/2a0000019b99b5333cf6a0d87416843e747f/XXXL"
         }
       ]
     },

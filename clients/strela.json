@@ -129,8 +129,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/2425845/2a0000017648092159a29e79b2533bace743/XXXL",
-    "imageAlt": "Барбершоп «Стрела»"
+    "image": "https://demo.top-in.ru/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
@@ -376,6 +376,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/2425845/2a0000017648092159a29e79b2533bace743/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/3915926/2a0000017648094c5b2b46f608cd2197c660/XXXL"
         },
         {
@@ -393,18 +397,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/3633604/2a00000176480962377d621df46513121bd4/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/3912953/2a0000017648096781154d5af4c5aa1188f9/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/1981910/2a0000017648095c5bc276a676d041d17c95/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/4200646/2a0000017648095510fed604f56667ae4070/XXXL"
         }
       ]
     },

@@ -182,8 +182,8 @@
       "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/14093322/2a000001921f8b4bcab6cd0e1c6bdf813d87/XXXL",
-    "imageAlt": "Автосервис «ШиноMontano»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "staff": [
     {
@@ -405,6 +405,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14093322/2a000001921f8b4bcab6cd0e1c6bdf813d87/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/16243748/2a00000197a610cd18cedf2603ab9a45b26f/XXXL"
         },
         {
@@ -422,18 +426,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/13453452/2a0000018f05a54efca8b122e3c7c34614f8/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/16474107/2a00000197a610a71664b3757b383924e403/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/15232272/2a00000193c425da9187c02f1633e47cd163/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/16557473/2a000001986bd2b3579559b2096118df047d/XXXL"
         }
       ]
     },

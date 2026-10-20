@@ -153,8 +153,8 @@
       "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/21954750/2a0000019fb7364f610fc6e864f155ae96af/XXXL",
-    "imageAlt": "Автосервис «Jeep Spot»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "staff": [
     {
@@ -366,6 +366,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/21954750/2a0000019fb7364f610fc6e864f155ae96af/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/16914582/2a00000199353b86b0c4d5941abd37abb27c/XXXL"
         },
         {
@@ -383,18 +387,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/14372341/2a00000194e75fd74443332786884cabb62f/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/14094067/2a00000194ea49603a70c5e6bb7616cbee6c/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/13229346/2a00000194ea496881f0a85167ba1a021e46/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/14837019/2a000001970c6adf9fc11dfce1f6b7f882da/XXXL"
         }
       ]
     },

@@ -182,8 +182,8 @@
       "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/1020917/2a0000016861a235acb2b2f3daac79c6de6b/XXXL",
-    "imageAlt": "Автосервис «Автопрофиль»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "staff": [
     {
@@ -394,6 +394,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/1020917/2a0000016861a235acb2b2f3daac79c6de6b/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/4587805/2a00000177b42fa62325d7bafa7a083cd82b/XXXL"
         },
         {
@@ -411,18 +415,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/6514890/2a0000018a3d52989ce048a953e1ac57686e/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/10637974/2a0000018c2479c76a3c4fa3c8ac96c30aa0/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/1627037/2a00000168ce8ce2f566b026fc51699806a2/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/1003687/2a000001619e77d6559443a84377a43c6bce/XXXL"
         }
       ]
     },

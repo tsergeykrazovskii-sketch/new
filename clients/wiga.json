@@ -122,8 +122,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/14763246/2a000001963908a74bd6ffd007e10ae3ca10/XXXL",
-    "imageAlt": "Барбершоп «Wiga»"
+    "image": "https://demo.top-in.ru/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
@@ -358,6 +358,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14763246/2a000001963908a74bd6ffd007e10ae3ca10/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/16230048/2a0000019639089409682f139422c428054f/XXXL"
         },
         {
@@ -375,18 +379,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/15413153/2a000001963908a9bdab8c0476e31d4ac40f/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/14578051/2a000001963908ad079c6533fd0764a7f4d6/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/14837019/2a000001963908a2dee0243a5432cff9a8e5/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/13206104/2a0000019639089ff615dc7aca8bdb07f82f/XXXL"
         }
       ]
     },

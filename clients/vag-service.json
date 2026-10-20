@@ -171,8 +171,8 @@
       "note": "Цены для примера: точную стоимость назовём после осмотра, работа без запчастей.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/16138055/2a0000019af3be4361386ac0997201737a2e/XXXL",
-    "imageAlt": "Автосервис «VAG-сервис»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "staff": [
     {
@@ -302,6 +302,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16138055/2a0000019af3be4361386ac0997201737a2e/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/4080517/2a0000017c5b4d5ec0ac626a6ea1da2607d5/XXXL"
         },
         {
@@ -319,18 +323,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/1194602/2a00000186936a31841d21b0ee91c26d8b01/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/5255911/2a0000018717a9a1ae083490a20598a32048/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/2359468/2a00000173dce383542722f1218e59128a40/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/750770/2a00000186936ed8103ae38cf62c77b1f7b1/XXXL"
         }
       ]
     },

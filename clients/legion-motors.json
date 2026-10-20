@@ -182,8 +182,8 @@
       "note": "Цены для примера: точную стоимость назовём после осмотра, работа без запчастей.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/1420183/2a000001684bf9eacf1cb7c2765f7000372f/XXXL",
-    "imageAlt": "Автосервис «Легион Моторс»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "staff": [
     {
@@ -420,6 +420,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/1420183/2a000001684bf9eacf1cb7c2765f7000372f/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/1608507/2a000001684bfa46c92034ef264befb58410/XXXL"
         },
         {
@@ -437,18 +441,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/1622057/2a000001684bfa1145d070edbafcda9e25c4/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/1426646/2a000001684bfacb2ff04f7be9f2eb020ba8/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/1042100/2a000001684bfaa165843d2544cca3b35ec3/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/986332/2a000001684bfaa7784bbb7a85a1e9241986/XXXL"
         }
       ]
     },

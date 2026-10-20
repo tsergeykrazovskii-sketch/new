@@ -124,8 +124,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/13078542/2a0000019213f34f35a37e1c47e5cd4e0234/XXXL",
-    "imageAlt": "Барбершоп «Блэк Сити»"
+    "image": "https://demo.top-in.ru/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
@@ -366,6 +366,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/13078542/2a0000019213f34f35a37e1c47e5cd4e0234/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/16417401/2a0000019b35d798a1f965bd403b124aef34/XXXL"
         },
         {
@@ -383,18 +387,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/16166099/2a0000019b35d7987c4508e4e9122cdbd869/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/16021390/2a0000019b309a7dd3273310f2c6d548a514/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/16483787/2a0000019b35d79829bda348e3757a214ec5/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/20305182/2a000001a07bacc8149964adea592023efb6/XXXL"
         }
       ]
     },

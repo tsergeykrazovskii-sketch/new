@@ -130,8 +130,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/14907397/2a00000199234970046e9c23293322743356/XXXL",
-    "imageAlt": "Зал барбершопа «Бородачёвъ»"
+    "image": "https://demo.top-in.ru/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
@@ -389,14 +389,6 @@
         {
           "caption": "Камуфляж седины",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/12411943/2a0000018c45070c11625a067214206e8b56/XXL"
-        },
-        {
-          "caption": "Детская стрижка",
-          "img": "https://avatars.mds.yandex.net/get-sprav-products/12412149/2a0000018c45070cc4df779b1afcb41e44e4/XXL"
-        },
-        {
-          "caption": "Зона ожидания",
-          "img": "https://avatars.mds.yandex.net/get-altay/16378552/2a0000019923498f888711999542c70ad660/XXXL"
         }
       ]
     },

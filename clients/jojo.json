@@ -130,8 +130,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/16396695/2a0000019b2c76b3fa684b05aeee34802dfa/XXXL",
-    "imageAlt": "Барбершоп «JoJo»"
+    "image": "https://demo.top-in.ru/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
@@ -422,6 +422,10 @@
       "lead": "Фото барбершопа и работ мастеров.",
       "items": [
         {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16396695/2a0000019b2c76b3fa684b05aeee34802dfa/XXXL"
+        },
+        {
           "caption": "Лондон груминг",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/17763327/2a0000019d72ee22f065e026611421cc6d54/XXL"
         },
@@ -440,18 +444,6 @@
         {
           "caption": "Тонирование головы",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/2805495/2a0000019d72ee23f4b1dc74fe0c9a7f11a9/XXL"
-        },
-        {
-          "caption": "Укладка",
-          "img": "https://avatars.mds.yandex.net/get-sprav-products/11939409/2a0000019d72ee253fe4813ede11acc0c248/XXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/20307657/2a0000019d6778ce75e4ef39573fc0822e2e/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/18140291/2a0000019d6778cb9e876eda08e522ed27d8/XXXL"
         }
       ]
     },

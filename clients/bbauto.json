@@ -180,8 +180,8 @@
       "note": "Цены «от» по прайсу сервиса, работа без запчастей; для разных марок — ориентировочно. Итог назовёт мастер после осмотра.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/10488540/2a0000018abdbbf41cf579f670ae8680624b/XXXL",
-    "imageAlt": "Автосервис «Автодом BBauto.ru»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "staff": [
     {
@@ -386,6 +386,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/10488540/2a0000018abdbbf41cf579f670ae8680624b/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/8133749/2a00000187dfa7fd683303661d27502bde23/XXXL"
         },
         {
@@ -403,18 +407,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/5596516/2a0000017cfb11b32c5a0716e5700555cd55/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/10589039/2a0000018a8ef96d826dd9a0c861cbc51864/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/5316761/2a0000017b7d471fd15748948b446306c508/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/11047134/2a0000018e911fccc56658fe8c7f65b118ca/XXXL"
         }
       ]
     },

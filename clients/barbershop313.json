@@ -123,8 +123,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/13611210/2a00000192b9eb573e965b50013a05698ff0/XXXL",
-    "imageAlt": "Барбершоп «Барбершоп 313»"
+    "image": "https://demo.top-in.ru/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
@@ -293,6 +293,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/13611210/2a00000192b9eb573e965b50013a05698ff0/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/14165812/2a00000192b9eb62a5637c6327e8306c9854/XXXL"
         },
         {
@@ -310,18 +314,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/15438512/2a000001973c1881cd78c973ac31f358f610/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/14664328/2a000001973c183c5793aae09875df44827e/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/16482798/2a000001973c1865008ff86af839c0b145e2/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/15311720/2a000001973c24fcd2be8bf37e840f2ccf15/XXXL"
         }
       ]
     },

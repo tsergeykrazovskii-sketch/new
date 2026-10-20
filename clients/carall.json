@@ -170,8 +170,8 @@
       "note": "Цены для примера: точную стоимость назовём после осмотра, работа без запчастей.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/6506385/2a0000018abc3b66533e69792927032be371/XXXL",
-    "imageAlt": "Автосервис «Carall Service»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "staff": [
     {
@@ -390,6 +390,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/6506385/2a0000018abc3b66533e69792927032be371/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/916509/2a0000015f0ae4e0ce76735326e7ff91ea1a/XXXL"
         },
         {
@@ -407,18 +411,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/6514890/2a0000018b39ce085dbb373f37fb37c88c58/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/492546/2a0000015e7fef5952cc68499c57007ab4ca/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/1427475/2a000001699666c35d74040699633199e603/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/774756/2a0000015f0ae8ca2c752a6395e780721f65/XXXL"
         }
       ]
     },

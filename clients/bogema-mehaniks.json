@@ -185,8 +185,8 @@
       "cta": "Записаться",
       "prefillCar": false
     },
-    "image": "https://avatars.mds.yandex.net/get-maps-adv-crm/3695124/2a0000017a9b376c5a36b0942ab95e34d2ec/landing_background_x2",
-    "imageAlt": "Автосервис «Богема Механикс»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "services": [
     {
@@ -411,6 +411,10 @@
       "lead": "Фото сервиса и работ.",
       "items": [
         {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-maps-adv-crm/3695124/2a0000017a9b376c5a36b0942ab95e34d2ec/landing_background_x2"
+        },
+        {
           "caption": "Мойка радиатора",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/2733259/2a00000198eb8fe3a62f0c67c814ce68ed5d/XXL"
         },
@@ -429,18 +433,6 @@
         {
           "caption": "Предпродажная подготовка",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/2510998/2a00000198eb91a0da6a9d4cad1707405273/XXL"
-        },
-        {
-          "caption": "Обработка кузова твёрдым воском",
-          "img": "https://avatars.mds.yandex.net/get-sprav-products/2701203/2a00000198eb922cd94488511c34f3be743a/XXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/1427475/2a00000186082b05bde94a7b6c5e1da9ce63/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/2397657/2a00000186082ac0536ab24e779c7c8eb1e8/XXXL"
         }
       ]
     },

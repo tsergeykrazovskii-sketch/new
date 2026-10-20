@@ -171,8 +171,8 @@
       "note": "Цены для примера: точную стоимость назовём после осмотра, работа без запчастей.",
       "cta": "Записаться"
     },
-    "image": "https://avatars.mds.yandex.net/get-altay/225456/2a0000015fa020935976adf9fde483334133/XXXL",
-    "imageAlt": "Автосервис «Магнум»"
+    "image": "https://demo.top-in.ru/assets/img/auto/hero.webp",
+    "imageAlt": "Мастер осматривает машину на подъёмнике"
   },
   "staff": [
     {
@@ -390,6 +390,10 @@
       "items": [
         {
           "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/225456/2a0000015fa020935976adf9fde483334133/XXXL"
+        },
+        {
+          "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/4476499/2a00000181805db900ac7d1721f33f072709/XXXL"
         },
         {
@@ -407,18 +411,6 @@
         {
           "caption": "",
           "img": "https://avatars.mds.yandex.net/get-altay/10878699/2a000001937dfd3a4a6d6d1738e71580e345/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/5098556/2a00000181ecbd7ae6dcb2b670e7fd9f71b5/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/467304/2a0000015e957eb7e73412c14a2c3b8848b0/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/11072941/2a0000018b6c66d05a1cbbc3759a3c258043/XXXL"
         }
       ]
     },

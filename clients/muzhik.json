@@ -131,8 +131,8 @@
       "title": "Свободные окна",
       "more": "Все услуги и время"
     },
-    "image": "https://avatars.mds.yandex.net/get-maps-adv-crm/3713455/2a0000017f87c3dc84dd6d0b2b9ed7e808dd/landing_background_x2",
-    "imageAlt": "Барбершоп «Мужик»"
+    "image": "https://demo.top-in.ru/assets/img/barber/hero.webp",
+    "imageAlt": "Барбер делает фейд машинкой"
   },
   "staff": [
     {
@@ -306,6 +306,10 @@
       "lead": "Фото барбершопа и работ мастеров.",
       "items": [
         {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-maps-adv-crm/3713455/2a0000017f87c3dc84dd6d0b2b9ed7e808dd/landing_background_x2"
+        },
+        {
           "caption": "Окрашивание",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/1540730/2a0000019e91bc749074c0768bb522d5b832/XXL"
         },
@@ -324,18 +328,6 @@
         {
           "caption": "Коррекция воском",
           "img": "https://avatars.mds.yandex.net/get-sprav-products/4472294/2a00000177958a47cbe5f87f0a44233974dd/XXL"
-        },
-        {
-          "caption": "Моделирование бороды",
-          "img": "https://avatars.mds.yandex.net/get-sprav-products/1356083/2a00000177958e9cdc0e63786cc4e3d19f3d/XXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/5584339/2a0000017d7f7259eda94f24c664825b9208/XXXL"
-        },
-        {
-          "caption": "",
-          "img": "https://avatars.mds.yandex.net/get-altay/6222916/2a0000017f062d951b1dfb33dc762cb7b735/XXXL"
         }
       ]
     },
