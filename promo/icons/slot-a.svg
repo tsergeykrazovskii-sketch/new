@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176 154" width="176" height="154" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Слот: сайт на шаблоне с онлайн-записью. Стиль — как у иконок услуг: линия #CA9968, пятна #F7F0E8 -->
+    <defs>
+    <!-- вырез под календарём: монитор не заходит под него, фон может быть любым -->
+    <mask id="cut"><rect width="176" height="154" fill="#fff"/><rect x="92" y="72" width="36" height="52" rx="6" fill="#000" stroke="#000" stroke-width="12"/></mask>
+  </defs>
+  <!-- монитор -->
+  <g mask="url(#cut)">
+    <rect x="62" y="50" width="40" height="38" rx="5" fill="#F7F0E8"/>
+    <rect x="48" y="48" width="76" height="57" rx="6" stroke="#CA9968" stroke-width="4"/>
+    <path d="M48 93H124" stroke="#CA9968" stroke-width="4"/>
+    <path d="M78 107V117C78 120 76 123 72 123H63M72 123H83" stroke="#CA9968" stroke-width="4"/>
+    <!-- страница сайта: заголовок, текст, кнопка записи -->
+    <path d="M56 58H86M63 66H86" stroke="#CA9968" stroke-width="4"/>
+    <rect x="63" y="73" width="14" height="8" rx="4" stroke="#CA9968" stroke-width="4"/>
+  </g>
+  <!-- календарь с галочкой — онлайн-запись -->
+  <path d="M97 99C97 94 101 92 106 93L118 95C122 96 123 99 122 104L120 114C119 118 116 119 112 119H102C99 119 97 117 97 114Z" fill="#F7F0E8"/>
+  <rect x="92" y="72" width="36" height="52" rx="6" fill="none" stroke="#CA9968" stroke-width="4"/>
+  <path d="M92 86H128" stroke="#CA9968" stroke-width="4"/>
+  <path d="M102 66V77M118 66V77" stroke="#CA9968" stroke-width="4"/>
+  <path d="M102 104L108 110L119 99" stroke="#CA9968" stroke-width="4"/>
+</svg>
