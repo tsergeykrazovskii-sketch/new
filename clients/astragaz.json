@@ -186,28 +186,28 @@
       "id": "m1",
       "name": "Михаил",
       "role": "Мастер-приёмщик",
-      "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-1.webp",
+      "img": "https://demo.top-in.ru/assets/img/auto/staff-1.webp",
       "_placeholder": true
     },
     {
       "id": "m2",
       "name": "Сергей",
       "role": "Старший мастер",
-      "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-2.webp",
+      "img": "https://demo.top-in.ru/assets/img/auto/staff-2.webp",
       "_placeholder": true
     },
     {
       "id": "m3",
       "name": "Алексей",
       "role": "Мастер",
-      "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-3.webp",
+      "img": "https://demo.top-in.ru/assets/img/auto/staff-3.webp",
       "_placeholder": true
     },
     {
       "id": "m4",
       "name": "Игорь",
       "role": "Диагност",
-      "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/auto/staff-4.webp",
+      "img": "https://demo.top-in.ru/assets/img/auto/staff-4.webp",
       "_placeholder": true
     }
   ],

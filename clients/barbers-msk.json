@@ -141,7 +141,7 @@
       "id": "any",
       "name": "Глеб",
       "role": "Старший барбер",
-      "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/staff-1.webp",
+      "img": "https://demo.top-in.ru/assets/img/barber/staff-1.webp",
       "_placeholder": true,
       "dative": "Глебу"
     },
@@ -149,7 +149,7 @@
       "id": "m2",
       "name": "Кирилл",
       "role": "Топ-барбер",
-      "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/staff-2.webp",
+      "img": "https://demo.top-in.ru/assets/img/barber/staff-2.webp",
       "_placeholder": true,
       "dative": "Кириллу"
     },
@@ -157,7 +157,7 @@
       "id": "m3",
       "name": "Максим",
       "role": "Барбер",
-      "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/staff-3.webp",
+      "img": "https://demo.top-in.ru/assets/img/barber/staff-3.webp",
       "_placeholder": true,
       "dative": "Максиму"
     },
@@ -165,7 +165,7 @@
       "id": "m4",
       "name": "Артём",
       "role": "Барбер",
-      "img": "https://tsergeykrazovskii-sketch.github.io/new/assets/img/barber/staff-4.webp",
+      "img": "https://demo.top-in.ru/assets/img/barber/staff-4.webp",
       "_placeholder": true,
       "dative": "Артёму"
     }
