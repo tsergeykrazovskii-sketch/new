@@ -1,0 +1,518 @@
+{
+  "slug": "serebro",
+  "niche": "nails",
+  "style": "moloko",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Серебро» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/serebro/200588053773/ — 5,0 / 681, «Хорошее место 2026», прайс (25 августа)",
+    "2ГИС https://2gis.ru/moscow/firm/70000001044463716 — 5,0 / 30, «Лучшая ногтевая студия 2026»",
+    "Страница владельца https://serebro-tushino.clients.site/ (21.10.2026): текст «более 7000 маникюров»; логотип там мелкий, не брал",
+    "Досье: лиды/Серебро (Москва).md; разбор: разборы/Серебро (Москва).md (данные проверены исследователем 20.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 20.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 21.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "логотип в хорошем качестве",
+    "основной Telegram (два: serebro_nail_studiomsc и serebro_tushino — у второго 4 257 участников)",
+    "система записи",
+    "домен: свободны serebro-nails.ru, serebro-tushino.ru"
+  ],
+  "brand": {
+    "name": "Серебро",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "ул. Героев Панфиловцев, 1, корп. 1",
+    "addressNote": "1 этаж",
+    "metro": "м. Сходненская, 137 м",
+    "phone": "+7 926 840-44-33",
+    "phoneHref": "+79268404433",
+    "hoursShort": "Ежедневно 10:00–22:00",
+    "yandexMaps": "https://yandex.ru/maps/org/serebro/200588053773/",
+    "twoGis": "https://2gis.ru/moscow/firm/70000001044463716",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79268404433"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/serebro_nail_studiomsc"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "«Серебро» — студия маникюра и подологии у Сходненской",
+    "lead": "Наша команда сделала более 7 000 маникюров. Маникюр с гель-лаком и Luxio, японский P-Shine, наращивание, smart-, спа- и подологический педикюр, брови. 2 минуты от метро.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 681,
+        "url": "https://yandex.ru/maps/org/serebro/200588053773/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "5,0",
+        "count": 30,
+        "url": "https://2gis.ru/moscow/firm/70000001044463716"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani-gel",
+        "pedi-smart-gel",
+        "ext",
+        "mani"
+      ],
+      "labels": {
+        "mani-gel": "Маникюр с покрытием",
+        "pedi-smart-gel": "Педикюр с покрытием",
+        "ext": "Наращивание",
+        "mani": "Без покрытия"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Ксения",
+      "dative": "Ксении",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Елизавета",
+      "dative": "Елизавете",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Кристина",
+      "dative": "Кристине",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Валерия",
+      "dative": "Валерии",
+      "role": "Мастер наращивания",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani-gel",
+          "name": "Маникюр + гель-лак",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2900,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "spa",
+              "name": "Спа-уход",
+              "price": 700,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani-luxio",
+          "name": "Маникюр + Luxio",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2900,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "spa",
+              "name": "Спа-уход",
+              "price": 700,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani",
+          "name": "Маникюр аппаратный или комби",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1800,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "spa",
+              "name": "Спа-уход",
+              "price": 700,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani-jp",
+          "name": "Японский маникюр P-Shine",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 2500,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр с полировкой",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2300,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 1 800 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-smart-gel",
+          "name": "Smart-педикюр с покрытием",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3700,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-smart",
+          "name": "Smart-педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2900,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-spa",
+          "name": "Спа-педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3100,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-podo",
+          "name": "Подологический педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 4000,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3500,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 2 900 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Наращивание ногтей",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 4500,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 4 500 ₽"
+    },
+    {
+      "category": "Брови",
+      "items": [
+        {
+          "id": "brow",
+          "name": "Полное оформление бровей",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2000,
+            "from": false
+          }
+        },
+        {
+          "id": "brow-lam",
+          "name": "Долговременная укладка бровей",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2800,
+            "from": false
+          }
+        }
+      ]
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "Более 7 000 маникюров",
+          "text": "Лучшая ногтевая студия 2026 в 2ГИС"
+        },
+        {
+          "icon": "foot",
+          "title": "Подология",
+          "text": "Подологический и спа-педикюр"
+        },
+        {
+          "icon": "check",
+          "title": "Гарантия 7 дней",
+          "text": "И кешбэк 5% с каждого визита"
+        },
+        {
+          "icon": "qr",
+          "title": "Карта, наличные, QR",
+          "text": "Оплата любым удобным способом"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах (обновлён 25 августа)."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16500335/2a0000019b16bb2073b223d40670b445d600/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16333276/2a0000019b16baffc4ace5fd25d5398f96d7/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/18105464/2a0000019c4c970b8fed2c02145b542b77e3/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15394162/2a0000019aafddb7e0c7e0ef7568b3d93da5/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16899665/2a0000019aafddd5f06956c2300b9a50d9c6/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16443419/2a0000019aafdd9e805289ffb6de92b99ad3/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "30 декабря 2025",
+          "rating": 5,
+          "text": "Была впервые в данной студии, у мастера Кундуз. Выполнила дизайн в точности как на картинке. Уютная атмосфера, была прямо в канун Нового года, угощали шампанским и были очень красивые новогодние декорации. Мастер приятная. Время пролетело быстро за непринужденной беседой. Рекомендую 👍🏻"
+        },
+        {
+          "name": "Алина Б.",
+          "source": "Яндекс Карты",
+          "date": "14 июля",
+          "rating": 5,
+          "text": "Отличная студия! Очень понравилось качество маникюра — все выполнено аккуратно, красиво и с большим вниманием к деталям. Прекрасный сервис, приветливый персонал и уютная атмосфера. Обязательно вернусь снова!"
+        },
+        {
+          "name": "Ядвига С.",
+          "source": "Яндекс Карты",
+          "date": "8 июля",
+          "rating": 5,
+          "text": "Спасибо за аккуратность и клиентоориентированность мастеру Фариде, для меня очень важно, чтобы были учтены все пожелания по форме/дизайну Я не могу назвать себя простым и легким клиентом, но здесь все предельно точно сошлось🙏🏽"
+        },
+        {
+          "name": "Вероника Б.",
+          "source": "Яндекс Карты",
+          "date": "21 августа",
+          "rating": 5,
+          "text": "Большое спасибо мастеру Гульзаде! Маникюр сделала просто идеально - очень аккуратно и всего за 1 час. Отдельный плюс за атмосферу и сервис: очень приятный администратор угостила вкусным кофе. Локация рядом с метро. Всё на высшем уровне, рекомендую!"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Москва, ул. Героев Панфиловцев, 1, корп. 1, 1 этаж — 2 минуты от метро Сходненская."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 22:00."
+        },
+        {
+          "q": "Что, если покрытие сколется?",
+          "a": "Гарантия — 7 дней: исправим бесплатно."
+        },
+        {
+          "q": "Делаете медицинский педикюр?",
+          "a": "Да, подологический педикюр — 4 000 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {},
+  "promo": {
+    "icon": "check",
+    "text": "Гарантия 7 дней на покрытие и кешбэк 5% с каждого визита",
+    "cta": "Записаться",
+    "service": "mani-gel"
+  }
+}

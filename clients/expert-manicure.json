@@ -1,0 +1,660 @@
+{
+  "slug": "expert-manicure",
+  "niche": "nails",
+  "style": "pudra",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Эксперт Маникюр» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/expert_manicure/55222875920/ — 5,0 / 229, «Хорошее место 2026», прайс (30 июля)",
+    "2ГИС https://2gis.ru/moscow/firm/70000001058881831 — 4,9 / 77, «Лучшая ногтевая студия 2025»",
+    "Досье: лиды/Эксперт Маникюр (Москва).md; разбор: разборы/Эксперт Маникюр (Москва).md (данные проверены исследователем 20.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 20.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 21.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "сейчас запись в YCLIENTS (n679750) — можно оставить: schedule.mode external",
+    "логотип (на expert-manicure.tilda.ws)",
+    "кто владеет expert-manicure.ru (до 2025 — их сайт)",
+    "домен: свободны expertmanicure.ru, expert-manicure-msk.ru"
+  ],
+  "brand": {
+    "name": "Эксперт Маникюр",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "Ореховый бул., 57",
+    "addressNote": "1 этаж",
+    "metro": "м. Красногвардейская, 580 м",
+    "phone": "+7 916 784-68-85",
+    "phoneHref": "+79167846885",
+    "hoursShort": "Ежедневно 7:30–22:30",
+    "yandexMaps": "https://yandex.ru/maps/org/expert_manicure/55222875920/",
+    "twoGis": "https://2gis.ru/moscow/firm/70000001058881831",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79167846885"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/expertmanicure1"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/em_expertmanicure"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "07:30",
+      "22:30"
+    ],
+    [
+      "07:30",
+      "22:30"
+    ],
+    [
+      "07:30",
+      "22:30"
+    ],
+    [
+      "07:30",
+      "22:30"
+    ],
+    [
+      "07:30",
+      "22:30"
+    ],
+    [
+      "07:30",
+      "22:30"
+    ],
+    [
+      "07:30",
+      "22:30"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "«Эксперт Маникюр» — студия маникюра на Ореховом бульваре",
+    "lead": "Маникюр с укреплением гелем, наращивание, педикюр, дизайн, а ещё стрижки и окрашивание. Открыты ежедневно с 7:30 до 22:30 — успеете до работы.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 229,
+        "url": "https://yandex.ru/maps/org/expert_manicure/55222875920/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,9",
+        "count": 77,
+        "url": "https://2gis.ru/moscow/firm/70000001058881831"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani-promo",
+        "mani-strong",
+        "pedi",
+        "ext-sm"
+      ],
+      "labels": {
+        "mani-promo": "Комплекс с укреплением",
+        "mani-strong": "Укрепление гелем",
+        "pedi": "Педикюр",
+        "ext-sm": "Наращивание"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Алёна",
+      "dative": "Алёне",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Светлана",
+      "dative": "Светлане",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Яна",
+      "dative": "Яне",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Юлия",
+      "dative": "Юлии",
+      "role": "Мастер наращивания",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani-promo",
+          "name": "Комплекс: снятие + комби-маникюр + выравнивание и укрепление гелем",
+          "desc": "Камуфляж — 2 200 ₽, цветное — 2 400 ₽",
+          "duration": 150,
+          "price": {
+            "value": 2200,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design2",
+              "name": "Дизайн на 1–2 ногтя",
+              "price": 200,
+              "duration": 15
+            },
+            {
+              "id": "design10",
+              "name": "Дизайн на 5–10 ногтей",
+              "price": 400,
+              "duration": 40
+            },
+            {
+              "id": "french",
+              "name": "Втирка, френч или омбре",
+              "price": 400,
+              "duration": 30
+            },
+            {
+              "id": "strass",
+              "name": "Стразы",
+              "price": 300,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-strong",
+          "name": "Маникюр с укреплением гелем",
+          "desc": "У эксперт-мастера — 3 300 ₽",
+          "duration": 150,
+          "price": {
+            "value": 3000,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design2",
+              "name": "Дизайн на 1–2 ногтя",
+              "price": 200,
+              "duration": 15
+            },
+            {
+              "id": "design10",
+              "name": "Дизайн на 5–10 ногтей",
+              "price": 400,
+              "duration": 40
+            },
+            {
+              "id": "french",
+              "name": "Втирка, френч или омбре",
+              "price": 400,
+              "duration": 30
+            },
+            {
+              "id": "strass",
+              "name": "Стразы",
+              "price": 300,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-bare",
+          "name": "«Голые ногти» + снятие в подарок",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 1800,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-hyg",
+          "name": "Гигиенический маникюр",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 900,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской гигиенический маникюр",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 1000,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 900 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi",
+          "name": "Комби-педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 1800,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "gel",
+              "name": "Гель-лак на ноги",
+              "price": 1100,
+              "duration": 40
+            },
+            {
+              "id": "french",
+              "name": "Френч на ноги",
+              "price": 1500,
+              "duration": 50
+            }
+          ]
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской комби-педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 1900,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-toes",
+          "name": "Педикюр: пальчики",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1400,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "gel",
+              "name": "Гель-лак на ноги",
+              "price": 1100,
+              "duration": 40
+            }
+          ]
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 1 400 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext-sm",
+          "name": "Наращивание S/M",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 4000,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design2",
+              "name": "Дизайн на 1–2 ногтя",
+              "price": 200,
+              "duration": 15
+            },
+            {
+              "id": "design10",
+              "name": "Дизайн на 5–10 ногтей",
+              "price": 400,
+              "duration": 40
+            },
+            {
+              "id": "french",
+              "name": "Втирка, френч или омбре",
+              "price": 400,
+              "duration": 30
+            }
+          ]
+        },
+        {
+          "id": "ext-lxl",
+          "name": "Наращивание L/XL",
+          "desc": "",
+          "duration": 210,
+          "price": {
+            "value": 6000,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design2",
+              "name": "Дизайн на 1–2 ногтя",
+              "price": 200,
+              "duration": 15
+            },
+            {
+              "id": "design10",
+              "name": "Дизайн на 5–10 ногтей",
+              "price": 400,
+              "duration": 40
+            },
+            {
+              "id": "french",
+              "name": "Втирка, френч или омбре",
+              "price": 400,
+              "duration": 30
+            }
+          ]
+        },
+        {
+          "id": "ext-1",
+          "name": "Наращивание 1 ногтя",
+          "desc": "",
+          "duration": 20,
+          "price": {
+            "value": 400,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 400 ₽"
+    },
+    {
+      "category": "Покрытие и снятие",
+      "items": [
+        {
+          "id": "remove",
+          "name": "Снятие покрытия",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 900,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "sparkle",
+      "from": "от 900 ₽"
+    },
+    {
+      "category": "Волосы",
+      "items": [
+        {
+          "id": "cut-w",
+          "name": "Женская стрижка",
+          "desc": "1 300–2 000 ₽",
+          "duration": 60,
+          "price": {
+            "value": 1300,
+            "from": true
+          }
+        },
+        {
+          "id": "cut-m",
+          "name": "Мужская стрижка",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 1100,
+            "from": false
+          }
+        },
+        {
+          "id": "cut-beard",
+          "name": "Мужская стрижка + борода",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1300,
+            "from": false
+          }
+        },
+        {
+          "id": "color",
+          "name": "Окрашивание в тон",
+          "desc": "3 000–7 000 ₽",
+          "duration": 120,
+          "price": {
+            "value": 3000,
+            "from": true
+          }
+        },
+        {
+          "id": "airtouch",
+          "name": "AirTouch",
+          "desc": "9 000–15 000 ₽",
+          "duration": 240,
+          "price": {
+            "value": 9000,
+            "from": true
+          }
+        }
+      ]
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "clock",
+          "title": "С 7:30 до 22:30",
+          "text": "Каждый день — до и после работы"
+        },
+        {
+          "icon": "check",
+          "title": "Гарантия",
+          "text": "На покрытие"
+        },
+        {
+          "icon": "parking",
+          "title": "Парковка",
+          "text": "Подарочные сертификаты"
+        },
+        {
+          "icon": "qr",
+          "title": "Карта, СБП, рассрочка",
+          "text": "Скидки льготным категориям"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах (обновлён 30 июля)."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/9752112/2a00000189412964443f23ac7917634c684e/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/5115998/2a0000018eb877af03576e92d62c44e1b3c8/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/13581124/2a0000018eb877c8204425eb0e99c3e0ae4a/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/5115998/2a0000018eb877aa346f322ae22384f97748/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/11940760/2a0000018eb85513e0202828ff12d13cbf79/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14264437/2a0000019413123eee668b72390f32546b29/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "17 июля",
+          "rating": 5,
+          "text": "Отличный салон! Хожу туда не первый год на маникюр, педикюр, брови. Очень классные мастера, всегда все вовремя и на высшем уровне. Цены хорошие, качество замечательеое!"
+        },
+        {
+          "name": "Екатерина Г.",
+          "source": "Яндекс Карты",
+          "date": "17 октября 2025",
+          "rating": 5,
+          "text": "Постоянно хожу в этот салон, всегда очень приятная атмосфера, вежливый администратор предлагают чай кофе. Ну естественно мастера тоже отличные. Светлана прекрасно делает педикюр, Марина делает ноготочки -носится долго без каких-либо сколов. Все чисто стерильно .Спасибо вам девочки ."
+        },
+        {
+          "name": "Екатерина К.",
+          "source": "Яндекс Карты",
+          "date": "20 марта",
+          "rating": 5,
+          "text": "пришла к мастеру Натали по рекомендации, осталась очень довольна, вчера была второй раз и маникюр с покрытием был сделан качественно за час! первый маникюр отлично относился больше месяца. Натали очень приятная, не надоедает разговором, предложит напитки. Всем рекомендую и теперь я постоянный клиент Натали!"
+        },
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "29 сентября",
+          "rating": 5,
+          "text": "Уютная обстановка, перед процедурой предложили кофе или чай. Маникюр (наращивание) делала у Марины 25-го августа, сегодня (29.09) ногти держатся до сих пор. Марина мастер своего дела, всё сделала очень комфортно и быстро. 🫶🏻"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Москва, Ореховый бульвар, 57, 1 этаж — 8 минут от метро Красногвардейская."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 7:30 до 22:30."
+        },
+        {
+          "q": "Что входит в комплекс за 2 200 ₽?",
+          "a": "Снятие, комби-маникюр, выравнивание и укрепление гелем. Цветное покрытие — 2 400 ₽."
+        },
+        {
+          "q": "Как оплатить?",
+          "a": "Наличными, картой, по СБП или QR. Есть рассрочка."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {},
+  "promo": {
+    "icon": "percent",
+    "text": "Комплекс с укреплением гелем — от 2 200 ₽",
+    "cta": "Записаться",
+    "service": "mani-promo"
+  }
+}
