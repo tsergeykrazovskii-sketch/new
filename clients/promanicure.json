@@ -1,0 +1,697 @@
+{
+  "slug": "promanicure",
+  "niche": "nails",
+  "style": "moloko",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «PROманикюр» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/promanicure/1093201548/ — 4,7 / 321, «Хорошее место 2026», прайс (5 сентября); название в Яндексе с опечаткой «Ргоманикюр»",
+    "2ГИС — карточка без рейтинга, сайт в ней — kleos.ru; ссылка на поиск по адресу",
+    "Досье: лиды/PROманикюр (Москва).md; разбор: разборы/PROманикюр (Москва).md (данные проверены исследователем 20.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 20.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 21.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "⏰ promanicure.ru (их сайт с 2013) истёк 16.10.2026 — продлить может только владелец до 17.11.2026",
+    "адрес и телефон студии у Марьино (по Алисе, Луговой пр., 7)",
+    "исправить название в Яндексе («Ргоманикюр»)",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "PROманикюр",
+    "kind": "Сеть маникюрных салонов"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "13-я Парковая ул., 11",
+    "addressNote": "Вторая студия — у метро Марьино",
+    "metro": "м. Первомайская, 930 м",
+    "phone": "+7 499 110-38-39",
+    "phoneHref": "+74991103839",
+    "hoursShort": "Пн–пт 10:00–22:00, сб–вс 10:00–18:00",
+    "yandexMaps": "https://yandex.ru/maps/org/promanicure/1093201548/",
+    "twoGis": "https://2gis.ru/moscow/search/13-%D1%8F%20%D0%9F%D0%B0%D1%80%D0%BA%D0%BE%D0%B2%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2011",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79015054382"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "18:00"
+    ],
+    [
+      "10:00",
+      "18:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "PROманикюр — сеть маникюрных салонов",
+    "lead": "Классический, комби, бразильский и горячий маникюр, покрытия гель-лак, Luxio, IQ и IBX, smart- и бразильский педикюр. По будням «Счастливые часы» — маникюр за 800 ₽.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "4,7",
+        "count": 321,
+        "url": "https://yandex.ru/maps/org/promanicure/1093201548/reviews/"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani",
+        "pedi-smart",
+        "mani-classic",
+        "pedi"
+      ],
+      "labels": {
+        "mani": "Маникюр",
+        "pedi-smart": "Smart-педикюр",
+        "mani-classic": "«Счастливые часы»",
+        "pedi": "Педикюр"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Марина",
+      "dative": "Марине",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Валерия",
+      "dative": "Валерии",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Алёна",
+      "dative": "Алёне",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Кристина",
+      "dative": "Кристине",
+      "role": "Мастер наращивания",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani",
+          "name": "Маникюр комби или аппаратный",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1150,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "gel",
+              "name": "Гель-лак",
+              "price": 1100,
+              "duration": 45
+            },
+            {
+              "id": "luxio",
+              "name": "Luxio",
+              "price": 1400,
+              "duration": 45
+            },
+            {
+              "id": "iq",
+              "name": "Лак IQ",
+              "price": 700,
+              "duration": 20
+            },
+            {
+              "id": "ibx",
+              "name": "IBX",
+              "price": 700,
+              "duration": 20
+            },
+            {
+              "id": "remove",
+              "name": "Снятие гель-лака",
+              "price": 550,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani-classic",
+          "name": "Классический маникюр — «Счастливые часы»",
+          "desc": "Пн–чт",
+          "duration": 60,
+          "price": {
+            "value": 800,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "gel",
+              "name": "Гель-лак",
+              "price": 1100,
+              "duration": 45
+            },
+            {
+              "id": "luxio",
+              "name": "Luxio",
+              "price": 1400,
+              "duration": 45
+            },
+            {
+              "id": "iq",
+              "name": "Лак IQ",
+              "price": 700,
+              "duration": 20
+            },
+            {
+              "id": "ibx",
+              "name": "IBX",
+              "price": 700,
+              "duration": 20
+            },
+            {
+              "id": "remove",
+              "name": "Снятие гель-лака",
+              "price": 550,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani-br",
+          "name": "Бразильский маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1300,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "gel",
+              "name": "Гель-лак",
+              "price": 1100,
+              "duration": 45
+            },
+            {
+              "id": "luxio",
+              "name": "Luxio",
+              "price": 1400,
+              "duration": 45
+            },
+            {
+              "id": "iq",
+              "name": "Лак IQ",
+              "price": 700,
+              "duration": 20
+            },
+            {
+              "id": "ibx",
+              "name": "IBX",
+              "price": 700,
+              "duration": 20
+            },
+            {
+              "id": "remove",
+              "name": "Снятие гель-лака",
+              "price": 550,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani-hot",
+          "name": "Горячий маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1250,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "gel",
+              "name": "Гель-лак",
+              "price": 1100,
+              "duration": 45
+            },
+            {
+              "id": "luxio",
+              "name": "Luxio",
+              "price": 1400,
+              "duration": 45
+            },
+            {
+              "id": "iq",
+              "name": "Лак IQ",
+              "price": 700,
+              "duration": 20
+            },
+            {
+              "id": "ibx",
+              "name": "IBX",
+              "price": 700,
+              "duration": 20
+            },
+            {
+              "id": "remove",
+              "name": "Снятие гель-лака",
+              "price": 550,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1350,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 800 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi",
+          "name": "Педикюр классический или комби",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2000,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "gel",
+              "name": "Гель-лак",
+              "price": 1200,
+              "duration": 45
+            },
+            {
+              "id": "luxio",
+              "name": "Luxio",
+              "price": 1500,
+              "duration": 45
+            },
+            {
+              "id": "iq",
+              "name": "Лак IQ",
+              "price": 800,
+              "duration": 20
+            },
+            {
+              "id": "remove",
+              "name": "Снятие гель-лака",
+              "price": 550,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "pedi-smart",
+          "name": "Smart-педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2600,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "gel",
+              "name": "Гель-лак",
+              "price": 1200,
+              "duration": 45
+            },
+            {
+              "id": "luxio",
+              "name": "Luxio",
+              "price": 1500,
+              "duration": 45
+            },
+            {
+              "id": "iq",
+              "name": "Лак IQ",
+              "price": 800,
+              "duration": 20
+            },
+            {
+              "id": "remove",
+              "name": "Снятие гель-лака",
+              "price": 550,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "pedi-br",
+          "name": "Бразильский педикюр",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 1700,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "gel",
+              "name": "Гель-лак",
+              "price": 1200,
+              "duration": 45
+            },
+            {
+              "id": "luxio",
+              "name": "Luxio",
+              "price": 1500,
+              "duration": 45
+            },
+            {
+              "id": "iq",
+              "name": "Лак IQ",
+              "price": 800,
+              "duration": 20
+            },
+            {
+              "id": "remove",
+              "name": "Снятие гель-лака",
+              "price": 550,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2250,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men-smart",
+          "name": "Мужской smart-педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2800,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 1 700 ₽"
+    },
+    {
+      "category": "Покрытие и снятие",
+      "items": [
+        {
+          "id": "vitagel",
+          "name": "Vitagel",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 750,
+            "from": false
+          }
+        },
+        {
+          "id": "med",
+          "name": "Лечебное покрытие",
+          "desc": "",
+          "duration": 15,
+          "price": {
+            "value": 300,
+            "from": false
+          }
+        },
+        {
+          "id": "remove",
+          "name": "Снятие гель-лака",
+          "desc": "",
+          "duration": 20,
+          "price": {
+            "value": 550,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "sparkle",
+      "from": "от 300 ₽"
+    },
+    {
+      "category": "Брови",
+      "items": [
+        {
+          "id": "brow",
+          "name": "Форма бровей",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 700,
+            "from": false
+          }
+        }
+      ]
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "clock",
+          "title": "«Счастливые часы»",
+          "text": "Пн–чт классический маникюр — 800 ₽"
+        },
+        {
+          "icon": "pin",
+          "title": "Две студии",
+          "text": "Первомайская и Марьино"
+        },
+        {
+          "icon": "sparkle",
+          "title": "Горячий и бразильский",
+          "text": "Маникюр и педикюр"
+        },
+        {
+          "icon": "check",
+          "title": "Покрытие — отдельно",
+          "text": "Выбираете сами: гель-лак, Luxio, IQ, IBX"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах (обновлён 5 сентября). Покрытие выбирается дополнением."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/914620/2a00000161ba29c4b8f8a53e5b4f68fef96b/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/218662/2a00000161ba29bd69e46a845d50a161725e/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/920214/2a00000161ba29c6e706d12a870a3a42f102/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/374295/2a0000015b16fc8623f6631eb23f429571fb/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/216588/2a0000015b16fca97dcd2aae4a4291763559/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/247136/2a0000015b16fa9cd4e5f9b0c5b50a61f0d8/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Анжелика В.",
+          "source": "Яндекс Карты",
+          "date": "28 марта",
+          "rating": 5,
+          "text": "Первый раз посетила студию и в восторге от сервиса! Несколько раз принесли чай, включили фильм, администратор внимательная, спрашивает все ли хорошо) давно такого не видела нигде Что касается маникюра - прекрасно, аккуратно и не долго! Мастер Ольга очень понравилась. Приду ещё"
+        },
+        {
+          "name": "Nina M.",
+          "source": "Яндекс Карты",
+          "date": "5 мая 2025",
+          "rating": 5,
+          "text": "Никогда не оставляю отзывы , но сейчас просто не могу не поделиться эмоциями ❤️мастер Диана максимально внимательно отнеслась к своей работе, все аккуратно, быстро и качественно.все понравилось,приду ещё ) приятно что есть такие мастера , которые дарят красоту ❤️"
+        },
+        {
+          "name": "Татьяна Г.",
+          "source": "Яндекс Карты",
+          "date": "10 мая",
+          "rating": 5,
+          "text": "Приятный, чистый салон, дружеская атмосфера, делала маникюр у Ольги - все идеально, осталась довольна полностью, однозначно вернусь снова!"
+        },
+        {
+          "name": "Эльвира",
+          "source": "Яндекс Карты",
+          "date": "10 июня",
+          "rating": 5,
+          "text": "Очень приятная студия, удобно, что запись онлайн. Я делала маникюр, мне очень понравилась мастер Ольга! Очень аккуратно работает, качество маникюра отличное, цветов на выбор много. У меня самые положительные впечатления, обязательно вернусь снова!"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Москва, 13-я Парковая ул., 11. Вторая студия — у метро Марьино."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "С понедельника по пятницу с 10:00 до 22:00, в выходные — с 10:00 до 18:00."
+        },
+        {
+          "q": "Что такое «Счастливые часы»?",
+          "a": "С понедельника по четверг классический маникюр — 800 ₽."
+        },
+        {
+          "q": "Сколько стоит покрытие?",
+          "a": "Гель-лак — 1 100 ₽ на руки и 1 200 ₽ на ноги, Luxio — 1 400 и 1 500 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {},
+  "promo": {
+    "icon": "clock",
+    "text": "«Счастливые часы»: пн–чт классический маникюр — 800 ₽",
+    "cta": "Записаться",
+    "service": "mani-classic"
+  }
+}

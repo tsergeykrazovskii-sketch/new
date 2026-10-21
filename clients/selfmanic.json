@@ -1,0 +1,496 @@
+{
+  "slug": "selfmanic",
+  "niche": "nails",
+  "style": "pudra",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «SelfMANIC» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/selfmanik/42708811181/ — 5,0 / 732, «Хорошее место 2026», прайс «давно не обновлялся»",
+    "2ГИС https://2gis.ru/moscow/firm/70000001103067368 — 5,0 / 52",
+    "Досье: лиды/Селфманик (Москва).md; разбор: разборы/Селфманик (Москва).md (данные проверены исследователем 20.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 20.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 21.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "их сайт selfmanic.ru сейчас не работает (402, неоплаченная Tilda; домен их до 15.07.2027) — сайт ставим на него же",
+    "актуальный прайс",
+    "WhatsApp — есть ли на +7 977 599-55-88",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "SelfMANIC",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "пр-т Вернадского, 86А",
+    "addressNote": "ТЦ «Авеню», 2 этаж, напротив лифта",
+    "metro": "м. Юго-Западная, 88 м",
+    "phone": "+7 977 599-55-88",
+    "phoneHref": "+79775995588",
+    "hoursShort": "Ежедневно 10:00–22:15",
+    "yandexMaps": "https://yandex.ru/maps/org/selfmanik/42708811181/",
+    "twoGis": "https://2gis.ru/moscow/firm/70000001103067368",
+    "messengers": [
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/selfmanic01"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "22:15"
+    ],
+    [
+      "10:00",
+      "22:15"
+    ],
+    [
+      "10:00",
+      "22:15"
+    ],
+    [
+      "10:00",
+      "22:15"
+    ],
+    [
+      "10:00",
+      "22:15"
+    ],
+    [
+      "10:00",
+      "22:15"
+    ],
+    [
+      "10:00",
+      "22:15"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "SelfMANIC — маникюр и педикюр у метро Юго-Западная",
+    "lead": "Маникюр с покрытием, японский маникюр и педикюр, архитектура «клюющих» ногтей, smart-педикюр, наращивание и артдизайн. В ТЦ «Авеню», в 88 метрах от метро.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 732,
+        "url": "https://yandex.ru/maps/org/selfmanik/42708811181/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "5,0",
+        "count": 52,
+        "url": "https://2gis.ru/moscow/firm/70000001103067368"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani-gel",
+        "mani-arch",
+        "pedi-express-gel",
+        "mani"
+      ],
+      "labels": {
+        "mani-gel": "Маникюр с покрытием",
+        "mani-arch": "Архитектура",
+        "pedi-express-gel": "Педикюр с покрытием",
+        "mani": "Без покрытия"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Валерия",
+      "dative": "Валерии",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Светлана",
+      "dative": "Светлане",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Яна",
+      "dative": "Яне",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Юлия",
+      "dative": "Юлии",
+      "role": "Мастер наращивания",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani-gel",
+          "name": "Маникюр с покрытием",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 1200,
+            "from": true
+          },
+          "options": [
+            {
+              "id": "french",
+              "name": "Френч",
+              "price": 700,
+              "duration": 30
+            },
+            {
+              "id": "cateye",
+              "name": "«Кошачий глаз»",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "ombre",
+              "name": "Омбре",
+              "price": 1000,
+              "duration": 40
+            },
+            {
+              "id": "marble",
+              "name": "Мрамор",
+              "price": 1500,
+              "duration": 50
+            }
+          ]
+        },
+        {
+          "id": "mani",
+          "name": "Маникюр комби или аппаратный без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1400,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-arch",
+          "name": "Архитектура «клюющих» ногтей",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2000,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "french",
+              "name": "Френч",
+              "price": 700,
+              "duration": 30
+            },
+            {
+              "id": "cateye",
+              "name": "«Кошачий глаз»",
+              "price": 500,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani-jp",
+          "name": "Японский маникюр",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 2400,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1700,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-kids",
+          "name": "Детский маникюр",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 700,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 700 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-express-gel",
+          "name": "Экспресс-педикюр + гель-лак",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3300,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "french",
+              "name": "Френч",
+              "price": 700,
+              "duration": 30
+            }
+          ]
+        },
+        {
+          "id": "pedi-smart",
+          "name": "Smart-педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2800,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-jp",
+          "name": "Японский педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3400,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-express",
+          "name": "Экспресс-педикюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2000,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3000,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 2 000 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "pin",
+          "title": "88 м от метро",
+          "text": "ТЦ «Авеню», 2 этаж, напротив лифта"
+        },
+        {
+          "icon": "sparkle",
+          "title": "Артдизайн",
+          "text": "Френч, «кошачий глаз», омбре, мрамор"
+        },
+        {
+          "icon": "coffee",
+          "title": "Кофе",
+          "text": "Пока сохнет покрытие"
+        },
+        {
+          "icon": "heart",
+          "title": "Можно с питомцем",
+          "text": "С кошками и собаками"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах. Дизайн — дополнением к услуге."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/19829109/2a000001a01e12fec9cbd0a831c636f95e21/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/19555618/2a0000019bf9f08378685837615f3c051244/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20928768/2a000001a0d843e314228f7d74715627626f/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20781863/2a000001a0d843cd4676ea5c5ce8298d60e0/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15608211/2a000001988e51dba8bd457e8c94875e3d23/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/19809277/2a000001a0d84405e0e64e754b1cabbcd53d/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Евгения Г.",
+          "source": "Яндекс Карты",
+          "date": "20 июля",
+          "rating": 5,
+          "text": "2 минуты от метро «Юго-Западная». В ТЦ «Авеню» на 2м этаже. Мне сделали маникюр в 4 руки, все супер. Педикюр смарт. Цвет маникюра очень красивый 110 айвори люксио🤍 Все очень приятно. Вкусный кофе🤎"
+        },
+        {
+          "name": "Светлана",
+          "source": "Яндекс Карты",
+          "date": "18 июля",
+          "rating": 5,
+          "text": "Девочки умнички, так профессионально, делаю уже не первый раз маникюр и педикюр в 4 руки. За 1,5 часа готово все с френчем. Огромное спасибо ❤️ Кофе вкусный, все приятные и очень вежливые. Внутри уютно, хоть и студия небольшая"
+        },
+        {
+          "name": "Надежда И.",
+          "source": "Яндекс Карты",
+          "date": "14 мая",
+          "rating": 5,
+          "text": "Очень понравилась студия: все Миниатюрное и красиво удобно. Доступные цены, хороший сервис, мастера качественно и быстро работают. Посещением осталась довольна."
+        },
+        {
+          "name": "Галина Б.",
+          "source": "Яндекс Карты",
+          "date": "2 июня",
+          "rating": 5,
+          "text": "Хорошее место. Сделали всё быстро и аккуратно. Делала маникюр и педикюр в 4 руки. Сделали всё за 1 час 45 минут. Всё стерильное. Большая цветовая палитра. Вернусь обязательно ещё."
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Москва, проспект Вернадского, 86А, ТЦ «Авеню», 2 этаж, напротив лифта — в 88 метрах от метро Юго-Западная."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 22:15."
+        },
+        {
+          "q": "Что такое архитектура ногтей?",
+          "a": "Выравнивание формы «клюющих» ногтей — 2 000 ₽."
+        },
+        {
+          "q": "Можно с собакой?",
+          "a": "Да, с кошками и собаками."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}

@@ -1,0 +1,570 @@
+{
+  "slug": "nailstudio-coffee",
+  "niche": "nails",
+  "style": "moloko",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «NailStudio & Coffee» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/nailstudio_coffee/67519396335/ — 5,0 / 356, прайс «давно не обновлялся»",
+    "2ГИС https://2gis.ru/moscow/firm/70000001042818499 — 4,8 / 42, 2 филиала",
+    "Досье: лиды/NailStudio & Coffee (Москва).md; разбор: разборы/NailStudio & Coffee (Москва).md (данные проверены исследователем 20.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 20.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 21.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "⏰ nailstudiocoffee.ru (их сайт) истёк 20.10.2026 — продлить может только владелец до 20.11.2026",
+    "актуальный прайс",
+    "телефон и часы студии в Люблино (+7 936 189-95-99)",
+    "сейчас запись в YCLIENTS (b817161) — можно оставить: schedule.mode external",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "NailStudio & Coffee",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "Дмитровское ш., 81",
+    "addressNote": "Вход с улицы. Вторая студия — Люблино, Верхние Поля, 36к1",
+    "metro": "м. Селигерская, 510 м",
+    "phone": "+7 929 535-11-59",
+    "phoneHref": "+79295351159",
+    "hoursShort": "Ежедневно 10:00–22:00",
+    "yandexMaps": "https://yandex.ru/maps/org/nailstudio_coffee/67519396335/",
+    "twoGis": "https://2gis.ru/moscow/firm/70000001042818499",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79295351159"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/nailstudio_coffee"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/nailstudio_coffee"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "NailStudio & Coffee — маникюр и кофе",
+    "lead": "Уютная студия для тех, кому важны качество и комфорт. Маникюр с гель-лаком и укреплением, наращивание, smart-педикюр — и кофейный напиток в подарок.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 356,
+        "url": "https://yandex.ru/maps/org/nailstudio_coffee/67519396335/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,8",
+        "count": 42,
+        "url": "https://2gis.ru/moscow/firm/70000001042818499"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani-gel",
+        "mani-strong",
+        "pedi-smart-gel",
+        "ext"
+      ],
+      "labels": {
+        "mani-gel": "Маникюр с покрытием",
+        "mani-strong": "С укреплением",
+        "pedi-smart-gel": "Педикюр с покрытием",
+        "ext": "Наращивание"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Диана",
+      "dative": "Диане",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Кристина",
+      "dative": "Кристине",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Полина",
+      "dative": "Полине",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Елизавета",
+      "dative": "Елизавете",
+      "role": "Мастер наращивания",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani-gel",
+          "name": "Маникюр + гель-лак со снятием и выравниванием",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 3200,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design",
+              "name": "Дизайн, 1 ноготь",
+              "price": 100,
+              "duration": 10
+            },
+            {
+              "id": "french",
+              "name": "Френч, втирка или стемпинг на все ногти",
+              "price": 700,
+              "duration": 30
+            }
+          ]
+        },
+        {
+          "id": "mani-strong",
+          "name": "Укрепление гелем + гель-лак до 3 мм",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 4500,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design",
+              "name": "Дизайн, 1 ноготь",
+              "price": 100,
+              "duration": 10
+            },
+            {
+              "id": "french",
+              "name": "Френч, втирка или стемпинг на все ногти",
+              "price": 700,
+              "duration": 30
+            }
+          ]
+        },
+        {
+          "id": "mani-camo",
+          "name": "Укрепление камуфлирующим гелем",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 4000,
+            "from": false
+          }
+        },
+        {
+          "id": "mani",
+          "name": "Маникюр без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1700,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-jp",
+          "name": "Японский маникюр",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 2300,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2000,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-kids",
+          "name": "Детский маникюр",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 500,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 500 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Наращивание до 3 мм",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 5500,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design",
+              "name": "Дизайн, 1 ноготь",
+              "price": 100,
+              "duration": 10
+            },
+            {
+              "id": "french",
+              "name": "Френч, втирка или стемпинг на все ногти",
+              "price": 700,
+              "duration": 30
+            }
+          ]
+        },
+        {
+          "id": "ext-long",
+          "name": "Наращивание 3–5 мм",
+          "desc": "",
+          "duration": 210,
+          "price": {
+            "value": 6500,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design",
+              "name": "Дизайн, 1 ноготь",
+              "price": 100,
+              "duration": 10
+            },
+            {
+              "id": "french",
+              "name": "Френч, втирка или стемпинг на все ногти",
+              "price": 700,
+              "duration": 30
+            }
+          ]
+        },
+        {
+          "id": "ext-fix",
+          "name": "Коррекция наращивания",
+          "desc": "4 500–5 500 ₽",
+          "duration": 150,
+          "price": {
+            "value": 4500,
+            "from": true
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 4 500 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-smart-gel",
+          "name": "Smart-педикюр с покрытием",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 4000,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-express-gel",
+          "name": "Экспресс-педикюр с покрытием",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3500,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-smart",
+          "name": "Smart-педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3500,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-express",
+          "name": "Экспресс-педикюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2600,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской smart-педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 4000,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 2 600 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "coffee",
+          "title": "Кофе в подарок",
+          "text": "Кофейный напиток к каждому визиту"
+        },
+        {
+          "icon": "pin",
+          "title": "Две студии",
+          "text": "Селигерская и Люблино"
+        },
+        {
+          "icon": "check",
+          "title": "Вход с улицы",
+          "text": "Доступно для коляски"
+        },
+        {
+          "icon": "sparkle",
+          "title": "Дизайн",
+          "text": "Френч, втирка, стемпинг"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/10156117/2a0000018c26a5aec6ad030d3b73cdec8e73/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/19662431/2a0000019c4b62b7ecf2eac8fa425a623ee1/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15294995/2a00000199f7cc94774fbaff5fb79f39a3bb/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15042938/2a00000199b457a407da34d35778c73df07b/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16399547/2a000001984e2ec6971b4e7780cb0a81e18e/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15344725/2a00000199b45717140a9149f98d0a2dd310/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "13 мая",
+          "rating": 5,
+          "text": "Уютное место, где можно сделать хороший и маникюр, и педикюр. Мастера хорошие. Угощения просто супер! Вкусный кофе, чай на любой вкус, конфетки, шоколадки и даже орехи с сухофруктами! Восторг) хочу уже давно, всем довольна 🤍"
+        },
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "18 августа",
+          "rating": 5,
+          "text": "Раньше ходила на маникюр в другую студию, но мой мастер уволился, поэтому решила найти нового. Пришла на маникюр и педикюр к мастеру Оксане — и не ошиблась! Всё сделано очень аккуратно, быстро и качественно. Кажется, я нашла своего нового мастера 🥰 Обязательно вернусь снова!"
+        },
+        {
+          "name": "Светлана С.",
+          "source": "Яндекс Карты",
+          "date": "4 сентября 2025",
+          "rating": 5,
+          "text": "Это просто лучшая студия маникюра и педикюра! Кофе, напитки, комфорт и новый свежий ремонт. Отдельно скажу о мастере Руслане , хоть я и так вечно не могу записаться, так как к ней очередь за месяц, но я в ущерб себе напишу, что это лучший мастер за всю историю маникюра 😁❤️"
+        },
+        {
+          "name": "Anastasia S.",
+          "source": "Яндекс Карты",
+          "date": "14 ноября 2025",
+          "rating": 5,
+          "text": "Очень нравится эта студия) Однотонный нюдовый маникюр делают около 60 мин. Качество носки видно на фото,всё продержалось идеально до следующего посещения) А еще очень удобная подставка для телефона😄 Можно записать за день или в тот же день) Делала у мастеров Руслана и Хатия,все понравились)"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Дмитровское шоссе, 81 — 7 минут от метро Селигерская. Вторая студия — Люблино, Верхние Поля, 36к1."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 22:00."
+        },
+        {
+          "q": "Правда, что кофе в подарок?",
+          "a": "Да, кофейный напиток к визиту — в подарок."
+        },
+        {
+          "q": "Сколько стоит дизайн?",
+          "a": "100 ₽ за ноготь; френч, втирка или стемпинг на все ногти — 700 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {},
+  "promo": {
+    "icon": "coffee",
+    "text": "Кофейный напиток в подарок к визиту",
+    "cta": "Записаться",
+    "service": "mani-gel"
+  }
+}

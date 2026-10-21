@@ -1,0 +1,580 @@
+{
+  "slug": "ladys-corporation",
+  "niche": "nails",
+  "style": "pudra",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Lady's Corporation» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/lady_s_corporation/62828634967/ — 5,0 / 445, «Хорошее место 2026», прайс (191 позиция)",
+    "2ГИС https://2gis.ru/moscow/firm/70000001058888171 — 4,8 / 58",
+    "Досье: лиды/Lady's Corporation (Москва).md; разбор: разборы/Lady's Corporation (Москва).md (данные проверены исследователем 20.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 20.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 21.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "⏰ lcnail.ru (их сайт) истёк 19.10.2026 — продлить может только владелец до 19.11.2026",
+    "акции из сторис («Маникюр — 2490 р», «Скидка 20%») — условия",
+    "часы в выходные (по Алисе сб–вс с 9:00)",
+    "вторая студия (Большие Каменщики, 21/8) — работает ли",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Lady's Corporation",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "Шоссейная ул., 8",
+    "addressNote": "Вход с улицы",
+    "metro": "м. Печатники, 252 м",
+    "phone": "+7 926 416-25-28",
+    "phoneHref": "+79264162528",
+    "hoursShort": "Ежедневно 10:00–22:00",
+    "yandexMaps": "https://yandex.ru/maps/org/lady_s_corporation/62828634967/",
+    "twoGis": "https://2gis.ru/moscow/firm/70000001058888171",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79264162528"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/ladys_corporation"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/public217641373"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "Lady's Corporation — маникюр и наращивание у метро Печатники",
+    "lead": "Маникюр с гель-лаком и IBX, наращивание и «крейзи»-дизайн, выкладной френч, педикюр и брови. 3 минуты от метро, ежедневно с 10 до 22.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 445,
+        "url": "https://yandex.ru/maps/org/lady_s_corporation/62828634967/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,8",
+        "count": 58,
+        "url": "https://2gis.ru/moscow/firm/70000001058888171"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani-gel",
+        "ext",
+        "pedi-gel",
+        "mani"
+      ],
+      "labels": {
+        "mani-gel": "Маникюр с покрытием",
+        "ext": "Наращивание",
+        "pedi-gel": "Педикюр с покрытием",
+        "mani": "Без покрытия"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Полина",
+      "dative": "Полине",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Ксения",
+      "dative": "Ксении",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Ольга",
+      "dative": "Ольге",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Елизавета",
+      "dative": "Елизавете",
+      "role": "Мастер наращивания",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani-gel",
+          "name": "Маникюр + гель-лак со снятием",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 2700,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "matte",
+              "name": "Матовый или светоотражающий топ",
+              "price": 350,
+              "duration": 10
+            },
+            {
+              "id": "3d",
+              "name": "3D-фигурка",
+              "price": 150,
+              "duration": 10
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафин",
+              "price": 500,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani",
+          "name": "Маникюр без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1350,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "paraffin",
+              "name": "Парафин",
+              "price": 500,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-lak",
+          "name": "Маникюр + лак, база-топ или лечебное",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 2100,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-ibx",
+          "name": "Маникюр + IBX",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 2350,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1500,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-kids",
+          "name": "Детский маникюр до 12 лет",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 800,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 800 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Наращивание + маникюр + покрытие",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 4350,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "matte",
+              "name": "Матовый или светоотражающий топ",
+              "price": 350,
+              "duration": 10
+            },
+            {
+              "id": "3d",
+              "name": "3D-фигурка",
+              "price": 150,
+              "duration": 10
+            }
+          ]
+        },
+        {
+          "id": "ext-crazy",
+          "name": "Наращивание «крейзи» с любым дизайном",
+          "desc": "",
+          "duration": 210,
+          "price": {
+            "value": 4900,
+            "from": false
+          }
+        },
+        {
+          "id": "ext-fix",
+          "name": "Коррекция",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 3900,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "matte",
+              "name": "Матовый или светоотражающий топ",
+              "price": 350,
+              "duration": 10
+            },
+            {
+              "id": "3d",
+              "name": "3D-фигурка",
+              "price": 150,
+              "duration": 10
+            }
+          ]
+        },
+        {
+          "id": "ext-model",
+          "name": "Моделирование",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 3650,
+            "from": false
+          }
+        },
+        {
+          "id": "french-lay",
+          "name": "Выкладной френч",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2000,
+            "from": false
+          }
+        },
+        {
+          "id": "ext-1",
+          "name": "Наращивание 1 ногтя",
+          "desc": "",
+          "duration": 20,
+          "price": {
+            "value": 450,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 450 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-gel",
+          "name": "Педикюр + гель-лак",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3200,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "remove",
+              "name": "Снятие",
+              "price": 300,
+              "duration": 20
+            }
+          ]
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 3 200 ₽"
+    },
+    {
+      "category": "Покрытие и снятие",
+      "items": [
+        {
+          "id": "remove",
+          "name": "Снятие гель-лака",
+          "desc": "",
+          "duration": 20,
+          "price": {
+            "value": 300,
+            "from": false
+          }
+        },
+        {
+          "id": "remove-ext",
+          "name": "Снятие наращенных ногтей",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 800,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "sparkle",
+      "from": "от 300 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "pin",
+          "title": "3 минуты от метро",
+          "text": "Печатники, вход с улицы"
+        },
+        {
+          "icon": "sparkle",
+          "title": "Наращивание и «крейзи»",
+          "text": "Выкладной френч, 3D-фигурки"
+        },
+        {
+          "icon": "heart",
+          "title": "Брови",
+          "text": "Пудровые, наращивание, мужские, хна"
+        },
+        {
+          "icon": "check",
+          "title": "Прозрачные цены",
+          "text": "Снятие и доплаты — в прайсе заранее"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу студии в Яндекс Картах."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15457874/2a00000194aeb85ecc9a7a821fe01f95ae9b/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16569030/2a000001982285af7bb0f345a17482b38181/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/11376278/2a0000018fe876098116530a88c4c331e777/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15413153/2a0000019529d1d0425ec3c1afab12b86d9e/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15294573/2a0000019708e9c7c1a6854499930d233f4e/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15381861/2a00000198228a6c42298a818c18b0aa3e9d/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "24 апреля",
+          "rating": 5,
+          "text": "Недавно открыла для себя этот замечательный салон рядом с домом. Уже делала здесь ламинирование бровей, потом возвращалась, чтобы сделать ноготочки. Мне всё нравится, и дальше буду ходить сюда. Спасибо мастерам, все лапочки 🥰"
+        },
+        {
+          "name": "Гюнель М.",
+          "source": "Яндекс Карты",
+          "date": "9 августа",
+          "rating": 5,
+          "text": "Чистое место, приятные, отзывчивые и компетентные мастера. Была на процедуре ламинирование ресниц у мастера Залины и все понравилось, Мастер был вежлив, уточнял комфортно ли мне, делал все аккуратно, по окончании процедуры дал рекомендации. Также в этом салоне делала педикюр у мастера Айки."
+        },
+        {
+          "name": "Ольга",
+          "source": "Яндекс Карты",
+          "date": "2 июля",
+          "rating": 5,
+          "text": "Очень люблю приходить сюда на маникюр- педикюр. Приятная, лёгкая атмосфера. На входе администратор всегда с улыбкой, сразу предлагает чай-кофе. Все мастера очень качественно и профессионально делают свою работу."
+        },
+        {
+          "name": "Юлия С.",
+          "source": "Яндекс Карты",
+          "date": "26 мая",
+          "rating": 5,
+          "text": "Мастер бровей Нура делает крутые брови, а ногти Зарина и Алия делают круто , быстро и качественно , а администратор Эмма найдет выход из любой ситуации! В общем рекомендую данный салон!"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Москва, Шоссейная ул., 8, вход с улицы — 3 минуты от метро Печатники."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 22:00."
+        },
+        {
+          "q": "Снимаете чужое покрытие?",
+          "a": "Да: гель-лак — 300 ₽, наращенные ногти — 800 ₽."
+        },
+        {
+          "q": "Делаете маникюр детям?",
+          "a": "Да, детский маникюр до 12 лет — 800 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}

@@ -1,0 +1,460 @@
+{
+  "slug": "uninails",
+  "niche": "nails",
+  "style": "shalfey",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Uninails» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/uninails/154996841049/ — 4,9 / 520 и Осенний б-р — 4,9 / 406, прайс (11 сентября)",
+    "2ГИС https://2gis.ru/moscow/firm/70000001064224457 — 6 филиалов",
+    "Досье: лиды/Uninails (Москва).md; разбор: разборы/Uninails (Москва).md (данные проверены исследователем 20.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 20.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 21.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "их сайт uninails.ru сейчас не работает (402, неоплаченная Tilda; домен их с 2020, до 06.01.2027) — сайт ставим на него же",
+    "все студии сети: адреса и телефоны (по Алисе и архиву — Шаболовка, 10, Ярцевская)",
+    "сейчас запись в YCLIENTS (n727818) — можно оставить: schedule.mode external",
+    "на Осеннем б-ре Telegram записан номером без «+»",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Uninails",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "1-я Владимирская ул., 39/12",
+    "addressNote": "Ещё студия: Осенний бульвар, 5к1",
+    "metro": "м. Перово, 390 м",
+    "phone": "+7 977 411-90-09",
+    "phoneHref": "+79774119009",
+    "hoursShort": "Ежедневно 9:00–22:00",
+    "yandexMaps": "https://yandex.ru/maps/org/uninails/154996841049/",
+    "twoGis": "https://2gis.ru/moscow/firm/70000001064224457",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79774119009"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/uninails"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/uninailsstudio"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "09:00",
+      "22:00"
+    ],
+    [
+      "09:00",
+      "22:00"
+    ],
+    [
+      "09:00",
+      "22:00"
+    ],
+    [
+      "09:00",
+      "22:00"
+    ],
+    [
+      "09:00",
+      "22:00"
+    ],
+    [
+      "09:00",
+      "22:00"
+    ],
+    [
+      "09:00",
+      "22:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "Uninails — сеть студий маникюра и педикюра",
+    "lead": "Маникюр с покрытием Starlet, Luxio и Uninails ProGel, наращивание, smart-педикюр. Первый визит — маникюр с покрытием от 2 390 ₽. Ежедневно с 9 до 22.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "4,9",
+        "count": 520,
+        "url": "https://yandex.ru/maps/org/uninails/154996841049/reviews/"
+      },
+      {
+        "source": "Яндекс Карты, Осенний бульвар",
+        "rating": "4,9",
+        "count": 406,
+        "url": "https://yandex.ru/maps/org/uninails/182121008635/reviews/"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani-gel",
+        "mani-progel",
+        "pedi-gel",
+        "mani-ext"
+      ],
+      "labels": {
+        "mani-gel": "Маникюр + Starlet",
+        "mani-progel": "ProGel",
+        "pedi-gel": "Педикюр с покрытием",
+        "mani-ext": "Наращивание"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Ксения",
+      "dative": "Ксении",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Полина",
+      "dative": "Полине",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Ольга",
+      "dative": "Ольге",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Мария",
+      "dative": "Марии",
+      "role": "Мастер наращивания",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani-gel",
+          "name": "Маникюр + Starlet",
+          "desc": "Первый визит — 2 390 ₽ со снятием и выравниванием",
+          "duration": 120,
+          "price": {
+            "value": 2690,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "luxio",
+              "name": "Luxio вместо Starlet",
+              "price": 300,
+              "duration": 0
+            }
+          ]
+        },
+        {
+          "id": "mani-progel",
+          "name": "Маникюр + Uninails ProGel",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 2930,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "remove",
+              "name": "Снятие",
+              "price": 120,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani-ext",
+          "name": "Маникюр + наращивание",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 3990,
+            "from": false
+          }
+        },
+        {
+          "id": "cover-emi",
+          "name": "Покрытие Emi",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1700,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1620,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 1 620 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-gel",
+          "name": "Педикюр + гель-лак",
+          "desc": "Цена первого визита",
+          "duration": 120,
+          "price": {
+            "value": 3100,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "luxio",
+              "name": "Luxio вместо гель-лака",
+              "price": 200,
+              "duration": 0
+            }
+          ]
+        },
+        {
+          "id": "pedi",
+          "name": "Педикюр без покрытия",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2270,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-smart",
+          "name": "Smart-педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2490,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 2 270 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "pin",
+          "title": "Сеть студий",
+          "text": "Перово, Осенний бульвар и другие"
+        },
+        {
+          "icon": "percent",
+          "title": "Первый визит — от 2 390 ₽",
+          "text": "Маникюр с покрытием со снятием"
+        },
+        {
+          "icon": "parking",
+          "title": "Парковка",
+          "text": "Подарочные сертификаты"
+        },
+        {
+          "icon": "qr",
+          "title": "Любая оплата",
+          "text": "Наличные, карта, СБП, QR"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах (обновлён 11 сентября)."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/4341149/2a0000017bbb9e804f8f7f405249b2a7f3fd/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/813485/2a000001882e22800eb6084009cd76607798/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/11396712/2a0000018c43c2fbd89a623cddf160b9861e/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/217470/2a000001882b5eb36adac85df04e56c35cf1/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/10700016/2a0000018b665b3f0bcb6de69dd9dc8b16c5/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15278128/2a0000019754a7802ad33a6ee6b6f91b34de/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Юлия Д.",
+          "source": "Яндекс Карты",
+          "date": "27 августа",
+          "rating": 5,
+          "text": "Нура— внимательный и аккуратный мастер, который делает маникюр качественно и с душой. У нее всегда чисто, комфортно, а работа получается ровной, эстетичной и стойкой. Видно, что она любит своё дело и старается для каждого клиента. Рекомендую тем, кто ценит аккуратность и красивый результат.🫶"
+        },
+        {
+          "name": "Юлия",
+          "source": "Яндекс Карты",
+          "date": "7 мая",
+          "rating": 5,
+          "text": "Отличная и уютная студия, хороший мастер Адель, уже давно хожу только к ней, всегда делаю у нее маникюр и педикюр, качество отличное и хорошая палитра лаков, администраторы дружелюбные , предлагают напитки, цена = качество."
+        },
+        {
+          "name": "Евгения Т.",
+          "source": "Яндекс Карты",
+          "date": "17 мая",
+          "rating": 5,
+          "text": "Отличный салон у дома. Хожу уже несколько лет в мастеру Адель. Маникюр/педикюр все делает качественно, и самое главное быстро. Носится долго, никаких проблем пока не было."
+        },
+        {
+          "name": "Людмила В.",
+          "source": "Яндекс Карты",
+          "date": "24 июня",
+          "rating": 5,
+          "text": "В салоне приятная атмосфера, очень пюдружелюбные девочки администраторы, все всегда любезно расскажут, предлагается вода, чай, кофе. Очень понравилась мастер Анастасия. Маникюр аккуратный, посмотрим как будет носиться. Обязательно ещё приду в этот салон."
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "1-я Владимирская ул., 39/12 — 5 минут от метро Перово. Ещё студия — Осенний бульвар, 5к1."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 9:00 до 22:00."
+        },
+        {
+          "q": "Есть цена для первого визита?",
+          "a": "Да: маникюр + Starlet со снятием и выравниванием — 2 390 ₽, с Luxio — 2 600 ₽; педикюр + гель-лак — 3 100 ₽."
+        },
+        {
+          "q": "Можно с собакой?",
+          "a": "Да, с собаками до 35 см."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {},
+  "promo": {
+    "icon": "percent",
+    "text": "Первый визит: маникюр с покрытием от 2 390 ₽",
+    "cta": "Записаться",
+    "service": "mani-gel"
+  }
+}
