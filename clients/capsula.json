@@ -1,0 +1,509 @@
+{
+  "slug": "capsula",
+  "niche": "nails",
+  "style": "moloko",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Capsula» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/capsula/1789513520/ — 4,9 / 367, «Хорошее место 2026», прайс",
+    "2ГИС https://2gis.ru/moscow/firm/70000001043995083 — 4,7 / 28",
+    "Досье: лиды/Capsula (Москва).md; разбор: разборы/Capsula (Москва).md (данные проверены исследователем 26.10.2026)",
+    "Фото: 5 из карточки Яндекс Карт (gallery), 26.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "Галерея: своих фото в карточке мало — добавлены фото-заглушки шаблона, заменить",
+    "их сайт capsula.salon/yartsevskaya сейчас не работает (Tilda 402, подписка не оплачена; сеть с франшизой — уточнить, кто решает по сайту точки) — сайт ставим на него же",
+    "полный прайс (в карточке — первые 12 позиций)",
+    "наращивание — цена без коррекции",
+    "метро и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Capsula",
+    "kind": "Салон красоты"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "Ярцевская ул., 19",
+    "addressNote": "4 этаж, клуб World Class",
+    "metro": "",
+    "phone": "+7 964 510-06-40",
+    "phoneHref": "+79645100640",
+    "hoursShort": "Ежедневно 10:00–22:00",
+    "yandexMaps": "https://yandex.ru/maps/org/capsula/1789513520/",
+    "twoGis": "https://2gis.ru/moscow/firm/70000001043995083",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79645100640"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/capsulasalon"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/capsula_yartsevskaya"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "Capsula — маникюр и педикюр на Ярцевской",
+    "lead": "Маникюр с гель-лаком, «Всё включено», SMART-педикюр и дизайн — «кошачий глаз», жемчужная втирка. В клубе World Class на Ярцевской, 19.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "4,9",
+        "count": 367,
+        "url": "https://yandex.ru/maps/org/capsula/1789513520/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,7",
+        "count": 28,
+        "url": "https://2gis.ru/moscow/firm/70000001043995083"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani",
+        "mani-gel",
+        "mani-all",
+        "pedi-all"
+      ],
+      "labels": {
+        "mani": "Маникюр",
+        "mani-gel": "С гель-лаком",
+        "mani-all": "«Всё включено»",
+        "pedi-all": "Педикюр"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Алёна",
+      "dative": "Алёне",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Софья",
+      "dative": "Софье",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Юлия",
+      "dative": "Юлии",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Екатерина",
+      "dative": "Екатерине",
+      "role": "Мастер маникюра и педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani",
+          "name": "Комбинированный или аппаратный маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1700,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design",
+              "name": "Дизайн ногтей",
+              "price": 160,
+              "duration": 10
+            },
+            {
+              "id": "cateye",
+              "name": "«Кошачий глаз»",
+              "price": 800,
+              "duration": 20
+            },
+            {
+              "id": "pearl",
+              "name": "Жемчужная втирка",
+              "price": 860,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani-gel",
+          "name": "Маникюр с покрытием гель-лаком",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3200,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design",
+              "name": "Дизайн ногтей",
+              "price": 160,
+              "duration": 10
+            },
+            {
+              "id": "cateye",
+              "name": "«Кошачий глаз»",
+              "price": 800,
+              "duration": 20
+            },
+            {
+              "id": "pearl",
+              "name": "Жемчужная втирка",
+              "price": 860,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani-all",
+          "name": "Маникюр «Всё включено»",
+          "desc": "",
+          "duration": 135,
+          "price": {
+            "value": 3500,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design",
+              "name": "Дизайн ногтей",
+              "price": 160,
+              "duration": 10
+            },
+            {
+              "id": "cateye",
+              "name": "«Кошачий глаз»",
+              "price": 800,
+              "duration": 20
+            },
+            {
+              "id": "pearl",
+              "name": "Жемчужная втирка",
+              "price": 860,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2100,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-kids",
+          "name": "Детский маникюр",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 1100,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 1 100 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi",
+          "name": "SMART-педикюр без покрытия",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3200,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-all",
+          "name": "SMART-педикюр «Всё включено»",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 4500,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской SMART-педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 4000,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 3 200 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "corr",
+          "name": "Коррекция наращенных ногтей",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 5500,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 5 500 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "4,9 по 367 оценкам",
+          "text": "«Хорошее место 2026» в Яндекс Картах"
+        },
+        {
+          "icon": "pin",
+          "title": "В клубе World Class",
+          "text": "Ярцевская, 19, 4 этаж"
+        },
+        {
+          "icon": "sparkle",
+          "title": "«Кошачий глаз» и втирка",
+          "text": "Дизайн — дополнением к маникюру"
+        },
+        {
+          "icon": "parking",
+          "title": "Парковка и лифт",
+          "text": "Удобно для маломобильных гостей"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах. Дизайн выбирается дополнением к маникюру."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах. Часть фото — для примера.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/1363376/2a000001654767c744c04afb20900882beca/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/1335362/2a000001654767fee1f0e0d409587a81ebec/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/947364/2a0000016547679cf0c067cbe9dd8392bc94/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/1371862/2a00000165476824926792f1478cca2e2e57/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/947364/2a000001654768bf187fdbf7c9cc42e05e89/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://demo.top-in.ru/assets/img/nails/g-french.webp"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Наталия К.",
+          "source": "Яндекс Карты",
+          "date": "11 мая",
+          "rating": 5,
+          "text": "Попала к прекрасному мастеру по ногтевому сервису Олеси. Аккуратная, вежливая, тактичная. А также хочу отметить администратора салона, решили все моменты и я осталась под приятным впечатлением. Клиентоориентированность на высшем уровне)"
+        },
+        {
+          "name": "Анна З.",
+          "source": "Яндекс Карты",
+          "date": "12 мая",
+          "rating": 5,
+          "text": "Маникюр сделан отлично. Запись в удобное время. Доброжелательность сотрудников на высшем уровне."
+        },
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "12 мая",
+          "rating": 5,
+          "text": "Была на маникюре у Анастасии, все невероятно понравилось. Мастерица приятная, работала очень аккуратно и внимательно, ногти получилось шикарные и ровные🥰"
+        },
+        {
+          "name": "Полина П.",
+          "source": "Яндекс Карты",
+          "date": "12 августа",
+          "rating": 5,
+          "text": "Очень нравится делать маникюр у мастера Анастасии. Очень аккуратно, быстро и держится очень долго. Рекомендую! И сам салон очень приятный. Всегда угостят чаем с конфетами)"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Москва, Ярцевская ул., 19, 4 этаж, в клубе World Class."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 22:00."
+        },
+        {
+          "q": "Что входит в маникюр «Всё включено»?",
+          "a": "Снятие, маникюр и покрытие гель-лаком — 3 500 ₽."
+        },
+        {
+          "q": "Делаете педикюр для мужчин?",
+          "a": "Да, мужской SMART-педикюр — 4 000 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}

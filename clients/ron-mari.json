@@ -1,0 +1,418 @@
+{
+  "slug": "ron-mari",
+  "niche": "nails",
+  "style": "pudra",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Рон Мари» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/ron_mary/1016773023/ — 5,0 / 1 000, «Хорошее место 2026», прайс",
+    "2ГИС https://2gis.ru/moscow/firm/4504127908705806 — 4,5 / 30",
+    "Досье: лиды/Рон Мари (Москва).md; разбор: разборы/Рон Мари (Москва).md (данные проверены исследователем 26.10.2026)",
+    "Фото: 3 из карточки Яндекс Карт (gallery), 26.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "Галерея: своих фото в карточке мало — добавлены фото-заглушки шаблона, заменить",
+    "их сайт ronmary.com сейчас не работает (заглушка Tilda «Domain has been assigned»; домен их до 29.01.2028) — сайт ставим на него же",
+    "цены на покрытие и дизайн",
+    "метро и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Рон Мари",
+    "kind": "Салон красоты"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "Боровское ш., 35, корп. 1",
+    "addressNote": "",
+    "metro": "",
+    "phone": "+7 495 732-69-42",
+    "phoneHref": "+74957326942",
+    "hoursShort": "Ежедневно 10:00–21:00",
+    "yandexMaps": "https://yandex.ru/maps/org/ron_mary/1016773023/",
+    "twoGis": "https://2gis.ru/moscow/firm/4504127908705806",
+    "messengers": [
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/Ron_Mary"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.com/club211234066"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "«Рон Мари» — маникюр и педикюр на Боровском шоссе",
+    "lead": "Маникюр от 1 000 ₽, японский маникюр и педикюр Masura, укрепление гелем и наращивание. Ежедневно с 10 до 21, 5,0 по тысяче оценок в Яндекс Картах.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 1000,
+        "url": "https://yandex.ru/maps/org/ron_mary/1016773023/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,5",
+        "count": 30,
+        "url": "https://2gis.ru/moscow/firm/4504127908705806"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani",
+        "mani-jp",
+        "pedi",
+        "ext"
+      ],
+      "labels": {
+        "mani": "Маникюр",
+        "mani-jp": "Японский маникюр",
+        "pedi": "Педикюр",
+        "ext": "Наращивание"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Анна",
+      "dative": "Анне",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Валерия",
+      "dative": "Валерии",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Яна",
+      "dative": "Яне",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Екатерина",
+      "dative": "Екатерине",
+      "role": "Мастер маникюра и педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani",
+          "name": "Маникюр женский",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1000,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-jp",
+          "name": "Японский маникюр Masura",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1500,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-men",
+          "name": "Маникюр мужской",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1100,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-gel",
+          "name": "Укрепление натуральных ногтей гелем",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2700,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 1 000 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Наращивание ногтей",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 3500,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 3 500 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi",
+          "name": "Педикюр женский",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2100,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-jp",
+          "name": "Японский педикюр Masura",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3000,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Педикюр мужской",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2200,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 2 100 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 1 000 оценкам",
+          "text": "«Хорошее место 2026» в Яндекс Картах"
+        },
+        {
+          "icon": "sparkle",
+          "title": "Японский маникюр Masura",
+          "text": "И японский педикюр"
+        },
+        {
+          "icon": "gift",
+          "title": "Подарочные сертификаты",
+          "text": "На любую услугу"
+        },
+        {
+          "icon": "parking",
+          "title": "Парковка",
+          "text": "Пандус и велопарковка"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах. Покрытие и дизайн — уточните у администратора."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах. Часть фото — для примера.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15251677/2a0000019ad9ec0ceea599163733856c2c7d/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16465668/2a0000019ad9ec0cff8e9a1a33efd084c357/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16465668/2a0000019ad9ec0c54463da5dd6e2d8d8bc8/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://demo.top-in.ru/assets/img/nails/g-french.webp"
+        },
+        {
+          "caption": "",
+          "img": "https://demo.top-in.ru/assets/img/nails/g-nude.webp"
+        },
+        {
+          "caption": "",
+          "img": "https://demo.top-in.ru/assets/img/nails/g-chrome.webp"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "20 мая",
+          "rating": 5,
+          "text": "Сходила к мастеру Севе на наращивание ногтей. Была у нее первый раз, осталась очень довольна. Выравняла ногтевую пластину, привела мои пальчики в опрятный вид. Сева просто фея маникюра. Обязательно поду еще раз. Спасибо большое ."
+        },
+        {
+          "name": "Ринат М.",
+          "source": "Яндекс Карты",
+          "date": "16 июня",
+          "rating": 5,
+          "text": "При звонке в данный Салон. Очень тщательно проконсультировали. Хожу постоянно к Севе данный специалист по маникюр делает на отлично, вот теперь хочу посетить специалиста по поводу чистки лица. Очень его рекомендуют"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Москва, Боровское шоссе, 35, корп. 1."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 21:00."
+        },
+        {
+          "q": "Что такое японский маникюр?",
+          "a": "Уход за ногтями по японской системе Masura — без покрытия, для здоровых и блестящих ногтей. 1 500 ₽."
+        },
+        {
+          "q": "Делаете наращивание?",
+          "a": "Да, 3 500 ₽. Укрепление натуральных ногтей гелем — 2 700 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}

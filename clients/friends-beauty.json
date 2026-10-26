@@ -1,0 +1,587 @@
+{
+  "slug": "friends-beauty",
+  "niche": "nails",
+  "style": "shalfey",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Friends Beauty Club» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/friends_beauty_club/1744356004/ — 5,0 / 362, прайс (3 октября)",
+    "2ГИС https://2gis.ru/moscow/firm/70000001026227337 — 4,9 / 138",
+    "Досье: лиды/Friends Beauty Club (Москва).md; разбор: разборы/Friends Beauty Club (Москва).md (данные проверены исследователем 26.10.2026)",
+    "Фото: 5 из карточки Яндекс Карт (gallery), 26.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "Галерея: своих фото в карточке мало — добавлены фото-заглушки шаблона, заменить",
+    "в 2ГИС указан friends-beauty.ru — домен свободен (26.10): зарегистрировать на владельца и поставить сайт на него",
+    "метро и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Friends Beauty Club",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "Большая Серпуховская ул., 34, корп. 6",
+    "addressNote": "1 этаж",
+    "metro": "",
+    "phone": "+7 916 094-00-50",
+    "phoneHref": "+79160940050",
+    "hoursShort": "Ежедневно 10:00–22:00",
+    "yandexMaps": "https://yandex.ru/maps/org/friends_beauty_club/1744356004/",
+    "twoGis": "https://2gis.ru/moscow/firm/70000001026227337",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79160940050"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/Friends_Beauty_Club"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "Friends Beauty Club — маникюр и педикюр на Большой Серпуховской",
+    "lead": "Маникюр и педикюр с гель-лаком или Luxio, наращивание и коррекция, брови и ресницы. Ежедневно с 10 до 22, кофе — пока делаете маникюр.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 362,
+        "url": "https://yandex.ru/maps/org/friends_beauty_club/1744356004/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,9",
+        "count": 138,
+        "url": "https://2gis.ru/moscow/firm/70000001026227337"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani",
+        "cx-mani",
+        "pedi",
+        "ext"
+      ],
+      "labels": {
+        "mani": "Маникюр",
+        "cx-mani": "Маникюр + гель-лак",
+        "pedi": "Педикюр",
+        "ext": "Наращивание"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Мария",
+      "dative": "Марии",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Ксения",
+      "dative": "Ксении",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Юлия",
+      "dative": "Юлии",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Надежда",
+      "dative": "Надежде",
+      "role": "Мастер наращивания",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani",
+          "name": "Маникюр без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2000,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "gel",
+              "name": "Покрытие гель-лаком",
+              "price": 600,
+              "duration": 45
+            },
+            {
+              "id": "luxio",
+              "name": "Покрытие Luxio",
+              "price": 1000,
+              "duration": 45
+            },
+            {
+              "id": "lak",
+              "name": "Лак или лечебный лак",
+              "price": 200,
+              "duration": 20
+            },
+            {
+              "id": "align",
+              "name": "Выравнивание или укрепление (IBX, акриловая пудра, ликвид-гель)",
+              "price": 100,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2000,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 2 000 ₽"
+    },
+    {
+      "category": "Комплексы",
+      "items": [
+        {
+          "id": "cx-mani",
+          "name": "Маникюр + снятие + гель-лак",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2900,
+            "from": false
+          }
+        },
+        {
+          "id": "cx-mani-luxio",
+          "name": "Маникюр + снятие + Luxio",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3300,
+            "from": false
+          }
+        },
+        {
+          "id": "cx-mani-align",
+          "name": "Маникюр + снятие + выравнивание + гель-лак",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 3200,
+            "from": false
+          }
+        },
+        {
+          "id": "cx-mani-align-luxio",
+          "name": "Маникюр + снятие + выравнивание + Luxio",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 3600,
+            "from": false
+          }
+        },
+        {
+          "id": "cx-pedi",
+          "name": "Педикюр + снятие + гель-лак",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3600,
+            "from": false
+          }
+        },
+        {
+          "id": "cx-pedi-luxio",
+          "name": "Педикюр + снятие + Luxio",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 4000,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "heart",
+      "from": "от 2 900 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi",
+          "name": "Педикюр без покрытия",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3000,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "gel",
+              "name": "Покрытие гель-лаком",
+              "price": 300,
+              "duration": 45
+            },
+            {
+              "id": "luxio",
+              "name": "Покрытие Luxio",
+              "price": 700,
+              "duration": 45
+            },
+            {
+              "id": "lak",
+              "name": "Лак или лечебный лак",
+              "price": 200,
+              "duration": 20
+            },
+            {
+              "id": "glitter",
+              "name": "Глиттер",
+              "price": 700,
+              "duration": 45
+            }
+          ]
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3500,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-express",
+          "name": "Экспресс-педикюр: пальчики + снятие + гель-лак",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 2900,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 2 900 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Наращивание + маникюр + гель-лак",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 6100,
+            "from": true
+          }
+        },
+        {
+          "id": "ext-bt",
+          "name": "Наращивание + маникюр, база и топ, 3–4 мм",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 5400,
+            "from": false
+          }
+        },
+        {
+          "id": "corr",
+          "name": "Коррекция наращивания + маникюр + гель-лак",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 5100,
+            "from": false
+          }
+        },
+        {
+          "id": "corr-bt",
+          "name": "Коррекция наращивания + маникюр, база и топ",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 4400,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 4 400 ₽"
+    },
+    {
+      "category": "Брови и ресницы",
+      "items": [
+        {
+          "id": "brow",
+          "name": "Коррекция и окрашивание бровей (краска или хна)",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 2000,
+            "from": false
+          }
+        },
+        {
+          "id": "brow-lash",
+          "name": "Брови + окрашивание ресниц",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2900,
+            "from": false
+          }
+        }
+      ]
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 362 оценкам",
+          "text": "Яндекс Карты; в 2ГИС — 4,9"
+        },
+        {
+          "icon": "sparkle",
+          "title": "Гель-лак или Luxio",
+          "text": "Покрытие на выбор"
+        },
+        {
+          "icon": "coffee",
+          "title": "Кофе, пока делаете маникюр",
+          "text": "За это хвалят в отзывах"
+        },
+        {
+          "icon": "parking",
+          "title": "Парковка",
+          "text": "И велопарковка"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах (обновлён 3 октября). Покрытие и укрепление — дополнениями к маникюру и педикюру."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах. Часть фото — для примера.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/13906970/2a00000191f77b4dec1448ebc8ef314be048/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14306621/2a00000191f77b2b1020ee1ebe850e746153/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/13906970/2a00000191f77b390b716f2584a8138f536f/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/12838938/2a00000191f77b37d8310f0efa52a60148e4/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14090927/2a00000191f77b29c4a5ee0793fad4fccf76/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://demo.top-in.ru/assets/img/nails/g-french.webp"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Оксана З.",
+          "source": "Яндекс Карты",
+          "date": "25 ноября 2025",
+          "rating": 5,
+          "text": "Недавно посетила студию маникюра и хочу поделиться впечатлениями. Очень понравилось: приветливый персонал, комфортные кресла, чистота вокруг❤️ Мастер сделала всё быстро и аккуратно, превосходный маникюр , держится отлично. Цена адекватная, качество отличное. Рекомендую посетить!🌸🌸🌸"
+        },
+        {
+          "name": "Мария Г.",
+          "source": "Яндекс Карты",
+          "date": "26 сентября",
+          "rating": 5,
+          "text": "Отличное место, выглядит все чисто и аккуратно. Мастер вежливая, задавала вопросы, сделала прекрасный маникюр"
+        },
+        {
+          "name": "Марина А.",
+          "source": "Яндекс Карты",
+          "date": "12 июля 2025",
+          "rating": 5,
+          "text": "Хожу в этот салон уже последние 7-8 лет, всегда возвращаюсь за красивым и качественным маникюром и педикюром. Все мастера очень приятные, профессионалы, салон очень стильный, а девушки администраторы очень заботливые, всегда предложат чай, кофе или шампанское. В общем нареканий на работу салона не было ни разу!"
+        },
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "23 ноября 2025",
+          "rating": 5,
+          "text": "Обслуживание в данном салоне заслуживает 10 звезд из 5 возможных! Очень приветливый персонал, маникюр выполнен аккуратно, качественно и главное - быстро 😍 в салоне приятная атмосфера, ненавязчивый интерьер, все на уровне Помимо идеального маникюра, я получила нереальный заряд положительных эмоций, обязательно вернусь🫶🏻"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Москва, Большая Серпуховская ул., 34, корп. 6, 1 этаж."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 22:00."
+        },
+        {
+          "q": "Сколько стоит маникюр с гель-лаком?",
+          "a": "Комплекс «маникюр + снятие + гель-лак» — 2 900 ₽, с Luxio — 3 300 ₽."
+        },
+        {
+          "q": "Делаете наращивание?",
+          "a": "Да: с маникюром и гель-лаком — от 6 100 ₽, коррекция — от 4 400 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}

@@ -1,0 +1,518 @@
+{
+  "slug": "efir",
+  "niche": "nails",
+  "style": "pudra",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Efir» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/efir/18748367751/ — 4,9 / 418, «Хорошее место 2026», прайс (1 октября)",
+    "2ГИС https://2gis.ru/moscow/firm/70000001088113564 — 5,0 / 18",
+    "Досье: лиды/Efir (Москва).md; разбор: разборы/Efir (Москва).md (данные проверены исследователем 26.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 26.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "их сайт efir-salon.ru сейчас не работает (Tilda 402; домен их до 03.05.2027) — сайт ставим на него же",
+    "метро и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Efir",
+    "kind": "Салон красоты"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "ул. Пресненский Вал, 8, корп. 1",
+    "addressNote": "1 этаж",
+    "metro": "",
+    "phone": "+7 985 894-85-55",
+    "phoneHref": "+79858948555",
+    "hoursShort": "Ежедневно 10:00–22:00",
+    "yandexMaps": "https://yandex.ru/maps/org/efir/18748367751/",
+    "twoGis": "https://2gis.ru/moscow/firm/70000001088113564",
+    "messengers": [
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/Efir_salon"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/efir.salon"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "Efir — маникюр и SMART-педикюр на Пресненском Валу",
+    "lead": "Аппаратный, пилочный и японский маникюр, комплексы с покрытием и френчем, SMART-педикюр и лечебный педикюр STRADERM. Мужской ногтевой сервис. Ежедневно с 10 до 22.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "4,9",
+        "count": 418,
+        "url": "https://yandex.ru/maps/org/efir/18748367751/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "5,0",
+        "count": 18,
+        "url": "https://2gis.ru/moscow/firm/70000001088113564"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani",
+        "cx",
+        "cx-all",
+        "pedi"
+      ],
+      "labels": {
+        "mani": "Маникюр",
+        "cx": "С покрытием",
+        "cx-all": "«Всё включено»",
+        "pedi": "SMART-педикюр"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Полина",
+      "dative": "Полине",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Виктория",
+      "dative": "Виктории",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Анна",
+      "dative": "Анне",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Надежда",
+      "dative": "Надежде",
+      "role": "Мастер маникюра и педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani",
+          "name": "Маникюр аппаратный или комбинированный, без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1950,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-file",
+          "name": "Пилочный маникюр без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2350,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-jp",
+          "name": "Японский маникюр Masura",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 3200,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр, аппаратный или комбинированный",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2600,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-men-file",
+          "name": "Мужской пилочный маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 3800,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-kids",
+          "name": "Детский маникюр, до 12 лет",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 880,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 880 ₽"
+    },
+    {
+      "category": "Комплексы",
+      "items": [
+        {
+          "id": "cx",
+          "name": "Снятие, маникюр, покрытие",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3200,
+            "from": false
+          }
+        },
+        {
+          "id": "cx-all",
+          "name": "«Всё включено»: снятие, маникюр, выравнивание, покрытие",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 3550,
+            "from": false
+          }
+        },
+        {
+          "id": "cx-french",
+          "name": "Снятие, маникюр, выравнивание, покрытие френч",
+          "desc": "",
+          "duration": 165,
+          "price": {
+            "value": 4700,
+            "from": false
+          }
+        },
+        {
+          "id": "cx-pedi",
+          "name": "SMART-педикюр со снятием и гель-лаком",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 4850,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "heart",
+      "from": "от 3 200 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi",
+          "name": "Женский SMART-педикюр: кутикула и пятки",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 4000,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-heels",
+          "name": "SMART-педикюр: только пятки",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 2750,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-straderm",
+          "name": "Лечебный педикюр STRADERM",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 5600,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-smarticure",
+          "name": "Педикюр Smarticure",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 5600,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской SMART-педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 5050,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 2 750 ₽"
+    },
+    {
+      "category": "Покрытие и снятие",
+      "items": [
+        {
+          "id": "remove-ext",
+          "name": "Снятие нарощенных ногтей",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 1750,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "sparkle",
+      "from": "от 1 750 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "4,9 по 418 оценкам",
+          "text": "«Хорошее место 2026» в Яндекс Картах"
+        },
+        {
+          "icon": "sparkle",
+          "title": "Японский и пилочный маникюр",
+          "text": "И лечебный педикюр STRADERM"
+        },
+        {
+          "icon": "check",
+          "title": "Мужской ногтевой сервис",
+          "text": "Маникюр и SMART-педикюр"
+        },
+        {
+          "icon": "parking",
+          "title": "Парковка",
+          "text": "Можно с собакой"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах (обновлён 1 октября)."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/13325287/2a0000018ef1dada75afe66b558c9712ccee/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/7883089/2a0000018ef1dacba49892c57a7ca8939fc7/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20288752/2a0000019f850f367ba399c127ebe8365a01/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/10238647/2a0000018ef1dad5906b5dd9c698c8f4d5cb/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/13308954/2a0000018ef1dae879219b2d23923b6dee6a/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/13234017/2a0000018ef1dae13f95fdf448dd10292bc1/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "6 августа",
+          "rating": 5,
+          "text": "Отличный салон! Записалась на маникюр, мастер аккуратно сделала покрытие, большая палитра цветов и очень вежливый персонал, учли все пожелания. Сам салон очень уютный, угостили вкусным кофе. Обязательно вернусь еще!"
+        },
+        {
+          "name": "Елизавета Д.",
+          "source": "Яндекс Карты",
+          "date": "6 мая",
+          "rating": 5,
+          "text": "Мастер Кристина очень внимательная, аккуратная, приятная, профессионал своего дела! Маникюр великолепный! Спасибо! Администратор Снежана очень приветливая и приятная девушка! Спасибо!"
+        },
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "8 мая",
+          "rating": 5,
+          "text": "Хожу на мужской маникюр уже второй год и каждый раз всё на высоте. Всегда аккуратно, чисто и с вниманием к деталям. Приятная атмосфера и отличный сервис. Рекомендую!🫶"
+        },
+        {
+          "name": "Евгения Л.",
+          "source": "Яндекс Карты",
+          "date": "12 мая",
+          "rating": 5,
+          "text": "Очень приятная, уютная студия. Доброжелательный и внимательный администратор, вкусный кофе) Мастер Анна сделала хорший маникюр. Спасибо"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Москва, ул. Пресненский Вал, 8, корп. 1, 1 этаж."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 22:00."
+        },
+        {
+          "q": "Сколько стоит маникюр с покрытием?",
+          "a": "Снятие, маникюр и покрытие — 3 200 ₽; «Всё включено» с выравниванием — 3 550 ₽."
+        },
+        {
+          "q": "Есть мужской маникюр?",
+          "a": "Да: аппаратный или комбинированный — 2 600 ₽, пилочный — 3 800 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}
