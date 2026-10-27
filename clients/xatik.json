@@ -1,0 +1,516 @@
+{
+  "slug": "xatik",
+  "niche": "nails",
+  "style": "moloko",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Xatik studio» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/xatik_studio/52256002104/ — 5,0 / 243, «Хорошее место 2026», прайс",
+    "2ГИС https://2gis.ru/moscow/firm/70000001035728066 — 5,0 / 4",
+    "Досье: лиды/Xatik studio (Москва).md; разбор: разборы/Xatik studio (Москва).md (данные проверены исследователем 27.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 27.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "сайта нет; xatikstudio.ru свободен (27.10) — зарегистрировать на владельца",
+    "часы: в Яндексе 10:00–21:00, в Telegram 9:00–21:00 — уточнить",
+    "метро и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Xatik studio",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "Рябиновая ул., 3, корп. 4",
+    "addressNote": "1 этаж, ЖК «КутузовGRAD»",
+    "metro": "",
+    "phone": "+7 966 309-99-92",
+    "phoneHref": "+79663099992",
+    "hoursShort": "Ежедневно 10:00–21:00",
+    "yandexMaps": "https://yandex.ru/maps/org/xatik_studio/52256002104/",
+    "twoGis": "https://2gis.ru/moscow/firm/70000001035728066",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79663099992"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/xatikstudioo"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "Xatik studio — маникюр и педикюр в ЖК «КутузовGRAD»",
+    "lead": "Комбинированный и аппаратный маникюр с гель-лаком, укрепление, френч и лунки, наращивание, Smart-педикюр у ведущего мастера. Ежедневно с 10 до 21.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 243,
+        "url": "https://yandex.ru/maps/org/xatik_studio/52256002104/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "5,0",
+        "count": 4,
+        "url": "https://2gis.ru/moscow/firm/70000001035728066"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani",
+        "mani-gel",
+        "pedi-gel",
+        "ext"
+      ],
+      "labels": {
+        "mani": "Маникюр",
+        "mani-gel": "С гель-лаком",
+        "pedi-gel": "Smart-педикюр",
+        "ext": "Наращивание"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Екатерина",
+      "dative": "Екатерине",
+      "role": "Ведущий мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Светлана",
+      "dative": "Светлане",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Полина",
+      "dative": "Полине",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Елизавета",
+      "dative": "Елизавете",
+      "role": "Мастер маникюра и педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani",
+          "name": "Маникюр комбинированный или аппаратный",
+          "desc": "У ведущего мастера — 2 300 ₽",
+          "duration": 60,
+          "price": {
+            "value": 1800,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "gel",
+              "name": "Укрепление гелем",
+              "price": 800,
+              "duration": 20
+            },
+            {
+              "id": "acryl",
+              "name": "Укрепление акриловой пудрой",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "french",
+              "name": "Френч",
+              "price": 700,
+              "duration": 30
+            },
+            {
+              "id": "moon",
+              "name": "Дизайн лунки",
+              "price": 700,
+              "duration": 30
+            },
+            {
+              "id": "lak",
+              "name": "Покрытие лаком",
+              "price": 600,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani-gel",
+          "name": "Маникюр с покрытием гель-лаком",
+          "desc": "У ведущего мастера — 4 000–4 500 ₽",
+          "duration": 120,
+          "price": {
+            "value": 3300,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "gel",
+              "name": "Укрепление гелем",
+              "price": 800,
+              "duration": 20
+            },
+            {
+              "id": "acryl",
+              "name": "Укрепление акриловой пудрой",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "french",
+              "name": "Френч",
+              "price": 700,
+              "duration": 30
+            },
+            {
+              "id": "moon",
+              "name": "Дизайн лунки",
+              "price": 700,
+              "duration": 30
+            },
+            {
+              "id": "lak",
+              "name": "Покрытие лаком",
+              "price": 600,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "У ведущего мастера — 2 500 ₽",
+          "duration": 60,
+          "price": {
+            "value": 2000,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-kids",
+          "name": "Детский маникюр",
+          "desc": "У ведущего мастера — 1 200 ₽",
+          "duration": 30,
+          "price": {
+            "value": 900,
+            "from": false
+          }
+        },
+        {
+          "id": "remove",
+          "name": "Снятие без последующего покрытия",
+          "desc": "",
+          "duration": 20,
+          "price": {
+            "value": 500,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 500 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Наращивание ногтей",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 5000,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 5 000 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi",
+          "name": "Комплексный Smart-педикюр, ведущий мастер",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3500,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-gel",
+          "name": "Комплексный Smart-педикюр с покрытием, ведущий мастер",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 5000,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-express",
+          "name": "Экспресс-педикюр: пальчики + покрытие, ведущий мастер",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3500,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской Smart-педикюр, ведущий мастер",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3500,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 3 500 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 243 оценкам",
+          "text": "«Хорошее место 2026»; в 2ГИС — тоже 5,0"
+        },
+        {
+          "icon": "award",
+          "title": "Ведущий мастер",
+          "text": "Маникюр и Smart-педикюр"
+        },
+        {
+          "icon": "sparkle",
+          "title": "Френч и лунки",
+          "text": "Укрепление гелем или пудрой"
+        },
+        {
+          "icon": "pin",
+          "title": "ЖК «КутузовGRAD»",
+          "text": "Рябиновая, 3к4, 1 этаж"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах. Цена у ведущего мастера — в описании услуги."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16443419/2a0000019bdaa7195055114b0da5c2852da9/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16416536/2a0000019bdaa7194fc32bad067cf777cc67/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/18806283/2a0000019bdaa719053e0ad455518d332839/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14329771/2a000001961b18d712374e71dde1dc173b18/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/13916077/2a000001961b193dd469c79e8bac6f37a431/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15439859/2a000001961b19083c7eebe2c3d4f54a4dea/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Светлана П.",
+          "source": "Яндекс Карты",
+          "date": "17 октября",
+          "rating": 5,
+          "text": "Необыкновенная атмосфера!!! Уютно и комфортно. Мастер Хатия заслуживает отдельного комплимента! Так быстро и качественно никогда и никто не делал мне маникюр и педикюр!!! Огромное спасибо этим умелым ручкам!!!"
+        },
+        {
+          "name": "Алина С.",
+          "source": "Яндекс Карты",
+          "date": "14 февраля",
+          "rating": 5,
+          "text": "Делала маникюр и педикюр. Прекрасный специалист! Быстро , красиво , все понравилось. Рекомендую! Приятная атмосфера и доброжелательность персонала, что тоже очень важно."
+        },
+        {
+          "name": "Диана П.",
+          "source": "Яндекс Карты",
+          "date": "29 апреля 2025",
+          "rating": 5,
+          "text": "Нравится, что все мастера хорошие. К кому не запишусь на ногти, всегда все отлично носится. Администратор очень вежливая и внимательная. Отношение к клиентам очень хорошее у всего персонала. Спасибо!"
+        },
+        {
+          "name": "Стася М.",
+          "source": "Яндекс Карты",
+          "date": "3 августа 2025",
+          "rating": 5,
+          "text": "Здесь так заботятся о качестве услуг и о ВРЕМЕНИ клиента, как нигде. Снятие+маникюр+ремонт+выравнивание и покрытие 1,5 часа. Идеальный маникюр."
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Москва, Рябиновая ул., 3, корп. 4, 1 этаж — ЖК «КутузовGRAD»."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 21:00."
+        },
+        {
+          "q": "Сколько стоит маникюр с гель-лаком?",
+          "a": "3 300 ₽, у ведущего мастера — от 4 000 ₽."
+        },
+        {
+          "q": "Делаете детский маникюр?",
+          "a": "Да, 900 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}

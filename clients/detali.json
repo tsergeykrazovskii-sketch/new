@@ -1,0 +1,579 @@
+{
+  "slug": "detali",
+  "niche": "nails",
+  "style": "shalfey",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Детали Бьюти Лаб» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/detali_beauty_lab/1695929617/ — 5,0 / 500, «Хорошее место 2026», прайс",
+    "2ГИС https://2gis.ru/moscow/firm/70000001027922254 — 4,9 / 70",
+    "Одностраничник https://detali-beauty-lab.clients.site/ — акция −10% до 31.10.2026",
+    "Досье: лиды/Детали Бьюти Лаб (Москва).md; разбор: разборы/Детали Бьюти Лаб (Москва).md (данные проверены исследователем 27.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 27.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "сайта нет; detalibeautylab.ru свободен (27.10) — зарегистрировать на владельца",
+    "акция −10% на первый визит на одностраничнике — до 31.10.2026, продлят ли",
+    "волосы, бикини — цены (салон шире маникюра)",
+    "метро и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Детали Бьюти Лаб",
+    "kind": "Салон красоты"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "Профсоюзная ул., 126, корп. 3",
+    "addressNote": "",
+    "metro": "",
+    "phone": "+7 968 003-58-60",
+    "phoneHref": "+79680035860",
+    "hoursShort": "Ежедневно 10:00–21:00",
+    "yandexMaps": "https://yandex.ru/maps/org/detali_beauty_lab/1695929617/",
+    "twoGis": "https://2gis.ru/moscow/firm/70000001027922254",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79680035860"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/DetaliBL"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/detaliblk"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "«Детали Бьюти Лаб» — маникюр и педикюр на Профсоюзной",
+    "lead": "Маникюр и педикюр с гель-лаком Kalipso, KLIO, Luxio или ONIQ, комплексы со снятием и выравниванием, парафинотерапия. Ежедневно с 10 до 21.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 500,
+        "url": "https://yandex.ru/maps/org/detali_beauty_lab/1695929617/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,9",
+        "count": 70,
+        "url": "https://2gis.ru/moscow/firm/70000001027922254"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani",
+        "cx-mani",
+        "cx-mani-luxio",
+        "cx-pedi"
+      ],
+      "labels": {
+        "mani": "Маникюр",
+        "cx-mani": "Комплекс Kalipso",
+        "cx-mani-luxio": "Комплекс Luxio",
+        "cx-pedi": "Педикюр"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Юлия",
+      "dative": "Юлии",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Екатерина",
+      "dative": "Екатерине",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Кристина",
+      "dative": "Кристине",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Ксения",
+      "dative": "Ксении",
+      "role": "Мастер маникюра и педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani",
+          "name": "Маникюр без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1400,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "lak",
+              "name": "Покрытие лаком",
+              "price": 800,
+              "duration": 20
+            },
+            {
+              "id": "kalipso",
+              "name": "Покрытие Kalipso или KLIO",
+              "price": 1300,
+              "duration": 45
+            },
+            {
+              "id": "luxio",
+              "name": "Покрытие Luxio или ONIQ",
+              "price": 1500,
+              "duration": 45
+            },
+            {
+              "id": "med",
+              "name": "Лечебное покрытие",
+              "price": 700,
+              "duration": 15
+            },
+            {
+              "id": "french",
+              "name": "Френч (к гель-лаку)",
+              "price": 800,
+              "duration": 30
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия",
+              "price": 400,
+              "duration": 15
+            },
+            {
+              "id": "polish",
+              "name": "Полировка",
+              "price": 200,
+              "duration": 10
+            },
+            {
+              "id": "remove",
+              "name": "Снятие гель-лака",
+              "price": 300,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1600,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 1 400 ₽"
+    },
+    {
+      "category": "Комплексы",
+      "items": [
+        {
+          "id": "cx-mani",
+          "name": "Снятие + маникюр + выравнивание + гель-лак Kalipso, KLIO",
+          "desc": "",
+          "duration": 135,
+          "price": {
+            "value": 2650,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "french",
+              "name": "Френч (к гель-лаку)",
+              "price": 800,
+              "duration": 30
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия",
+              "price": 400,
+              "duration": 15
+            },
+            {
+              "id": "polish",
+              "name": "Полировка",
+              "price": 200,
+              "duration": 10
+            },
+            {
+              "id": "remove",
+              "name": "Снятие гель-лака",
+              "price": 300,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "cx-mani-luxio",
+          "name": "Снятие + маникюр + выравнивание + гель-лак Luxio, ONIQ",
+          "desc": "",
+          "duration": 135,
+          "price": {
+            "value": 2850,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "french",
+              "name": "Френч (к гель-лаку)",
+              "price": 800,
+              "duration": 30
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия",
+              "price": 400,
+              "duration": 15
+            },
+            {
+              "id": "polish",
+              "name": "Полировка",
+              "price": 200,
+              "duration": 10
+            },
+            {
+              "id": "remove",
+              "name": "Снятие гель-лака",
+              "price": 300,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "cx-pedi",
+          "name": "Снятие + педикюр + гель-лак Kalipso, KLIO",
+          "desc": "",
+          "duration": 135,
+          "price": {
+            "value": 3150,
+            "from": false
+          }
+        },
+        {
+          "id": "cx-pedi-luxio",
+          "name": "Снятие + педикюр + гель-лак Luxio, ONIQ",
+          "desc": "",
+          "duration": 135,
+          "price": {
+            "value": 3350,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "heart",
+      "from": "от 2 650 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi",
+          "name": "Педикюр без покрытия",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2200,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия",
+              "price": 400,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "pedi-lak",
+          "name": "Педикюр + лак",
+          "desc": "",
+          "duration": 105,
+          "price": {
+            "value": 2750,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-gel",
+          "name": "Педикюр + гель-лак Kalipso, KLIO",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3050,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-luxio",
+          "name": "Педикюр + гель-лак Luxio, ONIQ",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3250,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2400,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 2 200 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 500 оценкам",
+          "text": "«Хорошее место 2026»; в 2ГИС — 4,9"
+        },
+        {
+          "icon": "sparkle",
+          "title": "Четыре марки гель-лака",
+          "text": "Kalipso, KLIO, Luxio, ONIQ"
+        },
+        {
+          "icon": "coffee",
+          "title": "Чай и кофе",
+          "text": "Меню напитков для гостей"
+        },
+        {
+          "icon": "gift",
+          "title": "Подарочные сертификаты",
+          "text": "От 1 000 ₽"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах. Френч, парафинотерапия и полировка — дополнениями."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/7636462/2a0000018717e36bf274540279b8c9a3f2c4/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/787110/2a000001871815dc5f12f0144273b620b71b/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/10814540/2a0000018b229e6463aa14fd62e365a7787f/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/992583/2a0000018655aff8f4a96fb8218729c210f9/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/17695349/2a0000019e978298172a1107ae98113cfa52/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/11471993/2a00000190367dcbfde9bc2510767a3fd807/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "18 июля",
+          "rating": 5,
+          "text": "Была на маникюре в этом салоне в первый раз. Работа выполнена очень аккуратно, кутикула обработана идеально. Покрытие отлично держится. Сложный цвет лег идеально. Мастер вежливая и приятная, время пролетело незаметно. Теперь пойду на педикюр."
+        },
+        {
+          "name": "Татьяна Б.",
+          "source": "Яндекс Карты",
+          "date": "6 марта",
+          "rating": 5,
+          "text": "Была сегодня первый раз в этом салоне. Очень положительное впечатление. Всё чисто и аккуратно. Приветливый администратор и мастер, у которого я делала педикюр. Процедурой осталась довольна. Обязательно вернусь снова!"
+        },
+        {
+          "name": "Елена",
+          "source": "Яндекс Карты",
+          "date": "1 декабря 2025",
+          "rating": 5,
+          "text": "Очень хороший салон. Чистый, современный. Сотрудники вежливые. Отдельное спасибо мастеру маникюра и педикюра Зареме. Делает всё быстро, аккуратно, красиво! И сама очень приятная и культурная!"
+        },
+        {
+          "name": "Дарья Б.",
+          "source": "Яндекс Карты",
+          "date": "5 декабря 2025",
+          "rating": 5,
+          "text": "Очень красивый и уютный салон. Прекрасные мастера и внимательный администратор. Удобные кресла, особенно для педикюра. Сделали аккуратно и качественно маникюр и педикюр. Советую"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Москва, Профсоюзная ул., 126, корп. 3."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 21:00."
+        },
+        {
+          "q": "Сколько стоит маникюр с гель-лаком?",
+          "a": "Комплекс со снятием и выравниванием — 2 650 ₽ (Kalipso, KLIO) или 2 850 ₽ (Luxio, ONIQ)."
+        },
+        {
+          "q": "Есть подарочные сертификаты?",
+          "a": "Да, от 1 000 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}
