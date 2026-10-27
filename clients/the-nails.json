@@ -1,0 +1,667 @@
+{
+  "slug": "the-nails",
+  "niche": "nails",
+  "style": "pudra",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «The Nails» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/the_nails/3539413352/ — 5,0 / 236, «Хорошее место 2026», прайс",
+    "2ГИС https://2gis.ru/moscow/firm/70000001084478961 — 4,9 / 47",
+    "Досье: лиды/The Nails Шелепиха (Москва).md; разбор: разборы/The Nails Шелепиха (Москва).md (данные проверены исследователем 27.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 27.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "сайта нет; the-nails-ss.ru и thenailsss.ru свободен (26.10) — зарегистрировать на владельца",
+    "наращивание — цена (в картах только коррекция)",
+    "метро и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "The Nails",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "Шелепихинская наб., 34, корп. 6",
+    "addressNote": "1 этаж",
+    "metro": "",
+    "phone": "+7 903 143-76-30",
+    "phoneHref": "+79031437630",
+    "hoursShort": "Ежедневно 10:00–22:00",
+    "yandexMaps": "https://yandex.ru/maps/org/the_nails/3539413352/",
+    "twoGis": "https://2gis.ru/moscow/firm/70000001084478961",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79031437630"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/the_nails_ss"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/the_nails_ss"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "The Nails — маникюр и педикюр на Шелепихе",
+    "lead": "Маникюр и педикюр с гель-лаком Luxio, укрепление, наращивание, детский маникюр и спа-уход Bandi. Ежедневно с 10 до 22, можно в 4 руки.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 236,
+        "url": "https://yandex.ru/maps/org/the_nails/3539413352/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,9",
+        "count": 47,
+        "url": "https://2gis.ru/moscow/firm/70000001084478961"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani",
+        "mani-luxio",
+        "pedi-smart",
+        "cx"
+      ],
+      "labels": {
+        "mani": "Маникюр",
+        "mani-luxio": "С Luxio",
+        "pedi-smart": "Smart-педикюр",
+        "cx": "Комплекс"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Софья",
+      "dative": "Софье",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Диана",
+      "dative": "Диане",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Алёна",
+      "dative": "Алёне",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Светлана",
+      "dative": "Светлане",
+      "role": "Мастер маникюра и педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani",
+          "name": "Маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2000,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "cateye",
+              "name": "«Кошачий глаз», все ногти",
+              "price": 1000,
+              "duration": 20
+            },
+            {
+              "id": "rub",
+              "name": "Втирка, все ногти",
+              "price": 800,
+              "duration": 20
+            },
+            {
+              "id": "design1",
+              "name": "Дизайн одного ногтя",
+              "price": 250,
+              "duration": 10
+            },
+            {
+              "id": "design",
+              "name": "Дизайн всех ногтей",
+              "price": 1500,
+              "duration": 45
+            },
+            {
+              "id": "spa",
+              "name": "Уход Bandi",
+              "price": 900,
+              "duration": 15
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафин",
+              "price": 700,
+              "duration": 15
+            },
+            {
+              "id": "lak",
+              "name": "Покрытие лаком",
+              "price": 800,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani-luxio",
+          "name": "Маникюр с покрытием Luxio",
+          "desc": "У топ-мастера — 3 900 ₽",
+          "duration": 120,
+          "price": {
+            "value": 3600,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "cateye",
+              "name": "«Кошачий глаз», все ногти",
+              "price": 1000,
+              "duration": 20
+            },
+            {
+              "id": "rub",
+              "name": "Втирка, все ногти",
+              "price": 800,
+              "duration": 20
+            },
+            {
+              "id": "design1",
+              "name": "Дизайн одного ногтя",
+              "price": 250,
+              "duration": 10
+            },
+            {
+              "id": "design",
+              "name": "Дизайн всех ногтей",
+              "price": 1500,
+              "duration": 45
+            },
+            {
+              "id": "spa",
+              "name": "Уход Bandi",
+              "price": 900,
+              "duration": 15
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафин",
+              "price": 700,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-str",
+          "name": "Маникюр + укрепление гелем + Luxio",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 4900,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "cateye",
+              "name": "«Кошачий глаз», все ногти",
+              "price": 1000,
+              "duration": 20
+            },
+            {
+              "id": "rub",
+              "name": "Втирка, все ногти",
+              "price": 800,
+              "duration": 20
+            },
+            {
+              "id": "design1",
+              "name": "Дизайн одного ногтя",
+              "price": 250,
+              "duration": 10
+            },
+            {
+              "id": "design",
+              "name": "Дизайн всех ногтей",
+              "price": 1500,
+              "duration": 45
+            },
+            {
+              "id": "spa",
+              "name": "Уход Bandi",
+              "price": 900,
+              "duration": 15
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафин",
+              "price": 700,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2500,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-kids",
+          "name": "Детский маникюр, до 12 лет",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 1000,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 1 000 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi",
+          "name": "Педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3000,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "spa",
+              "name": "Уход Bandi",
+              "price": 900,
+              "duration": 15
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафин",
+              "price": 700,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "pedi-luxio",
+          "name": "Педикюр с покрытием Luxio",
+          "desc": "У топ-мастера — 4 900 ₽",
+          "duration": 120,
+          "price": {
+            "value": 4600,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-smart",
+          "name": "Smart-педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3600,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-smart-gel",
+          "name": "Комплекс Smart-педикюр с покрытием",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 5500,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-express",
+          "name": "Экспресс-педикюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2100,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3400,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 2 100 ₽"
+    },
+    {
+      "category": "Комплексы",
+      "items": [
+        {
+          "id": "cx",
+          "name": "Маникюр + педикюр с Luxio",
+          "desc": "В 4 руки — плюс 500 ₽",
+          "duration": 210,
+          "price": {
+            "value": 8400,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "heart",
+      "from": "от 8 400 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "corr",
+          "name": "Коррекция наращенных ногтей",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 5500,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 5 500 ₽"
+    },
+    {
+      "category": "Покрытие и снятие",
+      "items": [
+        {
+          "id": "luxio",
+          "name": "Покрытие гель-лаком Luxio",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 1600,
+            "from": false
+          }
+        },
+        {
+          "id": "polish",
+          "name": "Полировка ногтей",
+          "desc": "",
+          "duration": 20,
+          "price": {
+            "value": 700,
+            "from": false
+          }
+        },
+        {
+          "id": "remove",
+          "name": "Снятие",
+          "desc": "",
+          "duration": 20,
+          "price": {
+            "value": 600,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "sparkle",
+      "from": "от 600 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 236 оценкам",
+          "text": "«Хорошее место 2026» в Яндекс Картах"
+        },
+        {
+          "icon": "sparkle",
+          "title": "Гель-лак Luxio",
+          "text": "И уход Bandi для рук и ног"
+        },
+        {
+          "icon": "child",
+          "title": "Детский маникюр",
+          "text": "Для детей до 12 лет — 1 000 ₽"
+        },
+        {
+          "icon": "heart",
+          "title": "В 4 руки",
+          "text": "Маникюр и педикюр одновременно"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах. Дизайн, втирка и уход — дополнениями."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15153151/2a00000193ea0da6443623866005f2e4301b/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14209766/2a00000193ea0d9a518632042e7993e69336/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14563476/2a00000193fc0d279f6d88d5a546089f6adc/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14813057/2a00000193bbf1d94a42f494a42aaed097db/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14317263/2a00000193f5015ea091ffe85d66b0426c4b/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/13604236/2a00000193de652764db6fcb8912ad0946a2/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "13 августа",
+          "rating": 5,
+          "text": "Любимый салон! Уже не первый месяц делаю тут маникюр, каждый раз ухожу в восторге как от работы мастеров, так и от обслуживания. Всегда предлагают чай, кофе, помогут с любыми вопросами, мастера прислушиваются к пожеланиям."
+        },
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "13 августа",
+          "rating": 5,
+          "text": "Очень нравится этот салон. Бережное, заботливое обслуживание. Прихожу не только сделать маникюр и педикюр, но и отдохнуть. Даже не спрашиваю кто будет у меня из мастеров, потому что все мастера здесь очень аккуратные, старательные и деликатные."
+        },
+        {
+          "name": "Элина В.",
+          "source": "Яндекс Карты",
+          "date": "29 мая",
+          "rating": 5,
+          "text": "Не первый раз посещаю этот салон. Могу поставить 10/10 , мне все очень нравится. Маникюр выполнен очень качественно, покрытие держится супер долго. Атмосфера в салоне очень приятная. И администраторы и мастера вежливые и внимательные к гостям!"
+        },
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "8 сентября",
+          "rating": 5,
+          "text": "Хороший салон, хожу на маникюр и педикюр только сюда. Всегда очень приятная атмосфера, мастера очень аккуратные, тактичные. Легко записаться через онлайн запись, либо администратора, всегда найдут окошко. Рекомендую."
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Москва, Шелепихинская набережная, 34, корп. 6, 1 этаж."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 22:00."
+        },
+        {
+          "q": "Сколько стоит маникюр с покрытием?",
+          "a": "С Luxio — 3 600 ₽, у топ-мастера — 3 900 ₽."
+        },
+        {
+          "q": "Можно маникюр и педикюр одновременно?",
+          "a": "Да, в 4 руки — доплата 500 ₽. Комплекс маникюр + педикюр с Luxio — 8 400 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}

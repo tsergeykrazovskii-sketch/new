@@ -1,0 +1,706 @@
+{
+  "slug": "nailszone",
+  "niche": "nails",
+  "style": "shalfey",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «NailsZone» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/nailszone/199830536064/ — 5,0 / 283, прайс (2 сентября)",
+    "2ГИС https://2gis.ru/moscow/firm/70000001035045363 — 4,7 / 49",
+    "Досье: лиды/NailsZone (Москва).md; разбор: разборы/NailsZone (Москва).md (данные проверены исследователем 27.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 27.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "сайта нет; nailszone.ru свободен (26.10) — зарегистрировать на владельца",
+    "два Telegram (Волоколамская и Митино) — какой основной",
+    "метро и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "NailsZone",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "Митинская ул., 10",
+    "addressNote": "",
+    "metro": "",
+    "phone": "+7 968 440-00-33",
+    "phoneHref": "+79684400033",
+    "hoursShort": "Ежедневно 10:00–22:00",
+    "yandexMaps": "https://yandex.ru/maps/org/nailszone/199830536064/",
+    "twoGis": "https://2gis.ru/moscow/firm/70000001035045363",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79684400033"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/nails_zonemitino"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/mypilka"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "NailsZone — студия маникюра на Митинской",
+    "lead": "Маникюр и педикюр с гель-лаком Beautix, Kalipso, Nailpassion или Luxio, пилочный маникюр у ведущего мастера, наращивание, мужской и детский маникюр.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 283,
+        "url": "https://yandex.ru/maps/org/nailszone/199830536064/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,7",
+        "count": 49,
+        "url": "https://2gis.ru/moscow/firm/70000001035045363"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani",
+        "mani-gel",
+        "pedi-smart-gel",
+        "ext"
+      ],
+      "labels": {
+        "mani": "Маникюр",
+        "mani-gel": "С гель-лаком",
+        "pedi-smart-gel": "Smart-педикюр",
+        "ext": "Наращивание"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Марина",
+      "dative": "Марине",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Анна",
+      "dative": "Анне",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Алёна",
+      "dative": "Алёне",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Полина",
+      "dative": "Полине",
+      "role": "Мастер наращивания",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani",
+          "name": "Маникюр классический, аппаратный или комби",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1100,
+            "from": true
+          },
+          "options": [
+            {
+              "id": "french",
+              "name": "Френч",
+              "price": 600,
+              "duration": 30
+            },
+            {
+              "id": "french-gl",
+              "name": "Френч с глиттером",
+              "price": 990,
+              "duration": 40
+            },
+            {
+              "id": "design",
+              "name": "Простой дизайн, за ноготь",
+              "price": 50,
+              "duration": 5
+            },
+            {
+              "id": "design2",
+              "name": "Сложный дизайн, за ноготь",
+              "price": 200,
+              "duration": 10
+            },
+            {
+              "id": "matte",
+              "name": "Матовый топ",
+              "price": 200,
+              "duration": 5
+            },
+            {
+              "id": "shimmer",
+              "name": "Топ с шиммером Luxio",
+              "price": 300,
+              "duration": 5
+            }
+          ]
+        },
+        {
+          "id": "mani-lak",
+          "name": "Маникюр с покрытием лаком",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 1500,
+            "from": true
+          }
+        },
+        {
+          "id": "mani-gel",
+          "name": "Маникюр с гель-лаком Beautix, Kalipso, Nailpassion",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2400,
+            "from": true
+          },
+          "options": [
+            {
+              "id": "french",
+              "name": "Френч",
+              "price": 600,
+              "duration": 30
+            },
+            {
+              "id": "french-gl",
+              "name": "Френч с глиттером",
+              "price": 990,
+              "duration": 40
+            },
+            {
+              "id": "design",
+              "name": "Простой дизайн, за ноготь",
+              "price": 50,
+              "duration": 5
+            },
+            {
+              "id": "design2",
+              "name": "Сложный дизайн, за ноготь",
+              "price": 200,
+              "duration": 10
+            },
+            {
+              "id": "matte",
+              "name": "Матовый топ",
+              "price": 200,
+              "duration": 5
+            },
+            {
+              "id": "shimmer",
+              "name": "Топ с шиммером Luxio",
+              "price": 300,
+              "duration": 5
+            },
+            {
+              "id": "remove",
+              "name": "Снятие гель-лака",
+              "price": 300,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-luxio",
+          "name": "Маникюр с гель-лаком Luxio",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2700,
+            "from": true
+          },
+          "options": [
+            {
+              "id": "french",
+              "name": "Френч",
+              "price": 600,
+              "duration": 30
+            },
+            {
+              "id": "french-gl",
+              "name": "Френч с глиттером",
+              "price": 990,
+              "duration": 40
+            },
+            {
+              "id": "design",
+              "name": "Простой дизайн, за ноготь",
+              "price": 50,
+              "duration": 5
+            },
+            {
+              "id": "design2",
+              "name": "Сложный дизайн, за ноготь",
+              "price": 200,
+              "duration": 10
+            },
+            {
+              "id": "matte",
+              "name": "Матовый топ",
+              "price": 200,
+              "duration": 5
+            },
+            {
+              "id": "shimmer",
+              "name": "Топ с шиммером Luxio",
+              "price": 300,
+              "duration": 5
+            },
+            {
+              "id": "remove",
+              "name": "Снятие гель-лака",
+              "price": 300,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-str",
+          "name": "Маникюр с укреплением цветным гелем",
+          "desc": "",
+          "duration": 135,
+          "price": {
+            "value": 3300,
+            "from": true
+          }
+        },
+        {
+          "id": "mani-file",
+          "name": "Пилочный маникюр, ведущий мастер",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1700,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-file-gel",
+          "name": "Пилочный маникюр с гель-лаком, ведущий мастер",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2800,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 1 100 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi",
+          "name": "Педикюр без покрытия, классический или аппаратный",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2000,
+            "from": true
+          }
+        },
+        {
+          "id": "pedi-smart",
+          "name": "Педикюр Smart без покрытия",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2400,
+            "from": true
+          }
+        },
+        {
+          "id": "pedi-gel",
+          "name": "Педикюр с гель-лаком",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2400,
+            "from": true
+          }
+        },
+        {
+          "id": "pedi-smart-gel",
+          "name": "Педикюр Smart с гель-лаком",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2900,
+            "from": true
+          }
+        },
+        {
+          "id": "pedi-toes",
+          "name": "Экспресс-педикюр: пальчики",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1600,
+            "from": true
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 1 600 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Наращивание с гель-лаком",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 4100,
+            "from": true
+          }
+        },
+        {
+          "id": "ext-luxio",
+          "name": "Наращивание с гель-лаком Luxio",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 4400,
+            "from": true
+          }
+        },
+        {
+          "id": "corr",
+          "name": "Коррекция с гель-лаком",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 3600,
+            "from": true
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 3 600 ₽"
+    },
+    {
+      "category": "Мужской сервис",
+      "items": [
+        {
+          "id": "men-mani",
+          "name": "Мужской маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1600,
+            "from": true
+          }
+        },
+        {
+          "id": "men-pedi",
+          "name": "Мужской педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2700,
+            "from": true
+          }
+        },
+        {
+          "id": "men-pedi-smart",
+          "name": "Мужской педикюр Smart",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2900,
+            "from": true
+          }
+        }
+      ]
+    },
+    {
+      "category": "Покрытие и снятие",
+      "items": [
+        {
+          "id": "kids",
+          "name": "Детский маникюр, до 12 лет",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 500,
+            "from": false
+          }
+        },
+        {
+          "id": "remove",
+          "name": "Снятие гель-лака без покрытия",
+          "desc": "",
+          "duration": 20,
+          "price": {
+            "value": 500,
+            "from": false
+          }
+        },
+        {
+          "id": "remove-gel",
+          "name": "Снятие геля",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 600,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "sparkle",
+      "from": "от 500 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 283 оценкам",
+          "text": "Яндекс Карты; в 2ГИС — 4,7"
+        },
+        {
+          "icon": "sparkle",
+          "title": "Гель-лак на выбор",
+          "text": "Beautix, Kalipso, Nailpassion или Luxio"
+        },
+        {
+          "icon": "check",
+          "title": "Мужской и детский маникюр",
+          "text": "Детский — от 500 ₽"
+        },
+        {
+          "icon": "coffee",
+          "title": "Чай и кофе",
+          "text": "За это хвалят в отзывах"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах (обновлён 2 сентября). Дизайн, френч и топы — дополнениями."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/1020917/2a00000186eff2deaa27c7dc5b9fba40281b/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/7981565/2a00000186eff3ae70713da2c56269391154/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/219656/2a00000186eff53015b1f39784b4f5df29c0/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/5483747/2a0000018934fd78030b4d0adf8eac32d79d/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/1551063/2a00000186ea33388c166ff65eedc8695ddd/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/219656/2a00000186ea2e059836fea1b1a309db26e4/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Светлана М.",
+          "source": "Яндекс Карты",
+          "date": "28 сентября",
+          "rating": 5,
+          "text": "Замечательная студия!Мастера высокого уровня.У каждого специалиста своя техника выполнения маникюра.Всегда внимательный администратор,которая заботливо предлагает кофе или чай на выбор.Я рекомендую эту студию и своим знакомым.Получаю обратную связь ,все довольны.❤️Спасибо"
+        },
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "23 октября",
+          "rating": 5,
+          "text": "Приятная и уютная студия. Классные мастера, вежливый персонал. Хороший ассортимент палитры цветов. Можно прекрасно провести время маникюра за вкусным кофе."
+        },
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "27 июля",
+          "rating": 5,
+          "text": "Посетила салон впервые, очень понравилась атмосфера, приветливый персонал. Мастер Татьяна сделала маникюр, очень аккуратно и качественно. Записалась сразу на следующее посещение."
+        },
+        {
+          "name": "Кудряшова И.",
+          "source": "Яндекс Карты",
+          "date": "27 августа 2025",
+          "rating": 5,
+          "text": "Очень понравился салон, красивый и чистый. Была в первый раз. Мастер Дайва сделала прекрасный маникюр с покрытием, легкая в общении. Можно выбрать напиток по желанию, что очень приятно!"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Москва, Митинская ул., 10."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 22:00."
+        },
+        {
+          "q": "Сколько стоит маникюр с гель-лаком?",
+          "a": "От 2 400 ₽, с Luxio — от 2 700 ₽. Снятие старого покрытия — 300 ₽."
+        },
+        {
+          "q": "Делаете детский маникюр?",
+          "a": "Да, для детей до 12 лет — от 500 ₽, с лаком — 900 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}

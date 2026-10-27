@@ -1,0 +1,535 @@
+{
+  "slug": "zl-studio",
+  "niche": "nails",
+  "style": "shalfey",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Zl Studio» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/zl_studio/162863312183/ — 5,0 / 223, прайс (29 сентября)",
+    "2ГИС https://2gis.ru/moscow/firm/70000001118127711 — 5,0 / 11",
+    "Досье: лиды/Zl Studio (Москва).md; разбор: разборы/Zl Studio (Москва).md (данные проверены исследователем 27.10.2026)",
+    "Фото: 5 из карточки Яндекс Карт (gallery), 27.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "Галерея: своих фото в карточке мало — добавлены фото-заглушки шаблона, заменить",
+    "сайта нет; zlnailstudio.ru свободен (26.10) — зарегистрировать на владельца",
+    "YouTube @zlodeevapilit — ссылку на сайт по желанию",
+    "брови и ресницы — цены",
+    "метро и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Zl Studio",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "Мячковский б-р, 9",
+    "addressNote": "",
+    "metro": "",
+    "phone": "+7 903 708-51-32",
+    "phoneHref": "+79037085132",
+    "hoursShort": "Ежедневно 10:00–22:00",
+    "yandexMaps": "https://yandex.ru/maps/org/zl_studio/162863312183/",
+    "twoGis": "https://2gis.ru/moscow/firm/70000001118127711",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79037085132"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/zl_studionails"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/zlstudiio"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "Zl Studio — маникюр и педикюр на Мячковском бульваре",
+    "lead": "Маникюр с гель-лаком и укреплением, френч, Smart-педикюр и комплексы «маникюр + педикюр». Мастер или бренд-мастер — на выбор.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 223,
+        "url": "https://yandex.ru/maps/org/zl_studio/162863312183/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "5,0",
+        "count": 11,
+        "url": "https://2gis.ru/moscow/firm/70000001118127711"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani",
+        "mani-gel",
+        "pedi-gel",
+        "cx-gel2"
+      ],
+      "labels": {
+        "mani": "Маникюр",
+        "mani-gel": "Маникюр + гель-лак",
+        "pedi-gel": "Smart-педикюр",
+        "cx-gel2": "Комплекс"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Диана",
+      "dative": "Диане",
+      "role": "Бренд-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Валерия",
+      "dative": "Валерии",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Екатерина",
+      "dative": "Екатерине",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Надежда",
+      "dative": "Надежде",
+      "role": "Мастер маникюра и педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani",
+          "name": "Маникюр комбинированный или аппаратный без покрытия",
+          "desc": "У бренд-мастера — 1 900 ₽",
+          "duration": 60,
+          "price": {
+            "value": 1500,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "remove",
+              "name": "Снятие",
+              "price": 200,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-gel",
+          "name": "Маникюр + гель-лак",
+          "desc": "У бренд-мастера — 3 100 ₽",
+          "duration": 120,
+          "price": {
+            "value": 2600,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-str",
+          "name": "Маникюр + укрепление гелем + гель-лак",
+          "desc": "У бренд-мастера — 3 600 ₽",
+          "duration": 135,
+          "price": {
+            "value": 3100,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-french",
+          "name": "Маникюр + френч",
+          "desc": "У бренд-мастера — 3 600 ₽",
+          "duration": 135,
+          "price": {
+            "value": 3100,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-str-french",
+          "name": "Маникюр + укрепление гелем + френч",
+          "desc": "У бренд-мастера — 4 100 ₽",
+          "duration": 150,
+          "price": {
+            "value": 3600,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-file",
+          "name": "Пилочный маникюр без покрытия, бренд-мастер",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2100,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-file-gel",
+          "name": "Пилочный маникюр + гель-лак, бренд-мастер",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3300,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 1 500 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi",
+          "name": "Smart-педикюр с обработкой стоп, без покрытия",
+          "desc": "У бренд-мастера — 2 500 ₽",
+          "duration": 90,
+          "price": {
+            "value": 2100,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-gel",
+          "name": "Smart-педикюр + гель-лак",
+          "desc": "У бренд-мастера — 3 500 ₽",
+          "duration": 120,
+          "price": {
+            "value": 3100,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-toes",
+          "name": "Педикюр: пальчики без покрытия",
+          "desc": "У бренд-мастера — 2 100 ₽",
+          "duration": 60,
+          "price": {
+            "value": 1700,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-toes-gel",
+          "name": "Педикюр: пальчики + гель-лак",
+          "desc": "У бренд-мастера — 3 100 ₽",
+          "duration": 90,
+          "price": {
+            "value": 2700,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 1 700 ₽"
+    },
+    {
+      "category": "Комплексы",
+      "items": [
+        {
+          "id": "cx",
+          "name": "Маникюр без покрытия + Smart-педикюр",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 3400,
+            "from": false
+          }
+        },
+        {
+          "id": "cx-gel",
+          "name": "Маникюр + гель-лак, Smart-педикюр без покрытия",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 4500,
+            "from": false
+          }
+        },
+        {
+          "id": "cx-gel2",
+          "name": "Маникюр + гель-лак, Smart-педикюр + гель-лак",
+          "desc": "",
+          "duration": 210,
+          "price": {
+            "value": 5400,
+            "from": false
+          }
+        },
+        {
+          "id": "cx-str",
+          "name": "Маникюр + укрепление + гель-лак, Smart-педикюр + гель-лак",
+          "desc": "",
+          "duration": 225,
+          "price": {
+            "value": 5900,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "heart",
+      "from": "от 3 400 ₽"
+    },
+    {
+      "category": "Мужской сервис",
+      "items": [
+        {
+          "id": "men-mani",
+          "name": "Мужской маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1700,
+            "from": false
+          }
+        },
+        {
+          "id": "men-pedi",
+          "name": "Мужской педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2300,
+            "from": false
+          }
+        }
+      ]
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 223 оценкам",
+          "text": "Яндекс Карты; в 2ГИС — тоже 5,0"
+        },
+        {
+          "icon": "heart",
+          "title": "Комплексы",
+          "text": "Маникюр и педикюр с гель-лаком — 5 400 ₽"
+        },
+        {
+          "icon": "award",
+          "title": "Мастер или бренд-мастер",
+          "text": "Выбираете сами"
+        },
+        {
+          "icon": "coffee",
+          "title": "Чай и кофе",
+          "text": "За это хвалят в отзывах"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах (обновлён 29 сентября). Цена у бренд-мастера — в описании услуги."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах. Часть фото — для примера.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/19689422/2a0000019fa96263fd663a9189ea05acdf10/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20879831/2a000001a08f0c4009f93d38f8a21741fd57/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20112234/2a0000019fa96267574bde65b2ff22fa7644/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/18032027/2a000001a08f0c6409c1c64c0ce44d66cea1/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/21535825/2a000001a0d7afccd83f60b98f4bbf3d3d7a/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://demo.top-in.ru/assets/img/nails/g-french.webp"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Марина",
+          "source": "Яндекс Карты",
+          "date": "25 сентября",
+          "rating": 5,
+          "text": "Была первый раз в этой студии, делала руки и ноги без покрытия. Мастер Анастасия. Студия отличная. Парковка есть, внутри уютно и очень чисто. Кресла очень удобные. Кофе вкусный) Спустя неделю с ногтями и вокруг все прекрасно, что для меня огромный показатель качества. Очень рада знакомству! Приду еще)))"
+        },
+        {
+          "name": "Анна Т.",
+          "source": "Яндекс Карты",
+          "date": "4 августа",
+          "rating": 5,
+          "text": "Любимая студия! Мастера все профессионалы! Очень уютно стало после ремонта. Всегда предложат кофе, водички, конфетки. Приятная атмосфера и качественный маникюр вам обеспечены 😍"
+        },
+        {
+          "name": "Ольга К.",
+          "source": "Яндекс Карты",
+          "date": "11 августа",
+          "rating": 5,
+          "text": "Супер студия , быстро красиво , я в восторге )) Долго мучалась с поиском мастера кто делает НЕ БОЛЬНО , быстро и красиво !! Маникюр занимает 60-80 минут , без боли и с помощью в дизайне )) безумно удобные кресла для педикюра , хочется остаться в них спать 😁 Рекомендую ✨"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Москва, Мячковский бульвар, 9."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 22:00."
+        },
+        {
+          "q": "Чем бренд-мастер отличается от мастера?",
+          "a": "Опытом и ценой: маникюр с гель-лаком — 2 600 ₽ у мастера и 3 100 ₽ у бренд-мастера."
+        },
+        {
+          "q": "Есть комплекс «маникюр + педикюр»?",
+          "a": "Да: маникюр с гель-лаком и Smart-педикюр с гель-лаком — 5 400 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}

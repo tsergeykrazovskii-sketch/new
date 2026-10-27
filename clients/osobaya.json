@@ -1,0 +1,588 @@
+{
+  "slug": "osobaya",
+  "niche": "nails",
+  "style": "moloko",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Osobaя» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/osoba_/35500288651/ — 5,0 / 471, «Хорошее место 2026», прайс (9 сентября)",
+    "2ГИС https://2gis.ru/moscow/firm/70000001100927016 — 5,0 / 2",
+    "Досье: лиды/Osobaя (Москва).md; разбор: разборы/Osobaя (Москва).md (данные проверены исследователем 27.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 27.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "сайта нет; osobayanail.ru свободен (26.10) — зарегистрировать на владельца",
+    "брови, ресницы, депиляция, перманент — цены (в описании Telegram)",
+    "метро и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Osobaя",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Москва",
+    "address": "Кировоградская ул., 38, корп. 1",
+    "addressNote": "около Ozon",
+    "metro": "",
+    "phone": "+7 995 882-55-31",
+    "phoneHref": "+79958825531",
+    "hoursShort": "Ежедневно 10:00–22:00",
+    "yandexMaps": "https://yandex.ru/maps/org/osoba_/35500288651/",
+    "twoGis": "https://2gis.ru/moscow/firm/70000001100927016",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79958825531"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/osobayanail"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "Osobaя — маникюр и педикюр на Кировоградской",
+    "lead": "Маникюр и педикюр с гель-лаком, экспресс-педикюр, наращивание и коррекция, дизайн и спа-уход. Ежедневно с 10 до 22, можно в 4 руки.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 471,
+        "url": "https://yandex.ru/maps/org/osoba_/35500288651/reviews/"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani",
+        "mani-gel",
+        "pedi-gel",
+        "ext"
+      ],
+      "labels": {
+        "mani": "Маникюр",
+        "mani-gel": "С гель-лаком",
+        "pedi-gel": "Педикюр",
+        "ext": "Наращивание"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Полина",
+      "dative": "Полине",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Алёна",
+      "dative": "Алёне",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Мария",
+      "dative": "Марии",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Кристина",
+      "dative": "Кристине",
+      "role": "Мастер наращивания",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani",
+          "name": "Маникюр без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1300,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design1",
+              "name": "Дизайн 1-й категории, за ноготь",
+              "price": 50,
+              "duration": 5
+            },
+            {
+              "id": "design2",
+              "name": "Дизайн 2-й категории",
+              "price": 300,
+              "duration": 20
+            },
+            {
+              "id": "spa",
+              "name": "Спа-уход",
+              "price": 500,
+              "duration": 15
+            },
+            {
+              "id": "med",
+              "name": "Лечебный лак",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "ibx",
+              "name": "Лечебное покрытие IBX",
+              "price": 700,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani-gel",
+          "name": "Маникюр с покрытием гель-лаком",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2600,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design1",
+              "name": "Дизайн 1-й категории, за ноготь",
+              "price": 50,
+              "duration": 5
+            },
+            {
+              "id": "design2",
+              "name": "Дизайн 2-й категории",
+              "price": 300,
+              "duration": 20
+            },
+            {
+              "id": "spa",
+              "name": "Спа-уход",
+              "price": 500,
+              "duration": 15
+            },
+            {
+              "id": "remove",
+              "name": "Снятие гель-лака",
+              "price": 300,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-men",
+          "name": "Маникюр мужской",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1600,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 1 300 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi",
+          "name": "Педикюр без покрытия, любой вид обработки",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2300,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "spa",
+              "name": "Спа-уход",
+              "price": 500,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "pedi-gel",
+          "name": "Педикюр с гель-лаком и пятками",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3100,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "remove",
+              "name": "Снятие гель-лака",
+              "price": 300,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "pedi-toes",
+          "name": "Экспресс-педикюр: только пальчики",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1800,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-toes-gel",
+          "name": "Экспресс-педикюр с гель-лаком",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 2400,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2700,
+            "from": false
+          }
+        },
+        {
+          "id": "feet",
+          "name": "Смарт-обработка стоп",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 1300,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 1 300 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Наращивание ногтей",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 4300,
+            "from": false
+          }
+        },
+        {
+          "id": "ext-long",
+          "name": "Наращивание ногтей, длинные",
+          "desc": "",
+          "duration": 210,
+          "price": {
+            "value": 4800,
+            "from": false
+          }
+        },
+        {
+          "id": "corr",
+          "name": "Коррекция гелем",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 3100,
+            "from": false
+          }
+        },
+        {
+          "id": "corr-hard",
+          "name": "Сложная коррекция",
+          "desc": "",
+          "duration": 165,
+          "price": {
+            "value": 3600,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 3 100 ₽"
+    },
+    {
+      "category": "Покрытие и снятие",
+      "items": [
+        {
+          "id": "gel-only",
+          "name": "Покрытие гель-лаком без обработки",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 1300,
+            "from": false
+          }
+        },
+        {
+          "id": "remove",
+          "name": "Снятие гель-лака без последующего покрытия",
+          "desc": "",
+          "duration": 20,
+          "price": {
+            "value": 600,
+            "from": false
+          }
+        },
+        {
+          "id": "remove-ext",
+          "name": "Снятие искусственного материала",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 800,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "sparkle",
+      "from": "от 600 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 471 оценке",
+          "text": "«Хорошее место 2026» в Яндекс Картах"
+        },
+        {
+          "icon": "heart",
+          "title": "В 4 руки",
+          "text": "Маникюр и педикюр одновременно — плюс 500 ₽"
+        },
+        {
+          "icon": "coffee",
+          "title": "Чай и кофе",
+          "text": "За это хвалят в отзывах"
+        },
+        {
+          "icon": "pin",
+          "title": "Кировоградская, 38",
+          "text": "Рядом с Ozon"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах (обновлён 9 сентября). Дизайн, спа-уход и снятие — дополнениями."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/1987173/2a00000172ea6642618d32cc029bc5797554/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/2384894/2a00000172ea6d531cf3f1b1b5867b53c23d/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/2368846/2a00000172ea6d37b6f832415af46762a969/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/918124/2a00000184fccce464dde55816289e430329/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/1633071/2a00000184fcd2263f0265b523b48c50fb75/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/2813737/2a00000173f839fc601f2a836a4e68ed0495/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Ульяна С.",
+          "source": "Яндекс Карты",
+          "date": "5 мая",
+          "rating": 5,
+          "text": "Любимый салон, в котором бываю регулярно. В очередной раз сделала маникюр и осталась в восторге! Качество работы, стерильность инструментов и вежливость персонала - всё как всегда на 10/10. Если хотите идеальные ногти и отличный сервис, вам точно сюда."
+        },
+        {
+          "name": "Алиса Ж.",
+          "source": "Яндекс Карты",
+          "date": "23 декабря 2025",
+          "rating": 5,
+          "text": "Любимый салон с замечательным мастерами и чудесными администраторами) Очень нравится качество маникюра и отношение. Мне очень сложно найти мастера - высокая чувствительность и короткие ногти, но тут это не проблема. Каждый визит поднимает настроение, всегда ухожу с красивыми ноготочками)"
+        },
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "23 марта",
+          "rating": 5,
+          "text": "Комфортное расположение салона. Приветливый персонал. Все чётко! Мастер Любовь делает качественный маникюр, а также покрытие. Можно носить маникюр месяцами₽ Рекомендую!"
+        },
+        {
+          "name": "Диана П.",
+          "source": "Яндекс Карты",
+          "date": "5 мая 2025",
+          "rating": 5,
+          "text": "Была впервые сегодня и просто в восторге 😍 Мастер Любовь очень внимательная, заботливая и нежная! Всё сделала на высшем уровне. Рада, что нашла такое место рядом с домом. Обязательно вернусь ещё и в следующий раз за маникюром. Спасибо большое 💕"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Москва, Кировоградская ул., 38, корп. 1 — рядом с пунктом Ozon."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 22:00."
+        },
+        {
+          "q": "Сколько стоит маникюр с гель-лаком?",
+          "a": "2 600 ₽. Снятие старого покрытия — ещё 300 ₽."
+        },
+        {
+          "q": "Можно маникюр и педикюр одновременно?",
+          "a": "Да, в 4 руки — доплата 500 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}
