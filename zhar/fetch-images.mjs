@@ -1,5 +1,6 @@
 // Фото упаковок с Ozon → zhar/img/products/<артикул>.webp (первое фото карточки, 900 px)
 // Нужен доступ к ir.ozone.ru / ir-*.ozone.ru и python3 с Pillow. Запуск: node zhar/fetch-images.mjs
+// При выкладке демо (pages.yml) запускается сам: с серверов Ozon фото на чужих сайтах не показываются, поэтому кладём их в сайт.
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
@@ -10,13 +11,14 @@ const raw = JSON.parse(fs.readFileSync(path.join(here, 'src/ozon-raw.json'), 'ut
 const out = path.join(here, 'img/products');
 const tmp = fs.mkdtempSync(path.join(here, '.tmp-'));
 fs.mkdirSync(out, { recursive: true });
+const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36';
 let ok = 0;
 for (const [id, r] of Object.entries(raw)) {
   const url = (r.images || [])[0];
   if (!url) continue;
   const src = path.join(tmp, id + path.extname(new URL(url).pathname));
   try {
-    execFileSync('curl', ['-sSf', '--retry', '3', '-m', '30', '-o', src, url]);
+    execFileSync('curl', ['-sSfL', '--retry', '3', '--retry-all-errors', '-m', '30', '-A', UA, '-e', 'https://www.ozon.ru/', '-o', src, url]);
     ok++;
   } catch (e) {
     console.log(`${id}: не скачалось (${url})`);
