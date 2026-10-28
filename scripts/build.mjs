@@ -14,6 +14,7 @@ import path from 'node:path';
 import vm from 'node:vm';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
@@ -246,7 +247,7 @@ for (const f of clientFiles) {
 // 404 на Pages: со своим доменом сайты живут с корня (demo.top-in.ru/svoi/), а по старой привычке пишут
 // с именем репозитория (demo.top-in.ru/new/svoi/) — если дальше в адресе известный сайт, переходим на него
 {
-  const sites = [...Object.keys(Slot.niches), ...clientFiles.map((f) => f.replace(/\.json$/, ''))];
+  const sites = [...Object.keys(Slot.niches), ...clientFiles.map((f) => f.replace(/\.json$/, '')), 'zhar'];
   write(dist, '404.html', `<!doctype html>
 <html lang="ru">
 <head>
@@ -273,6 +274,9 @@ for (const f of clientFiles) {
 </html>
 `);
 }
+
+// Сторонний проект на демо-домене: сайт бренда «Жар-соус» (zhar/, своя сборка) → dist/zhar/
+execFileSync(process.execPath, [path.join(root, 'zhar/build.mjs'), '--out', path.join(dist, 'zhar'), '--demo', ...(SITE_URL ? ['--base-url', `${SITE_URL}/zhar/`] : [])], { stdio: 'inherit' });
 
 if (setupCodes.length) {
   console.log('\nКоды первого входа в админку (release/<клиент>/admin/config.php):\n  ' + setupCodes.join('\n  '));

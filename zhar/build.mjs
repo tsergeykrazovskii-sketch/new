@@ -1,5 +1,6 @@
 // Сайт бренда «Жар-соус»: данные (src/content.json + src/ozon-raw.json) → zhar/dist/index.html
-// Запуск: node zhar/build.mjs [--base-url https://zharsous.ru/]
+// Запуск: node zhar/build.mjs [--base-url https://zharsous.ru/] [--out папка] [--demo]
+//   --demo — черновик на demo.top-in.ru: закрыт от поисковиков (noindex), без canonical и sitemap
 // Фото упаковок: zhar/img/products/<артикул Ozon>.webp (node zhar/fetch-images.mjs), пока их нет — ссылки на фото Ozon.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -7,7 +8,9 @@ import { fileURLToPath } from 'node:url';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
-const dist = path.join(here, 'dist');
+const arg0 = (k) => (process.argv.includes(k) ? process.argv[process.argv.indexOf(k) + 1] : '');
+const dist = arg0('--out') ? path.resolve(arg0('--out')) : path.join(here, 'dist');
+const DEMO = process.argv.includes('--demo');
 const read = (p) => fs.readFileSync(path.join(here, p), 'utf8');
 const C = JSON.parse(read('src/content.json'));
 const RAW = JSON.parse(read('src/ozon-raw.json'));
@@ -313,6 +316,8 @@ const P = products.map((p) => ({
 const title = `${B.name} — острые соусы с Carolina Reaper на ягодах и фруктах`;
 const desc = `Жар-соус: ${FLAVORS} вкусов — клюква, манго, слива, фейхоа, смородина и Carolina Reaper. Сначала вкус, потом жар. Купить на Ozon и Wildberries. Оценка 4,9.`;
 const fonts = ['dela-gothic-one', 'manrope'];
+// превью ссылки 1200×630: node scripts/share.mjs zhar (снимок первого экрана) → assets/share/zhar.jpg
+const SHARE = fs.existsSync(path.join(root, 'assets/share/zhar.jpg'));
 const html = `<!doctype html>
 <html lang="ru">
 <head>
@@ -326,7 +331,7 @@ const html = `<!doctype html>
 <meta property="og:locale" content="ru_RU">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
-${SITE ? `<link rel="canonical" href="${esc(SITE)}">\n<meta property="og:url" content="${esc(SITE)}">\n<meta property="og:image" content="${esc(SITE)}img/hero.webp">\n` : ''}${fonts.map((f) => `<link rel="stylesheet" href="fonts/${f}.css">`).join('\n')}
+${DEMO ? '<meta name="robots" content="noindex, nofollow">\n' : ''}${SITE ? `${DEMO ? '' : `<link rel="canonical" href="${esc(SITE)}">\n`}<meta property="og:url" content="${esc(SITE)}">\n<meta property="og:image" content="${esc(SITE)}${SHARE ? 'share.jpg' : 'img/hero.webp'}">\n${SHARE ? '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta name="twitter:card" content="summary_large_image">\n' : ''}` : ''}${fonts.map((f) => `<link rel="stylesheet" href="fonts/${f}.css">`).join('\n')}
 <style>${read('src/style.css')}</style>
 <script type="application/ld+json">${JSON.stringify({
   '@context': 'https://schema.org',
@@ -367,7 +372,8 @@ for (const f of fonts) {
   fs.writeFileSync(path.join(dist, 'fonts', f + '.css'), css);
   for (const m of css.matchAll(/url\(files\/([^)]+)\)/g)) fs.copyFileSync(path.join(root, 'assets/fonts/files', m[1]), path.join(dist, 'fonts/files', m[1]));
 }
-fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\n${SITE ? `Sitemap: ${SITE}sitemap.xml\n` : ''}`);
-if (SITE) fs.writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${esc(SITE)}</loc></url></urlset>\n`);
+if (SHARE) fs.copyFileSync(path.join(root, 'assets/share/zhar.jpg'), path.join(dist, 'share.jpg'));
+if (!DEMO) fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\n${SITE ? `Sitemap: ${SITE}sitemap.xml\n` : ''}`);
+if (SITE && !DEMO) fs.writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${esc(SITE)}</loc></url></urlset>\n`);
 const local = products.filter((p) => p.img.startsWith('img/')).length;
-console.log(`zhar/dist/index.html — ${(html.length / 1024).toFixed(1)} КБ, соусов: ${products.length}, фото упаковок в комплекте: ${local}/${products.length}`);
+console.log(`${path.relative(root, dist)}/index.html — ${(html.length / 1024).toFixed(1)} КБ, соусов: ${products.length}, фото упаковок в комплекте: ${local}/${products.length}`);
