@@ -97,7 +97,7 @@ const header = `
   <div class="wrap hdr__in">
     <a class="logo" href="#top" aria-label="${esc(B.name)} — наверх">${ic('flame', 'logo__ic')}<span><b>ЖАР</b>-СОУС</span></a>
     <nav class="nav" aria-label="Разделы">
-      <a href="#catalog">Соусы</a><a href="#heat">Острота</a><a href="#match">К чему</a><a href="#reviews">Отзывы</a><a href="#horeca">Ресторанам</a>
+      <a href="#catalog">Соусы</a><a href="#heat">Острота</a><a href="#match">К чему</a><a href="#reviews">Отзывы</a><a href="#opt">Оптовикам</a>
     </nav>
     <a class="btn btn--fire hdr__cta" href="#buy">Купить</a>
   </div>
@@ -256,19 +256,46 @@ const gift = `
   </div>
 </section>`;
 
+// Оптовикам: кому, проверенный спрос, форматы и характеристики. Условия и прайс — по запросу (в открытых данных их нет)
 const horeca = `
-<section class="sec sec--dark" id="horeca">
-  <div class="wrap horeca">
-    <div>
-      <p class="eyebrow">Ресторанам и кафе</p>
-      <h2 class="sec__title">Большой формат для кухни</h2>
-      <p class="sec__lead">Томатный Жар-соус есть в упаковке 1 кг. «Острую тыкву» создатели впервые сварили по заказу бренд-шефа сети ресторанов в Москве — так что свой вкус под ваше меню тоже обсуждаем.</p>
-      <div class="horeca__cta">
-        <a class="btn btn--fire btn--lg" href="${esc(B.vk)}" target="_blank" rel="noopener">${ic('vk')}Написать во ВКонтакте</a>
-        <a class="btn btn--line btn--lg" href="${esc(byId['2143294147'].ozon)}" target="_blank" rel="noopener">Помидор 1 кг на Ozon${ic('arrow')}</a>
+<section class="sec sec--dark" id="opt">
+  <div class="wrap">
+    <div class="opt__head">
+      <div>
+        <p class="eyebrow">Оптовикам</p>
+        <h2 class="sec__title">Жар-соус в ваш магазин, ресторан или подарочный набор</h2>
+        <p class="sec__lead">${FLAVORS} вкусов в двух форматах, подарочная упаковка и срок годности до двух лет. Прайс, минимальную партию и условия доставки пришлём по запросу.</p>
+        <div class="horeca__cta">
+          <a class="btn btn--fire btn--lg" href="${esc(B.vk)}" target="_blank" rel="noopener">${ic('vk')}Запросить прайс во ВКонтакте</a>
+          <a class="btn btn--line btn--lg" href="#opt-spec">Характеристики</a>
+        </div>
+      </div>
+      <div class="demand">
+        <p class="eyebrow">Спрос уже проверен</p>
+        <ul class="demand__nums">
+          <li><b>${B.rating}</b><span>средняя оценка товаров на Ozon</span></li>
+          <li><b>${B.reviews}</b><span>отзывов покупателей</span></li>
+          <li><b>${B.orders}+</b><span>заказов на Ozon</span></li>
+          <li><b>${B.years}</b><span>на Ozon, статус Premium</span></li>
+        </ul>
       </div>
     </div>
-    <ul class="horeca__list"><li>${ic('chef')}<span><b>Под ваше меню</b>Вкус для шефа и его блюд</span></li><li>${ic('box')}<span><b>1 кг</b>Удобно для кухни и раздачи</span></li><li>${ic('flame')}<span><b>${FLAVORS} вкусов</b>От неострых до 15 000 SHU</span></li></ul>
+    <ul class="opt__cards">
+      <li class="opt-card"><span class="opt-card__n">01</span><span class="opt-card__tag">Розница</span><h3>Магазины и сети</h3><p>Фермерские и гастрономические магазины, лавки специй, мясные бутики, магазины для гриля и барбекю. Бутылка 100 мл в своей коробке — сразу на полку.</p><p class="opt-card__chips"><span>Гастрономы</span><span>Мясные лавки</span><span>Всё для гриля</span></p></li>
+      <li class="opt-card"><span class="opt-card__n">02</span><span class="opt-card__tag">HoReCa</span><h3>Рестораны и кафе</h3><p>Томатный соус есть в упаковке 1 кг. «Острую тыкву» создатели впервые сварили по заказу бренд-шефа сети ресторанов в Москве — вкус под ваше меню тоже обсуждаем.</p><p class="opt-card__chips"><span>Стейк-хаусы</span><span>Бургерные</span><span>Шашлычные</span></p></li>
+      <li class="opt-card"><span class="opt-card__n">03</span><span class="opt-card__tag">Подарки</span><h3>Корпоративные подарки</h3><p>Каждый соус — в плотной коробочке, бутылка запаяна в пакет. Готовый подарок коллегам и клиентам: к Новому году, 23 февраля, на день компании.</p><p class="opt-card__chips"><span>Коллегам</span><span>Клиентам</span><span>Новый год</span></p></li>
+    </ul>
+    <div class="spec" id="opt-spec">
+      <div class="spec__col">
+        <h3>Форматы</h3>
+        <dl><dt>Бутылка</dt><dd>100 мл (≈ 110 г), носик-дозатор, коробка + герметичный пакет</dd><dt>Большой формат</dt><dd>1 кг — томатный соус «Помидор»</dd><dt>Линейка</dt><dd>${products.filter((p) => p.line === 'hot').length} острых с Carolina Reaper и ${products.filter((p) => p.line === 'mild').length} неострых</dd></dl>
+      </div>
+      <div class="spec__col">
+        <h3>Хранение и сроки</h3>
+        <dl><dt>Срок годности</dt><dd>2 года у большинства вкусов</dd><dt>Хранение</dt><dd>от 0 до +25 °C, влажность до 75 %; неострые после вскрытия — не выше +12 °C</dd><dt>Производство</dt><dd>Россия</dd></dl>
+      </div>
+      <p class="spec__foot">Состав и КБЖУ каждого вкуса — в карточке соуса выше. Прайс, минимальная партия, документы и доставка — по запросу.<a class="btn btn--light" href="${esc(B.vk)}" target="_blank" rel="noopener">Запросить${ic('arrow')}</a></p>
+    </div>
   </div>
 </section>`;
 
@@ -298,7 +325,7 @@ const footer = `
 <footer class="ftr">
   <div class="wrap ftr__in">
     <div><a class="logo" href="#top">${ic('flame', 'logo__ic')}<span><b>ЖАР</b>-СОУС</span></a><p>${esc(B.tagline)}. Сначала вкус — потом жар.</p></div>
-    <nav aria-label="Разделы"><a href="#catalog">Соусы</a><a href="#heat">Острота</a><a href="#match">К чему</a><a href="#reviews">Отзывы</a><a href="#horeca">Ресторанам</a><a href="#faq">Вопросы</a></nav>
+    <nav aria-label="Разделы"><a href="#catalog">Соусы</a><a href="#heat">Острота</a><a href="#match">К чему</a><a href="#reviews">Отзывы</a><a href="#opt">Оптовикам</a><a href="#faq">Вопросы</a></nav>
     <div class="ftr__links"><a href="${esc(B.ozonShop)}" target="_blank" rel="noopener">Ozon</a><a href="${esc(B.wb)}" target="_blank" rel="noopener">Wildberries</a><a href="${esc(B.vk)}" target="_blank" rel="noopener">ВКонтакте</a></div>
   </div>
   <div class="wrap ftr__bot"><span>© ${B.year} ${esc(B.legal)}</span><span>Информация на сайте не является публичной офертой</span><span>Разработано в <a href="https://top-in.ru/" target="_blank" rel="noopener">top-in.ru</a></span></div>
