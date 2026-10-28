@@ -278,6 +278,7 @@ for (const f of clientFiles) {
 // Сторонний проект на демо-домене: сайт бренда «Жар-соус» (zhar/, своя сборка) → dist/zhar/
 execFileSync(process.execPath, [path.join(root, 'zhar/build.mjs'), '--out', path.join(dist, 'zhar'), '--demo', ...(SITE_URL ? ['--base-url', `${SITE_URL}/zhar/`] : [])], { stdio: 'inherit' });
 
-if (setupCodes.length) {
+// В облачной сборке (GitHub Actions) коды не печатаем: тот комплект никому не отдаётся, а журнал сборки публичный
+if (setupCodes.length && !process.env.CI) {
   console.log('\nКоды первого входа в админку (release/<клиент>/admin/config.php):\n  ' + setupCodes.join('\n  '));
 }
