@@ -18,7 +18,9 @@
   --ember: #ffc23a;
   --ozon: #005bff;
   --wb: #cb11ab;
-  --display: "Dela Gothic One", "Arial Black", Impact, sans-serif;
+  /* заголовки — Manrope, рукописные акценты — Caveat (как письмо от создателей в коробке) */
+  --display: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --hand: "Caveat", "Comic Sans MS", cursive;
   --body: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --r: 16px;
   --r-lg: 26px;
@@ -165,13 +167,14 @@ button {
   align-items: center;
   gap: 8px;
   font-family: var(--display);
+  font-weight: 800;
   font-size: 20px;
   letter-spacing: 0.02em;
   text-decoration: none;
   color: var(--on-dark);
 }
 .logo b {
-  font-weight: 400;
+  font-weight: 800;
   color: var(--ember);
 }
 .logo__ic {
@@ -306,6 +309,7 @@ button {
   min-height: 56px;
   border-bottom: 1px solid var(--line-dark);
   font-family: var(--display);
+  font-weight: 800;
   font-size: 1.25rem;
   text-decoration: none;
   color: var(--on-dark);
@@ -396,10 +400,10 @@ body.menu-open {
 .sec__title,
 .hero__title {
   margin: 0;
+  letter-spacing: -0.035em;
   font-family: var(--display);
-  font-weight: 400;
+  font-weight: 800;
   line-height: 1.08;
-  letter-spacing: -0.01em;
   text-wrap: balance;
 }
 .sec__title {
@@ -625,6 +629,7 @@ body.menu-open {
   background: linear-gradient(90deg, var(--fire), var(--flame));
   color: #fff;
   font-family: var(--display);
+  font-weight: 800;
   font-size: 15px;
   letter-spacing: 0.04em;
 }
@@ -766,7 +771,7 @@ body.menu-open {
 .card__name {
   margin: 0;
   font-family: var(--display);
-  font-weight: 400;
+  font-weight: 800;
   font-size: clamp(1rem, 0.92rem + 0.4vw, 1.25rem);
   line-height: 1.15;
 }
@@ -913,6 +918,7 @@ body.menu-open {
 .scale__val {
   white-space: nowrap;
   font-family: var(--display);
+  font-weight: 800;
   font-size: 15px;
   color: var(--muted-dark);
 }
@@ -1081,7 +1087,7 @@ body.menu-open {
   gap: 10px;
   margin: 0 0 14px;
   font-family: var(--display);
-  font-weight: 400;
+  font-weight: 800;
   font-size: 1.3rem;
 }
 .vs__col ul {
@@ -1144,10 +1150,11 @@ body.menu-open {
   gap: 10px;
   padding: 18px 20px 0;
   font-family: var(--display);
+  font-weight: 800;
   font-size: 1.2rem;
 }
 .step figcaption b {
-  font-weight: 400;
+  font-weight: 800;
   color: var(--fire-text);
 }
 .step p {
@@ -1176,6 +1183,7 @@ body.menu-open {
 .rev__big {
   margin: 18px 0 0;
   font-family: var(--display);
+  font-weight: 800;
   font-size: 5.4rem;
   line-height: 1;
   color: var(--fire-text);
@@ -1357,7 +1365,7 @@ body.menu-open {
 }
 .horeca__list b {
   font-family: var(--display);
-  font-weight: 400;
+  font-weight: 800;
   font-size: 1.15rem;
   color: var(--on-dark);
 }
@@ -1401,6 +1409,7 @@ body.menu-open {
   background: var(--ozon);
   color: #fff;
   font-family: var(--display);
+  font-weight: 800;
   font-size: 22px;
 }
 .shop--wb .shop__logo {
@@ -1413,7 +1422,7 @@ body.menu-open {
 }
 .shop__t b {
   font-family: var(--display);
-  font-weight: 400;
+  font-weight: 800;
   font-size: 1.3rem;
   color: var(--ink);
 }
@@ -1625,7 +1634,7 @@ body.menu-open {
 .pd__name {
   margin: 0;
   font-family: var(--display);
-  font-weight: 400;
+  font-weight: 800;
   font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.2rem);
   line-height: 1.1;
 }
@@ -1671,7 +1680,7 @@ body.menu-open {
 }
 .nutr b {
   font-family: var(--display);
-  font-weight: 400;
+  font-weight: 800;
   font-size: 1.1rem;
   color: var(--ink);
 }
@@ -1722,7 +1731,7 @@ body.menu-open {
 }
 .demand__nums b {
   font-family: var(--display);
-  font-weight: 400;
+  font-weight: 800;
   font-size: clamp(1.4rem, 1.1rem + 0.9vw, 1.9rem);
   line-height: 1.05;
   white-space: nowrap;
@@ -1765,6 +1774,7 @@ body.menu-open {
   top: 20px;
   right: 22px;
   font-family: var(--display);
+  font-weight: 800;
   font-size: 1.6rem;
   color: rgba(255, 194, 58, 0.25);
 }
@@ -1782,7 +1792,7 @@ body.menu-open {
 .opt-card h3 {
   margin: 4px 0 0;
   font-family: var(--display);
-  font-weight: 400;
+  font-weight: 800;
   font-size: 1.3rem;
 }
 .opt-card p {
@@ -1866,4 +1876,20 @@ body.menu-open {
 .spec__foot .btn--light {
   background: var(--ink);
   color: var(--paper);
+}
+
+/* рукописный акцент: «Потом жар.», «держите сметану» */
+.hand {
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: 1.3em;
+  line-height: 0.8;
+  letter-spacing: 0;
+}
+.sec__title .hand {
+  color: var(--fire-text);
+}
+.sec--fire .sec__title .hand,
+.sec--dark .sec__title .hand {
+  color: #ffd27a;
 }

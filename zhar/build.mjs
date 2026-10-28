@@ -120,7 +120,7 @@ const hero = `
   <div class="wrap hero__in">
     <div class="hero__copy">
       <p class="eyebrow rise">${ic('pepper')} ${esc(B.tagline)}</p>
-      <h1 class="hero__title rise" style="--d:1">Сначала вкус. <span class="fire">Потом жар.</span></h1>
+      <h1 class="hero__title rise" style="--d:1">Сначала вкус. <span class="fire hand">Потом жар.</span></h1>
       <p class="hero__lead rise" style="--d:2">Острые соусы на настоящих ягодах и фруктах — клюква, манго, слива, фейхоа, смородина — и перце Carolina Reaper. Острота приходит после вкуса и регулируется каплями.</p>
       <ul class="chips rise" style="--d:3">
         <li>${ic('leaf')}Пюре ягод и фруктов в основе</li><li>${ic('drop')}Без резкого уксусного вкуса</li><li>${ic('gift')}В подарочной коробке</li>
@@ -145,7 +145,7 @@ const catalog = `
   <div class="wrap">
     <div class="sec__head">
       <p class="eyebrow">Линейка</p>
-      <h2 class="sec__title">${FLAVORS} вкусов — от «не жжёт» до «держите сметану»</h2>
+      <h2 class="sec__title">${FLAVORS} вкусов — от «не жжёт» до <span class="hand">«держите сметану»</span></h2>
       <p class="sec__lead">Острые — на перце Carolina Reaper, неострые — к сыру, рыбе и десертам. Нажмите на соус — покажем состав и с чем его есть.</p>
     </div>
     <div class="filters" role="group" aria-label="Фильтр">
@@ -214,7 +214,7 @@ const why = `
   <div class="wrap">
     <div class="sec__head">
       <p class="eyebrow">Чем отличается</p>
-      <h2 class="sec__title">Не «жжёт ради жжения»</h2>
+      <h2 class="sec__title">Не <span class="hand">«жжёт ради жжения»</span></h2>
     </div>
     <div class="vs">
       <div class="vs__col">
@@ -259,7 +259,7 @@ const gift = `
   <div class="wrap gift">
     <div>
       <p class="eyebrow">В подарок</p>
-      <h2 class="sec__title">Подарок, который не уберут в шкаф</h2>
+      <h2 class="sec__title">Подарок, который <span class="hand">не уберут в шкаф</span></h2>
       <p class="sec__lead">Каждый соус — в плотной коробочке, бутылка с тонким носиком-дозатором запаяна в пакет. Покупатели находят внутри магнит и письмо от создателей с историей вкуса и рецептами.</p>
       <a class="btn btn--light btn--lg" href="${esc(B.ozonShop)}" target="_blank" rel="noopener">Выбрать на Ozon${ic('arrow')}</a>
     </div>
@@ -353,7 +353,7 @@ const P = products.map((p) => ({
 
 const title = `${B.name} — острые соусы с Carolina Reaper на ягодах и фруктах`;
 const desc = `Жар-соус: ${FLAVORS} вкусов — клюква, манго, слива, фейхоа, смородина и Carolina Reaper. Сначала вкус, потом жар. Купить на Ozon и Wildberries. Оценка 4,9.`;
-const fonts = ['dela-gothic-one', 'manrope'];
+const fonts = ['manrope', 'caveat'];
 // превью ссылки 1200×630: node scripts/share.mjs zhar (снимок первого экрана) → assets/share/zhar.jpg
 const SHARE = fs.existsSync(path.join(root, 'assets/share/zhar.jpg'));
 const html = `<!doctype html>
