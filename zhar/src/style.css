@@ -13,6 +13,7 @@
   --line-dark: rgba(247, 234, 219, 0.14);
   --fire: #e2341d;
   --fire-2: #c42a14;
+  --fire-text: #c42a14; /* красный для текста на светлом: контраст 5,4 */
   --flame: #ff7a1a;
   --ember: #ffc23a;
   --ozon: #005bff;
@@ -120,7 +121,8 @@ button {
   font-size: 16px;
 }
 .btn--fire {
-  background: linear-gradient(135deg, var(--flame), var(--fire));
+  /* белый текст на огне: тёмная часть градиента держит контраст 4,9–6,3 */
+  background: linear-gradient(135deg, #cc3f12, #b8270f);
   color: #fff;
   box-shadow: 0 10px 24px -10px rgba(226, 52, 29, 0.7);
 }
@@ -366,7 +368,7 @@ body.menu-open {
   background: var(--cream);
 }
 .sec--fire {
-  background: radial-gradient(120% 140% at 0% 0%, #ff9a2e 0%, var(--fire) 45%, #8f1a0b 100%);
+  background: radial-gradient(120% 140% at 0% 0%, #d9481a 0%, #b8270f 45%, #7a160a 100%);
   color: #fff;
 }
 .sec__head {
@@ -382,14 +384,14 @@ body.menu-open {
   font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--fire);
+  color: var(--fire-text);
 }
 .sec--dark .eyebrow,
 .hero .eyebrow {
   color: var(--ember);
 }
 .sec--fire .eyebrow {
-  color: var(--ember);
+  color: #ffe7b0;
 }
 .sec__title,
 .hero__title {
@@ -592,6 +594,7 @@ body.menu-open {
   aspect-ratio: 3 / 4;
   overflow: hidden;
   border-radius: var(--r);
+  background: #f4e4d2;
   background: radial-gradient(120% 90% at 50% 20%, color-mix(in srgb, var(--c) 35%, #fff) 0%, color-mix(in srgb, var(--c) 70%, #fff) 100%);
 }
 .pimg img {
@@ -607,6 +610,7 @@ body.menu-open {
   inset: 0;
   display: grid;
   place-items: center;
+  color: rgba(31, 19, 14, 0.5);
   color: color-mix(in srgb, var(--c) 60%, #000);
 }
 .pimg__ph .ic {
@@ -745,7 +749,7 @@ body.menu-open {
   background: var(--ink);
   color: var(--ember);
   font-weight: 800;
-  font-size: 11px;
+  font-size: 12px;
 }
 .card__body {
   display: flex;
@@ -805,7 +809,7 @@ body.menu-open {
   gap: 8px;
   font-weight: 800;
   font-size: 12px;
-  color: var(--fire);
+  color: var(--fire-text);
 }
 .heat--0 {
   color: #5d7f2a;
@@ -818,6 +822,7 @@ body.menu-open {
   width: 8px;
   height: 14px;
   border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+  background: rgba(226, 52, 29, 0.2);
   background: color-mix(in srgb, currentColor 22%, transparent);
 }
 .heat__dots i.on {
@@ -979,11 +984,11 @@ body.menu-open {
   transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
 .mtab .ic {
-  color: var(--fire);
+  color: var(--fire-text);
 }
 .mtab.is-on {
-  background: var(--fire);
-  border-color: var(--fire);
+  background: var(--fire-2);
+  border-color: var(--fire-2);
   color: #fff;
 }
 .mtab.is-on .ic {
@@ -1143,7 +1148,7 @@ body.menu-open {
 }
 .step figcaption b {
   font-weight: 400;
-  color: var(--fire);
+  color: var(--fire-text);
 }
 .step p {
   margin: 8px 0 0;
@@ -1173,7 +1178,7 @@ body.menu-open {
   font-family: var(--display);
   font-size: 5.4rem;
   line-height: 1;
-  color: var(--fire);
+  color: var(--fire-text);
 }
 .rev__stars {
   display: flex;
@@ -1224,7 +1229,9 @@ body.menu-open {
   padding: 4px 10px;
   border: 0;
   border-radius: 999px;
+  background: #f6e7da;
   background: color-mix(in srgb, var(--c) 14%, #fff);
+  color: var(--ink);
   color: color-mix(in srgb, var(--c) 80%, #000);
   font-weight: 800;
   font-size: 12px;
@@ -1449,7 +1456,7 @@ body.menu-open {
 }
 .qa__ic {
   transform: rotate(45deg);
-  color: var(--fire);
+  color: var(--fire-text);
   transition: transform 0.3s var(--ease);
 }
 .qa[open] .qa__ic {
@@ -1640,7 +1647,7 @@ body.menu-open {
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--fire);
+  color: var(--fire-text);
 }
 .pd p {
   margin: 0;
@@ -1767,7 +1774,7 @@ body.menu-open {
   border: 1px solid rgba(255, 194, 58, 0.45);
   border-radius: 999px;
   font-weight: 800;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ember);
@@ -1820,7 +1827,7 @@ body.menu-open {
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--fire);
+  color: var(--fire-text);
 }
 .spec dl {
   display: grid;

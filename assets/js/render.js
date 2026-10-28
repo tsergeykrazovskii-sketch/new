@@ -164,7 +164,12 @@
   Slot.themeCss = (cfg, id) => {
     const st = Slot.getStyle(cfg, id);
     // html:root сильнее :root из slot.css, поэтому порядок подключения стилей не важен
-    return `html:root{${tokensToCss(st.tokens)};color-scheme:${st.scheme};--shade:${st.scheme === 'dark' ? 'var(--bg)' : 'color-mix(in srgb, var(--fg) 70%, #000)'}}html .invert{${tokensToCss(st.invert || {})}}`;
+    // --shade-rgb — затемнение первого экрана-карточки: у тёмной темы фон, у светлой — тёмный оттенок текста.
+    // Числами r,g,b, а не color-mix: так работает и в Safari до iOS 16.2
+    const t = st.tokens || {};
+    const base = st.scheme === 'dark' ? t.bg : rgb(t.fg) && mix(t.fg, '#000000', 0.3);
+    const shade = (rgb(base) || [36, 26, 28]).join(',');
+    return `html:root{${tokensToCss(st.tokens)};color-scheme:${st.scheme};--shade-rgb:${shade};--shade:rgb(${shade})}html .invert{${tokensToCss(st.invert || {})}}`;
   };
 
   /* ---------- расписание ---------- */

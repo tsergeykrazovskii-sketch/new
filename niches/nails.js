@@ -108,7 +108,7 @@
           raised: '#659162',
           line: 'rgba(255,255,255,0.2)',
           fg: '#FFFFFF',
-          muted: '#DCE8D8',
+          muted: '#F2F7F0',
           accent: '#FFFFFF',
           onAccent: '#24302A',
           accentText: '#FFFFFF',
