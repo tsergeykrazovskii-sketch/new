@@ -1,0 +1,649 @@
+{
+  "slug": "nezhnye-ruchki",
+  "niche": "nails",
+  "style": "pudra",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Нежные ручки» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/nezhnyye_ruchki/241920919226/ — 5,0 / 387, «Хорошее место 2026», прайс",
+    "2ГИС https://2gis.ru/spb/firm/70000001088952972 — 5,0 / 85",
+    "Досье: лиды/Нежные ручки (Санкт-Петербург).md; разбор: разборы/Нежные ручки (Санкт-Петербург).md (данные проверены исследователем 28.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 28.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "сайта нет; nezhnyeruchkispb.ru свободен (28.10) — зарегистрировать на владельца",
+    "брови — цены (в прайсе только акции)",
+    "метро или остановка и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Нежные ручки",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Санкт-Петербург",
+    "address": "пос. Парголово, ул. Николая Рубцова, 3",
+    "addressNote": "",
+    "metro": "",
+    "phone": "+7 911 039-59-24",
+    "phoneHref": "+79110395924",
+    "hoursShort": "Ежедневно 10:00–22:00",
+    "yandexMaps": "https://yandex.ru/maps/org/nezhnyye_ruchki/241920919226/",
+    "twoGis": "https://2gis.ru/spb/firm/70000001088952972",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79110395924"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/nezhnye.ruchkispb"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "«Нежные ручки» — маникюр и педикюр в Парголове",
+    "lead": "Маникюр с гель-лаком или цветным гелем, укрепление на выбор, гигиенический маникюр с парафином, SMART-педикюр и наращивание. Новым клиентам — маникюр с гель-лаком за 2 390 ₽.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 387,
+        "url": "https://yandex.ru/maps/org/nezhnyye_ruchki/241920919226/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "5,0",
+        "count": 85,
+        "url": "https://2gis.ru/spb/firm/70000001088952972"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani",
+        "mani-gel",
+        "pedi-smart-gel",
+        "ext"
+      ],
+      "labels": {
+        "mani": "Маникюр",
+        "mani-gel": "С гель-лаком",
+        "pedi-smart-gel": "SMART-педикюр",
+        "ext": "Наращивание"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Виктория",
+      "dative": "Виктории",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Ольга",
+      "dative": "Ольге",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Светлана",
+      "dative": "Светлане",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Софья",
+      "dative": "Софье",
+      "role": "Мастер наращивания",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani",
+          "name": "Маникюр без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1300,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "acrygel",
+              "name": "Укрепление акригелем",
+              "price": 700,
+              "duration": 20
+            },
+            {
+              "id": "seal",
+              "name": "Укрепление Seal and Protect",
+              "price": 500,
+              "duration": 15
+            },
+            {
+              "id": "gel",
+              "name": "Укрепление гелем",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "powder",
+              "name": "Укрепление акриловой пудрой",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия Aravia",
+              "price": 500,
+              "duration": 15
+            },
+            {
+              "id": "remove",
+              "name": "Снятие гель-лака",
+              "price": 250,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-gel",
+          "name": "Маникюр с покрытием гель-лаком",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2590,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "acrygel",
+              "name": "Укрепление акригелем",
+              "price": 700,
+              "duration": 20
+            },
+            {
+              "id": "seal",
+              "name": "Укрепление Seal and Protect",
+              "price": 500,
+              "duration": 15
+            },
+            {
+              "id": "gel",
+              "name": "Укрепление гелем",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "powder",
+              "name": "Укрепление акриловой пудрой",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия Aravia",
+              "price": 500,
+              "duration": 15
+            },
+            {
+              "id": "remove",
+              "name": "Снятие гель-лака",
+              "price": 250,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-colorgel",
+          "name": "Маникюр с покрытием цветным гелем",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2850,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "acrygel",
+              "name": "Укрепление акригелем",
+              "price": 700,
+              "duration": 20
+            },
+            {
+              "id": "seal",
+              "name": "Укрепление Seal and Protect",
+              "price": 500,
+              "duration": 15
+            },
+            {
+              "id": "gel",
+              "name": "Укрепление гелем",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "powder",
+              "name": "Укрепление акриловой пудрой",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия Aravia",
+              "price": 500,
+              "duration": 15
+            },
+            {
+              "id": "remove",
+              "name": "Снятие гель-лака",
+              "price": 250,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-lak",
+          "name": "Маникюр с покрытием обычным лаком",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 1600,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-bandi",
+          "name": "Маникюр с лечебным лаком BANDI",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 1800,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-paraffin",
+          "name": "Гигиенический маникюр с парафинотерапией Aravia",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 1800,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 1 300 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-smart-gel",
+          "name": "SMART-педикюр с гель-лаком",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3190,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-smart",
+          "name": "SMART-педикюр без покрытия",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2590,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "med",
+              "name": "Лечебный лак",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "bandi",
+              "name": "Лечебный лак BANDI",
+              "price": 500,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "pedi-toes-gel",
+          "name": "Педикюр: пальчики с гель-лаком",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2590,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-toes",
+          "name": "Педикюр: пальчики без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1490,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-lak",
+          "name": "Педикюр с лаком",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 1790,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 1 490 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Наращивание ногтей",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 4490,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "length",
+              "name": "Доплата за длину",
+              "price": 500,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "corr",
+          "name": "Коррекция наращённых ногтей",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 3490,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "length",
+              "name": "Доплата за длину",
+              "price": 500,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "remove-ext",
+          "name": "Снятие нарощенных ногтей",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 500,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 500 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 387 оценкам",
+          "text": "«Хорошее место 2026»; в 2ГИС — тоже 5,0"
+        },
+        {
+          "icon": "percent",
+          "title": "Новым клиентам",
+          "text": "Снятие, маникюр и гель-лак — 2 390 ₽"
+        },
+        {
+          "icon": "sparkle",
+          "title": "Укрепление на выбор",
+          "text": "Акригель, гель, пудра, Seal and Protect"
+        },
+        {
+          "icon": "coffee",
+          "title": "Чай и кофе",
+          "text": "За это хвалят в отзывах"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах. Укрепление, парафин и снятие — дополнениями."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/19539707/2a0000019d638c37aee5fcfca83bcddb5c9a/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/18134764/2a0000019d638c372580d641a87c8fcb02c6/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16413163/2a0000019aa62c7c4165ab8f321ae9730671/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14707892/2a0000019633aebbf79a394b95be63a1f9fc/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/12838938/2a00000190cf7ef4c4073b72d33008aebcb1/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16634215/2a00000198f65c7969853dbf2f15ee0a8605/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "offers",
+      "invert": true,
+      "title": "Сейчас выгодно",
+      "items": [
+        {
+          "icon": "percent",
+          "title": "Новым клиентам — 2 390 ₽",
+          "text": "Снятие, маникюр и гель-лак. С укреплением — 2 890 ₽",
+          "cta": "Записаться",
+          "service": "mani-gel"
+        }
+      ]
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "26 июня",
+          "rating": 5,
+          "text": "Остались самые приятные впечатления🤗 Мастер Екатерина сделала аккуратный маникюр и ремонт ноготка. Сам салон светлый, просторный, со свежим ремонтом. Как бонус : вкусный кофе и хороший фильм✨☕приду еще🙌"
+        },
+        {
+          "name": "Анастасия С.",
+          "source": "Яндекс Карты",
+          "date": "23 июля",
+          "rating": 5,
+          "text": "Очень приятный салон, милые и приветливые девушки. Мастер Ксения делает очень качественный, быстрый и красивый маникюр и педикюр. Рекомендую, если вы не хотите тратить много времени на салон, но хотите красивый и качественный результат. Посещала несколько салонов рядом, этот однозначно самый лучший!"
+        },
+        {
+          "name": "Татьяна",
+          "source": "Яндекс Карты",
+          "date": "23 мая",
+          "rating": 5,
+          "text": "Алёна — мастер с золотыми руками которая превращает маникюр в маленький праздник. Работает трепетно, чисто и аккуратно — Ангелина на ресепшене — тоже очень приятная девушка Огромное спасибо вам, девочки, за красоту !"
+        },
+        {
+          "name": "Матрена А.",
+          "source": "Яндекс Карты",
+          "date": "6 сентября",
+          "rating": 5,
+          "text": "Всей душой обожаю это место. Делаю маникюр и педикюр. Всегда всё идеально. Очень чуткие мастера и администраторы. Максимально клиентоориентированно. Единственное, что хочется попросить - это побольше цветов гелей 🥹"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Санкт-Петербург, Парголово, ул. Николая Рубцова, 3."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 22:00."
+        },
+        {
+          "q": "Есть скидка для новых клиентов?",
+          "a": "Да: снятие, маникюр и гель-лак — 2 390 ₽, с укреплением — 2 890 ₽."
+        },
+        {
+          "q": "Помогаете с вросшим ногтем?",
+          "a": "Да, обработка — 200 ₽ за ноготь."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}

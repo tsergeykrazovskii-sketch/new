@@ -1,0 +1,515 @@
+{
+  "slug": "manikyurnica",
+  "niche": "nails",
+  "style": "moloko",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Маникюрница» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/manikyrnica/222565481283/ — 5,0 / 330, прайс",
+    "2ГИС https://2gis.ru/kazan/firm/70000001044865754 — 5,0 / 256",
+    "Одностраничник https://manikjurnitsa.clients.site/",
+    "Запись YCLIENTS http://n745015.yclients.ru",
+    "Досье: лиды/Маникюрница (Казань).md; разбор: разборы/Маникюрница (Казань).md (данные проверены исследователем 28.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 28.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "сайта нет; manikyrnica.ru свободен (28.10) — зарегистрировать на владельца",
+    "карточка Яндекса без владельца — подтвердить",
+    "наращивание — цена (в картах только коррекция)",
+    "метро или остановка и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Маникюрница",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Казань",
+    "address": "ул. Академика Сахарова, 26Б",
+    "addressNote": "1 этаж, офис 7",
+    "metro": "",
+    "phone": "+7 917 852-49-72",
+    "phoneHref": "+79178524972",
+    "hoursShort": "Ежедневно 9:00–21:00",
+    "yandexMaps": "https://yandex.ru/maps/org/manikyrnica/222565481283/",
+    "twoGis": "https://2gis.ru/kazan/firm/70000001044865754",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79178524972"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/manikyrnicanails"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/manikyrnica_studio"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "«Маникюрница» — маникюр и дизайн ногтей в Казани",
+    "lead": "Комплексы «Всё включено»: однотон, простые и сложные дизайны. Педикюр с гель-лаком и плёночный, мужской сервис, брови. Окошки и портфолио — в Telegram и на YouTube.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 330,
+        "url": "https://yandex.ru/maps/org/manikyrnica/222565481283/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "5,0",
+        "count": 256,
+        "url": "https://2gis.ru/kazan/firm/70000001044865754"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "cx-one",
+        "cx-design",
+        "cx-art",
+        "pedi-full-gel"
+      ],
+      "labels": {
+        "cx-one": "Однотон",
+        "cx-design": "С дизайном",
+        "cx-art": "Сложный дизайн",
+        "pedi-full-gel": "Педикюр"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Ксения",
+      "dative": "Ксении",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Мария",
+      "dative": "Марии",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Юлия",
+      "dative": "Юлии",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Ольга",
+      "dative": "Ольге",
+      "role": "Мастер маникюра и педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Комплексы",
+      "items": [
+        {
+          "id": "cx-one",
+          "name": "«Однотон» — всё включено",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2600,
+            "from": false
+          }
+        },
+        {
+          "id": "cx-design",
+          "name": "«Простые и средние дизайны» — всё включено",
+          "desc": "",
+          "duration": 135,
+          "price": {
+            "value": 2800,
+            "from": false
+          }
+        },
+        {
+          "id": "cx-art",
+          "name": "«Сложные дизайны» — всё включено",
+          "desc": "",
+          "duration": 165,
+          "price": {
+            "value": 3200,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "heart",
+      "from": "от 2 600 ₽"
+    },
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani",
+          "name": "Маникюр без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1500,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1800,
+            "from": false
+          }
+        },
+        {
+          "id": "corr",
+          "name": "Коррекция наращённых ногтей",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 3000,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 1 500 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-gel",
+          "name": "Педикюр с покрытием гель-лаком",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2600,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-full-gel",
+          "name": "Пальчики и стопы с гель-лаком",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3000,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-full",
+          "name": "Пальчики и стопы без покрытия",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2200,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-toes",
+          "name": "Пальчики без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1800,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-film",
+          "name": "Плёночный педикюр",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3200,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской педикюр: пальчики",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2200,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men-full",
+          "name": "Мужской педикюр: пальчики и стопы",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2800,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 1 800 ₽"
+    },
+    {
+      "category": "Брови",
+      "items": [
+        {
+          "id": "brow",
+          "name": "Коррекция бровей",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 800,
+            "from": false
+          }
+        },
+        {
+          "id": "brow-lam",
+          "name": "Долговременная укладка, коррекция и окрашивание бровей",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 2300,
+            "from": false
+          }
+        }
+      ]
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 330 оценкам",
+          "text": "И 5,0 по 256 в 2ГИС"
+        },
+        {
+          "icon": "sparkle",
+          "title": "Сложные дизайны",
+          "text": "Комплекс «всё включено» — 3 200 ₽"
+        },
+        {
+          "icon": "camera",
+          "title": "Портфолио",
+          "text": "В Telegram и на YouTube"
+        },
+        {
+          "icon": "coffee",
+          "title": "Чай и кофе",
+          "text": "За это хвалят в отзывах"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах. В комплексы «всё включено» входят снятие, маникюр и покрытие."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/6928818/2a00000184a09a60d3ff32e706e04b5b2609/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/8075227/2a00000184a09f1a170a2c2764d74fb112ba/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/5538812/2a00000184a0f01a2cd1faca2ad86eb32dac/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/8128793/2a00000184a0ccfe2e0b4bd8e8ce706a1b5d/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/8128793/2a00000184a09bef411c4d537f697f107049/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/7979184/2a00000184a0ce48a8d93b3dadc5a8f4b180/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Амелия Н.",
+          "source": "Яндекс Карты",
+          "date": "24 августа 2025",
+          "rating": 5,
+          "text": "Благодарю мастера за маникюр . Все на высшем уровне , от порога и обратно ,🫶 попила вкусный чай , дополнительно три раза мне принесли воды 🙏🏻 посмотрела классный фильм . Зарядили телефон . Ну а главное , маникюр просто пушка бомба петарда 🔥 Благодарю вас за эти полтора два часа 🫶"
+        },
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "6 февраля",
+          "rating": 5,
+          "text": "Очень нравится эта студия. Мастер Диана, отличный специалист. Предлагает различные варианты маникюра, всегда новинки которые радует. Качество, дизайн и профессионализм, вот что подкупает меня. Очень вежливый персонал. Рекомендую."
+        },
+        {
+          "name": "Виктория Ф.",
+          "source": "Яндекс Карты",
+          "date": "8 ноября 2025",
+          "rating": 5,
+          "text": "Очень довольна посещением студии! Мастера - профессионалы своего дела, сделали маникюр быстро и качественно. Приятная атмосфера и большой выбор цветов. Рекомендую!"
+        },
+        {
+          "name": "Аделя М.",
+          "source": "Яндекс Карты",
+          "date": "5 сентября",
+          "rating": 5,
+          "text": "Мастер Анна сделала шикарный маникюр со сложным дизайном😍 Студия комфортная, отличный сервис и очень выгодная стоимость приду еще!"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Казань, ул. Академика Сахарова, 26Б, 1 этаж, офис 7."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 9:00 до 21:00."
+        },
+        {
+          "q": "Сколько стоит маникюр с дизайном?",
+          "a": "Однотон — 2 600 ₽, простые и средние дизайны — 2 800 ₽, сложные — 3 200 ₽. Всё включено."
+        },
+        {
+          "q": "Где посмотреть работы?",
+          "a": "В нашем Telegram и на YouTube — там окошки и портфолио."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}
