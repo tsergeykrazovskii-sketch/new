@@ -137,7 +137,11 @@ const hero = `
   </div>
 </section>
 <div class="ticker" aria-hidden="true"><div class="ticker__in">${Array(2)
-  .fill(['CAROLINA REAPER', '15 000 SHU', 'НАСТОЯЩИЕ ЯГОДЫ', 'СНАЧАЛА ВКУС — ПОТОМ ЖАР', `${FLAVORS} ВКУСОВ`, '4,9 НА OZON'].map((t) => `<span>${t}</span>${ic('flame')}`).join(''))
+  .fill(
+    `<div class="ticker__g">${Array(3)
+      .fill(['CAROLINA REAPER', '15 000 SHU', 'НАСТОЯЩИЕ ЯГОДЫ', 'СНАЧАЛА ВКУС — ПОТОМ ЖАР', `${FLAVORS} ВКУСОВ`, '4,9 НА OZON'].map((t) => `<span>${t}</span>${ic('flame')}`).join(''))
+      .join('')}</div>`
+  )
   .join('')}</div></div>`;
 
 const catalog = `

@@ -150,11 +150,12 @@ button {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(22, 13, 10, 0.86);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
+  /* плотная, без размытия под собой: backdrop-filter пересчитывается при каждой прокрутке и наведении — шапка мерцала */
+  background: rgba(22, 13, 10, 0.97);
   color: var(--on-dark);
   border-bottom: 1px solid var(--line-dark);
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 .hdr__in {
   display: flex;
@@ -633,13 +634,20 @@ body.menu-open {
   font-size: 15px;
   letter-spacing: 0.04em;
 }
+/* две одинаковые половины, каждая шире любого экрана: сдвиг на половину — и строка начинается заново без шва */
 .ticker__in {
   display: flex;
-  align-items: center;
-  gap: 22px;
   width: max-content;
   padding: 13px 0;
-  animation: ticker 36s linear infinite;
+  animation: ticker 110s linear infinite;
+  will-change: transform;
+}
+.ticker__g {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 22px;
+  padding-right: 22px;
 }
 .ticker .ic {
   color: var(--ember);
@@ -1545,9 +1553,7 @@ body.menu-open {
   grid-template-columns: 1fr 1fr;
   gap: 8px;
   padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
-  background: rgba(22, 13, 10, 0.92);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  background: rgba(22, 13, 10, 0.97);
   transform: translateY(110%);
   transition: transform 0.4s var(--ease);
 }
