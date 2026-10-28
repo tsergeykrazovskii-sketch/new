@@ -1,0 +1,564 @@
+{
+  "slug": "lollipop",
+  "niche": "nails",
+  "style": "pudra",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Lollipop studio» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/lollipop_studio/37061724246/ — 5,0 / 544, «Хорошее место 2026», прайс",
+    "2ГИС https://2gis.ru/spb/firm/70000001061192358 — 5,0 / 572",
+    "Одностраничник https://lollipop-studio-ulitsa-kompozitorov.clients.site/ — акция первого визита",
+    "Досье: лиды/Lollipop_studio (Санкт-Петербург).md; разбор: разборы/Lollipop_studio (Санкт-Петербург).md (данные проверены исследователем 28.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 28.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "сайта нет; lollipop-spb.ru свободен (28.10) — зарегистрировать на владельца",
+    "в 2ГИС ссылка «сайт» ведёт на project12168359.tilda.ws — 404, заменить",
+    "метро или остановка и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Lollipop studio",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Санкт-Петербург",
+    "address": "ул. Композиторов, 12Б",
+    "addressNote": "",
+    "metro": "",
+    "phone": "+7 921 573-20-44",
+    "phoneHref": "+79215732044",
+    "hoursShort": "Ежедневно 10:00–22:00",
+    "yandexMaps": "https://yandex.ru/maps/org/lollipop_studio/37061724246/",
+    "twoGis": "https://2gis.ru/spb/firm/70000001061192358",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79215732044"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/Lollipop_2020"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/lolipop_studio"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "Lollipop studio — маникюр и педикюр на Композиторов",
+    "lead": "Ваша уверенность начинается с нашего маникюра: покрытие держится до 4 недель без сколов. Японский и пудровый маникюр, SMART, фруктовый и «бургер»-педикюр, наращивание и дизайн.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 544,
+        "url": "https://yandex.ru/maps/org/lollipop_studio/37061724246/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "5,0",
+        "count": 572,
+        "url": "https://2gis.ru/spb/firm/70000001061192358"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani-gel",
+        "mani-jp",
+        "pedi-smart-gel",
+        "ext"
+      ],
+      "labels": {
+        "mani-gel": "Маникюр + гель-лак",
+        "mani-jp": "Японский",
+        "pedi-smart-gel": "SMART-педикюр",
+        "ext": "Наращивание"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Мария",
+      "dative": "Марии",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Юлия",
+      "dative": "Юлии",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Полина",
+      "dative": "Полине",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Кристина",
+      "dative": "Кристине",
+      "role": "Мастер наращивания",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani-gel",
+          "name": "Маникюр с гель-лаком, снятие входит",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2700,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "strong",
+              "name": "Укрепление",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "cateye",
+              "name": "«Кошачий глаз»",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "hidden",
+              "name": "Скрытый френч",
+              "price": 600,
+              "duration": 30
+            },
+            {
+              "id": "dew",
+              "name": "Эффект «росы»",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "rub",
+              "name": "Втирка",
+              "price": 700,
+              "duration": 20
+            },
+            {
+              "id": "french",
+              "name": "Френч, лунки, градиент или растяжка",
+              "price": 600,
+              "duration": 30
+            },
+            {
+              "id": "gradient",
+              "name": "Градиент гель-лаком",
+              "price": 1200,
+              "duration": 40
+            },
+            {
+              "id": "stamp",
+              "name": "Стемпинг",
+              "price": 600,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani-smart",
+          "name": "Маникюр в технике SMART",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2200,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-jp",
+          "name": "Японский маникюр P.Shine",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2100,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-powder",
+          "name": "Пудровый маникюр в технике MART",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2800,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 2 100 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-smart-gel",
+          "name": "SMART-педикюр с гель-лаком",
+          "desc": "У топ-мастера — 3 700 ₽",
+          "duration": 120,
+          "price": {
+            "value": 3500,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-smart",
+          "name": "SMART-педикюр без покрытия",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2900,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-full",
+          "name": "SMART-педикюр без покрытия: стопа и пальчики",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3100,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-gt",
+          "name": "Педикюр Golden Trace с гель-лаком",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3600,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-burger",
+          "name": "«Бургер»-педикюр с гель-лаком",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3600,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-fruit",
+          "name": "Фруктовый педикюр с гель-лаком",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3500,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-toes",
+          "name": "Эстетический педикюр: пальчики с гель-лаком",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2800,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-film",
+          "name": "SMART-педикюр с плёнками, снятие входит",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3900,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 2 800 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Наращивание с гель-лаком, длина 3–6",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 3800,
+            "from": true
+          }
+        },
+        {
+          "id": "ext-9",
+          "name": "Наращивание с гель-лаком, длина 9",
+          "desc": "",
+          "duration": 210,
+          "price": {
+            "value": 4700,
+            "from": false
+          }
+        },
+        {
+          "id": "corr",
+          "name": "Коррекция с гель-лаком",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 3400,
+            "from": true
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 3 400 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "check",
+          "title": "До 4 недель без сколов",
+          "text": "Так держится покрытие"
+        },
+        {
+          "icon": "star",
+          "title": "5,0 по 544 оценкам",
+          "text": "И 5,0 по 572 в 2ГИС"
+        },
+        {
+          "icon": "sparkle",
+          "title": "Дизайн",
+          "text": "Втирка, «кошачий глаз», скрытый френч, стемпинг"
+        },
+        {
+          "icon": "coffee",
+          "title": "Чай и кофе",
+          "text": "За это хвалят в отзывах"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах. Укрепление и дизайн — дополнениями."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20387359/2a0000019e9c8d4d60778804b8ad1bafa145/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/5272526/2a00000186f9bd2931f36bd68e2949513ac0/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/4234174/2a000001825f58b17298c44b0ff0a6f5ae64/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/6203703/2a0000018ab40644fd06284d0025d63d71ae/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/1335362/2a00000185b5b0a86b947d99f90c34cc9724/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/7979184/2a00000185b5b389a82ced4220672f84a3e9/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Мария Ч.",
+          "source": "Яндекс Карты",
+          "date": "23 сентября",
+          "rating": 5,
+          "text": "Очень хороший маникюрный салончик. Очень удобно, что возле дома. Плюс работают профессионалы своего дела. Удобно, что большое количество мастеров и можно выбрать своего по душе и скорости работы. Девочки с ресепшена всегда предлагают чай, кофе, водичку и вкусняшку. Я счастлива, что они тут есть❤️"
+        },
+        {
+          "name": "Мария Е.",
+          "source": "Яндекс Карты",
+          "date": "26 июня",
+          "rating": 5,
+          "text": "Отличная студия маникюра, очень довольна мастерами, приятная атмосфера, чисто, уютно, приветливый персонал! Правильная стерилизация инструментов, сто очень важно, постоянное обновление палитры, хожу уже более 2х лет и довольна!"
+        },
+        {
+          "name": "Наталья",
+          "source": "Яндекс Карты",
+          "date": "7 июля",
+          "rating": 5,
+          "text": "Впервые посетила салон Lollipop 🍭 Атмосфера на высоте ,вежливый администратор, мастера приветливые,доброжелательные,Олеся,Виктория,делают аккуратный маникюр, педикюр🙏 предлагают вкусные напитки☕️ Обязательно прилу к вам ещё 🫰"
+        },
+        {
+          "name": "Илья Н.",
+          "source": "Яндекс Карты",
+          "date": "27 июля",
+          "rating": 5,
+          "text": "Приветливый и вежливый администратор. Отзывчивые и опытные мастера, не смущаются перед мужским педикюром (в отличие близжайших соседених салонов), работают предельно мягко и аккуратно. Результат выше всяких похвал. Цены приемлемые для мужского педикюра."
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Санкт-Петербург, ул. Композиторов, 12Б."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 22:00."
+        },
+        {
+          "q": "Есть скидка на первый визит?",
+          "a": "Да: маникюр с гель-лаком — 2 430 ₽ вместо 2 700 ₽. Просто скажите «привет»."
+        },
+        {
+          "q": "Сколько держится покрытие?",
+          "a": "До 4 недель без сколов."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {},
+  "promo": {
+    "icon": "gift",
+    "text": "Первый визит: маникюр с гель-лаком — 2 430 ₽ вместо 2 700 ₽. Скажите «привет»",
+    "cta": "Записаться",
+    "service": "mani-gel"
+  }
+}

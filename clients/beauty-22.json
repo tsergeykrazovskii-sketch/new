@@ -1,0 +1,481 @@
+{
+  "slug": "beauty-22",
+  "niche": "nails",
+  "style": "pudra",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «22 Beauty Studio» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/beauty_studio_22/40077528030/ — 5,0 / 240, «Хорошее место 2026», прайс (5 октября)",
+    "2ГИС https://2gis.ru/kazan/firm/70000001025293271 — 4,9 / 257",
+    "Одностраничник https://22beautystudio.clients.site/ — текст о студии",
+    "Досье: лиды/22 Beauty Studio (Казань).md; разбор: разборы/22 Beauty Studio (Казань).md (данные проверены исследователем 28.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 28.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "сайта нет; 22beautystudio.ru свободен (28.10) — зарегистрировать на владельца",
+    "три названия («Салон красоты 22», «22, салон красоты», «22 BEAUTY STUDIO») — выбрать одно",
+    "стрижки и окрашивание — цены (акция на стрижку до 31.10)",
+    "метро или остановка и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "22 Beauty Studio",
+    "kind": "Салон красоты"
+  },
+  "contacts": {
+    "city": "Казань",
+    "address": "ул. Бондаренко, 15",
+    "addressNote": "1 этаж",
+    "metro": "",
+    "phone": "+7 937 522-29-45",
+    "phoneHref": "+79375222945",
+    "hoursShort": "Ежедневно 9:00–21:00",
+    "yandexMaps": "https://yandex.ru/maps/org/beauty_studio_22/40077528030/",
+    "twoGis": "https://2gis.ru/kazan/firm/70000001025293271",
+    "messengers": [
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/BS22KZN"
+      },
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/message/KA4WYD35SU2FL1"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "22 Beauty Studio — маникюр и педикюр на Бондаренко",
+    "lead": "Место, где вы получите качественные услуги в приятной обстановке: все мастера со стажем от 3 лет. Маникюр с гель-лаком и укреплением, наращивание, педикюр. Кешбэк с каждой процедуры.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 240,
+        "url": "https://yandex.ru/maps/org/beauty_studio_22/40077528030/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,9",
+        "count": 257,
+        "url": "https://2gis.ru/kazan/firm/70000001025293271"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani",
+        "mani-gel",
+        "pedi-full",
+        "ext"
+      ],
+      "labels": {
+        "mani": "Маникюр",
+        "mani-gel": "С гель-лаком",
+        "pedi-full": "Педикюр",
+        "ext": "Наращивание"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Юлия",
+      "dative": "Юлии",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Екатерина",
+      "dative": "Екатерине",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Светлана",
+      "dative": "Светлане",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Виктория",
+      "dative": "Виктории",
+      "role": "Мастер маникюра и педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani",
+          "name": "Маникюр без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1600,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design",
+              "name": "Дизайн ногтей",
+              "price": 200,
+              "duration": 15
+            },
+            {
+              "id": "form",
+              "name": "Форма полигелем",
+              "price": 400,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani-gel",
+          "name": "Маникюр с гель-лаком, укрепление гелем входит",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2400,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design",
+              "name": "Дизайн ногтей",
+              "price": 200,
+              "duration": 15
+            },
+            {
+              "id": "remove",
+              "name": "Снятие покрытия",
+              "price": 800,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1600,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 1 600 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Наращивание ногтей, длина до 2",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 3000,
+            "from": false
+          }
+        },
+        {
+          "id": "ext-5",
+          "name": "Наращивание ногтей, длина до 5",
+          "desc": "",
+          "duration": 195,
+          "price": {
+            "value": 3500,
+            "from": false
+          }
+        },
+        {
+          "id": "ext-long",
+          "name": "Наращивание ногтей, длина больше 5",
+          "desc": "",
+          "duration": 210,
+          "price": {
+            "value": 4500,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 3 000 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-full",
+          "name": "Педикюр полный с покрытием: пальчики и стопы",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3500,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-toes-gel",
+          "name": "Педикюр: пальчики с покрытием",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2400,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-toes",
+          "name": "Педикюр: пальчики без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1700,
+            "from": false
+          }
+        },
+        {
+          "id": "feet",
+          "name": "Обработка стоп",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2500,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 1 700 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "award",
+          "title": "Мастера со стажем от 3 лет",
+          "text": "Все до одного"
+        },
+        {
+          "icon": "star",
+          "title": "5,0 по 240 оценкам",
+          "text": "«Хорошее место 2026»; в 2ГИС — 4,9"
+        },
+        {
+          "icon": "percent",
+          "title": "Кешбэк",
+          "text": "С каждой процедуры, бонусы постоянным гостям"
+        },
+        {
+          "icon": "check",
+          "title": "Укрепление входит",
+          "text": "В маникюр с гель-лаком"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах (обновлён 5 октября). Дизайн и снятие — дополнениями."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15416268/2a0000019b2ab454ca1aa0ba7f90c8a6e9d1/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/19829109/2a0000019fa7a0cc7dddcf63c2889fabc659/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/5475658/2a0000019bb5eacdb0a0bd39b570229a25f2/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/18184740/2a0000019a2639d89b0663a878d2b6c904b8/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/12721348/2a00000199283183beea5914c324f23de375/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16823151/2a0000019928318323f512dc775e27dea357/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Евгения С.",
+          "source": "Яндекс Карты",
+          "date": "7 мая",
+          "rating": 5,
+          "text": "Очень красивая уютная студия, работники очень дружелюбные и профессиональные, еще и маникюр красивый делают! Очень советую, обязательно вернусь еще"
+        },
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "18 мая",
+          "rating": 5,
+          "text": "Спасибо Аделине за супер быстрый и качественный педикюр. Предлагают кофе. Но я отказалась ) Дружелюбный администратор. Рекомендую всем."
+        },
+        {
+          "name": "Яна Р.",
+          "source": "Яндекс Карты",
+          "date": "25 августа",
+          "rating": 5,
+          "text": "Была в это прекрасном салоне красоты на педикюре!Первый раз делала педикюр в кресле реклайнере😍 чуть не уснула от удовольствия в нем😁 теперь только сюда и да, процедурой осталась довольна❤️ приду еще на маникюр"
+        },
+        {
+          "name": "Виктория П.",
+          "source": "Яндекс Карты",
+          "date": "30 августа",
+          "rating": 5,
+          "text": "Пришла в студию первый раз, близко к дому. Персонал очень вежливый и внимательный. Маникюр был выполнен качественно и быстро. Большое спасибо!"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Казань, ул. Бондаренко, 15, 1 этаж."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 9:00 до 21:00."
+        },
+        {
+          "q": "Сколько стоит маникюр с гель-лаком?",
+          "a": "2 400 ₽, укрепление гелем уже входит."
+        },
+        {
+          "q": "Есть бонусы для постоянных гостей?",
+          "a": "Да, кешбэк с каждой процедуры."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}
