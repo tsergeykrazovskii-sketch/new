@@ -102,6 +102,7 @@ const header = `
     <a class="btn btn--fire hdr__cta" href="#buy">Купить</a>
     <button class="burger" type="button" data-menu aria-expanded="false" aria-controls="menu" aria-label="Открыть меню"><span></span><span></span><span></span></button>
   </div>
+  <div class="progress" aria-hidden="true"><i data-progress></i></div>
   <div class="menu" id="menu" hidden>
     <nav class="wrap menu__in" aria-label="Меню">
       ${[['catalog', 'Соусы'], ['heat', 'Острота'], ['match', 'К чему'], ['reviews', 'Отзывы'], ['gift', 'В подарок'], ['opt', 'Оптовикам'], ['buy', 'Где купить'], ['faq', 'Вопросы']]

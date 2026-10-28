@@ -88,6 +88,29 @@
     if (t.closest('[data-close]') || t.id === 'modal') doc.getElementById('modal').close();
   });
 
+  // Полоса прочитанного в шапке: доля прокрутки страницы, искра на конце видна, пока страницу листают
+  const bar0 = doc.querySelector('[data-progress]');
+  if (bar0) {
+    let raf = 0;
+    let idle = 0;
+    const paint = () => {
+      raf = 0;
+      const max = doc.documentElement.scrollHeight - innerHeight;
+      const p = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+      bar0.style.setProperty('--p', p.toFixed(4));
+      bar0.parentNode.style.setProperty('--p', p.toFixed(4));
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(paint);
+      bar0.parentNode.style.setProperty('--glow', '1');
+      clearTimeout(idle);
+      idle = setTimeout(() => bar0.parentNode.style.setProperty('--glow', '0'), 700);
+    };
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', () => (raf = raf || requestAnimationFrame(paint)));
+    paint();
+  }
+
   // Нижняя панель «Ozon / WB» на телефоне — после первого экрана
   const bar = doc.querySelector('.mbar');
   const hero = doc.querySelector('.hero');

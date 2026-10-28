@@ -209,6 +209,39 @@ button {
   }
 }
 
+/* полоса прочитанного: огненный градиент по нижнему краю шапки */
+.progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 3px;
+  pointer-events: none;
+}
+.progress i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--ember), var(--flame) 45%, var(--fire));
+  box-shadow: 0 0 12px rgba(255, 122, 26, 0.75), 0 0 2px rgba(255, 194, 58, 0.9);
+  transform: scaleX(var(--p, 0));
+  transform-origin: left;
+  will-change: transform;
+}
+.progress::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(var(--p, 0) * 100%);
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 50%;
+  background: #fff3c4;
+  box-shadow: 0 0 10px 3px rgba(255, 194, 58, 0.9), 0 0 22px 6px rgba(226, 52, 29, 0.55);
+  opacity: var(--glow, 0);
+  transition: opacity 0.3s;
+}
+
 /* меню на телефоне и планшете: кнопка-бургер и выпадающая панель */
 .burger {
   position: relative;
