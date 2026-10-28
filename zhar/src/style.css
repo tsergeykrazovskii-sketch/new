@@ -209,6 +209,113 @@ button {
   }
 }
 
+/* меню на телефоне и планшете: кнопка-бургер и выпадающая панель */
+.burger {
+  position: relative;
+  display: grid;
+  place-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  margin-right: -6px;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  cursor: pointer;
+}
+.burger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--on-dark);
+  transition: transform 0.3s var(--ease), opacity 0.2s;
+}
+.burger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.burger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.burger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+.menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: calc(100dvh - 64px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--night);
+  border-bottom: 1px solid var(--line-dark);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.7);
+  animation: menu-in 0.35s var(--ease) both;
+}
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+.menu__in {
+  display: grid;
+  padding-block: 8px 24px;
+}
+.menu__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+  border-bottom: 1px solid var(--line-dark);
+  font-family: var(--display);
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: var(--on-dark);
+  animation: rise 0.45s var(--ease) both;
+  animation-delay: calc(var(--i) * 35ms);
+}
+.menu__link .ic {
+  color: var(--flame);
+}
+.menu__buy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+.menu__vk {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--muted-dark);
+}
+.menu__vk .ic {
+  color: var(--ember);
+}
+body.menu-open {
+  overflow: hidden;
+}
+@media (min-width: 1000px) {
+  .burger,
+  .menu {
+    display: none !important;
+  }
+}
+@media (max-width: 379px) {
+  .hdr__cta {
+    display: none;
+  }
+  .burger {
+    margin-left: auto;
+  }
+}
+
 /* ---------- общие секции ---------- */
 .sec {
   padding-block: 64px;

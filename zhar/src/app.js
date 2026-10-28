@@ -62,8 +62,23 @@
     m.scrollTop = 0;
   }
 
+  // Меню на телефоне: открыть/закрыть, закрывается по ссылке, Esc и при переходе на широкий экран
+  const menuBtn = doc.querySelector('[data-menu]');
+  const menu = doc.getElementById('menu');
+  function setMenu(open) {
+    if (!menu) return;
+    menu.hidden = !open;
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+    doc.body.classList.toggle('menu-open', open);
+  }
+  doc.addEventListener('keydown', (e) => e.key === 'Escape' && menu && !menu.hidden && (setMenu(false), menuBtn.focus()));
+  window.matchMedia('(min-width: 1000px)').addEventListener('change', (m) => m.matches && setMenu(false));
+
   doc.addEventListener('click', (e) => {
     const t = e.target;
+    if (t.closest('[data-menu]')) return setMenu(menu.hidden);
+    if (menu && !menu.hidden && (t.closest('.menu a') || !t.closest('.hdr'))) setMenu(false);
     const f = t.closest('[data-line-f]');
     if (f) return filter(f);
     const d = t.closest('[data-dish]');

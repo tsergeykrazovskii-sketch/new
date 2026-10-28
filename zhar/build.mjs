@@ -100,6 +100,16 @@ const header = `
       <a href="#catalog">Соусы</a><a href="#heat">Острота</a><a href="#match">К чему</a><a href="#reviews">Отзывы</a><a href="#opt">Оптовикам</a>
     </nav>
     <a class="btn btn--fire hdr__cta" href="#buy">Купить</a>
+    <button class="burger" type="button" data-menu aria-expanded="false" aria-controls="menu" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+  </div>
+  <div class="menu" id="menu" hidden>
+    <nav class="wrap menu__in" aria-label="Меню">
+      ${[['catalog', 'Соусы'], ['heat', 'Острота'], ['match', 'К чему'], ['reviews', 'Отзывы'], ['gift', 'В подарок'], ['opt', 'Оптовикам'], ['buy', 'Где купить'], ['faq', 'Вопросы']]
+        .map(([id, t], i) => `<a class="menu__link" href="#${id}" style="--i:${i}">${t}${ic('arrow')}</a>`)
+        .join('')}
+      <div class="menu__buy"><a class="btn btn--ozon btn--lg" href="${esc(B.ozonShop)}" target="_blank" rel="noopener">Ozon${ic('arrow')}</a><a class="btn btn--wb btn--lg" href="${esc(B.wb)}" target="_blank" rel="noopener">Wildberries${ic('arrow')}</a></div>
+      <a class="menu__vk" href="${esc(B.vk)}" target="_blank" rel="noopener">${ic('vk')}Мы во ВКонтакте</a>
+    </nav>
   </div>
 </header>`;
 
