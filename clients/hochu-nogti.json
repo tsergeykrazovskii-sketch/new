@@ -1,0 +1,612 @@
+{
+  "slug": "hochu-nogti",
+  "niche": "nails",
+  "style": "pudra",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Хочу ногти» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/xochu_nogti/102977360261/ — 5,0 / 716, «Хорошее место 2026», прайс",
+    "2ГИС https://2gis.ru/rostov-on-don/firm/70000001056999157 — 4,8 / 120",
+    "Запись YCLIENTS http://n178619.yclients.com/company/181901",
+    "Досье: лиды/Хочу ногти (Ростов-на-Дону).md; разбор: разборы/Хочу ногти (Ростов-на-Дону).md (данные проверены исследователем 29.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 29.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "сайта нет; hochunogti-rostov.ru (hochunogti.ru — чужой магазин материалов) свободен (29.10) — зарегистрировать на владельца",
+    "в 2ГИС у студии 2 филиала — второй адрес",
+    "остановка или метро и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Хочу ногти",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Ростов-на-Дону",
+    "address": "ул. Суворова, 27",
+    "addressNote": "",
+    "metro": "",
+    "phone": "+7 988 896-27-75",
+    "phoneHref": "+79888962775",
+    "hoursShort": "Ежедневно 9:00–21:00",
+    "yandexMaps": "https://yandex.ru/maps/org/xochu_nogti/102977360261/",
+    "twoGis": "https://2gis.ru/rostov-on-don/firm/70000001056999157",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79888962775"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/ho4ynogti"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/xochu.nogti"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "«Хочу ногти» — студия маникюра на Суворова",
+    "lead": "Маникюр и педикюр у мастера 1 категории и топ-мастера, услуги в 4 ручки, японский маникюр и педикюр, наращивание и мужской сервис. Ежедневно с 9 до 21.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 716,
+        "url": "https://yandex.ru/maps/org/xochu_nogti/102977360261/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,8",
+        "count": 120,
+        "url": "https://2gis.ru/rostov-on-don/firm/70000001056999157"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani-gel",
+        "mani-jp",
+        "pedi-gel",
+        "ext"
+      ],
+      "labels": {
+        "mani-gel": "Маникюр + гель-лак",
+        "mani-jp": "Японский",
+        "pedi-gel": "Педикюр",
+        "ext": "Наращивание"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Юлия",
+      "dative": "Юлии",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Виктория",
+      "dative": "Виктории",
+      "role": "Мастер 1 категории",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Валерия",
+      "dative": "Валерии",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Ксения",
+      "dative": "Ксении",
+      "role": "Мастер наращивания",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani-gel",
+          "name": "Маникюр + гель-лак",
+          "desc": "У топ-мастера — 2 950 ₽",
+          "duration": 120,
+          "price": {
+            "value": 2600,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "french",
+              "name": "Френч, обратный или лунный",
+              "price": 600,
+              "duration": 30
+            },
+            {
+              "id": "rub",
+              "name": "Втирка, блёстки или фольга",
+              "price": 100,
+              "duration": 10
+            },
+            {
+              "id": "design",
+              "name": "Дизайн ногтей",
+              "price": 100,
+              "duration": 15
+            },
+            {
+              "id": "powder",
+              "name": "Укрепление акриловой пудрой",
+              "price": 350,
+              "duration": 15
+            },
+            {
+              "id": "shimmer",
+              "name": "Топ с шиммером",
+              "price": 250,
+              "duration": 10
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия или сливки",
+              "price": 650,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-gel-4",
+          "name": "Маникюр + гель-лак в 4 ручки",
+          "desc": "У топ-мастера — 3 350 ₽",
+          "duration": 75,
+          "price": {
+            "value": 3000,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "french",
+              "name": "Френч, обратный или лунный",
+              "price": 600,
+              "duration": 30
+            },
+            {
+              "id": "rub",
+              "name": "Втирка, блёстки или фольга",
+              "price": 100,
+              "duration": 10
+            },
+            {
+              "id": "design",
+              "name": "Дизайн ногтей",
+              "price": 100,
+              "duration": 15
+            },
+            {
+              "id": "powder",
+              "name": "Укрепление акриловой пудрой",
+              "price": 350,
+              "duration": 15
+            },
+            {
+              "id": "shimmer",
+              "name": "Топ с шиммером",
+              "price": 250,
+              "duration": 10
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия или сливки",
+              "price": 650,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani",
+          "name": "Маникюр без покрытия (аппарат или комби)",
+          "desc": "У топ-мастера — 1 350 ₽",
+          "duration": 60,
+          "price": {
+            "value": 1300,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-jp",
+          "name": "Японский маникюр",
+          "desc": "У топ-мастера — 2 300 ₽",
+          "duration": 60,
+          "price": {
+            "value": 2100,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-lak",
+          "name": "Маникюр + лак",
+          "desc": "У топ-мастера — 1 650 ₽",
+          "duration": 75,
+          "price": {
+            "value": 1600,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "У топ-мастера — 1 700 ₽",
+          "duration": 60,
+          "price": {
+            "value": 1600,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 1 300 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-gel",
+          "name": "Педикюр + гель-лак",
+          "desc": "У топ-мастера — 3 300 ₽",
+          "duration": 120,
+          "price": {
+            "value": 3000,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi",
+          "name": "Педикюр без покрытия",
+          "desc": "У топ-мастера — 2 350 ₽",
+          "duration": 90,
+          "price": {
+            "value": 2200,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-lak",
+          "name": "Педикюр + лак",
+          "desc": "У топ-мастера — 2 650 ₽",
+          "duration": 105,
+          "price": {
+            "value": 2500,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-jp",
+          "name": "Японский педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2900,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-foot",
+          "name": "Обработка стопы",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 850,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 850 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Наращивание ногтей",
+          "desc": "У топ-мастера — 4 250 ₽",
+          "duration": 180,
+          "price": {
+            "value": 3650,
+            "from": false
+          }
+        },
+        {
+          "id": "ext-4",
+          "name": "Наращивание ногтей в 4 ручки",
+          "desc": "У топ-мастера — 4 650 ₽",
+          "duration": 120,
+          "price": {
+            "value": 4050,
+            "from": false
+          }
+        },
+        {
+          "id": "corr",
+          "name": "Коррекция или гелевое укрепление",
+          "desc": "У топ-мастера — 4 050 ₽",
+          "duration": 150,
+          "price": {
+            "value": 3550,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 3 550 ₽"
+    },
+    {
+      "category": "Покрытие и снятие",
+      "items": [
+        {
+          "id": "cover",
+          "name": "Покрытие гель-лаком без маникюра",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1400,
+            "from": false
+          }
+        },
+        {
+          "id": "remove",
+          "name": "Снятие гель-лака",
+          "desc": "",
+          "duration": 20,
+          "price": {
+            "value": 450,
+            "from": false
+          }
+        },
+        {
+          "id": "remove-ext",
+          "name": "Снятие нарощенных ногтей",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 500,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "sparkle",
+      "from": "от 450 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 716 оценкам",
+          "text": "«Хорошее место 2026» в Яндекс Картах"
+        },
+        {
+          "icon": "heart",
+          "title": "В 4 ручки",
+          "text": "Два мастера сразу — быстрее"
+        },
+        {
+          "icon": "sparkle",
+          "title": "Артдизайн",
+          "text": "Втирка, фольга, френч — дополнениями"
+        },
+        {
+          "icon": "coffee",
+          "title": "Чай и кофе",
+          "text": "За это хвалят в отзывах"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах — у мастера 1 категории; у топ-мастера — в описании. Дизайн, укрепление и парафин — дополнениями."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/922263/2a0000018824f1c9e467799096219c6c95c0/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/7810332/2a00000188239a2cd0ba25e8232b2304c1a7/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/7186075/2a00000188239a29c77e598d93addc2059ab/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/7979184/2a00000188239aaed1ebce9fd00a75f929e7/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/7631654/2a00000188239aa03f62aff02042b15119ff/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/8072793/2a00000188239a2f02f67c33fe95823d88cd/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Александра М.",
+          "source": "Яндекс Карты",
+          "date": "31 мая",
+          "rating": 5,
+          "text": "Приятное место, мастера быстро делают свою работу) был момент один раз, что на руках начало отходить покрытие через неделю, все переделали бесплатно, после было все отлично)🙏🏻"
+        },
+        {
+          "name": "Анжелика М.",
+          "source": "Яндекс Карты",
+          "date": "28 июля",
+          "rating": 5,
+          "text": "Все продумано для комфорта клиента. Красивый интерьер, уютная атмосфера и очень удобные кресла, спина и шея отдыхают, даже если сидишь больше часа. Вкусные напитки на выбор. Маникюр сделали очень аккуратно ❤️"
+        },
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "14 октября",
+          "rating": 5,
+          "text": "Прекрасный салон и удобно расположен. Мастер Мария просто волшебница! Мне еще ни разу так качественно и быстро не делали маникюр! Очень нравится внимательное отношение к клиентам в салоне."
+        },
+        {
+          "name": "Татьяна К.",
+          "source": "Яндекс Карты",
+          "date": "15 октября",
+          "rating": 5,
+          "text": "Очень нравится эта студия маникюра своей уютной атмосферой, удобным расположением и лучшими мастерами. Это место, куда хочется возвращаться снова и снова ❤️"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Ростов-на-Дону, ул. Суворова, 27."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 9:00 до 21:00."
+        },
+        {
+          "q": "Что значит «в 4 ручки»?",
+          "a": "С вами работают два мастера одновременно — так быстрее. Маникюр с гель-лаком в 4 ручки — от 3 000 ₽."
+        },
+        {
+          "q": "Есть подарочные сертификаты?",
+          "a": "Да."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}

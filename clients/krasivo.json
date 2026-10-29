@@ -1,0 +1,664 @@
+{
+  "slug": "krasivo",
+  "niche": "nails",
+  "style": "moloko",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Krasivo nail studio» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/krasivo_nail_studio/48467176907/ — 5,0 / 322, «Хорошее место 2026», прайс",
+    "2ГИС https://2gis.ru/krasnodar/firm/70000001067280813 — 5,0 / 114",
+    "Одностраничник https://krasivo-nail-studio-garazhnaja-ulitsa.clients.site/",
+    "Досье: лиды/Krasivo nail studio (Краснодар).md; разбор: разборы/Krasivo nail studio (Краснодар).md (данные проверены исследователем 29.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 29.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "сайта нет; krasivo-nail.ru свободен (29.10) — зарегистрировать на владельца",
+    "в 2ГИС Telegram на другой номер (+7 918 134-44-43) — какой основной",
+    "одностраничник: в «О нас» нет текста",
+    "карточка Яндекса не подтверждена владельцем",
+    "остановка или метро и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Krasivo nail studio",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Краснодар",
+    "address": "Гаражная ул., 132",
+    "addressNote": "1 этаж",
+    "metro": "",
+    "phone": "+7 938 555-23-32",
+    "phoneHref": "+79385552332",
+    "hoursShort": "Ежедневно 9:00–21:00",
+    "yandexMaps": "https://yandex.ru/maps/org/krasivo_nail_studio/48467176907/",
+    "twoGis": "https://2gis.ru/krasnodar/firm/70000001067280813",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79385552332"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/+79181344443"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "Krasivo nail studio — маникюр и педикюр на Гаражной",
+    "lead": "Маникюр с гель-лаком Bloom или премиальным Luxio, наращивание и гелевая коррекция, смарт-педикюр, спа-уходы для рук и ног. Ежедневно с 9 до 21.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 322,
+        "url": "https://yandex.ru/maps/org/krasivo_nail_studio/48467176907/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "5,0",
+        "count": 114,
+        "url": "https://2gis.ru/krasnodar/firm/70000001067280813"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani-bloom",
+        "mani-luxio",
+        "pedi-smart-bloom",
+        "ext"
+      ],
+      "labels": {
+        "mani-bloom": "Bloom",
+        "mani-luxio": "Luxio",
+        "pedi-smart-bloom": "Смарт-педикюр",
+        "ext": "Наращивание"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Ольга",
+      "dative": "Ольге",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Кристина",
+      "dative": "Кристине",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Алёна",
+      "dative": "Алёне",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Светлана",
+      "dative": "Светлане",
+      "role": "Мастер наращивания",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani-bloom",
+          "name": "Маникюр с гель-лаком Bloom",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2090,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "cateye",
+              "name": "Кошачий глаз",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "rub",
+              "name": "Втирка",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "french",
+              "name": "Френч",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "ombre",
+              "name": "Омбре",
+              "price": 500,
+              "duration": 30
+            },
+            {
+              "id": "stamp",
+              "name": "Стемпинг, 1 ноготь",
+              "price": 100,
+              "duration": 5
+            },
+            {
+              "id": "dried",
+              "name": "Сухоцветы, 1 ноготь",
+              "price": 100,
+              "duration": 5
+            },
+            {
+              "id": "shimmer",
+              "name": "Топ с шиммером или светоотражающий",
+              "price": 250,
+              "duration": 10
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия для рук",
+              "price": 500,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-luxio",
+          "name": "Маникюр с премиальным гель-лаком Luxio",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2390,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "cateye",
+              "name": "Кошачий глаз",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "rub",
+              "name": "Втирка",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "french",
+              "name": "Френч",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "ombre",
+              "name": "Омбре",
+              "price": 500,
+              "duration": 30
+            },
+            {
+              "id": "stamp",
+              "name": "Стемпинг, 1 ноготь",
+              "price": 100,
+              "duration": 5
+            },
+            {
+              "id": "dried",
+              "name": "Сухоцветы, 1 ноготь",
+              "price": 100,
+              "duration": 5
+            },
+            {
+              "id": "shimmer",
+              "name": "Топ с шиммером или светоотражающий",
+              "price": 250,
+              "duration": 10
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия для рук",
+              "price": 500,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani",
+          "name": "Маникюр без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1140,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-base",
+          "name": "Маникюр + камуфлирующая база",
+          "desc": "",
+          "duration": 105,
+          "price": {
+            "value": 2390,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-jp",
+          "name": "Японский маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1590,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-lak",
+          "name": "Маникюр с покрытием лака",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 1590,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1400,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-kids",
+          "name": "Детский маникюр с покрытием (без обрезного инструмента)",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 800,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 800 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Маникюр с наращиванием, длина 1–2, Bloom",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 3090,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "len",
+              "name": "Каждая следующая длина",
+              "price": 250,
+              "duration": 10
+            }
+          ]
+        },
+        {
+          "id": "corr",
+          "name": "Маникюр с гелевой коррекцией до 4 длины, Bloom",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 2890,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 2 890 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-smart-bloom",
+          "name": "Смарт-педикюр с гель-лаком Bloom",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3090,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "spa",
+              "name": "Spa-уход для ног St Barth",
+              "price": 1990,
+              "duration": 20
+            },
+            {
+              "id": "massage",
+              "name": "Массаж ног (аппаратный)",
+              "price": 1000,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "pedi-smart-luxio",
+          "name": "Смарт-педикюр с гель-лаком Luxio",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3290,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "spa",
+              "name": "Spa-уход для ног St Barth",
+              "price": 1990,
+              "duration": 20
+            },
+            {
+              "id": "massage",
+              "name": "Массаж ног (аппаратный)",
+              "price": 1000,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "pedi-smart",
+          "name": "Смарт-педикюр без покрытия",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2390,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "spa",
+              "name": "Spa-уход для ног St Barth",
+              "price": 1990,
+              "duration": 20
+            },
+            {
+              "id": "massage",
+              "name": "Массаж ног (аппаратный)",
+              "price": 1000,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "pedi-toes-bloom",
+          "name": "Педикюр с гель-лаком Bloom без обработки стопы, снятие входит",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2490,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-file-bloom",
+          "name": "Педикюр с гель-лаком Bloom + пилочная обработка стопы",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2690,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской смарт-педикюр без покрытия",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2890,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 2 390 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 322 оценкам",
+          "text": "«Хорошее место 2026»; в 2ГИС — тоже 5,0"
+        },
+        {
+          "icon": "sparkle",
+          "title": "Bloom или Luxio",
+          "text": "Гель-лак на выбор — премиальный Luxio"
+        },
+        {
+          "icon": "heart",
+          "title": "Спа для рук и ног",
+          "text": "St Barth, La Ric, Zeitun, Collistar"
+        },
+        {
+          "icon": "parking",
+          "title": "Парковка",
+          "text": "Есть и для людей с инвалидностью"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах. Дизайн, парафин и спа — дополнениями."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/1489947/2a00000186650e5095e26be7e333a783d7f1/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/11244149/2a0000018c641c841970a538a001550d7078/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/859900/2a00000186650e4d87147d9e96560023b63b/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/9691438/2a0000018c64880da3fee715f38a54f08d4f/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/7636462/2a0000018719930340b105c1ccf0ad973a58/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/1420183/2a00000186650e5903afdffbd6ee9edb1670/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Елизавета К.",
+          "source": "Яндекс Карты",
+          "date": "15 июля",
+          "rating": 5,
+          "text": "Была у двух мастеров на педикюре, обе девушки оперативно работают, что имеет огромное значение для меня, так как мой график всегда загруженный. Радует опрятный вид сотрудников и чистота в помещении. Администратор очень приветливая. Желаю студии процветания и много благодарных довольных клиентов 😊"
+        },
+        {
+          "name": "Екатерина С.",
+          "source": "Яндекс Карты",
+          "date": "6 июня",
+          "rating": 5,
+          "text": "Добрый день, отличное место, где работают профессионалы своего дела. Сколько делаю маникюр, всегда все на высшем уровне. Все аккуратно и красиво, большой выбор цветовой палитры. Очень вежливые и прятные мастера (особенно Татьяна). Всегда хочется возвращаться."
+        },
+        {
+          "name": "Екатерина Т.",
+          "source": "Яндекс Карты",
+          "date": "17 мая",
+          "rating": 5,
+          "text": "Уютная, современная, душевная атмосфера. Мастера супер профи, работают быстро и качественно. Все идеально от встречи на ресепш до кончиков ногтей. Буду приходить еще!"
+        },
+        {
+          "name": "Арина Ч.",
+          "source": "Яндекс Карты",
+          "date": "22 августа",
+          "rating": 5,
+          "text": "Первый раз посетила студию. Вежливый персонал, сразу предложили чай/кофе. Студия чистая, аккуратная. Мастер вежливый, маникюр аккураиный / 7 дней дают на гарантию. Удобное расположение студии, уютно"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Краснодар, Гаражная ул., 132, 1 этаж."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 9:00 до 21:00."
+        },
+        {
+          "q": "Чем Bloom отличается от Luxio?",
+          "a": "Это два бренда гель-лака, Luxio — премиальный. Маникюр с Bloom — 2 090 ₽, с Luxio — 2 390 ₽."
+        },
+        {
+          "q": "Делаете детский маникюр?",
+          "a": "Да, без обрезного инструмента: без покрытия — 600 ₽, с покрытием — 800 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}

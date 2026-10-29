@@ -1,0 +1,683 @@
+{
+  "slug": "wow-nogti",
+  "niche": "nails",
+  "style": "pudra",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Вау Ногти» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/wow_nogti/97417630718/ — 5,0 / 238, «Хорошее место 2026», прайс",
+    "2ГИС https://2gis.ru/krasnodar/firm/70000001102841333 — 4,9 / 157",
+    "Telegram-канал «ВАУ НОГТИ — МАНИКЮР КРАСНОДАР ЛЮБИМОВО» — слоган; запись YCLIENTS https://n1527249.yclients.com/",
+    "Досье: лиды/Вау Ногти (Краснодар).md; разбор: разборы/Вау Ногти (Краснодар).md (данные проверены исследователем 29.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 29.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "сайта нет; wownogti.ru (vaunogti.ru тоже) свободен (29.10) — зарегистрировать на владельца",
+    "в карточке Яндекса единственная ссылка — MAX; есть ли WhatsApp на номере — уточнить",
+    "брови и ресницы — в демо не включали",
+    "остановка или метро и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Вау Ногти",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Краснодар",
+    "address": "ул. Адмирала Серебрякова, 3, корп. 3",
+    "addressNote": "",
+    "metro": "",
+    "phone": "+7 995 170-49-73",
+    "phoneHref": "+79951704973",
+    "hoursShort": "Ежедневно 10:00–21:00",
+    "yandexMaps": "https://yandex.ru/maps/org/wow_nogti/97417630718/",
+    "twoGis": "https://2gis.ru/krasnodar/firm/70000001102841333",
+    "messengers": [
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/+k-Ga071mofYxMjky"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.com/club231351517"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "«Вау Ногти» — студия маникюра в Любимово",
+    "lead": "Быстро. Качественно. Без отслоек. Маникюр с укреплением гелем, японский маникюр, полный педикюр, термоплёнки и СПА-уход Nogturne. Ежедневно с 10 до 21.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 238,
+        "url": "https://yandex.ru/maps/org/wow_nogti/97417630718/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,9",
+        "count": 157,
+        "url": "https://2gis.ru/krasnodar/firm/70000001102841333"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani-gel",
+        "mani-strong",
+        "pedi-gel",
+        "pedi-toes-gel"
+      ],
+      "labels": {
+        "mani-gel": "С гель-лаком",
+        "mani-strong": "С укреплением",
+        "pedi-gel": "Полный педикюр",
+        "pedi-toes-gel": "«Пальчики»"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Алёна",
+      "dative": "Алёне",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Ольга",
+      "dative": "Ольге",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Виктория",
+      "dative": "Виктории",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Кристина",
+      "dative": "Кристине",
+      "role": "Мастер маникюра и педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani-gel",
+          "name": "Маникюр с покрытием гель-лаком",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 1800,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "cateye",
+              "name": "Кошачий глаз",
+              "price": 200,
+              "duration": 15
+            },
+            {
+              "id": "rub",
+              "name": "Втирка",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "french",
+              "name": "Французский маникюр",
+              "price": 400,
+              "duration": 20
+            },
+            {
+              "id": "gradient",
+              "name": "Градиент",
+              "price": 400,
+              "duration": 20
+            },
+            {
+              "id": "stamp",
+              "name": "Стемпинг",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "design1",
+              "name": "Дизайн 1 ногтя",
+              "price": 50,
+              "duration": 5
+            },
+            {
+              "id": "spa",
+              "name": "СПА-уход для рук Nogturne",
+              "price": 500,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-strong",
+          "name": "Маникюр с укреплением гелем + гель-лак",
+          "desc": "",
+          "duration": 135,
+          "price": {
+            "value": 2100,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "cateye",
+              "name": "Кошачий глаз",
+              "price": 200,
+              "duration": 15
+            },
+            {
+              "id": "rub",
+              "name": "Втирка",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "french",
+              "name": "Французский маникюр",
+              "price": 400,
+              "duration": 20
+            },
+            {
+              "id": "gradient",
+              "name": "Градиент",
+              "price": 400,
+              "duration": 20
+            },
+            {
+              "id": "stamp",
+              "name": "Стемпинг",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "design1",
+              "name": "Дизайн 1 ногтя",
+              "price": 50,
+              "duration": 5
+            },
+            {
+              "id": "spa",
+              "name": "СПА-уход для рук Nogturne",
+              "price": 500,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-strong-3",
+          "name": "С укреплением гелем, длина от 3, снятие входит",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 2300,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "cateye",
+              "name": "Кошачий глаз",
+              "price": 200,
+              "duration": 15
+            },
+            {
+              "id": "rub",
+              "name": "Втирка",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "french",
+              "name": "Французский маникюр",
+              "price": 400,
+              "duration": 20
+            },
+            {
+              "id": "gradient",
+              "name": "Градиент",
+              "price": 400,
+              "duration": 20
+            },
+            {
+              "id": "stamp",
+              "name": "Стемпинг",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "design1",
+              "name": "Дизайн 1 ногтя",
+              "price": 50,
+              "duration": 5
+            },
+            {
+              "id": "spa",
+              "name": "СПА-уход для рук Nogturne",
+              "price": 500,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-strong-45",
+          "name": "С укреплением гелем, длина 4–5, снятие и небольшой ремонт входят",
+          "desc": "",
+          "duration": 165,
+          "price": {
+            "value": 2500,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "cateye",
+              "name": "Кошачий глаз",
+              "price": 200,
+              "duration": 15
+            },
+            {
+              "id": "rub",
+              "name": "Втирка",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "french",
+              "name": "Французский маникюр",
+              "price": 400,
+              "duration": 20
+            },
+            {
+              "id": "gradient",
+              "name": "Градиент",
+              "price": 400,
+              "duration": 20
+            },
+            {
+              "id": "stamp",
+              "name": "Стемпинг",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "design1",
+              "name": "Дизайн 1 ногтя",
+              "price": 50,
+              "duration": 5
+            },
+            {
+              "id": "spa",
+              "name": "СПА-уход для рук Nogturne",
+              "price": 500,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani",
+          "name": "Маникюр без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 900,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-jp",
+          "name": "Японский маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1400,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-kids",
+          "name": "Детский маникюр",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 600,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 600 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-gel",
+          "name": "Полный педикюр с покрытием",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2800,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "spa",
+              "name": "СПА-уход для ног Nogturne",
+              "price": 600,
+              "duration": 15
+            },
+            {
+              "id": "film",
+              "name": "Термоплёнки, 10 ногтей",
+              "price": 650,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "pedi-toes-gel",
+          "name": "Педикюр с покрытием: только пальчики",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2000,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "spa",
+              "name": "СПА-уход для ног Nogturne",
+              "price": 600,
+              "duration": 15
+            },
+            {
+              "id": "film",
+              "name": "Термоплёнки, 10 ногтей",
+              "price": 650,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "pedi",
+          "name": "Педикюр без покрытия",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2200,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "spa",
+              "name": "СПА-уход для ног Nogturne",
+              "price": 600,
+              "duration": 15
+            },
+            {
+              "id": "film",
+              "name": "Термоплёнки, 10 ногтей",
+              "price": 650,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "pedi-toes",
+          "name": "Обработка пальчиков без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1500,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-foot",
+          "name": "Обработка стопы",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 1400,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 1 400 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 238 оценкам",
+          "text": "«Хорошее место 2026»; в 2ГИС — 4,9"
+        },
+        {
+          "icon": "check",
+          "title": "Быстро и без отслоек",
+          "text": "Укрепление гелем — от 2 100 ₽"
+        },
+        {
+          "icon": "heart",
+          "title": "СПА-уход Nogturne",
+          "text": "Для рук — 500 ₽, для ног — 600 ₽"
+        },
+        {
+          "icon": "coffee",
+          "title": "Чай и кофе",
+          "text": "За это хвалят в отзывах"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах. Дизайн, плёнки и СПА — дополнениями."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/18132699/2a0000019d8fcadaa90c6b632dfe19d63ed3/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/19553098/2a0000019e8e16a0c92631b896fd397e9c23/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/19541413/2a0000019e8e1b0b37b3534fdfaa7977a791/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20200163/2a0000019ed5160399575349b9e68059382b/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/19300554/2a0000019ed516629cb9369188c0a8f0b4a1/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/19300673/2a0000019ed51605a9375188b44b3c363ab6/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Анастасия",
+          "source": "Яндекс Карты",
+          "date": "19 июля",
+          "rating": 5,
+          "text": "Была здесь на маникюре, посоветовала подружка, очень уютное и красивое место, маникюр сделан очень качественно и быстро 🌸 Большой выбор цветов, напитков, все пожелания мастер учитывает Рекомендую данный салон, обязательно вернусь еще!"
+        },
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "8 мая",
+          "rating": 5,
+          "text": "Очень приятное место! Для меня важно чтобы выровняли мои кривые ногти, тонкое и аккуратное покрытие и очень ценю сервис и чистоту. Все пункты для меня соответствуют. Приятные бонусы : меню напитков и подарок"
+        },
+        {
+          "name": "Наталия К.",
+          "source": "Яндекс Карты",
+          "date": "28 июля 2025",
+          "rating": 5,
+          "text": "Была на маникюре — и осталась очень довольна! Однозначно, рекомендую салон к посещению. В салоне всё новое и чистое, атмосфера уютная. Мастер аккуратная, маникюр сделали отлично. Порадовал сервис — вкусный кофе, фильм и даже небольшой подарок. Обязательно вернусь ещё! 💐"
+        },
+        {
+          "name": "Татьяна",
+          "source": "Яндекс Карты",
+          "date": "4 мая",
+          "rating": 5,
+          "text": "Они идеальные 😍 Долго была в поисках своего мастера и тут случились «Вау Ногти» Угостили вкусным кофе, сделали идеальный маникюр, в студии очень уютно 10/10"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Краснодар, ул. Адмирала Серебрякова, 3, корп. 3."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 21:00."
+        },
+        {
+          "q": "Снятие входит в цену?",
+          "a": "В маникюре с укреплением гелем от 3-й длины — да."
+        },
+        {
+          "q": "Можно в 4 руки?",
+          "a": "Да, доплата — 300 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}
