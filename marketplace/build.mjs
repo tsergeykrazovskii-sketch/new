@@ -1,7 +1,9 @@
-// Сайт бренда «Жар-соус»: данные (src/content.json + src/ozon-raw.json) → zhar/dist/index.html
-// Запуск: node zhar/build.mjs [--base-url https://zharsous.ru/] [--out папка] [--demo]
+// Шаблон сайта бренда для маркетплейсов (Ozon, Wildberries). Пример данных — бренд «Жар-соус».
+// Данные (src/content.json + src/ozon-raw.json) → marketplace/dist/index.html
+// Запуск: node marketplace/build.mjs [--base-url https://домен/] [--out папка] [--demo]
 //   --demo — черновик на demo.top-in.ru: закрыт от поисковиков (noindex), без canonical и sitemap
-// Фото упаковок: zhar/img/products/<артикул Ozon>.webp (node zhar/fetch-images.mjs), пока их нет — ссылки на фото Ozon.
+// Фото товаров: marketplace/img/products/<артикул Ozon>.webp (node marketplace/fetch-images.mjs), пока их нет — ссылки на фото Ozon
+// (по ссылке Ozon их на чужих сайтах не показывает — перед сдачей фото нужно скачать).
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -358,8 +360,8 @@ const P = products.map((p) => ({
 const title = `${B.name} — острые соусы с Carolina Reaper на ягодах и фруктах`;
 const desc = `Жар-соус: ${FLAVORS} вкусов — клюква, манго, слива, фейхоа, смородина и Carolina Reaper. Сначала вкус, потом жар. Купить на Ozon и Wildberries. Оценка 4,9.`;
 const fonts = ['manrope', 'caveat'];
-// превью ссылки 1200×630: node scripts/share.mjs zhar (снимок первого экрана) → assets/share/zhar.jpg
-const SHARE = fs.existsSync(path.join(root, 'assets/share/zhar.jpg'));
+// превью ссылки 1200×630 (снимок первого экрана) — marketplace/share.jpg, если положить
+const SHARE = fs.existsSync(path.join(here, 'share.jpg'));
 const html = `<!doctype html>
 <html lang="ru">
 <head>
@@ -414,7 +416,7 @@ for (const f of fonts) {
   fs.writeFileSync(path.join(dist, 'fonts', f + '.css'), css);
   for (const m of css.matchAll(/url\(files\/([^)]+)\)/g)) fs.copyFileSync(path.join(root, 'assets/fonts/files', m[1]), path.join(dist, 'fonts/files', m[1]));
 }
-if (SHARE) fs.copyFileSync(path.join(root, 'assets/share/zhar.jpg'), path.join(dist, 'share.jpg'));
+if (SHARE) fs.copyFileSync(path.join(here, 'share.jpg'), path.join(dist, 'share.jpg'));
 if (!DEMO) fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\n${SITE ? `Sitemap: ${SITE}sitemap.xml\n` : ''}`);
 if (SITE && !DEMO) fs.writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${esc(SITE)}</loc></url></urlset>\n`);
 const local = products.filter((p) => p.img.startsWith('img/')).length;

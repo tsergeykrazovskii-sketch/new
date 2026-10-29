@@ -1,6 +1,6 @@
-// Фото упаковок с Ozon → zhar/img/products/<артикул>.webp (первое фото карточки, 900 px)
-// Нужен доступ к ir.ozone.ru / ir-*.ozone.ru и python3 с Pillow. Запуск: node zhar/fetch-images.mjs
-// При выкладке демо (pages.yml) запускается сам: с серверов Ozon фото на чужих сайтах не показываются, поэтому кладём их в сайт.
+// Фото товаров с Ozon → marketplace/img/products/<артикул>.webp (первое фото карточки)
+// Нужен доступ к ir.ozone.ru / ir-*.ozone.ru и python3 с Pillow. Запуск: node marketplace/fetch-images.mjs
+// Ozon не показывает свои фото на чужих сайтах, поэтому перед сдачей их нужно скачать в сайт.
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
@@ -26,4 +26,4 @@ for (const [id, r] of Object.entries(raw)) {
 }
 if (ok) execFileSync('python3', [path.join(here, '..', 'scripts', 'images.py'), tmp, out], { stdio: 'inherit' });
 fs.rmSync(tmp, { recursive: true, force: true });
-console.log(`Скачано ${ok} из ${Object.keys(raw).length}. Пересоберите: node zhar/build.mjs`);
+console.log(`Скачано ${ok} из ${Object.keys(raw).length}. Пересоберите: node marketplace/build.mjs`);

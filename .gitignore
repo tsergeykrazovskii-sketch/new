@@ -2,5 +2,5 @@ dist/
 release/
 node_modules/
 .DS_Store
-zhar/dist/
-zhar/.tmp-*
+marketplace/dist/
+marketplace/.tmp-*

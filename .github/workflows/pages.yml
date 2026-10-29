@@ -32,9 +32,6 @@ jobs:
           node-version: 20
       - id: pages
         uses: actions/configure-pages@v5
-      # Фото упаковок «Жар-соуса» — с Ozon в сам сайт: по ссылке на Ozon они на чужих сайтах не показываются.
-      # Не скачались — сайт всё равно соберётся, вместо фото будут плашки с перцем.
-      - run: python3 -m pip install --quiet --break-system-packages pillow && node zhar/fetch-images.mjs || echo "Фото Ozon не скачались"
       # сайт проекта живёт в подпапке /<репозиторий>/ — сборка добавит её к путям фото
       - run: node scripts/build.mjs
         env:

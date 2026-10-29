@@ -1,7 +1,6 @@
 // Проверка демо перед выкладкой (после node scripts/build.mjs): если что-то сломано — выкладка не идёт.
 //   1. Каждый сайт в dist/ открывается на телефоне (390 px): без ошибок скриптов и без горизонтальной прокрутки.
 //   2. Запись проходит до конца в шаблонах ниш и у одного клиента каждой ниши — на телефоне и на компьютере.
-//   3. Сайт «Жар-соус»: фильтр линейки, окно соуса, меню на телефоне.
 // Движки: Chromium (Chrome, Android, Яндекс Браузер) и WebKit (Safari на iPhone и Mac), если он установлен.
 // Запуск: node scripts/smoke.mjs
 //   PLAYWRIGHT=/путь/к/playwright/index.mjs CHROME=/путь/к/chrome — свои пути (как у scripts/share.mjs)
@@ -20,7 +19,7 @@ if (!fs.existsSync(path.join(dist, '404.html'))) throw new Error('Сначала
 const only = (process.env.SMOKE_ONLY || '').split(',').filter(Boolean);
 const isSite = (d) => {
   const f = path.join(dist, d, 'index.html');
-  return fs.existsSync(f) && (d === 'zhar' || /data-niche=/.test(fs.readFileSync(f, 'utf8').slice(0, 4000)));
+  return fs.existsSync(f) && /data-niche=/.test(fs.readFileSync(f, 'utf8').slice(0, 4000));
 };
 const sites = fs.readdirSync(dist).filter((d) => (!only.length || only.includes(d)) && isSite(d)).sort();
 const niches = fs.readdirSync(path.join(root, 'niches')).filter((f) => f.endsWith('.js')).map((f) => f.replace(/\.js$/, ''));
@@ -111,8 +110,8 @@ for (const [name, engine, opts] of engines) {
     }
     throw e;
   }
-  // В Safari — шаблоны, клиенты для записи и «Жар-соус»: этого хватает, чтобы поймать особенности движка
-  const list = name === 'WebKit' ? sites.filter((s) => bookSites.includes(s) || s === 'zhar') : sites;
+  // В Safari — шаблоны и клиенты для записи: этого хватает, чтобы поймать особенности движка
+  const list = name === 'WebKit' ? sites.filter((s) => bookSites.includes(s)) : sites;
   console.log(`\n${name}: ${list.length} сайтов на телефоне, запись — ${bookSites.join(', ')}`);
 
   for (const site of list) {
@@ -120,18 +119,7 @@ for (const [name, engine, opts] of engines) {
       const { ctx, page, errs } = await openPage(browser, 390, base + site + '/');
       const o = await overflow(page);
       if (o > 1) fail(name, site, `горизонтальная прокрутка на телефоне (+${o} px)`);
-      if (site === 'zhar') {
-        await page.click('[data-line-f="mild"]');
-        const mild = await page.$$eval('[data-cards] .card', (cs) => cs.filter((c) => !c.hidden).length);
-        if (!mild) fail(name, site, 'фильтр «Неострые» ничего не показал');
-        await page.click('[data-menu]');
-        if (!(await page.isVisible('#menu'))) fail(name, site, 'меню на телефоне не открылось');
-        await page.click('.menu__link[href="#catalog"]');
-        await page.waitForTimeout(300);
-        await page.locator('.card:not([hidden]) [data-open]').first().click();
-        await page.waitForTimeout(300);
-        if (!(await page.isVisible('#modal'))) fail(name, site, 'окно соуса не открылось');
-      } else if (bookSites.includes(site)) {
+      if (bookSites.includes(site)) {
         const r = await book(page, 390);
         if (r) fail(name, site, 'телефон: ' + r);
       }
