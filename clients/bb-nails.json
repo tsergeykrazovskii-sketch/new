@@ -1,0 +1,704 @@
+{
+  "slug": "bb-nails",
+  "niche": "nails",
+  "style": "shalfey",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Bb Nails» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/bb_nails/8063361953/ — 5,0 / 229, «Хорошее место 2026», прайс",
+    "2ГИС https://2gis.ru/krasnodar/firm/70000001053004626 — 4,7 / 45",
+    "Запись DIKIDI https://dikidi.net/1109230",
+    "Досье: лиды/Bb Nails (Краснодар).md; разбор: разборы/Bb Nails (Краснодар).md (данные проверены исследователем 31.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 31.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "сайта нет; bbnails-krd.ru (bb-nails.ru — регистрация истекла, в архиве чужой сайт) свободен (31.10) — зарегистрировать на владельца",
+    "соцсетей нет; в 2ГИС только Telegram по номеру",
+    "прайс — 17 разделов на 97 позиций, есть укладки, причёски и удаление волос — в демо не включали",
+    "остановка или метро и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Bb Nails",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Краснодар",
+    "address": "Кореновская ул., 2, стр. 1",
+    "addressNote": "2 этаж",
+    "metro": "",
+    "phone": "+7 989 228-01-81",
+    "phoneHref": "+79892280181",
+    "hoursShort": "Ежедневно 10:00–20:00",
+    "yandexMaps": "https://yandex.ru/maps/org/bb_nails/8063361953/",
+    "twoGis": "https://2gis.ru/krasnodar/firm/70000001053004626",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79892280181"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/+79892280181"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "20:00"
+    ],
+    [
+      "10:00",
+      "20:00"
+    ],
+    [
+      "10:00",
+      "20:00"
+    ],
+    [
+      "10:00",
+      "20:00"
+    ],
+    [
+      "10:00",
+      "20:00"
+    ],
+    [
+      "10:00",
+      "20:00"
+    ],
+    [
+      "10:00",
+      "20:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "Bb Nails — студия маникюра на Кореновской",
+    "lead": "Маникюр с гель-лаком и SPA-перчаткой, бразильский и японский маникюр, Smart-педикюр со смарт-свечой, наращивание и услуга в 4 руки. Ежедневно с 10 до 20.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 229,
+        "url": "https://yandex.ru/maps/org/bb_nails/8063361953/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,7",
+        "count": 45,
+        "url": "https://2gis.ru/krasnodar/firm/70000001053004626"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani-gel",
+        "mani-br",
+        "pedi-gel",
+        "ext"
+      ],
+      "labels": {
+        "mani-gel": "С гель-лаком",
+        "mani-br": "Бразильский",
+        "pedi-gel": "Smart-педикюр",
+        "ext": "Наращивание"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Ольга",
+      "dative": "Ольге",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Марина",
+      "dative": "Марине",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Мария",
+      "dative": "Марии",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Софья",
+      "dative": "Софье",
+      "role": "Мастер маникюра и педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani-gel",
+          "name": "Маникюр с покрытием гель-лаком",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2100,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "french",
+              "name": "Френч или лунки",
+              "price": 400,
+              "duration": 20
+            },
+            {
+              "id": "cateye",
+              "name": "Кошачий глаз",
+              "price": 200,
+              "duration": 15
+            },
+            {
+              "id": "rub",
+              "name": "Втирка",
+              "price": 200,
+              "duration": 15
+            },
+            {
+              "id": "ombre",
+              "name": "Омбре",
+              "price": 300,
+              "duration": 20
+            },
+            {
+              "id": "design-hard",
+              "name": "Сложный дизайн",
+              "price": 500,
+              "duration": 30
+            },
+            {
+              "id": "film",
+              "name": "Плёнки",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "glove",
+              "name": "Увлажняющая SPA-перчатка",
+              "price": 300,
+              "duration": 10
+            },
+            {
+              "id": "massage",
+              "name": "Массаж рук, 10 минут",
+              "price": 200,
+              "duration": 10
+            }
+          ]
+        },
+        {
+          "id": "mani-strong",
+          "name": "Укрепление гелем + покрытие (ремонт 1–3 ногтей и углы входят)",
+          "desc": "",
+          "duration": 135,
+          "price": {
+            "value": 2300,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "french",
+              "name": "Френч или лунки",
+              "price": 400,
+              "duration": 20
+            },
+            {
+              "id": "cateye",
+              "name": "Кошачий глаз",
+              "price": 200,
+              "duration": 15
+            },
+            {
+              "id": "rub",
+              "name": "Втирка",
+              "price": 200,
+              "duration": 15
+            },
+            {
+              "id": "ombre",
+              "name": "Омбре",
+              "price": 300,
+              "duration": 20
+            },
+            {
+              "id": "design-hard",
+              "name": "Сложный дизайн",
+              "price": 500,
+              "duration": 30
+            },
+            {
+              "id": "film",
+              "name": "Плёнки",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "glove",
+              "name": "Увлажняющая SPA-перчатка",
+              "price": 300,
+              "duration": 10
+            },
+            {
+              "id": "massage",
+              "name": "Массаж рук, 10 минут",
+              "price": 200,
+              "duration": 10
+            }
+          ]
+        },
+        {
+          "id": "mani",
+          "name": "Маникюр комбинированный или аппаратный",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1000,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-br",
+          "name": "Бразильский маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1500,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-jp",
+          "name": "Японский маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1500,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-lak",
+          "name": "Маникюр + обычный лак",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 1200,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1300,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-kids",
+          "name": "Детский маникюр (до 12 лет)",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 500,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 500 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-gel",
+          "name": "Smart-педикюр с гель-лаком (со стопой)",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2500,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "candle",
+              "name": "Smart-свеча — массаж ног входит",
+              "price": 450,
+              "duration": 15
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия",
+              "price": 350,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "pedi-toes-gel",
+          "name": "Обработка пальцев + гель-лак",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2100,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "candle",
+              "name": "Smart-свеча — массаж ног входит",
+              "price": 450,
+              "duration": 15
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия",
+              "price": 350,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "pedi",
+          "name": "Smart-педикюр без покрытия (со стопой)",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2200,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "candle",
+              "name": "Smart-свеча — массаж ног входит",
+              "price": 450,
+              "duration": 15
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия",
+              "price": 350,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "pedi-jp",
+          "name": "Японский педикюр (со стопой)",
+          "desc": "",
+          "duration": 105,
+          "price": {
+            "value": 2800,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-film",
+          "name": "Педикюр с плёнками (со стопой)",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2700,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской педикюр (со стопой)",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2500,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-ingrown",
+          "name": "Обработка вросшего ногтя",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 1000,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 1 000 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Наращивание ногтей до 3-й длины",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 3000,
+            "from": false
+          }
+        },
+        {
+          "id": "ext-long",
+          "name": "Наращивание ногтей от 3-й длины",
+          "desc": "",
+          "duration": 195,
+          "price": {
+            "value": 3500,
+            "from": false
+          }
+        },
+        {
+          "id": "corr",
+          "name": "Коррекция наращённых ногтей",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 2300,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 2 300 ₽"
+    },
+    {
+      "category": "Покрытие и снятие",
+      "items": [
+        {
+          "id": "remove",
+          "name": "Снятие покрытия",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 500,
+            "from": false
+          }
+        },
+        {
+          "id": "lak",
+          "name": "Покрытие обычным лаком",
+          "desc": "",
+          "duration": 15,
+          "price": {
+            "value": 200,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "sparkle",
+      "from": "от 200 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 229 оценкам",
+          "text": "«Хорошее место 2026» в Яндекс Картах"
+        },
+        {
+          "icon": "heart",
+          "title": "В 4 руки",
+          "text": "Доплата — 500 ₽"
+        },
+        {
+          "icon": "sparkle",
+          "title": "SPA-перчатка и массаж",
+          "text": "Дополнением к любому маникюру"
+        },
+        {
+          "icon": "check",
+          "title": "Smart-педикюр",
+          "text": "Со смарт-свечой и массажем ног"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах. Дизайн, SPA и массаж — дополнениями."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16055577/2a00000199b62a85fc43bc45d21f71c06753/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15081387/2a000001954e18abcc5a8e93fcc3b5be236a/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/19647201/2a0000019dad01929896635281dc61cdf7af/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/7691421/2a0000018a2d2eabc56463bed833575a0739/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/760153/2a000001875bc25630537e3bf5b3d963d1ef/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14093276/2a000001933b94941ae28dde77d13ea81c19/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Екатерина",
+          "source": "Яндекс Карты",
+          "date": "19 сентября",
+          "rating": 5,
+          "text": "Все очень понравилось! Анастасия — мастер с золотыми руками) Маникюр получился просто супер! Ровно, чисто, без затёков — каждый ноготок как на картинке🤩🔥 Салон — одно удовольствие от порога до выхода: уютно, чисто, сервис на высоте."
+        },
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "12 сентября 2025",
+          "rating": 5,
+          "text": "Больше года хожу к мастеру маникюра Людмиле! Очень нравится как она работает, аккуратно и быстро. В студии что не мало важно большой выбор гелей, лаков и цветов, постоянно обновляется палитра. Однозначно рекомендую."
+        },
+        {
+          "name": "Дарья Р.",
+          "source": "Яндекс Карты",
+          "date": "16 июля",
+          "rating": 5,
+          "text": "Людмила мастер своего дела, не первый раз уже хожу к ней на маникюр и педикюр, всегда все идеально 👍🏻 даже мужа приводила несколько раз на педикюр к ней, он тоже остался доволен 👍🏻👍🏻👍🏻"
+        },
+        {
+          "name": "Эллина К.",
+          "source": "Яндекс Карты",
+          "date": "12 февраля",
+          "rating": 5,
+          "text": "Самый лучший мастер, благодарю за качество и скорость маникюра! 👍. Всегда исполнит мои пожелания по дизайну и спасибочки за вкусный кофе 😘"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Краснодар, Кореновская ул., 2, стр. 1, 2 этаж."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 20:00."
+        },
+        {
+          "q": "Можно в 4 руки?",
+          "a": "Да, доплата — 500 ₽."
+        },
+        {
+          "q": "Делаете детский маникюр?",
+          "a": "Да, детям до 12 лет — 500 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}

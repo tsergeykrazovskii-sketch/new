@@ -1,0 +1,596 @@
+{
+  "slug": "dear-nails",
+  "niche": "nails",
+  "style": "pudra",
+  "timezone": "Europe/Volgograd",
+  "demoLabel": "Демо сайта для студии маникюра «Dear Nails» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/dear_nails/26937677145/ — 4,9 / 221, прайс (29 сентября)",
+    "2ГИС https://2gis.ru/volgograd/firm/70000001062447632 — 4,6 / 83",
+    "Одностраничник https://dear-nails.clients.site/ — текст о студии; запись DIKIDI http://dikidi.ru/ru/profile/dear_nails_2060218",
+    "Досье: лиды/Dear Nails (Волгоград).md; разбор: разборы/Dear Nails (Волгоград).md (данные проверены исследователем 31.10.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 31.10.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "сайта нет; dear-nails.ru свободен (31.10) — зарегистрировать на владельца",
+    "на одностраничнике нет телефона и висит закончившаяся акция «Маникюр и покрытие 1 300» (до 27.10)",
+    "Telegram нет — на демо звонок и WhatsApp",
+    "выкладной френч и аквариумный дизайн (3 500 ₽) — в разделе «Без категории», в демо не включали",
+    "остановка или метро и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Dear Nails",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Волгоград",
+    "address": "ул. Пархоменко, 25",
+    "addressNote": "цокольный этаж, вход с торца",
+    "metro": "",
+    "phone": "+7 961 085-05-41",
+    "phoneHref": "+79610850541",
+    "hoursShort": "Ежедневно 9:00–21:00",
+    "yandexMaps": "https://yandex.ru/maps/org/dear_nails/26937677145/",
+    "twoGis": "https://2gis.ru/volgograd/firm/70000001062447632",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79610850541"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/dearnails_vlg"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "Dear Nails — студия маникюра на Пархоменко",
+    "lead": "Место, где профессиональный подход во всём сочетается с атмосферой уюта. Место, куда хочется вернуться. Маникюр с гель-лаком — 1 300 ₽. Ежедневно с 9 до 21.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "4,9",
+        "count": 221,
+        "url": "https://yandex.ru/maps/org/dear_nails/26937677145/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,6",
+        "count": 83,
+        "url": "https://2gis.ru/volgograd/firm/70000001062447632"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani-gel",
+        "ext",
+        "pedi-gel",
+        "pedi-podo"
+      ],
+      "labels": {
+        "mani-gel": "С гель-лаком",
+        "ext": "Наращивание",
+        "pedi-gel": "Смарт-педикюр",
+        "pedi-podo": "Подология"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Яна",
+      "dative": "Яне",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Анна",
+      "dative": "Анне",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Екатерина",
+      "dative": "Екатерине",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Кристина",
+      "dative": "Кристине",
+      "role": "Мастер маникюра и педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani-gel",
+          "name": "Маникюр с покрытием гель-лаком",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 1300,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design1",
+              "name": "Простой дизайн 1 ногтя",
+              "price": 80,
+              "duration": 5
+            },
+            {
+              "id": "design-all",
+              "name": "Простой дизайн на все ногти",
+              "price": 350,
+              "duration": 20
+            },
+            {
+              "id": "design-hard",
+              "name": "Сложный дизайн на все ногти",
+              "price": 800,
+              "duration": 40
+            },
+            {
+              "id": "french",
+              "name": "Френч или лунки",
+              "price": 400,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "mani",
+          "name": "Маникюр без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1000,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 1 000 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Наращивание ногтей до 3 см",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 2500,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design1",
+              "name": "Простой дизайн 1 ногтя",
+              "price": 80,
+              "duration": 5
+            },
+            {
+              "id": "design-all",
+              "name": "Простой дизайн на все ногти",
+              "price": 350,
+              "duration": 20
+            },
+            {
+              "id": "design-hard",
+              "name": "Сложный дизайн на все ногти",
+              "price": 800,
+              "duration": 40
+            },
+            {
+              "id": "french",
+              "name": "Френч или лунки",
+              "price": 400,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "ext-long",
+          "name": "Наращивание ногтей до 5 см",
+          "desc": "",
+          "duration": 195,
+          "price": {
+            "value": 2800,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design1",
+              "name": "Простой дизайн 1 ногтя",
+              "price": 80,
+              "duration": 5
+            },
+            {
+              "id": "design-all",
+              "name": "Простой дизайн на все ногти",
+              "price": 350,
+              "duration": 20
+            },
+            {
+              "id": "design-hard",
+              "name": "Сложный дизайн на все ногти",
+              "price": 800,
+              "duration": 40
+            },
+            {
+              "id": "french",
+              "name": "Френч или лунки",
+              "price": 400,
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "id": "corr",
+          "name": "Коррекция наращённых ногтей",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 2200,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design1",
+              "name": "Простой дизайн 1 ногтя",
+              "price": 80,
+              "duration": 5
+            },
+            {
+              "id": "design-all",
+              "name": "Простой дизайн на все ногти",
+              "price": 350,
+              "duration": 20
+            },
+            {
+              "id": "design-hard",
+              "name": "Сложный дизайн на все ногти",
+              "price": 800,
+              "duration": 40
+            },
+            {
+              "id": "french",
+              "name": "Френч или лунки",
+              "price": 400,
+              "duration": 20
+            }
+          ]
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 2 200 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-gel",
+          "name": "Смарт-педикюр полный + гель-лак",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2300,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi",
+          "name": "Полный смарт-педикюр без покрытия",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 1900,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-podo",
+          "name": "Смарт-педикюр: подологическая стопа",
+          "desc": "",
+          "duration": 105,
+          "price": {
+            "value": 2300,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-foot",
+          "name": "Обработка стопы диском",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 1800,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-toes",
+          "name": "Обработка пальчиков без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1500,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2000,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men-toes",
+          "name": "Мужской педикюр: только пальчики",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1700,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 1 500 ₽"
+    },
+    {
+      "category": "Покрытие и снятие",
+      "items": [
+        {
+          "id": "remove",
+          "name": "Снятие без дальнейшего покрытия",
+          "desc": "",
+          "duration": 20,
+          "price": {
+            "value": 400,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "sparkle",
+      "from": "от 400 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "4,9 по 221 оценке",
+          "text": "В Яндекс Картах"
+        },
+        {
+          "icon": "percent",
+          "title": "Маникюр + гель-лак — 1 300 ₽",
+          "text": "По прайсу в Яндекс Картах"
+        },
+        {
+          "icon": "check",
+          "title": "Подологическая стопа",
+          "text": "Смарт-педикюр — 2 300 ₽"
+        },
+        {
+          "icon": "pin",
+          "title": "Вход с торца",
+          "text": "Цокольный этаж"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах (обновлён 29 сентября). Дизайн и френч — дополнениями."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20179276/2a000001a02339534fa706164bc3c588824c/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20963904/2a000001a11b447e354356e0d771b955c4a3/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/17670872/2a000001a10ba2e32e099273444c6860cc48/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20456665/2a000001a01a481da0d92720affa3236c9fa/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20200163/2a000001a0bdaad25cb6af5e22c215fc1a44/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20706988/2a000001a11b45fa13eccf29442d3d802cee/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "5 сентября",
+          "rating": 5,
+          "text": "Была на маникюре с покрытием. Доброжелательное отношение к клиенту,приятное общение. Мастер Светлана мои ручки привела в порядок,ноготочки супер,цвет подобрали по моему вкусу. Рекомендую студию. Посетим обязательно еще"
+        },
+        {
+          "name": "Ирина А.",
+          "source": "Яндекс Карты",
+          "date": "21 февраля",
+          "rating": 5,
+          "text": "Спасибо большое за прекрасный маникюр, очень приятная девушка Екатерина прекрасный мастер, было приятно познакомиться и пообщаться, очень прекрасно сделала маникюр, всё аккуратно, быстро, красиво 👍 мне всё понравилось. Обязательно ещё раз вернусь в этот салон. Спасибо большое за прекрасную работу и ваш труд! 🌹💕"
+        },
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "10 октября",
+          "rating": 5,
+          "text": "Отличный мастер! Яна делает маникюр быстро, чисто и абсолютно безболезненно. Инструменты стерильные, рабочее место идеально чистое. Покрытие держится отлично, форму сделала красивую,однозначно 5 звезд и самые искренние рекомендации!»"
+        },
+        {
+          "name": "Диана Ш.",
+          "source": "Яндекс Карты",
+          "date": "29 января 2025",
+          "rating": 5,
+          "text": "Была недавно в данной студии на маникюре, все очень понравилось. Обслуживание на высшем уровне, приятная атмосфера, мастера отличные, приду ещё не раз"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Волгоград, ул. Пархоменко, 25, цокольный этаж, вход с торца."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 9:00 до 21:00."
+        },
+        {
+          "q": "Сколько стоит наращивание?",
+          "a": "До 3 см — 2 500 ₽, до 5 см — 2 800 ₽; коррекция — 2 200 ₽."
+        },
+        {
+          "q": "Снимаете чужое покрытие?",
+          "a": "Да, снятие без дальнейшего покрытия — 400 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}
