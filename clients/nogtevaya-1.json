@@ -1,0 +1,569 @@
+{
+  "slug": "nogtevaya-1",
+  "niche": "nails",
+  "style": "moloko",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Ногтевая № 1» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/nogtevaya_1/115928463985/ — 5,0 / 312, прайс",
+    "2ГИС https://2gis.ru/krasnodar/firm/70000001084338197 — 4,7 / 276",
+    "Запись YCLIENTS http://n1070099.yclients.com (2ГИС)",
+    "Текст — Telegram-канал t.me/nogtevaya1",
+    "Досье: лиды/Ногтевая № 1 (Краснодар).md; разбор: разборы/Ногтевая № 1 (Краснодар).md (данные проверены исследователем 03.11.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 03.11.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "сайта нет; nogtevaya1.ru зарегистрирован 21.10.2025 на InSales, не делегирован, оплата истекла (освобождается 24.11) — не их ли? nogtevaya-1.ru свободен (03.11)",
+    "первая рубрика в Яндексе — «Салон красоты»; прайс «Давно не обновлялось»",
+    "косметика TSSS и HEMPZ из прайса — в демо не включали",
+    "остановка или метро и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Ногтевая № 1",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Краснодар",
+    "address": "ул. Ивана Беличенко, 89",
+    "addressNote": "вход со стороны дороги",
+    "metro": "",
+    "phone": "+7 918 459-99-53",
+    "phoneHref": "+79184599953",
+    "hoursShort": "Ежедневно 9:00–21:00",
+    "yandexMaps": "https://yandex.ru/maps/org/nogtevaya_1/115928463985/",
+    "twoGis": "https://2gis.ru/krasnodar/firm/70000001084338197",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79184599953"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/nogtevaya1"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "«Ногтевая № 1» — маникюр и педикюр на Беличенко",
+    "lead": "Пространство красоты с качеством и сервисом № 1. Маникюр с гель-лаком EMI, Mystique и LUXIO, японский маникюр, SMART-педикюр и наращивание. Ежедневно с 9 до 21.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 312,
+        "url": "https://yandex.ru/maps/org/nogtevaya_1/115928463985/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,7",
+        "count": 276,
+        "url": "https://2gis.ru/krasnodar/firm/70000001084338197"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani-gel",
+        "mani-luxio",
+        "pedi-gel",
+        "ext"
+      ],
+      "labels": {
+        "mani-gel": "С гель-лаком",
+        "mani-luxio": "LUXIO",
+        "pedi-gel": "SMART-педикюр",
+        "ext": "Наращивание"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Яна",
+      "dative": "Яне",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Ольга",
+      "dative": "Ольге",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Мария",
+      "dative": "Марии",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Марина",
+      "dative": "Марине",
+      "role": "Мастер наращивания",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani-gel",
+          "name": "Маникюр с покрытием гель-лаком EMI или Mystique",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 1800,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "french",
+              "name": "Френч",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "peel",
+              "name": "Пилинг",
+              "price": 400,
+              "duration": 10
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия",
+              "price": 400,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-luxio",
+          "name": "Маникюр + покрытие гель-лаком LUXIO",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2100,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "french",
+              "name": "Френч",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "peel",
+              "name": "Пилинг",
+              "price": 400,
+              "duration": 10
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия",
+              "price": 400,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-camo",
+          "name": "Маникюр + камуфлирующая база",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2100,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-jp",
+          "name": "Японский маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1400,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-eco",
+          "name": "Экоглянцевание INKI",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1400,
+            "from": false
+          }
+        },
+        {
+          "id": "mani",
+          "name": "Маникюр без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1000,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1200,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-kids",
+          "name": "Детский маникюр",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 500,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 500 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-gel",
+          "name": "SMART-педикюр с гель-лаком EMI или Mystique",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3000,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "peel",
+              "name": "Пилинг",
+              "price": 400,
+              "duration": 10
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия",
+              "price": 400,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "pedi-luxio",
+          "name": "SMART-педикюр с покрытием LUXIO",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3200,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-film",
+          "name": "SMART-педикюр с плёнками",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3400,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-smart",
+          "name": "SMART-педикюр без покрытия",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2200,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi",
+          "name": "Педикюр классический без покрытия",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 1700,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской SMART-педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2800,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 1 700 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Наращивание ногтей",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 3000,
+            "from": false
+          }
+        },
+        {
+          "id": "corr",
+          "name": "Гелевая коррекция",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 2700,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 2 700 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 312 оценкам",
+          "text": "В Яндекс Картах; в 2ГИС — 4,7 по 276"
+        },
+        {
+          "icon": "sparkle",
+          "title": "EMI, Mystique, LUXIO",
+          "text": "Гель-лак на выбор — от 1 800 ₽"
+        },
+        {
+          "icon": "check",
+          "title": "SMART-педикюр",
+          "text": "С гель-лаком — 3 000 ₽"
+        },
+        {
+          "icon": "parking",
+          "title": "Парковка",
+          "text": "Есть и для людей с инвалидностью"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах. Френч, пилинг и парафинотерапия — дополнениями."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15053227/2a000001963bbfc95f6223b8d54ed0b603b9/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15283873/2a000001963bbfd8f3a5d1055b99e0058379/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/13925334/2a000001936382e20b8f9301bcbc66ed8d95/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/11410105/2a0000018f965a0ce8101de75be7511d644d/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14090927/2a000001938329f2fb96310d1ce72e331273/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14382555/2a000001963bbfd6d7e9197aad59c016e4bf/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Александра К.",
+          "source": "Яндекс Карты",
+          "date": "5 сентября",
+          "rating": 5,
+          "text": "Переехала в Краснодар , подбирала мастера и и попала на эту студию , записалась без проблем! Прихожу уже второй раз, качество устроило более чем, ногти держаться хорошо, не смотря что длинные , сервис имеется, девочки вежливо общаются ! Кофе, водичка, все включено,всегда несколько раз переспросят!"
+        },
+        {
+          "name": "Наталья В.",
+          "source": "Яндекс Карты",
+          "date": "5 мая",
+          "rating": 5,
+          "text": "Хожу уже несколько месяцев к одному мастеру. Делает быстро и очень достойно. Всего за час, это для меня огромный плюс и одна из причин возвращения каждый месяц 😊 Большой выбор цветов. Цены на маникюр 1800 или 2100 в зависимости от марки гель лака"
+        },
+        {
+          "name": "Ксюша Л.",
+          "source": "Яндекс Карты",
+          "date": "31 июля",
+          "rating": 5,
+          "text": "Рекомендую посетить Ногтевую 1 Идеально выполнили маникюр 🥰 Приятная атмосфера, приветливые сотрудницы😊 Удобно, что можно в тот же день записаться в свободное окно."
+        },
+        {
+          "name": "Елена Е.",
+          "source": "Яндекс Карты",
+          "date": "5 сентября",
+          "rating": 5,
+          "text": "Всем добрый день! Делала в студии аппаратный маникюр после долгого перерыва и поездки на море , и самостоятельной обработки кутикулы. Маникюр выполнен идеально, спустя 6 дней кутикула в прекрасном состоянии. Спасибо!"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Краснодар, ул. Ивана Беличенко, 89, вход со стороны дороги."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 9:00 до 21:00."
+        },
+        {
+          "q": "Какие гель-лаки?",
+          "a": "EMI и Mystique — маникюр с покрытием 1 800 ₽; LUXIO — 2 100 ₽."
+        },
+        {
+          "q": "Делаете детский и мужской маникюр?",
+          "a": "Да: детский — 500 ₽, мужской — 1 200 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}

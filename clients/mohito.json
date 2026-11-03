@@ -1,0 +1,719 @@
+{
+  "slug": "mohito",
+  "niche": "nails",
+  "style": "shalfey",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Mohito» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/mohito/220487843156/ — 5,0 / 400, «Хорошее место 2026», прайс",
+    "2ГИС https://2gis.ru/krasnodar/firm/70000001042783594 — 4,8 / 431",
+    "Запись YCLIENTS http://n337666.yclients.com/company/323648 (2ГИС)",
+    "Досье: лиды/Mohito (Краснодар).md; разбор: разборы/Mohito (Краснодар).md (данные проверены исследователем 03.11.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 03.11.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "сайта нет; mohitokrd.ru (mohito-krd.ru — чужая студия «Мохито» на Зеленоградской, mohito-studio.ru — тоже чужой) свободен (03.11) — зарегистрировать на владельца",
+    "в 2ГИС стоит чужой Telegram t.me/mohito — канал студии t.me/mohitokrd",
+    "наращивание у мастеров BASIC и TOP по уровням 0–2 / 3–4 / 5+ — на демо цена «от» и вилка в описании",
+    "фото-баннер «Акция первого визита 1 890 ₽» в карточке — дороже прайса (1 700 ₽), в демо не включали",
+    "брови, ресницы — в демо не включали",
+    "остановка или метро и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Mohito",
+    "kind": "Ногтевая студия"
+  },
+  "contacts": {
+    "city": "Краснодар",
+    "address": "Восточно-Кругликовская ул., 42/3к1",
+    "addressNote": "1 этаж",
+    "metro": "",
+    "phone": "+7 903 447-57-57",
+    "phoneHref": "+79034475757",
+    "hoursShort": "Ежедневно 10:00–22:00",
+    "yandexMaps": "https://yandex.ru/maps/org/mohito/220487843156/",
+    "twoGis": "https://2gis.ru/krasnodar/firm/70000001042783594",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79891233787"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/mohitokrd"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/club192638756"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ],
+    [
+      "10:00",
+      "22:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "Mohito — ногтевая студия на Восточно-Кругликовской",
+    "lead": "Маникюр с гель-лаком и SPA-уходом Mohito, наращивание, Smart-педикюр — быстро и безболезненно. Мастера BASIC и TOP. Ежедневно с 10 до 22.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 400,
+        "url": "https://yandex.ru/maps/org/mohito/220487843156/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,8",
+        "count": 431,
+        "url": "https://2gis.ru/krasnodar/firm/70000001042783594"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani-gel",
+        "mani-gel-spa",
+        "pedi-smart-gel",
+        "ext"
+      ],
+      "labels": {
+        "mani-gel": "С гель-лаком",
+        "mani-gel-spa": "С SPA-уходом",
+        "pedi-smart-gel": "Smart-педикюр",
+        "ext": "Наращивание"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Надежда",
+      "dative": "Надежде",
+      "role": "TOP-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Марина",
+      "dative": "Марине",
+      "role": "Мастер BASIC",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Анна",
+      "dative": "Анне",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Алёна",
+      "dative": "Алёне",
+      "role": "Мастер наращивания",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani-gel",
+          "name": "Маникюр + гель-лак",
+          "desc": "У TOP-мастера — 1 900 ₽",
+          "duration": 120,
+          "price": {
+            "value": 1700,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design-light",
+              "name": "Дизайн 1 ногтя: наклейка, втирка, фольга, стемпинг",
+              "price": 40,
+              "duration": 5
+            },
+            {
+              "id": "design",
+              "name": "Дизайн 1 ногтя: стразы, градиент, простой рисунок",
+              "price": 50,
+              "duration": 5
+            },
+            {
+              "id": "design-hard",
+              "name": "Дизайн 1 ногтя: сложный рисунок",
+              "price": 150,
+              "duration": 10
+            },
+            {
+              "id": "strong-gel",
+              "name": "Укрепление гелем",
+              "price": 400,
+              "duration": 15
+            },
+            {
+              "id": "strong",
+              "name": "Укрепление пудрой",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "spa",
+              "name": "SPA-уход MOHITO с массажем",
+              "price": 800,
+              "duration": 20
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия рук",
+              "price": 500,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-gel-spa",
+          "name": "Маникюр + гель-лак + SPA-уход Mohito",
+          "desc": "У TOP-мастера — 2 500 ₽",
+          "duration": 135,
+          "price": {
+            "value": 2300,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-base",
+          "name": "Маникюр + покрытие базой и топом в 1 слой",
+          "desc": "У TOP-мастера — 1 500 ₽",
+          "duration": 90,
+          "price": {
+            "value": 1400,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "design-light",
+              "name": "Дизайн 1 ногтя: наклейка, втирка, фольга, стемпинг",
+              "price": 40,
+              "duration": 5
+            },
+            {
+              "id": "design",
+              "name": "Дизайн 1 ногтя: стразы, градиент, простой рисунок",
+              "price": 50,
+              "duration": 5
+            },
+            {
+              "id": "design-hard",
+              "name": "Дизайн 1 ногтя: сложный рисунок",
+              "price": 150,
+              "duration": 10
+            },
+            {
+              "id": "strong-gel",
+              "name": "Укрепление гелем",
+              "price": 400,
+              "duration": 15
+            },
+            {
+              "id": "strong",
+              "name": "Укрепление пудрой",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "spa",
+              "name": "SPA-уход MOHITO с массажем",
+              "price": 800,
+              "duration": 20
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия рук",
+              "price": 500,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "mani-lak",
+          "name": "Маникюр + покрытие лаком",
+          "desc": "У TOP-мастера — 1 500 ₽",
+          "duration": 75,
+          "price": {
+            "value": 1300,
+            "from": false
+          }
+        },
+        {
+          "id": "mani",
+          "name": "Маникюр без покрытия",
+          "desc": "У TOP-мастера — 1 200 ₽",
+          "duration": 60,
+          "price": {
+            "value": 1100,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-spa",
+          "name": "Маникюр без покрытия + SPA-уход Mohito",
+          "desc": "У TOP-мастера — 1 900 ₽",
+          "duration": 75,
+          "price": {
+            "value": 1800,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1300,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 1 100 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Маникюр + наращивание ногтей",
+          "desc": "У мастера BASIC — 2 600–3 200 ₽ по уровню, у TOP-мастера — 2 900–3 500 ₽",
+          "duration": 180,
+          "price": {
+            "value": 2600,
+            "from": true
+          },
+          "options": [
+            {
+              "id": "design-light",
+              "name": "Дизайн 1 ногтя: наклейка, втирка, фольга, стемпинг",
+              "price": 40,
+              "duration": 5
+            },
+            {
+              "id": "design",
+              "name": "Дизайн 1 ногтя: стразы, градиент, простой рисунок",
+              "price": 50,
+              "duration": 5
+            },
+            {
+              "id": "design-hard",
+              "name": "Дизайн 1 ногтя: сложный рисунок",
+              "price": 150,
+              "duration": 10
+            }
+          ]
+        },
+        {
+          "id": "corr",
+          "name": "Маникюр + коррекция наращённых ногтей",
+          "desc": "У TOP-мастера — 2 700 ₽",
+          "duration": 150,
+          "price": {
+            "value": 2400,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 2 400 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-smart-gel",
+          "name": "Smart-педикюр + гель-лак",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2700,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "spa",
+              "name": "SPA-уход MOHITO с массажем",
+              "price": 800,
+              "duration": 20
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия ног",
+              "price": 600,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "pedi-smart",
+          "name": "Smart-педикюр без покрытия",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2100,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "spa",
+              "name": "SPA-уход MOHITO с массажем",
+              "price": 800,
+              "duration": 20
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия ног",
+              "price": 600,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "pedi-gel",
+          "name": "Педикюр полный (пальцы + пятки) + гель-лак",
+          "desc": "У TOP-мастера — 2 300 ₽",
+          "duration": 120,
+          "price": {
+            "value": 2100,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "spa",
+              "name": "SPA-уход MOHITO с массажем",
+              "price": 800,
+              "duration": 20
+            },
+            {
+              "id": "paraffin",
+              "name": "Парафинотерапия ног",
+              "price": 600,
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "id": "pedi-base",
+          "name": "Педикюр полный + покрытие базой и топом",
+          "desc": "У TOP-мастера — 2 200 ₽",
+          "duration": 105,
+          "price": {
+            "value": 2000,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi",
+          "name": "Педикюр полный (пальцы + пятки)",
+          "desc": "У TOP-мастера — 1 700 ₽",
+          "duration": 90,
+          "price": {
+            "value": 1600,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-toes-gel",
+          "name": "Педикюр: только пальцы + гель-лак",
+          "desc": "У TOP-мастера — 2 100 ₽",
+          "duration": 90,
+          "price": {
+            "value": 1900,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской педикюр полный",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 1800,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men-smart",
+          "name": "Мужской Smart-педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2300,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 1 600 ₽"
+    },
+    {
+      "category": "Покрытие и снятие",
+      "items": [
+        {
+          "id": "remove",
+          "name": "Снятие гель-лака",
+          "desc": "",
+          "duration": 20,
+          "price": {
+            "value": 200,
+            "from": false
+          }
+        },
+        {
+          "id": "remove-gel",
+          "name": "Снятие геля",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 300,
+            "from": false
+          }
+        },
+        {
+          "id": "repair",
+          "name": "Ремонт 1 ногтя",
+          "desc": "",
+          "duration": 15,
+          "price": {
+            "value": 200,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "sparkle",
+      "from": "от 200 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 400 оценкам",
+          "text": "«Хорошее место 2026»; в 2ГИС — 4,8 по 431"
+        },
+        {
+          "icon": "heart",
+          "title": "SPA-уход Mohito",
+          "text": "С массажем — к маникюру и педикюру"
+        },
+        {
+          "icon": "check",
+          "title": "Мастера BASIC и TOP",
+          "text": "Цена по уровню мастера"
+        },
+        {
+          "icon": "gift",
+          "title": "Можно с собакой",
+          "text": "И подарочные сертификаты"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах — у мастера BASIC; у TOP-мастера — в описании услуги. Дизайн, укрепление и SPA — дополнениями."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20242116/2a0000019fead2a4ef56afbe4f4aa7e7fc17/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20288752/2a0000019fead2a4df721b737516ee06a3f3/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20328247/2a0000019fead2a09f3c32ebebbb4ab29ae4/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/21086492/2a0000019fead2a4bb327de48d7154cb6e10/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20368588/2a000001a07ac2318c35875cac00b579a6ca/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/20069562/2a000001a07ac231743bf15e28e483f5fed3/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Ангелина Ф.",
+          "source": "Яндекс Карты",
+          "date": "26 сентября",
+          "rating": 5,
+          "text": "Мастер Дарья очень тактичная, аккуратная, от ее работы я в восторге 🤩 Подобрала форму, и за полтора часа у меня шикарный маникюр, весь персонал приветливый 😌 Девушка Мирослава встречает очень вежливая и приятная☺️ Рада, что выбрала данный салон🤗 Сразу записалась и на педикюр. 🙏"
+        },
+        {
+          "name": "Елена В.",
+          "source": "Яндекс Карты",
+          "date": "6 июня",
+          "rating": 5,
+          "text": "Салон очень стильный. Вежливый администратор. Предлагают чай/кофе с конфеткой. Мастер Анна просто мега крутой профессионал! Самый комфортный маникюр в моей жизни! Приятная в общении, очень корректная и милая. Однозначно буду записываться к ней еще!"
+        },
+        {
+          "name": "Виктория К.",
+          "source": "Яндекс Карты",
+          "date": "8 августа",
+          "rating": 5,
+          "text": "Прекрасное обслуживание, очень вежливые мастера и администратор. Девочки мастера профессионалы своего дела, маникюр и педикюр делают качественно и быстро. Являюсь постоянной клиенткой, рекомендую 🫶🏻"
+        },
+        {
+          "name": "Аревик",
+          "source": "Яндекс Карты",
+          "date": "17 марта",
+          "rating": 5,
+          "text": "Часто  хожу в этот салон , мне здесь очень нравится, всегда предложат чай , кофе . Маникюр делала у разный мастеров и всегда была довольна . Аккуратно , красиво и качественно делают девочки."
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Краснодар, Восточно-Кругликовская ул., 42/3к1, 1 этаж."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 22:00."
+        },
+        {
+          "q": "Чем отличаются мастера?",
+          "a": "Опытом и ценой: маникюр с гель-лаком у мастера BASIC — 1 700 ₽, у TOP-мастера — 1 900 ₽."
+        },
+        {
+          "q": "Делаете мужской маникюр и педикюр?",
+          "a": "Да: маникюр — 1 300 ₽, полный педикюр — 1 800 ₽, Smart-педикюр — 2 300 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}

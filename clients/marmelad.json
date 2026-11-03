@@ -1,0 +1,664 @@
+{
+  "slug": "marmelad",
+  "niche": "nails",
+  "style": "pudra",
+  "timezone": "Europe/Samara",
+  "demoLabel": "Демо сайта для студии маникюра «Мармелад Бьюти» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/marmelad_byuti/21442294505/ — 5,0 / 181, прайс",
+    "2ГИС https://2gis.ru/samara/firm/70000001025276848 — 4,9 / 171",
+    "Запись DIKIDI https://dikidi.net/740183",
+    "Досье: лиды/Мармелад Бьюти (Самара).md; разбор: разборы/Мармелад Бьюти (Самара).md (данные проверены исследователем 03.11.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 03.11.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "сайта нет; marmelad-beauty.ru свободен (03.11) — зарегистрировать на владельца",
+    "Telegram в карточке — личный аккаунт, на демо не ставили",
+    "лазерная эпиляция и брови — в демо не включали",
+    "акция −20% — в прайсе без срока, уточнить",
+    "6 из 50 отзывов — 1–2★",
+    "остановка или метро и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Мармелад Бьюти",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Самара",
+    "address": "Ново-Садовая ул., 106, корп. 155",
+    "addressNote": "1 этаж",
+    "metro": "",
+    "phone": "+7 927 685-86-87",
+    "phoneHref": "+79276858687",
+    "hoursShort": "Ежедневно 10:00–21:00",
+    "yandexMaps": "https://yandex.ru/maps/org/marmelad_byuti/21442294505/",
+    "twoGis": "https://2gis.ru/samara/firm/70000001025276848",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79276858687"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/marmelad_nails63"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ],
+    [
+      "10:00",
+      "21:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "«Мармелад Бьюти» — студия маникюра на Ново-Садовой",
+    "lead": "Маникюр с гель-лаком, японский маникюр Masura, восстановление ногтей IBX, педикюр с обработкой стопы и подология. Новым гостям — −20% с 12 до 16. Ежедневно с 10 до 21.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 181,
+        "url": "https://yandex.ru/maps/org/marmelad_byuti/21442294505/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,9",
+        "count": 171,
+        "url": "https://2gis.ru/samara/firm/70000001025276848"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani-gel",
+        "mani-jp",
+        "pedi-gel",
+        "ext"
+      ],
+      "labels": {
+        "mani-gel": "С гель-лаком",
+        "mani-jp": "Японский",
+        "pedi-gel": "Педикюр",
+        "ext": "Наращивание"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Екатерина",
+      "dative": "Екатерине",
+      "role": "Топ-мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Светлана",
+      "dative": "Светлане",
+      "role": "Мастер маникюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Полина",
+      "dative": "Полине",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Виктория",
+      "dative": "Виктории",
+      "role": "Мастер маникюра и педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani-gel",
+          "name": "Маникюр с покрытием гель-лаком",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 1800,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "french",
+              "name": "Френч",
+              "price": 400,
+              "duration": 20
+            },
+            {
+              "id": "moon",
+              "name": "Лунный маникюр",
+              "price": 300,
+              "duration": 20
+            },
+            {
+              "id": "dots",
+              "name": "Точки на все ногти",
+              "price": 200,
+              "duration": 10
+            },
+            {
+              "id": "design",
+              "name": "Дизайн 1 ногтя",
+              "price": 50,
+              "duration": 5
+            },
+            {
+              "id": "strong",
+              "name": "Укрепление акриловой пудрой, акрилатиком или гелем",
+              "price": 400,
+              "duration": 15
+            },
+            {
+              "id": "arch",
+              "name": "Укрепление гелем с архитектурой на свою длину",
+              "price": 800,
+              "duration": 30
+            }
+          ]
+        },
+        {
+          "id": "mani-gel-french",
+          "name": "Маникюр с покрытием гель-лаком + френч",
+          "desc": "",
+          "duration": 135,
+          "price": {
+            "value": 2200,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-ibx",
+          "name": "Маникюр и восстановление ногтей IBX",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 1550,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-jp",
+          "name": "Японский маникюр Masura",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1550,
+            "from": false
+          }
+        },
+        {
+          "id": "mani",
+          "name": "Маникюр без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1200,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1200,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-kids",
+          "name": "Детский маникюр",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 1000,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 1 000 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-gel",
+          "name": "Педикюр с обработкой стопы + гель-лак",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 2400,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi",
+          "name": "Педикюр с обработкой стопы без покрытия",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2100,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-film",
+          "name": "Педикюр полный + плёночное покрытие",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 3200,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-toes-gel",
+          "name": "Педикюр пальчиков + гель-лак",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2100,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-toes-film",
+          "name": "Педикюр пальчиков + плёночное покрытие",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2600,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-toes",
+          "name": "Педикюр пальчиков без покрытия",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1400,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-podo",
+          "name": "Специальный педикюр (подология)",
+          "desc": "",
+          "duration": 105,
+          "price": {
+            "value": 3000,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-ingrown",
+          "name": "Обработка вросших ногтей",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 500,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской педикюр",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 2000,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 500 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Наращивание ногтей",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 2990,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "french",
+              "name": "Френч",
+              "price": 400,
+              "duration": 20
+            },
+            {
+              "id": "moon",
+              "name": "Лунный маникюр",
+              "price": 300,
+              "duration": 20
+            },
+            {
+              "id": "dots",
+              "name": "Точки на все ногти",
+              "price": 200,
+              "duration": 10
+            },
+            {
+              "id": "design",
+              "name": "Дизайн 1 ногтя",
+              "price": 50,
+              "duration": 5
+            }
+          ]
+        },
+        {
+          "id": "corr",
+          "name": "Коррекция ногтей",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 2490,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 2 490 ₽"
+    },
+    {
+      "category": "Покрытие и снятие",
+      "items": [
+        {
+          "id": "cover",
+          "name": "Покрытие гель-лаком без маникюра",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 1400,
+            "from": false
+          }
+        },
+        {
+          "id": "remove",
+          "name": "Снятие гель-лака без последующего покрытия",
+          "desc": "",
+          "duration": 20,
+          "price": {
+            "value": 400,
+            "from": false
+          }
+        },
+        {
+          "id": "remove-ext",
+          "name": "Снятие наращивания без последующего покрытия",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 600,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "sparkle",
+      "from": "от 400 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 181 оценке",
+          "text": "В Яндекс Картах; в 2ГИС — 4,9 по 171"
+        },
+        {
+          "icon": "percent",
+          "title": "−20% на первый визит",
+          "text": "На все услуги с 12:00 до 16:00"
+        },
+        {
+          "icon": "check",
+          "title": "Подология",
+          "text": "Медицинский педикюр — 3 000 ₽"
+        },
+        {
+          "icon": "parking",
+          "title": "Парковка и велопарковка",
+          "text": "Есть и для людей с инвалидностью"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах. Френч, дизайн и укрепление — дополнениями."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/13206104/2a0000019569aca5ff0130450bf385c27ec9/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15231053/2a0000019569aca62eb8dccaf31f423d38df/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15294573/2a0000019569acad2ec2d8fb7162079832d7/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14675673/2a0000019569aca4c5a246d5ab1dd4c5c984/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14296990/2a0000019569aca629532fda233991e29b11/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15502563/2a0000019569acaa85448eebb67c377960ab/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "offers",
+      "invert": true,
+      "title": "Сейчас выгодно",
+      "items": [
+        {
+          "icon": "percent",
+          "title": "−20% на первый визит",
+          "text": "На любые услуги студии с 12:00 до 16:00.",
+          "cta": "Записаться",
+          "service": "mani-gel"
+        },
+        {
+          "icon": "heart",
+          "title": "Маникюр с гель-лаком — 1 320 ₽",
+          "text": "Вместо 1 800 ₽ — новым гостям с 12 до 16.",
+          "cta": "Записаться",
+          "service": "mani-gel"
+        }
+      ]
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Ольга П.",
+          "source": "Яндекс Карты",
+          "date": "26 июня 2025",
+          "rating": 5,
+          "text": "Недавно с подругой сходили на ноготочки сюда, мне в целом очень все понравилось: спокойно, без суеты, уютно, светло и чисто. Видно что девочки работают на качество, а не просто так, приятные) маникюр получился хорошенький, дизайн помогли выбрать) что еще для счастья надо😍"
+        },
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "30 августа",
+          "rating": 5,
+          "text": "Салон удобно расположен, приятный интерьер и вежливый персонал. Мне сделали идеальный маникюр и подарили отличное настроение. 🥰"
+        },
+        {
+          "name": "Анастасия",
+          "source": "Яндекс Карты",
+          "date": "15 сентября",
+          "rating": 5,
+          "text": "Очень чистая и стильная студия, приятно находиться внутри. Маникюр делают быстро и качественно, всегда подстраиваются под мой график☺️"
+        },
+        {
+          "name": "Дина Г.",
+          "source": "Яндекс Карты",
+          "date": "24 августа",
+          "rating": 5,
+          "text": "Сделала наращивание ногтей с коррекцией, мастер восстановила форму и длину. Ногти выглядят как настоящие, покрытие ровное и блестящее. Рекомендую!"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Самара, Ново-Садовая ул., 106, корп. 155, 1 этаж."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 10:00 до 21:00."
+        },
+        {
+          "q": "Есть скидка на первый визит?",
+          "a": "Да, −20% на любые услуги с 12:00 до 16:00: маникюр с гель-лаком — 1 320 ₽ вместо 1 800 ₽."
+        },
+        {
+          "q": "Снимаете чужое покрытие?",
+          "a": "Да: снятие с последующим покрытием — 200 ₽, без покрытия — 400 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {},
+  "promo": {
+    "icon": "percent",
+    "text": "Новым гостям — −20% на все услуги с 12:00 до 16:00",
+    "cta": "Записаться",
+    "service": "mani-gel"
+  }
+}
