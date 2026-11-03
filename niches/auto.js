@@ -6,6 +6,9 @@
   Slot.niches.auto = {
     id: 'auto',
     label: 'Автосервис',
+    group: 'Автосервисы', // раздел в закрытой витрине демо
+    staffRole: 'Мастер', // должность нового мастера в админке
+    staffLead: 'Кто будет заниматься вашей машиной.', // подпись блока «Мастера», если владелец добавил его сам
     product: 'Слот Авто',
     schemaType: 'AutoRepair',
     timezone: 'Asia/Yekaterinburg',

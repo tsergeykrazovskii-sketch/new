@@ -8,6 +8,8 @@
   Slot.niches.nails = {
     id: 'nails',
     label: 'Маникюр',
+    group: 'Маникюрные студии', // раздел в закрытой витрине демо
+    staffRole: 'Мастер маникюра', // должность нового мастера в админке
     product: 'Слот Маникюр',
     schemaType: 'NailSalon',
     timezone: 'Europe/Moscow',

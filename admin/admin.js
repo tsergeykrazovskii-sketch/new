@@ -343,7 +343,7 @@
     data.sections.splice(at < 0 ? data.sections.length : at, 0, {
       type: 'staff',
       title: 'Мастера',
-      lead: niche.id === 'auto' ? 'Кто будет заниматься вашей машиной.' : 'Выберите своего мастера или запишитесь к первому свободному.',
+      lead: niche.staffLead || 'Выберите своего мастера или запишитесь к первому свободному.',
     });
   }
 
@@ -2128,7 +2128,7 @@
       return touch(true);
     }
     if (act === 'add-staff') {
-      (data.staff = data.staff || []).push({ id: uid('m'), name: '', dative: '', role: niche.id === 'auto' ? 'Мастер' : 'Барбер', note: '' });
+      (data.staff = data.staff || []).push({ id: uid('m'), name: '', dative: '', role: niche.staffRole || 'Мастер', note: '' });
       ensureStaff();
       return touch(true);
     }

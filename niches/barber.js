@@ -6,6 +6,8 @@
   Slot.niches.barber = {
     id: 'barber',
     label: 'Барбершоп',
+    group: 'Барбершопы', // раздел в закрытой витрине демо
+    staffRole: 'Барбер', // должность нового мастера в админке
     product: 'Слот Барбер',
     schemaType: 'BarberShop',
     timezone: 'Europe/Moscow',
