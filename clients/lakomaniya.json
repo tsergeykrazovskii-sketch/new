@@ -1,0 +1,886 @@
+{
+  "slug": "lakomaniya",
+  "niche": "nails",
+  "style": "moloko",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для студии маникюра «Лакомания» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/lakomaniya/93985830214/ — 5,0 / 91, прайс",
+    "2ГИС https://2gis.ru/n_novgorod/firm/70000001110977763 — 4,8 / 15",
+    "Запись YCLIENTS http://n1946055.yclients.com/company/1161363 (2ГИС)",
+    "Текст и акция −15% — Telegram-канал t.me/lakomaniyaNN (без срока)",
+    "Досье: лиды/Лакомания (Нижний Новгород).md; разбор: разборы/Лакомания (Нижний Новгород).md (данные проверены исследователем 05.11.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 05.11.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.10.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам студии",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "сайта нет; lakomaniya.ru (lakomania.ru — одноимённая студия из Челябинска) свободен (05.11) — зарегистрировать на владельца",
+    "−15% указано только в описании Telegram, срока нет — уточнить",
+    "детский маникюр: в отдельном разделе 1 000 ₽, у старшего мастера — 1 200 ₽ — на демо 1 000 ₽, уточнить",
+    "Telegram — канал; WhatsApp в картах нет",
+    "ресницы и массаж — в демо не включали",
+    "фото интерьера в карточке похоже на стоковое — проверить",
+    "остановка или метро и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Лакомания",
+    "kind": "Студия маникюра"
+  },
+  "contacts": {
+    "city": "Нижний Новгород",
+    "address": "пр-т Октября, 12",
+    "addressNote": "1 этаж",
+    "metro": "",
+    "phone": "+7 910 102-18-38",
+    "phoneHref": "+79101021838",
+    "hoursShort": "Ежедневно 9:00–21:00",
+    "yandexMaps": "https://yandex.ru/maps/org/lakomaniya/93985830214/",
+    "twoGis": "https://2gis.ru/n_novgorod/firm/70000001110977763",
+    "messengers": [
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/lakomaniyaNN"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Услуги"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Работы"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "«Лакомания» — студия маникюра на проспекте Октября",
+    "lead": "Твоя красота — наш почерк. Аккуратно, стерильно, с заботой. Маникюр с гель-лаком Luxio — снятие бесплатно, японский маникюр, педикюр и наращивание. Ежедневно с 9 до 21.",
+    "cta": "Записаться онлайн",
+    "secondary": "Услуги и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 91,
+        "url": "https://yandex.ru/maps/org/lakomaniya/93985830214/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,8",
+        "count": 15,
+        "url": "https://2gis.ru/n_novgorod/firm/70000001110977763"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/nails/hero.webp",
+    "imageAlt": "Руки с нежным молочно-розовым маникюром",
+    "widget": {
+      "type": "combo",
+      "title": "Соберите услугу",
+      "services": [
+        "mani-gel",
+        "mani-arch",
+        "pedi-gel",
+        "ext"
+      ],
+      "labels": {
+        "mani-gel": "С гель-лаком",
+        "mani-arch": "Архитектура",
+        "pedi-gel": "Педикюр",
+        "ext": "Наращивание"
+      }
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Софья",
+      "dative": "Софье",
+      "role": "Ведущий мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Валерия",
+      "dative": "Валерии",
+      "role": "Старший мастер",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Анна",
+      "dative": "Анне",
+      "role": "Мастер педикюра",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Мария",
+      "dative": "Марии",
+      "role": "Мастер наращивания",
+      "img": "https://demo.top-in.ru/assets/img/nails/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Маникюр",
+      "items": [
+        {
+          "id": "mani-gel",
+          "name": "Маникюр + гель-лак Luxio, снятие бесплатно",
+          "desc": "У ведущего мастера — 2 650 ₽",
+          "duration": 120,
+          "price": {
+            "value": 2350,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "french",
+              "name": "Френч или лунки",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "rub",
+              "name": "Втирка",
+              "price": 500,
+              "duration": 15
+            },
+            {
+              "id": "cateye",
+              "name": "Кошачий глаз",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "ombre",
+              "name": "Омбре",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "foil",
+              "name": "Фольга или мрамор",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "reflect",
+              "name": "Светоотражающий гель-лак",
+              "price": 300,
+              "duration": 10
+            },
+            {
+              "id": "design",
+              "name": "Рисунок, 1 ноготь",
+              "price": 100,
+              "duration": 10
+            },
+            {
+              "id": "stamp",
+              "name": "Стемпинг, 1 ноготь",
+              "price": 100,
+              "duration": 10
+            },
+            {
+              "id": "spa",
+              "name": "Спа для рук",
+              "price": 600,
+              "duration": 30
+            }
+          ]
+        },
+        {
+          "id": "mani-strong",
+          "name": "Маникюр + гель-лак + укрепление гелем, снятие бесплатно",
+          "desc": "У ведущего мастера — 2 650 ₽",
+          "duration": 135,
+          "price": {
+            "value": 2450,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "french",
+              "name": "Френч или лунки",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "rub",
+              "name": "Втирка",
+              "price": 500,
+              "duration": 15
+            },
+            {
+              "id": "cateye",
+              "name": "Кошачий глаз",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "ombre",
+              "name": "Омбре",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "foil",
+              "name": "Фольга или мрамор",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "reflect",
+              "name": "Светоотражающий гель-лак",
+              "price": 300,
+              "duration": 10
+            },
+            {
+              "id": "design",
+              "name": "Рисунок, 1 ноготь",
+              "price": 100,
+              "duration": 10
+            },
+            {
+              "id": "stamp",
+              "name": "Стемпинг, 1 ноготь",
+              "price": 100,
+              "duration": 10
+            },
+            {
+              "id": "spa",
+              "name": "Спа для рук",
+              "price": 600,
+              "duration": 30
+            }
+          ]
+        },
+        {
+          "id": "mani-arch",
+          "name": "Маникюр + гель-лак + архитектура, снятие бесплатно",
+          "desc": "У ведущего мастера — 3 250 ₽",
+          "duration": 150,
+          "price": {
+            "value": 3000,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "french",
+              "name": "Френч или лунки",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "rub",
+              "name": "Втирка",
+              "price": 500,
+              "duration": 15
+            },
+            {
+              "id": "cateye",
+              "name": "Кошачий глаз",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "ombre",
+              "name": "Омбре",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "foil",
+              "name": "Фольга или мрамор",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "reflect",
+              "name": "Светоотражающий гель-лак",
+              "price": 300,
+              "duration": 10
+            },
+            {
+              "id": "design",
+              "name": "Рисунок, 1 ноготь",
+              "price": 100,
+              "duration": 10
+            },
+            {
+              "id": "stamp",
+              "name": "Стемпинг, 1 ноготь",
+              "price": 100,
+              "duration": 10
+            },
+            {
+              "id": "spa",
+              "name": "Спа для рук",
+              "price": 600,
+              "duration": 30
+            }
+          ]
+        },
+        {
+          "id": "mani-lak",
+          "name": "Маникюр + лак, снятие бесплатно",
+          "desc": "У ведущего мастера — 1 950 ₽",
+          "duration": 75,
+          "price": {
+            "value": 1750,
+            "from": false
+          }
+        },
+        {
+          "id": "mani",
+          "name": "Маникюр",
+          "desc": "У ведущего мастера — 1 600 ₽",
+          "duration": 60,
+          "price": {
+            "value": 1550,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-jp",
+          "name": "Японский маникюр",
+          "desc": "У ведущего мастера — 1 900 ₽",
+          "duration": 60,
+          "price": {
+            "value": 1700,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-men",
+          "name": "Мужской маникюр",
+          "desc": "У ведущего мастера — 1 750 ₽",
+          "duration": 60,
+          "price": {
+            "value": 1650,
+            "from": false
+          }
+        },
+        {
+          "id": "mani-kids",
+          "name": "Детский маникюр до 7 лет",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 1000,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-mani.webp",
+      "icon": "nail",
+      "from": "от 1 000 ₽"
+    },
+    {
+      "category": "Педикюр",
+      "items": [
+        {
+          "id": "pedi-gel",
+          "name": "Педикюр полный + гель-лак Luxio, снятие бесплатно",
+          "desc": "У ведущего мастера — 3 000 ₽",
+          "duration": 120,
+          "price": {
+            "value": 2750,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "spa",
+              "name": "Спа-массаж для ног со Smart-свечой",
+              "price": 800,
+              "duration": 30
+            }
+          ]
+        },
+        {
+          "id": "pedi-toes-gel",
+          "name": "Педикюр пальчики + гель-лак Luxio, снятие бесплатно",
+          "desc": "У ведущего мастера — 2 750 ₽",
+          "duration": 90,
+          "price": {
+            "value": 2350,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "spa",
+              "name": "Спа-массаж для ног со Smart-свечой",
+              "price": 800,
+              "duration": 30
+            }
+          ]
+        },
+        {
+          "id": "pedi-lak",
+          "name": "Педикюр полный + лак, снятие бесплатно",
+          "desc": "У ведущего мастера — 2 800 ₽",
+          "duration": 105,
+          "price": {
+            "value": 2500,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-toes-lak",
+          "name": "Педикюр пальчики + лак, снятие бесплатно",
+          "desc": "У ведущего мастера — 2 400 ₽",
+          "duration": 75,
+          "price": {
+            "value": 2100,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi",
+          "name": "Педикюр полный без покрытия",
+          "desc": "У ведущего мастера — 2 650 ₽",
+          "duration": 90,
+          "price": {
+            "value": 2350,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "spa",
+              "name": "Спа-массаж для ног со Smart-свечой",
+              "price": 800,
+              "duration": 30
+            }
+          ]
+        },
+        {
+          "id": "pedi-toes",
+          "name": "Педикюр пальчики без покрытия",
+          "desc": "У ведущего мастера — 2 000 ₽",
+          "duration": 60,
+          "price": {
+            "value": 1600,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-heels",
+          "name": "Педикюр пяточки",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 1100,
+            "from": false
+          }
+        },
+        {
+          "id": "pedi-men",
+          "name": "Мужской педикюр",
+          "desc": "У ведущего мастера — 2 650 ₽",
+          "duration": 90,
+          "price": {
+            "value": 2250,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-pedi.webp",
+      "icon": "foot",
+      "from": "от 1 100 ₽"
+    },
+    {
+      "category": "Наращивание",
+      "items": [
+        {
+          "id": "ext",
+          "name": "Наращивание, однотонное покрытие",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 3500,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "rub",
+              "name": "Втирка",
+              "price": 500,
+              "duration": 15
+            },
+            {
+              "id": "cateye",
+              "name": "Кошачий глаз",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "ombre",
+              "name": "Омбре",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "foil",
+              "name": "Фольга или мрамор",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "reflect",
+              "name": "Светоотражающий гель-лак",
+              "price": 300,
+              "duration": 10
+            },
+            {
+              "id": "design",
+              "name": "Рисунок, 1 ноготь",
+              "price": 100,
+              "duration": 10
+            },
+            {
+              "id": "stamp",
+              "name": "Стемпинг, 1 ноготь",
+              "price": 100,
+              "duration": 10
+            }
+          ]
+        },
+        {
+          "id": "ext-french",
+          "name": "Наращивание, френч",
+          "desc": "",
+          "duration": 195,
+          "price": {
+            "value": 4000,
+            "from": false
+          }
+        },
+        {
+          "id": "ext-long",
+          "name": "Наращивание, экстра длина",
+          "desc": "",
+          "duration": 225,
+          "price": {
+            "value": 4900,
+            "from": false
+          }
+        },
+        {
+          "id": "corr",
+          "name": "Коррекция наращённых ногтей",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 3300,
+            "from": false
+          },
+          "options": [
+            {
+              "id": "rub",
+              "name": "Втирка",
+              "price": 500,
+              "duration": 15
+            },
+            {
+              "id": "cateye",
+              "name": "Кошачий глаз",
+              "price": 300,
+              "duration": 15
+            },
+            {
+              "id": "ombre",
+              "name": "Омбре",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "foil",
+              "name": "Фольга или мрамор",
+              "price": 500,
+              "duration": 20
+            },
+            {
+              "id": "reflect",
+              "name": "Светоотражающий гель-лак",
+              "price": 300,
+              "duration": 10
+            },
+            {
+              "id": "design",
+              "name": "Рисунок, 1 ноготь",
+              "price": 100,
+              "duration": 10
+            },
+            {
+              "id": "stamp",
+              "name": "Стемпинг, 1 ноготь",
+              "price": 100,
+              "duration": 10
+            }
+          ]
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-ext.webp",
+      "icon": "sparkle",
+      "from": "от 3 300 ₽"
+    },
+    {
+      "category": "Покрытие и снятие",
+      "items": [
+        {
+          "id": "cover",
+          "name": "Покрытие гель-лаком",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 900,
+            "from": false
+          }
+        },
+        {
+          "id": "cover-med",
+          "name": "Лечебное покрытие",
+          "desc": "",
+          "duration": 20,
+          "price": {
+            "value": 400,
+            "from": false
+          }
+        },
+        {
+          "id": "remove",
+          "name": "Снятие гель-лака",
+          "desc": "",
+          "duration": 15,
+          "price": {
+            "value": 400,
+            "from": false
+          }
+        },
+        {
+          "id": "remove-ext",
+          "name": "Снятие наращённых ногтей",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 600,
+            "from": false
+          }
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/nails/cat-design.webp",
+      "icon": "sparkle",
+      "from": "от 400 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "Telegram"
+    ],
+    "fields": []
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему у нас",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 91 оценке",
+          "text": "В Яндекс Картах; в 2ГИС — 4,8"
+        },
+        {
+          "icon": "percent",
+          "title": "−15% на первое посещение",
+          "text": "Новым гостям"
+        },
+        {
+          "icon": "check",
+          "title": "Снятие бесплатно",
+          "text": "В маникюр и педикюр с покрытием"
+        },
+        {
+          "icon": "gift",
+          "title": "Можно с собакой",
+          "text": "И подарочные сертификаты"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Услуги и цены",
+      "lead": "Цены по прайсу в Яндекс Картах — у старшего мастера; у ведущего мастера — в описании услуги. Дизайн и спа — дополнениями."
+    },
+    {
+      "type": "gallery",
+      "title": "Работы",
+      "lead": "Фото из карточки студии на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/18111128/2a0000019c74adc0d52aa4705af81f9bf708/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/17679358/2a0000019bb26f9573cb53082b27db4cc28d/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/18121248/2a0000019c2eb357fb6f2132f4ea7dd08d52/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15452616/2a0000019bb26fa1f1f6be67d62e57559d46/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16439251/2a0000019bb2891d40fabcdb6f602ca76edc/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/18101536/2a0000019c38434565671a917f1fe0407e9e/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы клиентов с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Никита К.",
+          "source": "Яндекс Карты",
+          "date": "10 февраля",
+          "rating": 5,
+          "text": "Ходил в салон Лакомания на аппаратный педикюр. Все было строго и профессионально. Мастер Елизавета сразу спросила какой результат важен. Процедура длится меньше часа. Это того стоит. Рекомендую всем, кто много двигается, носит закрытую обувь или просто хочет чувствовать себя на все 100%."
+        },
+        {
+          "name": "Анна Л.",
+          "source": "Яндекс Карты",
+          "date": "7 апреля",
+          "rating": 5,
+          "text": "Очень уютный салон. Встречает милый администратор, предлагая в ходе работы разнообразные напитки. Была у нескольких мастеров, работой была довольна. Пока выбор остановила на Анастасии. Замечательно был сделан маникюр, предложены дополнительные опции. Приятно уделило, что они ещё и в подарок👍"
+        },
+        {
+          "name": "Лариса Р.",
+          "source": "Яндекс Карты",
+          "date": "25 февраля",
+          "rating": 5,
+          "text": "Очень приятные впечатления, понравилось обслуживание, сервис и главное, результат. Качественный маникюр, уютная атмосфера. Мастера всегда помогут с выбором цвета, дизайна. Работы выполняют быстро и аккуратно. Очень довольна, спасибо!"
+        },
+        {
+          "name": "Наталья Я.",
+          "source": "Яндекс Карты",
+          "date": "17 апреля",
+          "rating": 5,
+          "text": "Замечательный салон! Была первый раз, честно, не ожидала такого комфорта. Мастер Анастасия очень бережно делала педикюр, при этом тщательно обработала стопу и пальчики. Большая ей благодарность за ювелирную работу! Однозначно приду еще и буду рекомендовать своим знакомым."
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Нижний Новгород, пр-т Октября, 12, 1 этаж (Соцгород)."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 9:00 до 21:00."
+        },
+        {
+          "q": "Есть скидка новым гостям?",
+          "a": "Да, −15% на первое посещение."
+        },
+        {
+          "q": "Чем отличаются мастера?",
+          "a": "Опытом и ценой: маникюр с гель-лаком у старшего мастера — 2 350 ₽, у ведущего мастера — 2 650 ₽."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {},
+  "promo": {
+    "icon": "percent",
+    "text": "−15% на первое посещение",
+    "cta": "Записаться",
+    "service": "mani-gel"
+  }
+}
