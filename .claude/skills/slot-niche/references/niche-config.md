@@ -96,7 +96,8 @@ hero: {
 Виджеты:
 
 - **Окна мастеров**: `{ type: 'slots', title: 'Свободные окна', more: 'Все услуги и время' }`. Ближайшие свободные окна по мастерам, при `askStaff: false` — одна строка «Ближайшее время».
-- **Калькулятор**: `{ type: 'estimate', title, brands: [{ name: 'Kia', k: 1 }, { name: 'BMW', k: 1.6 }], defaultBrand: 0, services: ['to1', 'oil'], note, cta }`. Цена работы × коэффициент выбранного варианта. «Марки» могут быть чем угодно: размер собаки, класс авто, площадь. В калькулятор попадают только услуги с ценой; если считать нечего, показывается ближайшее время.
+- **Калькулятор**: `{ type: 'estimate', title, brands: [{ name: 'Kia', k: 1 }, { name: 'BMW', k: 1.6 }], defaultBrand: 0, services: ['to1', 'oil'], note, cta, label, serviceLabel }`. Цена работы × коэффициент выбранной марки, только на первом экране (как у автосервиса). `label` — подпись выбора (по умолчанию «Марка автомобиля»), `serviceLabel` — подпись услуги («Работа»), `note` — необязательно. В калькулятор попадают только услуги с ценой; если считать нечего, показывается ближайшее время.
+- **Калькулятор по вариантам записи**: `{ type: 'estimate', variants: true, title, serviceLabel: 'Услуга', defaultBrand: 1, services: [...], note, cta }` — вместо `brands` берёт `booking.variants` (см. раздел 7): тот же выбор и те же цены, что в записи, а выбранный вариант переходит в запись. Так у груминга: размер собаки меняет и цену, и длительность.
 - **Конструктор**: `{ type: 'combo', title: 'Соберите услугу', services: ['mani-gel', 'pedi-gel'], labels: { 'mani-gel': 'Маникюр с покрытием' } }`. Основа и дополнения дают цену, длительность и ближайшее окно; «Записаться» открывает запись сразу на контактах.
 
 Если запись идёт через внешнюю систему (`schedule.mode: 'external'`), окна не показываются: внешняя система их не отдаёт.
@@ -139,10 +140,14 @@ booking: {
   step: 30,                           // шаг сетки времени, мин
   contactMethods: ['Звонок', 'Telegram', 'MAX'],
   fields: [{ id: 'car', label: 'Марка и модель', placeholder: 'Kia Rio 2019', required: true }],   // доп. вопросы
+  // Варианты объекта: от выбора зависят цена (k) и длительность (kd) всех услуг, кроме услуг с flat: true
+  variants: { label: 'Размер собаки', items: [{ name: 'Мини, до 5 кг', k: 1, kd: 1 }, { name: 'Крупная, 25–45 кг', k: 2.1, kd: 1.75 }] },
 },
 schedule: { mode: 'own', capacity: 3, off: [], blocks: [] },   // own — своё расписание; capacity — мест одновременно при askStaff: false
 // или: schedule: { mode: 'external', url: 'https://n123.yclients.com/' } — все «Записаться» ведут туда
 ```
+
+**Варианты** (`booking.variants`) — когда цену и время определяет объект, а не мастер: размер собаки, длина волос, площадь квартиры. В записи это кнопки над списком услуг; цены и длительности в списке пересчитываются, окна ищутся по новой длительности, в заявку идут вариант (`extra[label]`) и «Стоимость». Прайс на сайте показывает цены первого варианта (`k: 1`) — напишите это в `lead` секции `services`. Услуга с `flat: true` от варианта не зависит (кошки, стрижка когтей), для неё выбор не спрашивается. Владелец правит варианты в админке («Услуги и цены» → «… : цена и время», в процентах) и сам ставит галочку «Не зависит от выбора» у услуги. Без `variants` всё работает как раньше.
 
 Как считается занятость:
 - **Своё расписание.** Окна строятся по графику мастеров (или часам работы), выходным `off`, закрытому вручную `blocks` и **подтверждённым** заявкам; неподтверждённая заявка время не занимает. Владелец подтверждает заявки в админке во вкладке «Заявки».
@@ -182,6 +187,6 @@ legal: { operator: 'ИП Соколова Алина Игоревна', inn: '00
 
 Иконки уже есть в `ICONS` в `render.js`:
 
-phone send message pin clock star check right left down x menu calendar shield camera wrench doc coffee gamepad parking card gift scissors razor mustache clipper comb towel sparkle percent qr wifi award child smartphone car droplet disc gauge snowflake battery key box nail foot brush flower heart tire
+phone send message pin clock star check right left down x menu calendar shield camera wrench doc coffee gamepad parking card gift scissors razor mustache clipper comb towel sparkle percent qr wifi award child smartphone car droplet disc gauge snowflake battery key box nail foot brush flower heart paw cat tire
 
 Новую иконку добавляй туда же: контур 24×24, `stroke`, без заливки — как у соседних.

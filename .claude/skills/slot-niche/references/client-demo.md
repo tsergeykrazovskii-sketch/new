@@ -44,8 +44,8 @@
 
 ```bash
 node scripts/build.mjs
-SMOKE_ONLY=<slug> PLAYWRIGHT=/opt/node22/lib/node_modules/playwright/index.mjs CHROME=/opt/pw-browsers/chromium-1194/chrome-linux/chrome node scripts/smoke.mjs
-PLAYWRIGHT=/opt/node22/lib/node_modules/playwright/index.mjs CHROME=/opt/pw-browsers/chromium-1194/chrome-linux/chrome node scripts/share.mjs <slug>
+SMOKE_ONLY=<slug> PLAYWRIGHT=/opt/node22/lib/node_modules/playwright/index.mjs CHROME=$(ls /opt/pw-browsers/chromium-*/chrome-linux*/chrome | head -1) node scripts/smoke.mjs
+PLAYWRIGHT=/opt/node22/lib/node_modules/playwright/index.mjs CHROME=$(ls /opt/pw-browsers/chromium-*/chrome-linux*/chrome | head -1) node scripts/share.mjs <slug>
 node scripts/build.mjs
 ```
 

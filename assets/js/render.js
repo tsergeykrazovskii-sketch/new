@@ -103,6 +103,8 @@
     brush: '<path d="M18.4 2.6a2 2 0 0 1 2.9 2.9L12 14.8 9.2 12z"/><path d="M9 12.2c-2 0-3.6 1.6-3.6 3.6 0 1.6-1 2.6-2.4 3.2 1.2 1 2.8 1.6 4.4 1.6 2.7 0 4.8-2.1 4.8-4.8z"/>',
     flower: '<circle cx="12" cy="12" r="2.5"/><path d="M12 9.5C10.5 7.5 10.5 4.5 12 3c1.5 1.5 1.5 4.5 0 6.5zM14.5 12c2-1.5 5-1.5 6.5 0-1.5 1.5-4.5 1.5-6.5 0zM12 14.5c1.5 2 1.5 5 0 6.5-1.5-1.5-1.5-4.5 0-6.5zM9.5 12c-2 1.5-5 1.5-6.5 0 1.5-1.5 4.5-1.5 6.5 0z"/>',
     heart: '<path d="M19.5 12.6 12 20l-7.5-7.4A4.6 4.6 0 0 1 12 6.3a4.6 4.6 0 0 1 7.5 6.3z"/>',
+    paw: '<circle cx="5.5" cy="10" r="1.9"/><circle cx="9.2" cy="5.6" r="1.9"/><circle cx="14.8" cy="5.6" r="1.9"/><circle cx="18.5" cy="10" r="1.9"/><path d="M12 11.5c-2.6 0-5.8 3.6-5.8 6.2 0 1.7 1.3 2.6 2.8 2.6 1.2 0 2-.6 3-.6s1.8.6 3 .6c1.5 0 2.8-.9 2.8-2.6 0-2.6-3.2-6.2-5.8-6.2z"/>',
+    cat: '<path d="M5 9.5V4l4 3.2c1-.3 2-.4 3-.4s2 .1 3 .4L19 4v5.5c.9 1.3 1.5 2.9 1.5 4.6 0 4.1-3.8 6.9-8.5 6.9s-8.5-2.8-8.5-6.9c0-1.7.6-3.3 1.5-4.6z"/><path d="M9.5 13.2v.3M14.5 13.2v.3M11 16.3l1 .7 1-.7"/>',
     tire: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/>',
   };
 
@@ -600,21 +602,23 @@
       .join('');
     const first = Slot.findService(c, w.services[0]);
     const k = w.brands[w.defaultBrand].k;
+    const vs = w.variants ? Slot.variants(c) : null;
+    const t0 = vs ? Slot.svcTotal(c, first.id, [], w.defaultBrand) : { price: Slot.roundPrice(first.price.value * k), duration: first.duration };
     return `
     <div class="qw" data-widget="estimate">
       <div class="qw__head"><h2 class="qw__title">${esc(w.title)}</h2></div>
       <fieldset class="qw__field">
-        <legend>Марка автомобиля</legend>
+        <legend>${esc(w.label || (vs ? vs.label : 'Марка автомобиля'))}</legend>
         <div class="chips" data-est-brands>${brands}</div>
       </fieldset>
-      <label class="qw__field" for="qw-service"><span>Работа</span>
+      <label class="qw__field" for="qw-service"><span>${esc(w.serviceLabel || 'Работа')}</span>
         <span class="select"><select id="qw-service" data-est-service>${svcs}</select>${ic('down')}</span>
       </label>
       <div class="qw__result" aria-live="polite">
-        <span class="qw__price" data-est-price>${price({ from: true, value: Slot.roundPrice(first.price.value * k) })}</span>
-        <span class="qw__dur" data-est-dur>${first.duration ? ic('clock') + 'около ' + duration(first.duration) : ''}</span>
+        <span class="qw__price" data-est-price>${price({ from: true, value: t0.price })}</span>
+        <span class="qw__dur" data-est-dur>${t0.duration ? ic('clock') + 'около ' + duration(t0.duration) : ''}</span>
       </div>
-      <p class="qw__note">${esc(w.note)}</p>
+      ${w.note ? `<p class="qw__note">${esc(w.note)}</p>` : ''}
       <p class="qw__slot">${ic('calendar')}Ближайшее окно: <b data-est-slot>${esc(w.slotLabel || 'завтра, 09:00')}</b></p>
       <button class="btn btn--accent btn--block" type="button" data-book data-from-estimate>${esc(w.cta)}</button>
     </div>`;
@@ -727,18 +731,31 @@
           .join('')}</ul>`
       : '';
 
-  // Итог услуги с выбранными дополнениями
-  Slot.svcTotal = (c, id, optIds) => {
+  // Варианты объекта (размер питомца, класс авто…): booking.variants = { label, items: [{ name, k, kd }] }.
+  // k — множитель цены, kd — множитель длительности (окна записи считаются по ней). Нет вариантов — null.
+  Slot.variants = (c) => {
+    const v = c.booking && c.booking.variants;
+    const items = v && Array.isArray(v.items) ? v.items.filter((x) => x && x.name && Number(x.k) > 0) : [];
+    return items.length ? { label: v.label || 'Вариант', items: items.map((x) => ({ name: x.name, k: Number(x.k), kd: Number(x.kd) > 0 ? Number(x.kd) : 1 })) } : null;
+  };
+
+  // Итог услуги с выбранными дополнениями и вариантом (индекс в Slot.variants(c).items)
+  Slot.svcTotal = (c, id, optIds, vi) => {
     const s = Slot.findService(c, id);
     if (!s) return null;
+    const vs = Slot.variants(c);
+    // flat: true — цена и время услуги не зависят от варианта (когти, уши, услуги для кошек)
+    const v = vs && vi != null && !s.flat ? vs.items[vi] : null;
     const opts = (s.options || []).filter((o) => (optIds || []).includes(o.id));
-    const base = s.price && s.price.value != null ? s.price.value : null;
+    const base = s.price && s.price.value != null ? (v ? Slot.roundPrice(s.price.value * v.k) : s.price.value) : null;
+    const dur = Number(s.duration) || 0;
     return {
       service: s,
       options: opts,
+      variant: v,
       price: base == null ? null : base + opts.reduce((a, o) => a + (Number(o.price) || 0), 0),
       from: !!(s.price && s.price.from),
-      duration: (Number(s.duration) || 0) + opts.reduce((a, o) => a + (Number(o.duration) || 0), 0),
+      duration: (v ? Math.round((dur * v.kd) / 5) * 5 : dur) + opts.reduce((a, o) => a + (Number(o.duration) || 0), 0),
       name: [s.name].concat(opts.map((o) => o.name.toLowerCase())).join(' + '),
     };
   };
@@ -1282,8 +1299,11 @@
   };
 
   Slot.heroWidget = (c) => {
-    const w = c.hero && c.hero.widget;
+    let w = c.hero && c.hero.widget;
     if (!w || w.type !== 'estimate') return w || null;
+    // variants: true — вместо своих «марок» калькулятор берёт варианты записи (размер питомца и т. п.)
+    const vs = w.variants ? Slot.variants(c) : null;
+    if (w.variants) w = Object.assign({}, w, { brands: vs ? vs.items : [] });
     const services = (w.services || []).filter((id) => {
       const s = Slot.findService(c, id);
       return s && s.price && s.price.value > 0;

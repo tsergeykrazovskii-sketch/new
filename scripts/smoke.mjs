@@ -88,6 +88,11 @@ async function book(page, width) {
       await page.waitForTimeout(1200);
       break;
     }
+    // вариант объекта (размер питомца и т. п.): без него шаг «Услуга» не завершить
+    if ((await page.locator('#book input[name="b-variant"]').count()) && !(await page.locator('#book input[name="b-variant"]:checked').count())) {
+      await page.locator('#book .variants .chip').first().click();
+      await page.waitForTimeout(150);
+    }
     const slot = page.locator('#book [data-slot]:not([disabled])');
     if (await slot.count()) await slot.first().click();
     else if (await page.locator('#book .opt').count()) await page.locator('#book .opt').first().click();

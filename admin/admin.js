@@ -196,6 +196,8 @@
   };
 
   PANELS.services = () => {
+    const vs = Slot.variants(siteCfg());
+    const vlabel = vs ? vs.label : '';
     const cats = (data.services || [])
       .map(
         (cat, ci) => `
@@ -218,6 +220,7 @@
               <label class="check"><input type="checkbox" data-kind="price-from" data-path="services.${ci}.items.${i}"${it.price && it.price.from ? ' checked' : ''}> «от»</label>
               ${input('Длительность, мин', `services.${ci}.items.${i}.duration`, { type: 'number' })}
             </div>
+            ${vlabel ? `<label class="check check--sm"><input type="checkbox" data-path="services.${ci}.items.${i}.flat"${it.flat ? ' checked' : ''}> Не зависит от выбора «${esc(vlabel)}»: цена и время всегда как в прайсе</label>` : ''}
             ${optionsBlock(it, ci, i)}
           </div>`
           )
@@ -244,6 +247,7 @@
     return `
       <h2>Услуги и цены</h2>
       ${heroWidgetBlock()}
+      ${variantsBlock()}
       <h3 class="sub">Прайс</h3>
       <p class="lead">Пустая цена показывается как «по запросу». Галочка «от» добавляет «от» перед ценой.</p>
       ${cats}
@@ -252,6 +256,40 @@
   };
 
   /* ---------- первый экран автосервиса: калькулятор цены или ближайшее время ---------- */
+
+  /* ---------- варианты объекта: размер питомца, класс авто… (booking.variants) ---------- */
+
+  // Правка берёт копию вариантов шаблона ниши в data.booking.variants — дальше они свои у сайта
+  function ownVariants() {
+    const b = (data.booking = data.booking || {});
+    if (!b.variants) b.variants = clone(siteCfg().booking.variants || { label: 'Вариант', items: [] });
+    if (!Array.isArray(b.variants.items)) b.variants.items = [];
+    return b.variants;
+  }
+
+  function variantsBlock() {
+    const v = siteCfg().booking.variants;
+    if (!v) return '';
+    const rows = (v.items || [])
+      .map(
+        (x, i) => `
+        <div class="row3 vrow">
+          <div class="f"><label for="vn-${i}">Вариант</label><input id="vn-${i}" data-kind="v-name" data-i="${i}" value="${esc(x.name)}"></div>
+          <div class="f"><label for="vk-${i}">Цена, %</label><input id="vk-${i}" type="number" inputmode="numeric" step="5" data-kind="v-k" data-i="${i}" value="${Math.round((Number(x.k) || 1) * 100)}"></div>
+          <div class="f"><label for="vd-${i}">Время, %</label><input id="vd-${i}" type="number" inputmode="numeric" step="5" data-kind="v-kd" data-i="${i}" value="${Math.round((Number(x.kd) || 1) * 100)}"></div>
+          <button type="button" class="tool tool--del" data-act="v-del" data-i="${i}">Удалить</button>
+        </div>`
+      )
+      .join('');
+    return `
+      <h3 class="sub">${esc(v.label || 'Варианты')}: цена и время</h3>
+      <p class="lead">Клиент выбирает вариант при записи и в калькуляторе. 100% — как в прайсе, 150% — в полтора раза дороже или дольше. Окна записи считаются по времени с учётом варианта.</p>
+      <div class="card">
+        <div class="f"><label for="v-label">Как называется выбор</label><input id="v-label" data-kind="v-label" value="${esc(v.label || '')}" placeholder="Например: Размер питомца"></div>
+        ${rows}
+        <button type="button" class="add add--sm" data-act="v-add">+ Добавить вариант</button>
+      </div>`;
+  }
 
   const W_TITLES = { estimate: 'Сколько стоит работа', slots: 'Запись онлайн' };
   const pct = (k) => Math.round((Number(k) - 1) * 100);
@@ -1929,6 +1967,19 @@
       if (head && /\.(name|text)$/.test(t.dataset.path) && t.value) head.textContent = t.value;
       return touch(false);
     }
+    if (kind === 'v-label') {
+      ownVariants().label = t.value;
+      return touch(false);
+    }
+    if (kind === 'v-name') {
+      ownVariants().items[Number(t.dataset.i)].name = t.value;
+      return touch(false);
+    }
+    if (kind === 'v-k' || kind === 'v-kd') {
+      const p = Math.max(10, Math.min(500, Number(t.value) || 100));
+      ownVariants().items[Number(t.dataset.i)][kind === 'v-k' ? 'k' : 'kd'] = Math.round(p) / 100;
+      return touch(false);
+    }
     if (kind === 'w-brand-name') {
       heroWidget().brands[Number(t.dataset.i)].name = t.value;
       return touch(false);
@@ -2090,6 +2141,14 @@
         const j = act === 'up' ? i - 1 : i + 1;
         [list[i], list[j]] = [list[j], list[i]];
       }
+      return touch(true);
+    }
+    if (act === 'v-add') {
+      ownVariants().items.push({ name: 'Новый вариант', k: 1, kd: 1 });
+      return touch(true);
+    }
+    if (act === 'v-del') {
+      ownVariants().items.splice(i, 1);
       return touch(true);
     }
     if (act === 'add-opt') {

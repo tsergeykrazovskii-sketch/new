@@ -2586,6 +2586,8 @@ div.photo::before {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* в широкой плитке вертикальное фото не режет голову: главное в кадре обычно в верхней трети */
+  object-position: 50% 30%;
   transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .bento__btn:hover img {
@@ -3200,4 +3202,24 @@ html.doc-open body {
 }
 [data-hero="card"] .hero--photo .hero__widget {
   box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.45);
+}
+
+/* варианты объекта в записи: размер питомца, класс авто… (booking.variants) */
+.variants {
+  margin: 0 0 16px;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+.variants legend {
+  padding: 0;
+}
+.variants .chip {
+  min-width: 0;
+  font-family: var(--font-body);
+}
+.variants__hint {
+  margin: 8px 0 0;
+  font-size: calc(13px * var(--text-scale));
+  color: var(--muted);
 }

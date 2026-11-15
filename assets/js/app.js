@@ -311,10 +311,12 @@
     const brand = w.brands[checked ? Number(checked.value) : w.defaultBrand];
     const sel = doc.querySelector('[data-est-service]');
     const svc = Slot.findService(cfg, sel.value);
-    const near = nearest(null);
-    estimate = { service: svc.id, date: near && near.date, time: near && near.time };
-    tweenPrice(doc.querySelector('[data-est-price]'), Slot.roundPrice(svc.price.value * brand.k), instant === true);
-    doc.querySelector('[data-est-dur]').innerHTML = svc.duration ? ic('clock') + 'около ' + duration(svc.duration) : '';
+    const vi = w.variants ? (checked ? Number(checked.value) : w.defaultBrand) : null;
+    const t = vi != null ? Slot.svcTotal(cfg, svc.id, [], vi) : { price: Slot.roundPrice(svc.price.value * brand.k), duration: svc.duration };
+    const near = nearest(null, t.duration || undefined);
+    estimate = { service: svc.id, date: near && near.date, time: near && near.time, variant: vi };
+    tweenPrice(doc.querySelector('[data-est-price]'), t.price, instant === true);
+    doc.querySelector('[data-est-dur]').innerHTML = t.duration ? ic('clock') + 'около ' + duration(t.duration) : '';
     doc.querySelector('[data-est-slot]').textContent = near ? dayLabel(near.date) + ', ' + fmtMin(near.time) : 'уточните по телефону';
   }
 
@@ -341,6 +343,7 @@
         consent: false,
         extra: {},
         options: [],
+        variant: null, // индекс варианта объекта (booking.variants): размер питомца и т. п.
       },
       preset
     );
@@ -356,7 +359,10 @@
 
   function isComplete(step) {
     const x = B.data;
-    if (step === 'service') return !!x.service;
+    if (step === 'service') {
+      const svc = x.service && Slot.findService(cfg, x.service);
+      return !!svc && (!Slot.variants(cfg) || svc.flat || x.variant != null);
+    }
     if (step === 'staff') return x.staffChosen;
     if (step === 'time') return !!(x.date && x.time != null);
     return false;
@@ -371,8 +377,9 @@
     const x = B.data;
     const parts = [];
     if (x.service) {
-      const t = Slot.svcTotal(cfg, x.service, x.options);
+      const t = Slot.svcTotal(cfg, x.service, x.options, x.variant);
       parts.push(t.options.length ? `${t.service.name} + ${t.options.length}` : t.service.name);
+      if (t.variant) parts.push(t.variant.name);
     }
     if (cfg.booking.askStaff && x.staffChosen) {
       const s = cfg.staff.find((m) => m.id === x.staff);
@@ -383,7 +390,15 @@
   }
 
   function stepService() {
+    const vs = Slot.variants(cfg);
+    const vi = B.data.variant;
+    const head = vs
+      ? `<fieldset class="variants"><legend class="opts__cat">${esc(vs.label)}</legend><div class="chips">${vs.items
+          .map((v, i) => `<label class="chip chip--radio"><input type="radio" name="b-variant" value="${i}"${vi === i ? ' checked' : ''}><span>${esc(v.name)}</span></label>`)
+          .join('')}</div>${vi == null ? `<p class="variants__hint">Выберите — от этого зависят цена и время</p>` : ''}</fieldset>`
+      : '';
     return (
+      head +
       '<div class="opts">' +
       cfg.services
         .map(
@@ -394,8 +409,14 @@
                 (it) => `
           <label class="opt">
             <input type="radio" name="b-service" value="${esc(it.id)}"${B.data.service === it.id ? ' checked' : ''}>
-            <span class="opt__main"><b>${esc(it.name)}</b>${it.duration ? `<span>${duration(it.duration)}</span>` : ''}</span>
-            <span class="opt__price">${price(it.price)}</span>
+            <span class="opt__main"><b>${esc(it.name)}</b>${(() => {
+              const t = Slot.svcTotal(cfg, it.id, [], vi);
+              return t.duration ? `<span>${duration(t.duration)}</span>` : '';
+            })()}</span>
+            <span class="opt__price">${(() => {
+              const t = Slot.svcTotal(cfg, it.id, [], vi);
+              return it.price && t.price != null ? price({ from: t.from, value: t.price }) : price(it.price);
+            })()}</span>
           </label>${B.data.service === it.id ? stepOptions(it) : ''}`
               )
               .join('')
@@ -408,7 +429,7 @@
   // Дополнения к выбранной услуге и итог по ним
   function stepOptions(it) {
     if (!(it.options || []).length) return '';
-    const t = Slot.svcTotal(cfg, it.id, B.data.options);
+    const t = Slot.svcTotal(cfg, it.id, B.data.options, B.data.variant);
     return `
       <div class="opt-add">
         <p class="opts__cat">Добавить к услуге</p>
@@ -447,7 +468,7 @@
   }
 
   const bookDur = () => {
-    const t = B.data.service && Slot.svcTotal(cfg, B.data.service, B.data.options);
+    const t = B.data.service && Slot.svcTotal(cfg, B.data.service, B.data.options, B.data.variant);
     return (t && t.duration) || cfg.booking.step;
   };
 
@@ -546,10 +567,13 @@
         <h3 class="done__title">${schedOn() ? 'Заявка отправлена' : 'Вы записаны'}</h3>
         <p class="done__when">${esc(dayLabel(x.date))}, ${fmtMin(x.time)}</p>
         <ul class="done__list">
-          <li><span>Услуга</span><b>${esc(Slot.svcTotal(cfg, x.service, x.options).name)}</b></li>
+          <li><span>Услуга</span><b>${esc(Slot.svcTotal(cfg, x.service, x.options, x.variant).name)}</b></li>
           ${(() => {
-            const t = Slot.svcTotal(cfg, x.service, x.options);
-            return t.options.length && t.price != null ? `<li><span>Стоимость</span><b>${price({ from: t.from, value: t.price })}</b></li>` : '';
+            const t = Slot.svcTotal(cfg, x.service, x.options, x.variant);
+            return (
+              (t.variant ? `<li><span>${esc(Slot.variants(cfg).label)}</span><b>${esc(t.variant.name)}</b></li>` : '') +
+              ((t.options.length || t.variant) && t.price != null ? `<li><span>Стоимость</span><b>${price({ from: t.from, value: t.price })}</b></li>` : '')
+            );
           })()}
           ${cfg.booking.askStaff ? `<li><span>Мастер</span><b>${esc(staff ? staff.name : 'Любой свободный')}</b></li>` : ''}
           <li><span>Адрес</span><b>${esc(cfg.contacts.address)}</b></li>
@@ -634,9 +658,10 @@
     const svc = Slot.findService(cfg, x.service);
     const staff = cfg.staff.find((m) => m.id === x.staff);
     const pad = (n) => String(n).padStart(2, '0');
-    const t = svc ? Slot.svcTotal(cfg, svc.id, x.options) : null;
+    const t = svc ? Slot.svcTotal(cfg, svc.id, x.options, x.variant) : null;
     const extra = Object.fromEntries((cfg.booking.fields || []).filter((f) => (x.extra[f.id] || '').trim()).map((f) => [f.label, x.extra[f.id].trim()]));
-    if (t && t.options.length && t.price != null) extra['Стоимость'] = price({ from: t.from, value: t.price });
+    if (t && t.variant) extra[Slot.variants(cfg).label] = t.variant.name;
+    if (t && (t.options.length || t.variant) && t.price != null) extra['Стоимость'] = price({ from: t.from, value: t.price });
     return {
       service: t ? t.name : '',
       staff: cfg.booking.askStaff ? (staff ? staff.name : 'Любой свободный') : '',
@@ -769,9 +794,12 @@
           preset.date = estimate.date;
           preset.time = estimate.time;
         }
-        // Подставляем марку в форму, если в калькуляторе марки, а не группы («Китайские»)
-        const car = doc.querySelector('input[name="qw-brand"]:checked');
-        if (car && cfg.hero.widget.prefillCar !== false) preset.extra = { car: car.nextElementSibling.textContent + ' ' };
+        if (estimate.variant != null) preset.variant = estimate.variant;
+        else {
+          // Подставляем марку в форму, если в калькуляторе марки, а не группы («Китайские»)
+          const car = doc.querySelector('input[name="qw-brand"]:checked');
+          if (car && cfg.hero.widget.prefillCar !== false) preset.extra = { car: car.nextElementSibling.textContent + ' ' };
+        }
       }
       closeMenu();
       openBooking(preset);
@@ -854,6 +882,12 @@
     if (!B.data) return;
     if (t.name === 'b-opt') {
       B.data.options = Array.from(dlg().querySelectorAll('input[name="b-opt"]:checked')).map((x) => x.value);
+      if (B.data.date && B.data.time != null && !freeSlots(B.data.date, B.data.staff, bookDur()).some((s) => s.m === B.data.time)) B.data.time = null;
+      renderBooking();
+      return;
+    }
+    if (t.name === 'b-variant') {
+      B.data.variant = Number(t.value);
       if (B.data.date && B.data.time != null && !freeSlots(B.data.date, B.data.staff, bookDur()).some((s) => s.m === B.data.time)) B.data.time = null;
       renderBooking();
       return;
