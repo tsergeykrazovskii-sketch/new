@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Слот — промо</title>
+<link rel="stylesheet" href="fonts/cormorant.css">
+<link rel="stylesheet" href="fonts/unbounded.css">
+<link rel="stylesheet" href="fonts/onest.css">
+<link rel="stylesheet" href="fonts/prata.css">
+<link rel="stylesheet" href="fonts/manrope.css">
+<link rel="stylesheet" href="fonts/golos-text.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #000; }
+  #stage {
+    position: relative; width: 1920px; height: 1080px; overflow: hidden;
+    background: var(--bg); color: var(--ink);
+    font-family: var(--body, 'Onest'), system-ui, sans-serif; -webkit-font-smoothing: antialiased;
+  }
+  .abs { position: absolute; }
+  .scene { position: absolute; inset: 0; will-change: opacity, transform; }
+  .glow { position: absolute; border-radius: 50%; filter: blur(120px); opacity: .55; }
+  .disp { font-family: var(--display); font-weight: var(--dispw); letter-spacing: var(--displs); line-height: 1.02; font-variant-numeric: lining-nums; }
+  em { font-style: normal; color: var(--acc); }
+
+  /* устройства */
+  .browser { position: absolute; border-radius: 18px; overflow: hidden; background: #fff;
+    box-shadow: 0 40px 120px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.08); }
+  .browser__bar { height: 42px; background: #eceef1; display: flex; align-items: center; gap: 8px; padding: 0 16px; }
+  .browser__bar i { width: 12px; height: 12px; border-radius: 50%; background: #cfd3d8; display: block; }
+  .browser__bar i:nth-child(1) { background: #ff5f57; } .browser__bar i:nth-child(2) { background: #febc2e; } .browser__bar i:nth-child(3) { background: #28c840; }
+  .browser__url { margin-left: 18px; flex: 1; max-width: 520px; height: 26px; border-radius: 13px; background: #fff; color: #5b6168;
+    font-size: 14px; display: flex; align-items: center; padding: 0 14px; }
+  .browser__vp { position: relative; overflow: hidden; }
+  .browser__vp img, .phone__vp img { position: absolute; left: 0; top: 0; display: block; transform-origin: 0 0; }
+  .phone { position: absolute; border-radius: 56px; background: #0b0b0c; padding: 13px;
+    box-shadow: 0 40px 110px rgba(0,0,0,.6), inset 0 0 0 2px #2b2c30, 0 0 0 1px rgba(255,255,255,.06); }
+  .phone__vp { position: relative; overflow: hidden; border-radius: 44px; background: #000; }
+  .phone__notch { position: absolute; left: 50%; top: 22px; width: 110px; height: 30px; margin-left: -55px; border-radius: 16px; background: #0b0b0c; z-index: 5; }
+
+  .pill { position: absolute; display: inline-flex; align-items: center; gap: 12px; padding: 14px 24px; border-radius: 999px;
+    background: var(--acc); color: var(--accInk); font-weight: 700; font-size: 28px; white-space: nowrap; box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+  .pill--dark { background: rgba(10,12,12,.82); color: var(--ink); box-shadow: 0 0 0 1px rgba(255,255,255,.12), 0 16px 40px rgba(0,0,0,.35); }
+  .pill b { width: 12px; height: 12px; border-radius: 50%; background: currentColor; display: block; }
+  .ring { position: absolute; border: 4px solid var(--acc); border-radius: 18px; box-shadow: 0 0 0 9999px rgba(0,0,0,0), 0 0 40px var(--acc); pointer-events: none; }
+  .cursor { position: absolute; width: 44px; height: 44px; z-index: 50; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }
+  .ripple { position: absolute; width: 90px; height: 90px; margin: -45px 0 0 -45px; border-radius: 50%; border: 4px solid var(--acc); z-index: 49; }
+
+  /* субтитры */
+  .subs { position: absolute; left: 0; right: 0; bottom: 46px; display: flex; justify-content: center; z-index: 100; }
+  .subs span { max-width: 1500px; padding: 12px 26px; border-radius: 14px; background: rgba(0,0,0,.62); color: #fff;
+    font-size: 33px; font-weight: 500; line-height: 1.3; text-align: center; }
+  .progress { position: absolute; left: 0; bottom: 0; height: 6px; background: var(--acc); z-index: 101; }
+
+  /* фирменный знак */
+  .logo { display: flex; align-items: center; gap: .32em; font-weight: 800; letter-spacing: -.02em; }
+  .logo__mark { width: 1.05em; height: 1.05em; border-radius: .26em; background: var(--acc); position: relative; flex: none; }
+  .logo__mark i { position: absolute; left: .2em; right: .2em; height: .12em; border-radius: .06em; background: var(--accInk); }
+  .logo__mark i:nth-child(1) { top: .27em; } .logo__mark i:nth-child(2) { top: .47em; right: .42em; } .logo__mark i:nth-child(3) { top: .67em; right: .3em; opacity: .55; }
+
+  .card { position: absolute; border-radius: 28px; background: var(--card); box-shadow: 0 0 0 1px rgba(255,255,255,.07), 0 30px 80px rgba(0,0,0,.35); }
+  .mail { color: #1d2126; background: #fff; }
+  .mail__top { height: 54px; display: flex; align-items: center; gap: 12px; padding: 0 26px; border-bottom: 1px solid #e7e9ec; color: #6b7178; font-size: 20px; }
+  .mail__body { padding: 26px 30px; font-size: 25px; line-height: 1.5; }
+  .mail__subj { font-weight: 700; font-size: 29px; margin-bottom: 4px; }
+  .mail__from { color: #6b7178; font-size: 20px; margin-bottom: 18px; }
+  .row { display: flex; align-items: center; gap: 18px; padding: 18px 22px; border-radius: 18px; background: rgba(255,255,255,.05); }
+  .row svg { flex: none; }
+  .map { position: absolute; overflow: hidden; border-radius: 14px; background: #dfe4dc; }
+  .map i { position: absolute; background: #fff; border-radius: 4px; }
+  /* светлая гамма (маникюр, «Пудра») */
+  #stage.light .glow { opacity: .4; }
+  #stage.light .browser { box-shadow: 0 40px 120px rgba(var(--sh),.26), 0 0 0 1px rgba(var(--sh),.08); }
+  #stage.light .phone { box-shadow: 0 40px 110px rgba(var(--sh),.32), inset 0 0 0 2px #2b2c30; }
+  #stage.light .pill { box-shadow: 0 16px 40px rgba(var(--sh),.25); }
+  #stage.light .pill--dark { background: var(--ink); color: #fff; }
+  #stage.light .card { box-shadow: 0 0 0 1px rgba(var(--sh),.08), 0 30px 80px rgba(var(--sh),.16); }
+  #stage.light .chip { background: #fff; box-shadow: inset 0 0 0 2px rgba(var(--sh),.12), 0 10px 30px rgba(var(--sh),.1); }
+  #stage.light .ring { box-shadow: 0 0 26px var(--acc); }
+  .chip { position: absolute; padding: 14px 26px; border-radius: 999px; font-size: 30px; font-weight: 600; background: rgba(255,255,255,.07);
+    box-shadow: inset 0 0 0 2px rgba(255,255,255,.14); white-space: nowrap; }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script>
+const Q = new URLSearchParams(location.search);
+const N = Q.get('n') || 'barber';
+const SH = 'shots/' + N + '-';
+const C = {
+  barber: {
+    display: "'Cormorant', Georgia, serif", dispw: 700, displs: '-0.01em', dispScale: 1.18,
+    bg: '#0c1611', bg2: '#173024', acc: '#c9a45c', accInk: '#17140c', ink: '#f2ecdf', muted: '#a5b0a6', card: '#15241c',
+    label: 'для барбершопов', biz: 'барбершопа', domain: 'ваш-барбершоп.ru',
+    styles: ['classic', 'american', 'tabak', 'sever'],
+    hook: ['Запись только', 'по телефону?'], hook2: 'Клиент уходит туда, где можно записаться <em>за минуту</em>',
+    calls: [['+7 916 ••• 42 18', '11:42'], ['+7 903 ••• 77 05', '13:15'], ['+7 925 ••• 10 64', '16:08'], ['+7 977 ••• 31 90', '18:51']],
+    book: [0, 1, 3, 4, 5, 6], bookAt: [null, 'услугу', 'мастера', 'время', 'телефон', 'Заявка'],
+    mail: ['Новая заявка с сайта', 'Стрижка машинкой · Артём Ковалёв', '16.10.2026 в 20:00', 'Пётр, +79161234567', 'Подтвердить: Звонок'],
+    tour: [['Свободные окна', 0, null], ['Услуги и цены', 'services', 'услуги'], ['Мастера', 'staff', 'мастера,'], ['Работы', 'gallery', 'работы'], ['Отзывы', 'reviews', 'отзывы'], ['Карта', 'contacts', 'карта']],
+    cta: 'Демо на данных<br>вашего барбершопа',
+  },
+  auto: {
+    display: "'Unbounded', system-ui, sans-serif", dispw: 600, displs: '-0.02em', dispScale: 0.8,
+    bg: '#0e0f11', bg2: '#2a2410', acc: '#ffc21a', accInk: '#151515', ink: '#f4f4f1', muted: '#a4a8ae', card: '#1b1d21',
+    label: 'для автосервисов', biz: 'автосервиса', domain: 'ваш-автосервис.ru',
+    styles: ['ceh', 'diag', 'sport'],
+    hook: ['Сколько стоит', 'и когда приехать?'], hook2: 'Если ответ только по телефону, клиент звонит <em>в соседний сервис</em>',
+    calls: [['+7 912 ••• 05 33', '09:14'], ['+7 950 ••• 61 27', '11:40'], ['+7 922 ••• 48 02', '14:22'], ['+7 343 ••• 90 15', '17:05']],
+    book: [0, 1, 2, 3, 4], bookAt: [null, 'услугу', 'время,', 'телефон', 'Заявка'],
+    mail: ['Новая заявка с сайта', 'Замена масла в двигателе', '17.10.2026 в 11:00', 'Пётр, +79161234567', 'Подтвердить: Звонок', 'Марка и модель: Kia Rio 2019'],
+    tour: [['Услуги и цены', 'services', 'услуги'], ['Мастера', 'staff', 'мастера,'], ['Работы', 'gallery', 'работы'], ['Отзывы', 'reviews', 'отзывы'], ['Карта', 'contacts', 'карта']],
+    cta: 'Демо на данных<br>вашего автосервиса',
+    calc: { t1: 'Калькулятор<br>на первом экране', t2: 'Марка и работа — и сразу видно, <em>от какой суммы</em> начинается цена', at: (sc) => [0, wordAt(sc, 'марку'), wordAt(sc, 'марку') + 1.0, wordAt(sc, 'работу')], ring: 'сразу' },
+  },
+  nails: {
+    display: "'Prata', Georgia, serif", dispw: 400, displs: '0', dispScale: 0.95, body: 'Manrope', light: true,
+    bg: '#FBF3F1', bg2: '#EDC9D2', acc: '#B25670', accInk: '#ffffff', ink: '#3A2A2E', muted: '#7A6267', card: '#FFFFFF',
+    label: 'для студий маникюра', biz: 'студии маникюра', domain: 'ваша-студия.ru', who: 'Ольга',
+    styles: ['pudra', 'shalfey', 'moloko'],
+    hook: ['Запись', 'в любое время'], hook2: 'Без звонков и ожидания ответа — <em>услуга, мастер, время</em>',
+    // вместо пропущенных звонков — запись, собранная за пару касаний поздно вечером
+    flow: { clock: '23:40', steps: [['Услуга', 'Маникюр с покрытием', 'услугу'], ['Мастер', 'Алина Соколова', 'мастера'], ['Время', 'завтра, 10:00', 'время,'], ['Запись готова', 'Ждём вас в «Миндале»', 'готова']] },
+    tag: 'Комплексное решение: сайт с онлайн-записью', editTitle: 'Редактируете сами — с телефона',
+    book: [0, 1, 3, 4, 5, 6], bookAt: [null, 'услугу', 'мастера', 'время', 'телефон', 'Заявка'],
+    mail: ['Новая заявка с сайта', 'Маникюр без покрытия · Алина Соколова', '23.10.2026 в 19:00', 'Ольга, +79161234567', 'Подтвердить: Звонок'],
+    tour: [['Услуги и цены', 'services', null], ['Дизайны', 'gallery', null], ['Мастера', 'staff', null], ['Отзывы', 'reviews', null], ['Карта', 'contacts', null]],
+    cta: 'Демо на данных<br>вашей студии',
+    calc: { t1: 'Конструктор<br>на первом экране', t2: 'Основа и дополнения — и сразу видно <em>цену и время</em>', at: (sc) => { const a = wordAt(sc, 'дополнения'); return [0, a, a + 0.75, a + 1.5]; }, ring: 'цену' },
+  },
+  grooming: {
+    display: "'Unbounded', system-ui, sans-serif", dispw: 600, displs: '-0.02em', dispScale: 0.8, body: 'Golos Text', light: true,
+    bg: '#F3F8F6', bg2: '#BFE3D6', acc: '#23806A', accInk: '#ffffff', ink: '#1C2925', muted: '#52645D', card: '#FFFFFF', soft: '#E6F1EC', sh: '20,70,58',
+    label: 'для груминг-салонов', biz: 'груминг-салона', domain: 'ваш-груминг.ru', who: 'Ольга', done: 'записаны',
+    styles: ['myata', 'biskvit', 'butik'],
+    hook: ['Запись', 'в любое время'], hook2: 'Без звонков и ожидания ответа — <em>услуга, размер, время</em>',
+    flow: { clock: '23:40', steps: [['Услуга', 'Комплексный груминг', 'услугу'], ['Размер собаки', 'Средняя, 10–25 кг', 'размер'], ['Время', 'завтра, 10:00', 'время,'], ['Запись готова', 'Ждём вас в «Чешире»', 'готова']] },
+    tag: 'Комплексное решение: сайт с онлайн-записью', editTitle: 'Редактируете сами — с телефона',
+    items: ['услуги', 'цены', 'грумеры', 'фото', 'отзывы'], staffWord: 'грумеров',
+    book: [0, 1, 3, 4, 5, 6], bookAt: [null, 'услугу', 'грумера', 'время', 'телефон', 'Заявка'],
+    mail: ['Новая заявка с сайта', 'Комплексный груминг · Ксения Морозова', 'DATE в 10:00', 'Размер собаки: средняя, 10–25 кг', 'Ольга, +79161234567', 'Подтвердить: Звонок'],
+    tour: [['Услуги и цены', 'services', null], ['Работы', 'gallery', null], ['Грумеры', 'staff', null], ['Отзывы', 'reviews', null], ['Карта', 'contacts', null]],
+    cta: 'Демо на данных<br>вашего салона',
+    calc: { t1: 'Калькулятор<br>на первом экране', t2: 'Размер собаки и услуга — и сразу видно <em>цену и время</em>', at: (sc) => { const a = wordAt(sc, 'размер'); return [0, a, a + 0.8, wordAt(sc, 'услугу')]; }, ring: 'цену' },
+  },
+  massage: {
+    display: "'Cormorant', Georgia, serif", dispw: 600, displs: '-0.01em', dispScale: 1.12, body: 'Manrope', light: true,
+    bg: '#F7F2EA', bg2: '#D9CBB2', acc: '#566440', accInk: '#ffffff', ink: '#2A2620', muted: '#665C4F', card: '#FFFDF9', soft: '#EFE6D8', sh: '70,58,36',
+    label: 'для массажных салонов', biz: 'массажного салона', domain: 'ваш-салон.ru', who: 'Ольга', done: 'записаны',
+    styles: ['pesok', 'evkalipt', 'tik'],
+    hook: ['Запись', 'в любое время'], hook2: 'Без звонков и ожидания ответа — <em>массаж, длительность, время</em>',
+    flow: { clock: '23:40', steps: [['Массаж', 'Классический', 'массаж,'], ['Длительность', '60 минут', 'длительность'], ['Время', 'завтра, 11:00', 'время,'], ['Запись готова', 'Ждём вас в «Штиле»', 'готова']] },
+    tag: 'Комплексное решение: сайт с онлайн-записью', editTitle: 'Редактируете сами — с телефона',
+    book: [0, 1, 3, 4, 5, 6], bookAt: [null, 'массаж', 'мастера', 'время', 'телефон', 'Заявка'],
+    mail: ['Новая заявка с сайта', 'Классический массаж · Марина Белова', 'DATE в 11:00', 'Длительность: 60 минут', 'Ольга, +79161234567', 'Подтвердить: Звонок'],
+    tour: [['Услуги и цены', 'services', null], ['Мастера', 'staff', null], ['Интерьер', 'gallery', null], ['Отзывы', 'reviews', null], ['Карта', 'contacts', null]],
+    cta: 'Демо на данных<br>вашего салона',
+    calc: { t2top: 580, t1: 'Подбор сеанса<br>на первом экране', t2: 'Длительность и массаж — и сразу видно <em>цену и время</em>', at: (sc) => { const a = wordAt(sc, 'длительность'); return [0, a, a + 0.8, wordAt(sc, 'массаж')]; }, ring: 'цену' },
+  },
+}[N];
+{ const t = new Date(); t.setDate(t.getDate() + 1); const dd = String(t.getDate()).padStart(2, '0') + '.' + String(t.getMonth() + 1).padStart(2, '0') + '.' + t.getFullYear(); C.mail = C.mail.map((l) => l.replace('DATE', dd)); }
+if (C.light) document.getElementById('stage').classList.add('light');
+const stage = document.getElementById('stage');
+if (!C.sh) C.sh = '90,40,55';
+for (const k of ['bg', 'acc', 'accInk', 'ink', 'muted', 'card', 'display', 'dispw', 'displs', 'body', 'sh']) C[k] !== undefined && stage.style.setProperty('--' + k, C[k]);
+
+/* ---------- помощники ---------- */
+const cl = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const eo = (x) => 1 - Math.pow(1 - cl(x), 3);
+const eio = (x) => { x = cl(x); return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+const pr = (s, a, b) => cl((s - a) / (b - a));
+const lerp = (a, b, k) => a + (b - a) * k;
+function st(el, o = {}) {
+  const { op = 1, x = 0, y = 0, s = 1, r = 0, blur = 0 } = o;
+  el.style.opacity = op;
+  el.style.transform = `translate3d(${x}px,${y}px,0) scale(${s}) rotate(${r}deg)`;
+  el.style.filter = blur > 0.05 ? `blur(${blur}px)` : 'none';
+}
+// появление: снизу, с лёгким размытием
+const inn = (el, s, a, d = 0.6, dy = 40, extra = {}) => { const k = eo(pr(s, a, a + d)); st(el, Object.assign({ op: k, y: (1 - k) * dy, blur: (1 - k) * 6 }, extra)); return k; };
+const H = (html) => { const d = document.createElement('div'); d.innerHTML = html.trim(); return d.firstElementChild; };
+const add = (parent, html, css) => { const e = H(html); if (css) Object.assign(e.style, css); parent.appendChild(e); return e; };
+const px = (v) => v + 'px';
+const LOGO = (size) => `<div class="logo" style="font-size:${size}px"><span class="logo__mark"><i></i><i></i><i></i></span>Слот</div>`;
+const CURSOR = '<svg class="cursor" viewBox="0 0 24 24"><path d="M4 2l15 11-6.5 1.2L16 21l-3 1.4-3.5-6.8L4 20z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg>';
+
+function browser(parent, { x, y, w, h, src, url }) {
+  const el = add(parent, `<div class="browser"><div class="browser__bar"><i></i><i></i><i></i><span class="browser__url">🔒 ${url || C.domain}</span></div><div class="browser__vp"></div></div>`,
+    { left: px(x), top: px(y), width: px(w) });
+  const vp = el.querySelector('.browser__vp'); vp.style.height = px(h);
+  const imgs = [].concat(src).map((s) => { const i = add(vp, `<img src="${s}">`); i.style.width = px(w); return i; });
+  return { el, vp, imgs, k: w / 1440 };
+}
+function phone(parent, { x, y, w, src }) {
+  const iw = w - 26, ih = iw * 844 / 390;
+  const el = add(parent, `<div class="phone"><div class="phone__notch"></div><div class="phone__vp"></div></div>`, { left: px(x), top: px(y), width: px(w) });
+  const vp = el.querySelector('.phone__vp'); vp.style.height = px(ih);
+  const imgs = [].concat(src).map((s) => { const i = add(vp, `<img src="${s}">`); i.style.width = px(iw); return i; });
+  return { el, vp, imgs, k: iw / 390, ih };
+}
+// показать один кадр из набора с перекрёстным переходом
+function swap(imgs, idx, s, times, d = 0.35) {
+  imgs.forEach((im, i) => {
+    const a = times[i], b = times[i + 1] ?? 1e9;
+    const kin = i === 0 ? 1 : eo(pr(s, a, a + d));
+    const kout = i === imgs.length - 1 || s < b + d ? 1 : 0;
+    im.style.opacity = s >= a || i === 0 ? Math.min(kin, kout) : 0;
+  });
+}
+
+/* ---------- таймлайн ---------- */
+let TL, META;
+// время слова в сцене: пропорционально позиции в тексте
+function wordAt(sc, word, from = 0) {
+  const i = sc.text.indexOf(word, from);
+  if (i < 0) { console.warn('нет слова', word); return 0; }
+  return (i / sc.text.length) * sc.dur;
+}
+function sentences(sc) {
+  const parts = sc.text.match(/[^.?!]+[.?!»]*\s*/g) || [sc.text];
+  let acc = 0; const out = [];
+  for (const p of parts) { out.push({ text: p.trim(), a: (acc / sc.text.length) * sc.dur, b: ((acc + p.length) / sc.text.length) * sc.dur }); acc += p.length; }
+  return out;
+}
+
+/* ---------- сцены ---------- */
+const SCENES = [];
+function scene(build) { SCENES.push(build); }
+
+// 0. Проблема
+scene((root, sc) => {
+  const sen = sentences(sc);
+  const words = C.hook.map((line) => line.split(' '));
+  const h1 = add(root, `<div class="abs disp" style="left:150px;top:250px;font-size:${Math.round(118 * C.dispScale)}px"></div>`);
+  const spans = [];
+  words.forEach((line) => { const l = add(h1, '<div></div>'); line.forEach((w) => { const s = add(l, `<span style="display:inline-block;margin-right:.24em">${w}</span>`); spans.push(s); }); });
+  const sub = add(root, `<div class="abs" style="left:150px;top:640px;width:900px;font-size:46px;line-height:1.25;font-weight:500;color:${C.muted}">${C.hook2}</div>`);
+  const ph = add(root, `<div class="phone" style="left:1310px;top:120px;width:430px"><div class="phone__notch"></div><div class="phone__vp" style="height:820px;background:#111315;padding:96px 26px 0"></div></div>`);
+  const vp = ph.querySelector('.phone__vp');
+  if (C.flow) {
+    vp.style.background = '#fff'; vp.style.color = C.ink;
+    // запись умещается в верхней части экрана — телефон ниже не нужен, не заходит под субтитры
+    vp.style.height = '640px'; ph.style.top = '170px';
+    add(vp, `<div style="position:absolute;left:34px;top:24px;font:700 22px var(--body)">${C.flow.clock}</div>`);
+    add(vp, `<div style="font-family:var(--display);font-weight:var(--dispw);font-size:${Math.round(42 * Math.min(1, C.dispScale))}px;margin-bottom:22px">Запись онлайн</div>`);
+    const steps = C.flow.steps.map(([k, v], i) => add(vp, `<div class="row" style="margin-bottom:14px;background:${i === 3 ? C.acc : C.soft || '#F7EDEA'};color:${i === 3 ? '#fff' : C.ink}">
+      <span style="width:40px;height:40px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;background:${i === 3 ? 'rgba(255,255,255,.22)' : C.acc}">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+      <div style="flex:1"><div style="font-size:${i === 3 ? 26 : 19}px;font-weight:${i === 3 ? 700 : 500};opacity:${i === 3 ? 1 : 0.7}">${k}</div><div style="font-size:${i === 3 ? 19 : 24}px;font-weight:600;white-space:nowrap">${v}</div></div></div>`));
+    return (s) => {
+      spans.forEach((e, i) => inn(e, s, 0.15 + i * 0.22, 0.7, 60));
+      inn(sub, s, sen[1] ? sen[1].a - 0.1 : 3, 0.7, 30);
+      inn(ph, s, 0.3, 0.9, 80);
+      steps.forEach((r, i) => {
+        const a = wordAt(sc, C.flow.steps[i][2]) - 0.2;
+        // шаги видны сразу бледными и «загораются» на своём слове
+        const k = eo(pr(s, a, a + 0.45));
+        const show = eo(pr(s, 0.9 + i * 0.12, 1.4 + i * 0.12));
+        st(r, { op: show * (0.32 + 0.68 * k), x: (1 - show) * 30, s: i === 3 ? 0.94 + 0.06 * k : 1 });
+      });
+    };
+  }
+  add(vp, '<div style="font-size:40px;font-weight:700;color:#fff;margin-bottom:26px">Недавние</div>');
+  const rows = C.calls.map(([num, time]) => add(vp, `<div class="row" style="margin-bottom:14px;color:#fff">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ff4d4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/><path d="M16 2l6 6M22 2l-6 6"/></svg>
+    <div style="flex:1"><div style="font-size:23px;font-weight:600;white-space:nowrap">${num}</div><div style="font-size:20px;color:#ff6b6b">Пропущенный</div></div>
+    <div style="font-size:20px;color:#8b9096">${time}</div></div>`));
+  return (s) => {
+    spans.forEach((e, i) => inn(e, s, 0.15 + i * 0.22, 0.7, 60));
+    inn(sub, s, sen[1] ? sen[1].a - 0.1 : 3, 0.7, 30);
+    inn(ph, s, 0.3, 0.9, 80);
+    rows.forEach((r, i) => {
+      const a = 0.9 + i * 0.55;
+      const k = eo(pr(s, a, a + 0.35));
+      const shake = Math.sin((s - a) * 60) * 10 * Math.exp(-Math.max(0, s - a) * 6) * (s > a ? 1 : 0);
+      const fade = sen[1] && s > sen[1].a ? 1 - 0.55 * eo(pr(s, sen[1].a, sen[1].a + 1)) : 1;
+      st(r, { op: k * fade, x: (1 - k) * 40 + shake });
+    });
+  };
+});
+
+// 1. Что такое Слот
+scene((root, sc) => {
+  const sen = sentences(sc);
+  const lg = add(root, `<div class="abs" style="left:0;right:0;top:330px;display:flex;flex-direction:column;align-items:center;gap:26px">${LOGO(170)}<div class="tag" style="font-size:44px;color:${C.muted};font-weight:500">${C.tag || 'Готовый сайт с онлайн-записью для ' + C.biz}</div></div>`);
+  const br = browser(root, { x: 120, y: 268, w: 1040, h: 650, src: SH + 'desk-hero.png' });
+  const ph = phone(root, { x: 1000, y: 214, w: 330, src: SH + 'mob-hero.png' });
+  const head = add(root, `<div class="abs" style="left:1440px;top:300px;font-size:30px;font-weight:600;color:${C.muted}">На ваших данных:</div>`);
+  const items = C.items || (N === 'auto' ? ['работы', 'цены', 'мастера', 'фото', 'отзывы'] : ['услуги', 'цены', 'мастера', 'фото', 'отзывы']);
+  const chips = items.map((w, i) => add(root, `<div class="chip" style="left:1440px;top:${360 + i * 96}px"><em>✓</em>&nbsp; ${w}</div>`));
+  const T0 = sen[1] ? sen[1].a : sc.dur * 0.5;
+  return (s) => {
+    const up = eio(pr(s, 2.1, 3.0));
+    const k = eo(pr(s, 0, 0.9));
+    st(lg, { op: k, y: lerp(0, -340, up), s: lerp(0.9 + 0.1 * k, 0.48, up) });
+    lg.querySelector('.tag').style.opacity = eo(pr(s, 0.5, 1.2)) * (1 - up * 0.0);
+    inn(br.el, s, 2.5, 0.9, 120);
+    inn(ph.el, s, 2.8, 0.9, 140);
+    inn(head, s, T0 - 0.2, 0.5, 20);
+    chips.forEach((c, i) => inn(c, s, wordAt(sc, items[i], sc.text.indexOf('данных')) - 0.15, 0.5, 0, { x: 0 }));
+    chips.forEach((c, i) => { const a = wordAt(sc, items[i], sc.text.indexOf('данных')) - 0.15; const kk = eo(pr(s, a, a + 0.5)); st(c, { op: kk, x: (1 - kk) * 60 }); });
+  };
+});
+
+// 2. Что видит клиент (тур по сайту; у автосервиса сначала калькулятор)
+scene((root, sc) => {
+  const M = META;
+  const sen = sentences(sc);
+  let calc = null;
+  const tourStart = C.calc ? sen[1].a - 0.2 : 0;
+  if (C.calc) {
+    const box = add(root, '<div class="abs" style="left:0;top:0;width:1920px;height:1080px"></div>');
+    const t1 = add(box, `<div class="abs disp" style="left:150px;top:300px;font-size:${Math.round(96 * C.dispScale)}px">${C.calc.t1}</div>`);
+    const t2 = add(box, `<div class="abs" style="left:150px;top:${C.calc.t2top || 520}px;width:720px;font-size:40px;line-height:1.3;color:${C.muted};font-weight:500">${C.calc.t2}</div>`);
+    const w = 600, hh = w * M.estBox.height / M.estBox.width;
+    const card = add(box, `<div class="abs" style="left:1060px;top:${(1000 - hh) / 2}px;width:${w}px;height:${hh}px;border-radius:26px;overflow:hidden;background:#fff;box-shadow:0 40px 120px rgba(0,0,0,.55)"></div>`);
+    const imgs = [0, 1, 2, 3].map((i) => add(card, `<img src="${SH}est-${i}.png" style="position:absolute;left:0;top:0;width:${w}px">`));
+    const kk = w / M.estBox.width;
+    const ring = add(card, `<div class="ring" style="left:${M.priceBox.x * kk - 14}px;top:${M.priceBox.y * kk - 12}px;width:${M.priceBox.w * kk + 120}px;height:${M.priceBox.h * kk + 24}px"></div>`);
+    const times = C.calc.at(sc);
+    calc = (s) => {
+      const out = pr(s, tourStart - 0.1, tourStart + 0.5);
+      st(box, { op: 1 - out, x: -120 * eo(out) });
+      inn(t1, s, 0.1, 0.7, 50); inn(t2, s, 0.6, 0.7, 30);
+      inn(card, s, 0.3, 0.8, 80);
+      // смена кадров без сдвига: цена меняется на месте
+      imgs.forEach((im, i) => { const a = times[i], b = times[i + 1] ?? 1e9; im.style.opacity = i === 0 ? 1 : eo(pr(s, a, a + 0.25)) * (s < b + 0.3 || i === 3 ? 1 : 1); });
+      const ra = wordAt(sc, C.calc.ring);
+      const rk = eo(pr(s, ra, ra + 0.4));
+      st(ring, { op: rk, s: 1.08 - 0.08 * rk });
+    };
+  }
+  const W = 1500, VH = 760;
+  const wrap = add(root, '<div class="abs" style="left:0;top:0;width:1920px;height:1080px"></div>');
+  const br = browser(wrap, { x: 210, y: 104, w: W, h: VH, src: SH + 'desk-full.jpg' });
+  const k = br.k;
+  const mb = M.mapBox;
+  const map = add(br.vp, `<div class="map" style="left:${mb.x * k}px;top:${mb.y * k}px;width:${mb.w * k}px;height:${mb.h * k}px">
+     <i style="left:-10%;top:42%;width:130%;height:22px;transform:rotate(-8deg)"></i><i style="left:30%;top:-10%;width:18px;height:130%;transform:rotate(12deg)"></i>
+     <i style="left:62%;top:-10%;width:12px;height:130%;transform:rotate(-20deg)"></i><i style="left:-10%;top:76%;width:130%;height:12px;transform:rotate(4deg)"></i>
+     <div style="position:absolute;left:48%;top:30%;width:46px;height:46px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#e5483b;box-shadow:0 8px 16px rgba(0,0,0,.3)"></div>
+     <div style="position:absolute;left:12px;bottom:12px;padding:6px 12px;border-radius:8px;background:#fff;color:#222;font:600 16px Onest">Яндекс Карты</div></div>`);
+  const stops = C.tour.map(([label, sec, word]) => ({ label, y: sec === 0 ? 0 : sec === 'contacts' ? mb.y - 150 : (M.sections[sec] || 0) - 70, at: word ? wordAt(sc, word) - 0.25 : tourStart }));
+  if (N !== 'barber') stops.sort((p, q) => p.y - q.y);
+  const maxY = M.deskH - VH / k;
+  stops.forEach((p) => (p.y = Math.min(p.y, maxY)));
+  const label = add(wrap, '<div class="pill" style="left:250px;top:176px"><b></b><span></span></div>');
+  const wb = M.widgetBox;
+  const ring = N === 'barber' ? add(br.vp, `<div class="ring" style="left:${wb.x * k - 10}px;top:${wb.y * k - 10}px;width:${wb.w * k + 20}px;height:${Math.min(wb.h, 900 - wb.y) * k + 10}px"></div>`) : null;
+  // автосервис: одна плавная прокрутка сверху вниз, подпись — по разделу в кадре
+  let smooth = null;
+  if (N !== 'barber') {
+    const y0 = stops[0].y, y1 = stops[stops.length - 1].y, a0 = tourStart + 0.35, a1 = sc.dur - 0.1;
+    const scrollAt = (s) => { const x = pr(s, a0, a1); return lerp(y0, y1, (1 - Math.cos(Math.PI * x)) / 2); };
+    // промежуточные разделы (не названы в озвучке) — без подписи
+    const extra = ['steps', 'offers', 'faq'].filter((x) => M.sections[x]).map((x) => ({ label: '', y: M.sections[x] - 70 }));
+    const marks = [...stops.map((p) => ({ label: p.label, y: p.y })), ...extra].sort((p, q) => p.y - q.y);
+    const idxAt = (y) => { let i = 0; marks.forEach((m, j) => { if (y + 420 >= m.y) i = j; }); return i; };
+    const changes = [{ i: 0, t: -1 }];
+    for (let t = a0; t <= sc.dur; t += 1 / 60) { const i = idxAt(scrollAt(t)); if (marks[i].label !== marks[changes[changes.length - 1].i].label) changes.push({ i, t }); }
+    let named = marks[0].label; changes.forEach((x) => { x.shown = marks[x.i].label || named; if (marks[x.i].label) named = marks[x.i].label; });
+    smooth = (s) => { let c = changes[0]; changes.forEach((x) => { if (s >= x.t) c = x; }); return { y: scrollAt(s), label: marks[c.i].label, shown: c.shown, at: c.t < 0 ? tourStart : c.t }; };
+  }
+  return (s) => {
+    if (calc) calc(s);
+    const kin = eo(pr(s, tourStart, tourStart + 0.7));
+    st(wrap, { op: kin, x: (1 - kin) * 160 });
+    if (smooth) {
+      const v = smooth(s);
+      br.imgs[0].style.transform = `translate3d(0,${-v.y * k}px,0)`;
+      map.style.transform = `translate3d(0,${-v.y * k}px,0)`;
+      const lab = label.querySelector('span');
+      if (lab.textContent !== v.shown) lab.textContent = v.shown;
+      const lk = v.label ? eo(pr(s, v.at, v.at + 0.35)) : 1 - pr(s, v.at, v.at + 0.2);
+      st(label, { op: kin * lk, y: (1 - lk) * 10 });
+      return;
+    }
+    let y = stops[0].y, cur = 0;
+    for (let i = 1; i < stops.length; i++) {
+      const a = stops[i].at;
+      const m = eio(pr(s, a, a + 0.75));
+      if (s >= a) cur = i;
+      y = lerp(y, stops[i].y, m);
+    }
+    br.imgs[0].style.transform = `translate3d(0,${-y * k}px,0)`;
+    map.style.transform = `translate3d(0,${-y * k}px,0)`;
+    if (ring) { ring.style.transform = `translate3d(0,${-y * k}px,0)`; ring.style.opacity = eo(pr(s, 0.6, 1.0)) * (1 - pr(s, stops[1].at, stops[1].at + 0.3)); }
+    const lab = label.querySelector('span');
+    if (lab.textContent !== stops[cur].label) lab.textContent = stops[cur].label;
+    const la = stops[cur].at;
+    const lk = eo(pr(s, la + 0.2, la + 0.6));
+    st(label, { op: kin * lk, y: (1 - lk) * 16 });
+  };
+});
+
+// 3. Запись
+scene((root, sc) => {
+  const sen = sentences(sc);
+  const ph = phone(root, { x: 470, y: 92, w: 390, src: C.book.map((i) => `${SH}book-${i}.png`) });
+  const times = C.bookAt.map((w, i) => (w ? (w === 'Заявка' ? sen[1].a - 0.2 : wordAt(sc, w) + 0.15) : 0));
+  const t1 = add(root, `<div class="abs disp" style="left:60px;top:150px;width:380px;font-size:${Math.round(60 * C.dispScale)}px;text-align:right;line-height:1.1">Пара<br>касаний —<br><em>и&nbsp;${C.done || (C.light ? 'записана' : 'записан')}</em></div>`);
+  const mail = add(root, `<div class="card mail" style="left:1010px;top:200px;width:760px"><div class="mail__top">✉ Почта · Входящие<span style="margin-left:auto">сейчас</span></div>
+     <div class="mail__body"><div class="mail__subj">Заявка с сайта: ${C.who || 'Пётр'}</div><div class="mail__from">от сайта ${C.domain}</div>${C.mail.map((l) => `<div>${l}</div>`).join('')}</div></div>`);
+  const bkw = 760, bkk = bkw / META.bkCard.width;
+  const adm = add(root, `<div class="card" style="left:1010px;top:${200 + 60 + 120 + C.mail.length * 38 + 60}px;width:${bkw}px;height:${META.bkCard.height * bkk}px;overflow:hidden;background:#fff">
+     <img src="${SH}adm-bk.png" style="position:absolute;width:${1440 * bkk}px;left:${-META.bkCard.x * bkk}px;top:${-META.bkCard.y * bkk}px"></div>`);
+  const admLabel = add(root, `<div class="pill pill--dark" style="left:1010px;top:${200 + 60 + 120 + C.mail.length * 38 + 60 + META.bkCard.height * bkk + 22}px"><b style="background:var(--acc)"></b>и во вкладке «Заявки» в админке</div>`);
+  return (s) => {
+    inn(ph.el, s, 0, 0.8, 80);
+    swap(ph.imgs, 0, s, times);
+    inn(t1, s, 0.3, 0.7, 30);
+    const ma = wordAt(sc, 'почту') - 0.35;
+    const mk = eo(pr(s, ma, ma + 0.6)); st(mail, { op: mk, x: (1 - mk) * 120 });
+    const aa = wordAt(sc, 'админку') - 0.4;
+    const ak = eo(pr(s, aa, aa + 0.6)); st(adm, { op: ak, y: (1 - ak) * 60 });
+    inn(admLabel, s, aa + 0.3, 0.5, 20);
+  };
+});
+
+// 4. Подтверждение и расписание
+scene((root, sc) => {
+  const sen = sentences(sc), M = META;
+  const W = 1500, VH = 760, X = 210, Y = 104;
+  if (N !== 'auto') {
+    const A = add(root, '<div class="abs" style="inset:0"></div>');
+    const br = browser(A, { x: X, y: Y, w: W, h: VH, src: [SH + 'adm-bk.png', SH + 'adm-bk2.png'], url: C.domain + '/admin' });
+    const k = br.k;
+    const cur = add(A, CURSOR); const rip = add(A, '<div class="ripple"></div>');
+    const cx = X + (M.confirmBox.x + M.confirmBox.width / 2) * k, cy = Y + 42 + (M.confirmBox.y + M.confirmBox.height / 2) * k;
+    const lab = add(A, '<div class="pill" style="left:260px;top:790px"><b></b>Подтвердили — время закреплено</div>');
+    const B = add(root, '<div class="abs" style="inset:0"></div>');
+    const br2 = browser(B, { x: X, y: Y, w: W, h: VH, src: SH + 'adm-grid.png', url: C.domain + '/admin' });
+    const lab2 = add(B, '<div class="pill" style="left:260px;top:790px"><b></b>График, отпуска и сетка дня</div>');
+    const Cc = add(root, '<div class="abs" style="inset:0"></div>');
+    const q = add(Cc, `<div class="abs disp" style="left:0;right:0;top:220px;text-align:center;font-size:${Math.round(84 * C.dispScale)}px">Уже есть система записи?</div>`);
+    const names = ['YCLIENTS', 'DIKIDI', 'любая по ссылке'];
+    const nm = names.map((n, i) => add(Cc, `<div class="chip" style="left:${[560, 860, 1100][i]}px;top:400px">${n}</div>`));
+    const btn = add(Cc, `<div class="pill" style="left:620px;top:600px;font-size:34px;padding:22px 40px">Записаться&nbsp;&nbsp;↗</div>`);
+    const win = add(Cc, `<div class="card" style="left:1010px;top:560px;width:420px;height:200px;background:#fff;color:#222;padding:28px">
+       <div style="font:700 26px Onest">Страница записи</div><div style="font:500 20px Onest;color:#6b7178;margin-top:8px">открывается ваша система:<br>мастера, окна, оплата</div></div>`);
+    const tB = sen[1].a - 0.15, tC = sen[2].a - 0.15;
+    return (s) => {
+      const outA = pr(s, tB, tB + 0.45), outB = pr(s, tC, tC + 0.45);
+      st(A, { op: (1 - outA) * eo(pr(s, 0, 0.6)), x: -100 * eo(outA) });
+      const m = eio(pr(s, 0.5, 1.6));
+      st(cur, { op: eo(pr(s, 0.3, 0.6)), x: lerp(1400, cx - 6, m), y: lerp(820, cy - 4, m), s: s > 1.75 && s < 1.95 ? 0.85 : 1 });
+      const rk = pr(s, 1.8, 2.3); st(rip, { op: rk > 0 && rk < 1 ? 1 - rk : 0, x: cx, y: cy, s: 0.4 + rk });
+      br.imgs[1].style.opacity = s > 1.95 ? 1 : 0; br.imgs[0].style.opacity = 1;
+      inn(lab, s, 2.1, 0.5, 20);
+      const kB = eo(pr(s, tB, tB + 0.6));
+      st(B, { op: kB * (1 - outB), x: (1 - kB) * 140 - 100 * eo(outB) });
+      br2.imgs[0].style.transformOrigin = '30% 60%';
+      br2.imgs[0].style.transform = `scale(${1 + 0.1 * eio(pr(s, tB, tC))})`;
+      inn(lab2, s, tB + 0.5, 0.5, 20);
+      const kC = eo(pr(s, tC, tC + 0.6)); st(Cc, { op: kC, x: (1 - kC) * 140 });
+      inn(q, s, tC + 0.1, 0.6, 30);
+      nm.forEach((e, i) => inn(e, s, tC + 0.5 + i * 0.25, 0.5, 20));
+      const pa = wordAt(sc, 'откроет') - 0.2;
+      inn(btn, s, tC + 1.2, 0.5, 20, { s: s > pa && s < pa + 0.2 ? 0.94 : 1 });
+      const wk = eo(pr(s, pa + 0.15, pa + 0.7)); st(win, { op: wk, x: (1 - wk) * -80, s: 0.9 + 0.1 * wk });
+    };
+  }
+  // автосервис: места, сетка, отпуск
+  const parts = [
+    { src: 'adm-sched.png', label: 'Сколько машин принимаете одновременно', box: M.capBox, at: 0 },
+    { src: 'adm-grid.png', label: 'Подтверждённые заявки занимают места', box: M.gridBox, at: wordAt(sc, 'подтверждённые') - 0.2 },
+    { src: 'adm-off.png', label: 'Мастер в отпуске — мест в эти дни меньше', box: M.offBox, at: sen[1].a - 0.15 },
+  ];
+  const els = parts.map((p) => {
+    const L = add(root, '<div class="abs" style="inset:0"></div>');
+    const br = browser(L, { x: X, y: Y, w: W, h: VH, src: SH + p.src, url: C.domain + '/admin' });
+    const k = br.k;
+    const ring = add(br.vp, `<div class="ring" style="left:${p.box.x * k - 12}px;top:${p.box.y * k - 12}px;width:${p.box.width * k + 24}px;height:${Math.min(p.box.height, 860 - p.box.y) * k + 24}px"></div>`);
+    const lab = add(L, `<div class="pill" style="left:260px;top:790px"><b></b>${p.label}</div>`);
+    return { L, ring, lab };
+  });
+  return (s) => {
+    els.forEach((e, i) => {
+      const a = parts[i].at, b = parts[i + 1] ? parts[i + 1].at : 1e9;
+      const kin = i === 0 ? eo(pr(s, 0, 0.6)) : eo(pr(s, a, a + 0.6));
+      const out = pr(s, b, b + 0.45);
+      st(e.L, { op: kin * (1 - out), x: (i === 0 ? 0 : (1 - kin) * 140) - 100 * eo(out) });
+      const rk = eo(pr(s, a + 0.6, a + 1.0)); st(e.ring, { op: rk, s: 1.04 - 0.04 * rk });
+      inn(e.lab, s, a + 0.5, 0.5, 20);
+    });
+  };
+});
+
+// 5. Админка
+scene((root, sc) => {
+  const sen = sentences(sc), M = META;
+  const tabs = [['madm-main.png', 'Тексты', 0], ['madm-svc.png', 'Цены', 'цены'], ['madm-staff.png', 'Мастера', C.staffWord || 'мастеров'], ['madm-photo.png', 'Фото и логотип', 'фото'], ['madm-style.png', 'Оформление', 'оформление']];
+  const ph = phone(root, { x: 190, y: 92, w: 390, src: tabs.map((t) => SH + t[0]) });
+  const times = tabs.map((t) => (t[2] ? wordAt(sc, t[2]) - 0.1 : 0));
+  const lab = add(root, '<div class="pill" style="left:740px;top:820px;z-index:3"><b></b><span></span></div>');
+  const brw = 1040, brh = brw * 900 / 1440;
+  const br = browser(root, { x: 700, y: 262, w: brw, h: brh, src: C.styles.map((x) => `${SH}style-${x}.png`) });
+  const sa = wordAt(sc, '«Сохранить»') - 0.15;
+  const sx = 190 + 13 + (M.saveBox.x + M.saveBox.width / 2) * ph.k, sy = 92 + 13 + (M.saveBox.y + M.saveBox.height / 2) * ph.k;
+  const rip = add(root, '<div class="ripple"></div>');
+  const badge = add(root, `<div class="pill" style="left:${700 + brw - 300}px;top:226px;z-index:3"><b></b>Сайт обновился</div>`);
+  const ttl = add(root, `<div class="abs disp" style="left:700px;top:132px;font-size:${Math.round(66 * C.dispScale)}px">${C.editTitle || 'Правите сами — с телефона'}</div>`);
+  const stTimes = C.styles.map((_, i) => (i === 0 ? 0 : sa + 0.45 + (i - 1) * 0.7));
+  return (s) => {
+    inn(ph.el, s, 0, 0.8, 80);
+    swap(ph.imgs, 0, s, times, 0.3);
+    let cur = 0; times.forEach((t, i) => { if (s >= t) cur = i; });
+    const span = lab.querySelector('span'); if (span.textContent !== tabs[cur][1]) span.textContent = tabs[cur][1];
+    const lk = eo(pr(s, times[cur] + 0.1, times[cur] + 0.45)); st(lab, { op: lk * (1 - pr(s, sa - 0.4, sa)), y: (1 - lk) * 14 });
+    inn(ttl, s, 0.3, 0.7, 30);
+    inn(br.el, s, 0.5, 0.9, 100);
+    swap(br.imgs, 0, s, stTimes, 0.3);
+    const rk = pr(s, sa, sa + 0.5); st(rip, { op: rk > 0 && rk < 1 ? 1 - rk : 0, x: sx, y: sy, s: 0.3 + rk });
+    const ba = wordAt(sc, 'обновился') - 0.3; const bk = eo(pr(s, ba, ba + 0.5)); st(badge, { op: bk, s: 0.8 + 0.2 * bk });
+  };
+});
+
+// 6. Всё ваше
+scene((root, sc) => {
+  const items = [
+    ['хостинге', 'Ваш хостинг', 'Любой с PHP 8: Timeweb, Beget, REG.RU', '<svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg>'],
+    ['домене', 'Ваш домен', 'Сайт, заявки и данные — у вас', 'url'],
+    ['подписки', '0 ₽ в месяц', 'Разовая оплата, без подписки', '<div class="disp" style="font-size:66px;color:var(--acc)">0 ₽</div>'],
+  ];
+  const cards = items.map(([w, t, d, ic], i) => add(root, `<div class="card" style="left:${140 + i * 565}px;top:270px;width:520px;height:440px;padding:46px">
+     <div class="ic" style="height:110px;color:var(--acc);display:flex;align-items:center">${ic === 'url' ? `<div style="width:100%;height:64px;border-radius:32px;background:#fff;color:#333;display:flex;align-items:center;padding:0 24px;font-size:25px;font-weight:500"><span class="u"></span><span class="caret" style="width:2px;height:30px;background:#333;margin-left:2px"></span></div>` : ic}</div>
+     <div class="disp" style="font-size:${Math.round(58 * C.dispScale)}px;margin-top:36px">${t}</div>
+     <div style="font-size:30px;line-height:1.35;color:${C.muted};margin-top:20px">${d}</div></div>`));
+  const url = 'https://' + C.domain;
+  const ats = items.map(([w]) => wordAt(sc, w) - 0.35);
+  return (s) => {
+    cards.forEach((c, i) => { const k = eo(pr(s, ats[i], ats[i] + 0.6)); st(c, { op: k, y: (1 - k) * 70, blur: (1 - k) * 6 }); });
+    const u = cards[1].querySelector('.u'); const n = Math.floor(cl((s - ats[1] - 0.3) / 1.0) * url.length);
+    if (u.textContent.length !== n) u.textContent = url.slice(0, n);
+    cards[1].querySelector('.caret').style.opacity = Math.floor(s * 2) % 2 ? 1 : 0.2;
+  };
+});
+
+// 7. Призыв
+scene((root, sc) => {
+  const sen = sentences(sc);
+  const wall = add(root, '<div class="abs" style="left:-200px;top:-260px;width:2400px;height:1700px;transform-origin:50% 50%"></div>');
+  const pics = [...C.styles.map((x) => `style-${x}.png`), 'mob-hero.png', 'adm-grid.png', 'desk-hero.png', 'adm-bk.png'];
+  const tiles = [];
+  for (let r = 0; r < 4; r++) for (let c = 0; c < 5; c++) {
+    const src = pics[(r * 5 + c) % pics.length];
+    tiles.push(add(wall, `<div style="position:absolute;left:${c * 500 + (r % 2) * 180}px;top:${r * 420}px;width:460px;height:380px;border-radius:18px;overflow:hidden;opacity:.18"><img src="${SH + src}" style="width:100%;height:100%;object-fit:cover;object-position:top"></div>`));
+  }
+  const veil = add(root, `<div class="abs" style="inset:0;background:radial-gradient(ellipse at 50% 48%, ${C.bg}f2 30%, ${C.bg}b0 70%, ${C.bg}80)"></div>`);
+  const q = add(root, `<div class="abs" style="left:0;right:0;top:150px;text-align:center;font-size:40px;color:${C.muted};font-weight:500">Как это будет выглядеть у вас?</div>`);
+  const h = add(root, `<div class="abs disp" style="left:0;right:0;top:230px;text-align:center;font-size:${Math.round(108 * C.dispScale)}px">${C.cta}</div>`);
+  const lg = add(root, `<div class="abs" style="left:0;right:0;top:${N === 'auto' ? 560 : 600}px;display:flex;flex-direction:column;align-items:center;gap:18px">${LOGO(104)}<div style="font-size:38px;color:${C.muted};font-weight:500">Сайт, который записывает клиентов</div></div>`);
+  const site = add(root, `<div class="pill" style="left:50%;top:${N === 'auto' ? 800 : 840}px;transform:translateX(-50%);font-size:40px;padding:18px 44px">top-in.ru</div>`);
+  return (s) => {
+    st(wall, { op: eo(pr(s, 0, 1)), x: -s * 14, y: -s * 6, r: -6, s: 1.05 });
+    inn(q, s, 0.1, 0.6, 20);
+    inn(h, s, wordAt(sc, 'соберём') - 0.3, 0.8, 40);
+    inn(lg, s, sen[2].a - 0.2, 0.8, 40);
+    const k = eo(pr(s, sen[2].a + 0.6, sen[2].a + 1.2));
+    site.style.opacity = k; site.style.transform = `translate(-50%, ${(1 - k) * 20}px)`;
+  };
+});
+
+/* ---------- сборка ---------- */
+const ROOTS = [], UPD = [];
+let glowA, glowB, mark, label, subs, prog;
+async function boot() {
+  [TL, META] = await Promise.all([fetch(`timeline-${N}.json`).then((r) => r.json()), fetch(`shots/${N}-meta.json`).then((r) => r.json())]);
+  glowA = add(stage, `<div class="glow" style="width:900px;height:900px;background:${C.bg2};opacity:.6"></div>`);
+  glowB = add(stage, `<div class="glow" style="width:700px;height:700px;background:${C.acc};opacity:.09"></div>`);
+  TL.scenes.forEach((sc, i) => {
+    const root = add(stage, '<div class="scene"></div>');
+    ROOTS.push(root); UPD.push(SCENES[i](root, sc));
+  });
+  mark = add(stage, `<div class="abs" style="left:56px;top:40px;z-index:90">${LOGO(40)}</div>`);
+  label = add(stage, `<div class="abs" style="right:60px;top:48px;z-index:90;font-size:24px;font-weight:600;color:${C.muted};letter-spacing:.04em;text-transform:uppercase">${C.label}</div>`);
+  subs = add(stage, '<div class="subs"><span></span></div>');
+  prog = add(stage, '<div class="progress"></div>');
+  await document.fonts.ready;
+  await Promise.all([...document.images].map((im) => (im.complete ? 0 : new Promise((r) => { im.onload = im.onerror = r; }))));
+  await new Promise((r) => setTimeout(r, 300));
+  window.TOTAL = TL.total;
+  seek(0);
+  window.ready = true;
+}
+
+function seek(t) {
+  const S = TL.scenes;
+  glowA.style.transform = `translate3d(${1100 + Math.sin(t * 0.13) * 260}px,${-200 + Math.cos(t * 0.11) * 160}px,0)`;
+  glowB.style.transform = `translate3d(${-150 + Math.cos(t * 0.09) * 220}px,${620 + Math.sin(t * 0.12) * 140}px,0)`;
+  S.forEach((sc, i) => {
+    const a = sc.start, b = S[i + 1] ? S[i + 1].start : TL.total + 5;
+    const root = ROOTS[i];
+    const local = t - a;
+    if (t < a - 0.45 || t > b + 0.45) { root.style.display = 'none'; return; }
+    root.style.display = '';
+    const kin = i === 0 ? 1 : eo(pr(t, a - 0.4, a + 0.25));
+    const last = i === S.length - 1;
+    const kout = last ? 1 - eio(pr(t, TL.total - 0.9, TL.total - 0.05)) : 1 - eio(pr(t, b - 0.25, b + 0.3));
+    root.style.opacity = Math.min(kin, kout);
+    root.style.transform = `translate3d(${(1 - kin) * 90 - (1 - kout) * 90}px,0,0)`;
+    UPD[i](Math.max(local, -0.4), sc.dur);
+  });
+  // знак и подпись: не на заставке с логотипом и не на финале
+  const s1 = S[1].start;
+  const mk = Math.min(eo(pr(t, 0.2, 0.8)), 1 - pr(t, s1 - 0.2, s1 + 0.2) + pr(t, s1 + 3.0, s1 + 3.5), 1 - pr(t, TL.total - 0.9, TL.total - 0.05));
+  mark.style.opacity = cl(mk); label.style.opacity = cl(mk);
+  // субтитры
+  let text = '', op = 0;
+  for (const sc of S) {
+    for (const p of sentences(sc)) {
+      const a = sc.start + p.a, b = sc.start + p.b;
+      if (t >= a - 0.1 && t <= b + 0.25) { text = p.text; op = Math.min(pr(t, a - 0.1, a + 0.1), 1 - pr(t, b + 0.05, b + 0.25)); }
+    }
+  }
+  const sp = subs.firstChild;
+  if (sp.textContent !== text) sp.textContent = text;
+  subs.style.opacity = text ? op : 0;
+  prog.style.width = (cl(t / TL.total) * 1920) + 'px';
+}
+window.seek = seek;
+boot();
+</script>
+</body>
+</html>
+

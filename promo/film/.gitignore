@@ -1,0 +1,7 @@
+shots/
+vo/
+out/
+probe/
+*.log
+timeline-*.json
+sheet-*.jpg

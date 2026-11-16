@@ -49,3 +49,14 @@ node promo/partner/pdf.mjs    # promo/slot-partner.pdf и превью слай�
 ```
 
 Путь к Playwright можно задать: `PLAYWRIGHT=/путь/к/playwright/index.mjs`. Скрипт `pdf.mjs` проверяет, что текст не вылезает за слайд.
+
+## Как собирается ролик — `promo/film/`
+
+Монтажный проект (раньше жил только во временной папке; груминг и массаж уже добавлены, озвучки для них пока нет):
+
+1. `node scripts/build.mjs`, затем отдать `dist/` на :8791 (`cd dist && python3 -m http.server 8791`).
+2. `node promo/film/capture.mjs <ниша>` — снимки сайта, записи, демо-админки и стилей в `shots/` (для груминга и массажа заявку в админке выровнять с записью: `BOOK_DATE`, `BOOK_TIME`, `BOOK_DUR`, `BOOK_EXTRA`).
+3. Озвучка: `promo/film/vo/<ниша>-0.wav … -6.wav` — фразы из `script.json` по сценам, тишина по краям обрезана, 48 кГц.
+4. Отдать `promo/film/` на :8795 (`python3 -m http.server 8795`) и запустить `./final.sh <ниша>`: таймлайн по длине фраз → кадры `film.html` в два потока → подложка с приглушением под голосом, −16 LUFS → `promo/slot-promo-<ниша>.mp4`.
+
+Без озвучки `timeline.py` оценивает длину сцен по тексту — так можно смотреть черновые кадры: `node render.mjs <ниша> probe 5 20 35`.
