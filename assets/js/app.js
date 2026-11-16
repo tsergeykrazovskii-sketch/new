@@ -525,7 +525,7 @@
       .map((f) =>
         field(
           f.id,
-          f.label + (f.required ? '' : ' <span class="opt-l">(необязательно)</span>'),
+          f.label + (f.required || /необязательно/i.test(f.label) ? '' : ' <span class="opt-l">(необязательно)</span>'),
           `<input id="b-${f.id}" name="${f.id}" data-extra="${f.id}" type="text" placeholder="${esc(f.placeholder)}" value="${esc(x.extra[f.id] || '')}"${aria(f.id)}>`
         )
       )
@@ -623,7 +623,7 @@
     if (!x.name.trim()) e.name = 'Напишите, как к вам обращаться';
     if (x.phone.replace(/\D/g, '').length !== 11) e.phone = 'Введите номер полностью: +7 и 10 цифр';
     cfg.booking.fields.forEach((f) => {
-      if (f.required && !(x.extra[f.id] || '').trim()) e[f.id] = 'Заполните поле, чтобы мастер подготовил запчасти';
+      if (f.required && !(x.extra[f.id] || '').trim()) e[f.id] = f.error || 'Заполните это поле';
     });
     if (!x.consent) e.consent = 'Без согласия мы не можем принять заявку';
     B.errors = e;

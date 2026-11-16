@@ -292,7 +292,7 @@
       step: 60,
       contactMethods: ['Звонок', 'Telegram', 'MAX'],
       fields: [
-        { id: 'car', label: 'Марка и модель', placeholder: 'Например, Kia Rio 2019', required: true },
+        { id: 'car', label: 'Марка и модель', placeholder: 'Например, Kia Rio 2019', required: true, error: 'Заполните поле, чтобы мастер подготовил запчасти' },
         { id: 'plate', label: 'Госномер', placeholder: 'А123ВС 196', required: false },
       ],
     },
