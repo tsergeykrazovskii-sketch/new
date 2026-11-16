@@ -1,0 +1,716 @@
+{
+  "slug": "face-to-face",
+  "niche": "massage",
+  "style": "pesok",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для массажного салона «Face to Face» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/face_to_face/36617959564/ — 5,0 / 101, прайс 87 позиций",
+    "2ГИС https://2gis.ru/spb/firm/70000001057556181 — 5,0 / 15",
+    "Запись YCLIENTS https://n355705.yclients.com",
+    "Досье: лиды/Face to Face (Санкт-Петербург).md; разбор: разборы/Face to Face (Санкт-Петербург).md (данные проверены исследователем 15.11.2026)",
+    "Фото: 4 из карточки Яндекс Карт (gallery), 16.11.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.11.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг без указания в прайсе — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам салона",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "Галерея: своих фото без людей в карточке мало — добавлены фото-заглушки шаблона, заменить",
+    "сейчас запись в YCLIENTS (n355705) — можно оставить: schedule.mode external",
+    "пилинги, мезотерапия, карбокситерапия и чистки лица не включали — медицинские услуги (лечебный массаж, мануальная терапия, косметология с иглами и пилингами) в демо не включали — шаблон без медицинских услуг; обсудить с владельцем",
+    "раздел «Акции осени −10%» (цены уже со скидкой) и сторис с акциями — сверить с владельцем, что действует",
+    "дополнения к практикам (500–800 ₽) — можно включить как опции",
+    "face-to-face.ru и facetoface.ru — чужие; свободен face-to-face-spb.ru (15.11)",
+    "метро или остановка и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Face to Face",
+    "kind": "Студия массажа"
+  },
+  "contacts": {
+    "city": "Санкт-Петербург",
+    "address": "Бухарестская ул., 67, корп. 1",
+    "addressNote": "",
+    "metro": "",
+    "phone": "+7 982 099-77-68",
+    "phoneHref": "+79820997768",
+    "hoursShort": "Ежедневно 09:00–21:00",
+    "yandexMaps": "https://yandex.ru/maps/org/face_to_face/36617959564/",
+    "twoGis": "https://2gis.ru/spb/firm/70000001057556181",
+    "messengers": [
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/face2facestudio"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/face_to_face_studio"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Массаж и цены"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Салон"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "Face to Face — эстетический массаж лица и тела",
+    "lead": "Нишевая студия эстетического массажа и ухода за лицом и телом на Бухарестской. Фейс-практики, авторский массаж, спа-ритуалы. Ежедневно с 9 до 21.",
+    "cta": "Записаться онлайн",
+    "secondary": "Массаж и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 101,
+        "url": "https://yandex.ru/maps/org/face_to_face/36617959564/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "5,0",
+        "count": 15,
+        "url": "https://2gis.ru/spb/firm/70000001057556181"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/massage/hero.webp",
+    "imageAlt": "Мастер делает массаж спины в тихом кабинете с тёплым светом",
+    "widget": {
+      "type": "estimate",
+      "variants": true,
+      "title": "Подберите сеанс",
+      "serviceLabel": "Массаж",
+      "defaultBrand": 0,
+      "services": [
+        "author"
+      ],
+      "cta": "Записаться на это время",
+      "note": "Цены — по прайсу салона. Приходите за 10 минут: переодеться и выпить воды."
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Елизавета",
+      "dative": "Елизавете",
+      "role": "Ведущий мастер",
+      "img": "https://demo.top-in.ru/assets/img/massage/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Никита",
+      "dative": "Никите",
+      "role": "Массажист",
+      "img": "https://demo.top-in.ru/assets/img/massage/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Софья",
+      "dative": "Софье",
+      "role": "Массажист",
+      "img": "https://demo.top-in.ru/assets/img/massage/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Виктория",
+      "dative": "Виктории",
+      "role": "Массажист",
+      "img": "https://demo.top-in.ru/assets/img/massage/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Массаж тела",
+      "items": [
+        {
+          "id": "author",
+          "name": "Авторский массаж тела",
+          "desc": "Мастер сочетает техники под ваш запрос",
+          "duration": 50,
+          "price": {
+            "value": 3600,
+            "from": false
+          }
+        },
+        {
+          "id": "antistress",
+          "name": "Антистресс-массаж Neurosendante",
+          "desc": "",
+          "duration": 50,
+          "price": {
+            "value": 3800,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "stone",
+          "name": "Стоун-терапия",
+          "desc": "Руки и горячие камни. 60 минут — 3 500 ₽; 90 минут — 5 000 ₽",
+          "duration": 60,
+          "price": {
+            "value": 3500,
+            "from": true
+          },
+          "flat": true
+        },
+        {
+          "id": "transform",
+          "name": "Практика «Трансформация»",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 7000,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "back",
+          "name": "Массаж спины",
+          "desc": "Углублённый, 40 минут — 2 800 ₽",
+          "duration": 30,
+          "price": {
+            "value": 2100,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "legs",
+          "name": "Массаж ног (голени и бёдра)",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 3000,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "neck",
+          "name": "Массаж шейно-воротниковой зоны",
+          "desc": "",
+          "duration": 15,
+          "price": {
+            "value": 1000,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "feet",
+          "name": "Массаж стоп",
+          "desc": "",
+          "duration": 15,
+          "price": {
+            "value": 1000,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "hands",
+          "name": "Спа-массаж рук",
+          "desc": "",
+          "duration": 20,
+          "price": {
+            "value": 1500,
+            "from": false
+          },
+          "flat": true
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/massage/cat-body.webp",
+      "icon": "heart",
+      "from": "от 1 000 ₽"
+    },
+    {
+      "category": "Лицо и голова",
+      "items": [
+        {
+          "id": "face",
+          "name": "Авторский массаж лица",
+          "desc": "50 минут — 3 000 ₽; 70 минут — 3 800 ₽",
+          "duration": 50,
+          "price": {
+            "value": 3000,
+            "from": true
+          },
+          "flat": true
+        },
+        {
+          "id": "arch",
+          "name": "Архитектура лица — углублённая работа",
+          "desc": "30 минут — 2 700 ₽; 50 минут — 4 500 ₽; 75 минут — 6 300 ₽; 90 минут — 7 000 ₽",
+          "duration": 30,
+          "price": {
+            "value": 2700,
+            "from": true
+          },
+          "flat": true
+        },
+        {
+          "id": "optimum",
+          "name": "Фейс-практика «Оптимум»",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 3000,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "maximum",
+          "name": "Фейс-практика «Максимум»",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3700,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "lift",
+          "name": "Экспресс-лифтинг",
+          "desc": "«Экспресс-лифтинг-плюс», 35 минут — 2 100 ₽",
+          "duration": 20,
+          "price": {
+            "value": 1500,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "face-ns",
+          "name": "Антистресс-массаж лица Neurosendante",
+          "desc": "",
+          "duration": 50,
+          "price": {
+            "value": 2800,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "his",
+          "name": "Фейс-практика для мужчин «His story»",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 3000,
+            "from": false
+          },
+          "flat": true
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/massage/cat-face.webp",
+      "icon": "flower",
+      "from": "от 1 500 ₽"
+    },
+    {
+      "category": "Аппаратные процедуры",
+      "items": [
+        {
+          "id": "wellbox",
+          "name": "Аппаратный массаж Wellbox mini LPG",
+          "desc": "",
+          "duration": 50,
+          "price": {
+            "value": 3000,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "vibro",
+          "name": "Вибромассаж GLO + вакуум Wellbox",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 3500,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "combo-hw",
+          "name": "Комбо: руки + вибро + вакуум",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 5000,
+            "from": false
+          },
+          "flat": true
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/massage/cat-body.webp",
+      "icon": "sparkle",
+      "from": "от 3 000 ₽"
+    },
+    {
+      "category": "SPA-программы",
+      "items": [
+        {
+          "id": "legs-spa",
+          "name": "Комплекс «Лёгкие ножки»",
+          "desc": "",
+          "duration": 75,
+          "price": {
+            "value": 5700,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "detox",
+          "name": "Комплекс «Спа-детокс с солодкой»",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 5000,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "foam",
+          "name": "Пенное обёртывание с солодкой",
+          "desc": "",
+          "duration": 40,
+          "price": {
+            "value": 2500,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "bandage",
+          "name": "Бандажное обёртывание",
+          "desc": "",
+          "duration": 40,
+          "price": {
+            "value": 2000,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "sticks",
+          "name": "Стики-массаж с солодкой",
+          "desc": "",
+          "duration": 40,
+          "price": {
+            "value": 2500,
+            "from": false
+          },
+          "flat": true
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/massage/cat-spa.webp",
+      "icon": "sparkle",
+      "from": "от 2 000 ₽"
+    },
+    {
+      "category": "Знакомство",
+      "items": [
+        {
+          "id": "meet-face",
+          "name": "Фейс-практика «Знакомство»",
+          "desc": "Первый визит",
+          "duration": 30,
+          "price": {
+            "value": 1300,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "meet-body",
+          "name": "Боди-практика «Знакомство»",
+          "desc": "Первый визит",
+          "duration": 35,
+          "price": {
+            "value": 1500,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "meet-combo",
+          "name": "Знакомство «Комбо»",
+          "desc": "Первый визит: лицо и тело",
+          "duration": 60,
+          "price": {
+            "value": 2500,
+            "from": false
+          },
+          "flat": true
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/massage/cat-face.webp",
+      "icon": "gift",
+      "from": "от 1 300 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "Telegram"
+    ],
+    "fields": [
+      {
+        "id": "notes",
+        "label": "Пожелания и противопоказания (необязательно)",
+        "placeholder": "Сильное давление, болит поясница, беременность",
+        "required": false
+      }
+    ],
+    "variants": {
+      "label": "Длительность",
+      "items": [
+        {
+          "name": "50 минут",
+          "k": 1.0,
+          "kd": 1.0
+        },
+        {
+          "name": "90 минут",
+          "k": 1.5,
+          "kd": 1.8
+        },
+        {
+          "name": "120 минут",
+          "k": 1.8889,
+          "kd": 2.4
+        }
+      ]
+    }
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему к нам",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 101 оценкам",
+          "text": "Все отзывы в Яндексе — о мастерах и уходе"
+        },
+        {
+          "icon": "flower",
+          "title": "Лицо и тело",
+          "text": "Фейс-практики, авторский массаж, спа-ритуалы"
+        },
+        {
+          "icon": "parking",
+          "title": "Парковка",
+          "text": "И пандус у входа"
+        },
+        {
+          "icon": "gift",
+          "title": "Сертификаты и скидочная карта",
+          "text": "Акции для именинников"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Массаж и цены",
+      "lead": "Цены по прайсу студии в Яндекс Картах. Для авторского массажа выберите длительность — цена и время пересчитаются сами."
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "gallery",
+      "title": "Салон",
+      "lead": "Фото из карточки салона на Яндекс Картах. Часть фото — для примера.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/18111423/2a0000019d42cc6ce573dc1bca521afb02e3/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/19816667/2a0000019ca80bd025f3d0d25f2bc0c6103d/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/406255/2a00000184bd7de2494909d3eecd8ec6377a/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/13207207/2a00000192394d1653c1ca9beed41e7708d7/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://demo.top-in.ru/assets/img/massage/g-room.webp"
+        },
+        {
+          "caption": "",
+          "img": "https://demo.top-in.ru/assets/img/massage/g-stones.webp"
+        }
+      ]
+    },
+    {
+      "type": "offers",
+      "invert": true,
+      "title": "Сейчас выгодно",
+      "items": [
+        {
+          "icon": "gift",
+          "title": "Знакомство — от 1 300 ₽",
+          "text": "Первый визит: фейс-практика, боди-практика или комбо.",
+          "cta": "Записаться",
+          "service": "meet-combo"
+        },
+        {
+          "icon": "calendar",
+          "title": "Абонементы",
+          "text": "5 авторских массажей — 14 250 ₽, 10 — 27 000 ₽.",
+          "cta": "Записаться",
+          "service": "author"
+        }
+      ]
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы гостей с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Дарья П.",
+          "source": "Яндекс Карты",
+          "date": "13 сентября",
+          "rating": 5,
+          "text": "Посетила данный салон и осталась в полном восторге . Массаж делала Ольга .( Лицо и тело) Индивидуальный подход , приятная атмосфера , профессионализм , получила массу положительных эмоций. Буду ходить и советовать другим .Спасибо 🙌"
+        },
+        {
+          "name": "Ксения Ж.",
+          "source": "Яндекс Карты",
+          "date": "28 сентября",
+          "rating": 5,
+          "text": "Хожу в эту студию давно. Очень нравится атмосфера, способствует расслаблению. Наталья - мастер с большой буквы, у неё волшебные руки💫 После массажа всегда чувствую себя отдохнувшей, лицо выглядит замечательно."
+        },
+        {
+          "name": "Софья К.",
+          "source": "Яндекс Карты",
+          "date": "7 августа",
+          "rating": 5,
+          "text": "Прекрасное место, уютный кабинет. Спасибо большое замечательной Ольге за профессиональный массаж, консультации и просто за душевность! Буду ходить ещё и ещё с большим удовольствием ❤️"
+        },
+        {
+          "name": "Елена П.",
+          "source": "Яндекс Карты",
+          "date": "15 мая",
+          "rating": 5,
+          "text": "Если вам нужен специалист по массажу тела, то со 100℅ уверенностью могу порекомендовать Ольгу. Она чувствует каждый ваш зажим, каждую клеточку ,каждый позвонок на вашем теле. С радостью и профессионализмом выполняет свою работу. Вы точно это почувствуете. Ольга, мастер высокого уровня 👍."
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Санкт-Петербург, Бухарестская ул., 67, корп. 1."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 9:00 до 21:00."
+        },
+        {
+          "q": "С чего начать, если я впервые?",
+          "a": "С практик «Знакомство»: лицо — 1 300 ₽, тело — 1 500 ₽, комбо — 2 500 ₽."
+        },
+        {
+          "q": "Есть абонементы?",
+          "a": "Да: 5 авторских массажей по 50 минут — 14 250 ₽, 10 — 27 000 ₽; 10 фейс-практик по 35 минут — 18 900 ₽."
+        },
+        {
+          "q": "Есть ли противопоказания?",
+          "a": "Да: температура, острые воспаления, кожные заболевания в зоне массажа, тромбоз, онкология. При беременности и хронических болезнях — только после разрешения врача. Напишите об этом при записи — мастер подберёт программу."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}

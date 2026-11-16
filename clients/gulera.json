@@ -1,0 +1,645 @@
+{
+  "slug": "gulera",
+  "niche": "massage",
+  "style": "pesok",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для массажного салона «Gulera» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/gulera/3694507741/ — 5,0 / 66, прайс 52 позиции",
+    "2ГИС https://2gis.ru/kazan/firm/70000001097358208 — 5,0 / 74",
+    "Запись YCLIENTS https://n2253609.yclients.com (2ГИС)",
+    "Досье: лиды/Gulera (Казань).md; разбор: разборы/Gulera (Казань).md (данные проверены исследователем 15.11.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 16.11.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.11.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг без указания в прайсе — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам салона",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "прайс «Давно не обновлялось», первыми стоят курсы на 33 000 ₽ — сверить цены",
+    "телефона-мессенджера в карточке Яндекса нет — на демо Telegram-канал и VK; уточнить WhatsApp",
+    "SPA-программы «Возрождающая стихия», «Магия магния», «Виноградная долина», «Стрела купидона» не включали (место); дополнительные услуги — можно опциями",
+    "сейчас запись в YCLIENTS (n2253609, только в 2ГИС) — можно оставить: schedule.mode external",
+    "домены gulera.ru, guleramassage.ru свободны (15.11)",
+    "метро или остановка и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Gulera",
+    "kind": "Студия массажа и спа"
+  },
+  "contacts": {
+    "city": "Казань",
+    "address": "ул. Максимова, 39",
+    "addressNote": "1 этаж",
+    "metro": "",
+    "phone": "+7 909 311-13-43",
+    "phoneHref": "+79093111343",
+    "hoursShort": "Ежедневно 09:00–21:00",
+    "yandexMaps": "https://yandex.ru/maps/org/gulera/3694507741/",
+    "twoGis": "https://2gis.ru/kazan/firm/70000001097358208",
+    "messengers": [
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/guleramassagekazan"
+      },
+      {
+        "label": "ВКонтакте",
+        "icon": "message",
+        "url": "https://vk.ru/guleramassage"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ],
+    [
+      "09:00",
+      "21:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Массаж и цены"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Салон"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "Gulera — студия массажа и спа",
+    "lead": "Ручной массаж, SPA-ритуалы и программы для двоих на Максимова. Избавляем от зажимов и усталости. Ежедневно с 9 до 21.",
+    "cta": "Записаться онлайн",
+    "secondary": "Массаж и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 66,
+        "url": "https://yandex.ru/maps/org/gulera/3694507741/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "5,0",
+        "count": 74,
+        "url": "https://2gis.ru/kazan/firm/70000001097358208"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/massage/hero.webp",
+    "imageAlt": "Мастер делает массаж спины в тихом кабинете с тёплым светом",
+    "widget": {
+      "type": "estimate",
+      "variants": true,
+      "title": "Подберите сеанс",
+      "serviceLabel": "Массаж",
+      "defaultBrand": 0,
+      "services": [
+        "classic",
+        "lymph"
+      ],
+      "cta": "Записаться на это время",
+      "note": "Цены — по прайсу салона. Приходите за 10 минут: переодеться и выпить воды."
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Софья",
+      "dative": "Софье",
+      "role": "Ведущий мастер",
+      "img": "https://demo.top-in.ru/assets/img/massage/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Кирилл",
+      "dative": "Кириллу",
+      "role": "Массажист",
+      "img": "https://demo.top-in.ru/assets/img/massage/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Юлия",
+      "dative": "Юлии",
+      "role": "Массажист",
+      "img": "https://demo.top-in.ru/assets/img/massage/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Яна",
+      "dative": "Яне",
+      "role": "Массажист",
+      "img": "https://demo.top-in.ru/assets/img/massage/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Массаж тела",
+      "items": [
+        {
+          "id": "classic",
+          "name": "Классический массаж всего тела",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2800,
+            "from": false
+          }
+        },
+        {
+          "id": "lymph",
+          "name": "Лимфодренажный массаж",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2800,
+            "from": false
+          }
+        },
+        {
+          "id": "relax",
+          "name": "Релаксационный массаж",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2800,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "sport",
+          "name": "Спортивный массаж",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 3000,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "anticell",
+          "name": "Антицеллюлитный массаж",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2800,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "point",
+          "name": "Точечный массаж",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2800,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "back",
+          "name": "Массаж спины",
+          "desc": "",
+          "duration": 45,
+          "price": {
+            "value": 2200,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "neck",
+          "name": "Массаж шейно-воротниковой зоны",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 1400,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "feet",
+          "name": "Массаж стоп",
+          "desc": "Массаж рук, 30 минут — 1 400 ₽",
+          "duration": 30,
+          "price": {
+            "value": 1400,
+            "from": false
+          },
+          "flat": true
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/massage/cat-body.webp",
+      "icon": "heart",
+      "from": "от 1 400 ₽"
+    },
+    {
+      "category": "Лицо и голова",
+      "items": [
+        {
+          "id": "face",
+          "name": "Массаж лица",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 1400,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "head",
+          "name": "Массаж головы",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 1400,
+            "from": false
+          },
+          "flat": true
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/massage/cat-face.webp",
+      "icon": "flower",
+      "from": "от 1 400 ₽"
+    },
+    {
+      "category": "SPA-программы",
+      "items": [
+        {
+          "id": "reboot",
+          "name": "«Перезагрузка тела и ума»",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 4200,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "bliss",
+          "name": "«Момент блаженства»",
+          "desc": "",
+          "duration": 110,
+          "price": {
+            "value": 4400,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "citrus",
+          "name": "«Изобильный цитрус»",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 5100,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "choco",
+          "name": "«Шоколадный экстаз»",
+          "desc": "",
+          "duration": 130,
+          "price": {
+            "value": 5400,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "kelp",
+          "name": "«Чудо ламинарии»",
+          "desc": "",
+          "duration": 130,
+          "price": {
+            "value": 5600,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "alpha",
+          "name": "«Альфа режим»",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 6300,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "cedar",
+          "name": "Кедровая бочка",
+          "desc": "",
+          "duration": 15,
+          "price": {
+            "value": 800,
+            "from": false
+          },
+          "flat": true
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/massage/cat-spa.webp",
+      "icon": "sparkle",
+      "from": "от 800 ₽"
+    },
+    {
+      "category": "Для двоих",
+      "items": [
+        {
+          "id": "pair",
+          "name": "Расслабляющий парный массаж",
+          "desc": "60 минут — 5 200 ₽; 90 минут — 7 600 ₽",
+          "duration": 60,
+          "price": {
+            "value": 5200,
+            "from": true
+          },
+          "flat": true
+        },
+        {
+          "id": "four",
+          "name": "Массаж в 4 руки",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 5200,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "aphro",
+          "name": "«Афродизиак» — спа-массаж для двоих",
+          "desc": "",
+          "duration": 80,
+          "price": {
+            "value": 6800,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "reboot2",
+          "name": "СПА «Перезагрузка тела и ума» для двоих",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 8200,
+            "from": false
+          },
+          "flat": true
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/massage/cat-spa.webp",
+      "icon": "heart",
+      "from": "от 5 200 ₽"
+    },
+    {
+      "category": "Детям",
+      "items": [
+        {
+          "id": "kids",
+          "name": "Детский массаж",
+          "desc": "",
+          "duration": 30,
+          "price": {
+            "value": 1500,
+            "from": false
+          },
+          "flat": true
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/massage/cat-body.webp",
+      "icon": "heart",
+      "from": "от 1 500 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "Telegram"
+    ],
+    "fields": [
+      {
+        "id": "notes",
+        "label": "Пожелания и противопоказания (необязательно)",
+        "placeholder": "Сильное давление, болит поясница, беременность",
+        "required": false
+      }
+    ],
+    "variants": {
+      "label": "Длительность",
+      "items": [
+        {
+          "name": "60 минут",
+          "k": 1.0,
+          "kd": 1.0
+        },
+        {
+          "name": "90 минут",
+          "k": 1.3571,
+          "kd": 1.5
+        }
+      ]
+    }
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему к нам",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 74 оценкам",
+          "text": "В 2ГИС; в Яндексе — 5,0 по 66 оценкам"
+        },
+        {
+          "icon": "sparkle",
+          "title": "10 SPA-программ",
+          "text": "От полутора часов до почти трёх"
+        },
+        {
+          "icon": "heart",
+          "title": "Для двоих и девичники",
+          "text": "Парный массаж, массаж в 4 руки, спа-девичник"
+        },
+        {
+          "icon": "droplet",
+          "title": "Кедровая бочка",
+          "text": "15 минут — 800 ₽"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Массаж и цены",
+      "lead": "Цены по прайсу студии в Яндекс Картах. Для классического и лимфодренажного массажа выберите длительность — цена и время пересчитаются сами."
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "gallery",
+      "title": "Салон",
+      "lead": "Фото из карточки салона на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16134335/2a00000197b65d66686cb00fec6630fd14ee/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15439859/2a000001975b21c14e03cb477853c8f5d9e1/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15650736/2a000001975b21ba69f9fd9eea835d5167fa/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15265650/2a0000019576453ae34adeff68e7cc117c5a/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/18105464/2a0000019bfe56ad16ac55426141725128b6/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/16158716/2a0000019dcdc3a9a89507618697e11ef2e4/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы гостей с Яндекс Карт.",
+      "items": [
+        {
+          "name": "Элина",
+          "source": "Яндекс Карты",
+          "date": "20 сентября",
+          "rating": 5,
+          "text": "Хочу выразить огромную благодарность салону Гулера. Здесь работают люди, которые видно, что занимаются любимым делом. Пришли с мужем сюда на годовщину и остались в огромном восторге. Вежливый персонал и чувствуем себя после процедур как заново родившимися."
+        },
+        {
+          "name": "Вероника К.",
+          "source": "Яндекс Карты",
+          "date": "18 октября",
+          "rating": 5,
+          "text": "Срочно понадобилось, чтобы за мной поухаживали. Нашла в нашем районе это чудо место, было свободное окошко. Красивая обстановка, все располагает для расслабления. Позаботились обо мне на высшем уровне, чувствую себя перерожденной. Приду ещё, радует что есть такие салоны в шаговой доступности"
+        },
+        {
+          "name": "Ольга Л.",
+          "source": "Яндекс Карты",
+          "date": "25 октября",
+          "rating": 5,
+          "text": "Очень приятный массажный салон! Обычно хожу на массаж всего тела. Хожу уже второй год! Удобные массажные столы, квалифицированные мастера и приятная музыка. Цены демократичные ☺️"
+        },
+        {
+          "name": "Татьяна",
+          "source": "Яндекс Карты",
+          "date": "24 августа",
+          "rating": 5,
+          "text": "Мастера свое дело знают. Была уже тут 3 раза. Массаж прошел хорошо🙏🏽 Всю размяли. По всем точкам прошлись. Вернусь обязательно еще!"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Казань, ул. Максимова, 39, 1 этаж."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 9:00 до 21:00."
+        },
+        {
+          "q": "Есть абонементы?",
+          "a": "Да: массаж всего тела 5 сеансов по 60 минут — 12 000 ₽, 10 — 22 000 ₽; по 90 минут — 18 000 и 33 000 ₽; массаж спины и шейно-воротниковой зоны — тоже курсами."
+        },
+        {
+          "q": "Можно отметить девичник?",
+          "a": "Да: спа-девичник «Момент блаженства» на троих — 13 200 ₽, «Перезагрузка тела и ума» на пятерых — 17 500 ₽."
+        },
+        {
+          "q": "Есть ли противопоказания?",
+          "a": "Да: температура, острые воспаления, кожные заболевания в зоне массажа, тромбоз, онкология. При беременности и хронических болезнях — только после разрешения врача. Напишите об этом при записи — мастер подберёт программу."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}

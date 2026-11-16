@@ -1,0 +1,670 @@
+{
+  "slug": "lamoon",
+  "niche": "massage",
+  "style": "tik",
+  "timezone": "Europe/Moscow",
+  "demoLabel": "Демо сайта для массажного салона «Lamoon» · данные из открытых источников · не официальный сайт",
+  "_sources": [
+    "Яндекс https://yandex.ru/maps/org/lamoon/6199141126/ — 5,0 / 81, прайс 45 позиций",
+    "2ГИС https://2gis.ru/kazan/firm/70000001081245358 — 4,8 / 114",
+    "Досье: лиды/Lamoon (Казань).md; разбор: разборы/Lamoon (Казань).md (данные проверены исследователем 15.11.2026)",
+    "Фото: 6 из карточки Яндекс Карт (gallery), 16.11.2026",
+    "Отзывы: 4 из последних 50 на Яндекс Картах (5 звёзд, текст без правок, имена сокращены), собраны 16.11.2026"
+  ],
+  "_todo": [
+    "Мастера — заглушки (портреты и имена для примера, имена вымышленные); баннер и плитки категорий — из шаблона; в галерее — фото из карточки Яндекса",
+    "Длительность услуг без указания в прайсе — типовая (для расчёта окон записи), уточнить у владельца",
+    "Расписание: мастера и их график — уточнить; пока все работают по часам салона",
+    "логотип и фото в хорошем качестве — у владельца",
+    "реквизиты для подвала и политики ПД",
+    "в Яндексе раздел «ЅРА - Программы» набран с чужой буквой «Ѕ» — на демо исправлено",
+    "галотерапию и «Водорослевое обёртывание» (15 мин, 6 500 ₽ — похоже на ошибку) не включали — уточнить",
+    "состав SPA-программ — описать со слов владельца",
+    "соцсетей и записи в карточке нет — только Telegram и WhatsApp по номеру",
+    "lamoon.ru — на продаже; свободен lamoon-kzn.ru (15.11)",
+    "метро или остановка и как пройти — уточнить",
+    "логотип (в этой партии не брали — на демо название текстом)"
+  ],
+  "brand": {
+    "name": "Lamoon",
+    "kind": "Массажный салон"
+  },
+  "contacts": {
+    "city": "Казань",
+    "address": "ул. Рихарда Зорге, 66Б",
+    "addressNote": "Офис 1306, 13 этаж",
+    "metro": "",
+    "phone": "+7 905 377-57-19",
+    "phoneHref": "+79053775719",
+    "hoursShort": "Ежедневно 08:00–21:00",
+    "yandexMaps": "https://yandex.ru/maps/org/lamoon/6199141126/",
+    "twoGis": "https://2gis.ru/kazan/firm/70000001081245358",
+    "messengers": [
+      {
+        "label": "WhatsApp",
+        "icon": "message",
+        "url": "https://wa.me/79053775719"
+      },
+      {
+        "label": "Telegram",
+        "icon": "send",
+        "url": "https://t.me/+79053775719"
+      }
+    ]
+  },
+  "hours": [
+    [
+      "08:00",
+      "21:00"
+    ],
+    [
+      "08:00",
+      "21:00"
+    ],
+    [
+      "08:00",
+      "21:00"
+    ],
+    [
+      "08:00",
+      "21:00"
+    ],
+    [
+      "08:00",
+      "21:00"
+    ],
+    [
+      "08:00",
+      "21:00"
+    ],
+    [
+      "08:00",
+      "21:00"
+    ]
+  ],
+  "nav": [
+    {
+      "id": "services",
+      "label": "Массаж и цены"
+    },
+    {
+      "id": "staff",
+      "label": "Мастера"
+    },
+    {
+      "id": "gallery",
+      "label": "Салон"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты"
+    }
+  ],
+  "hero": {
+    "title": "Lamoon — тайский массаж и SPA",
+    "lead": "Тайский и оздоровительный массаж, ломи-ломи, SPA-программы и парные ритуалы на Рихарда Зорге. Ежедневно с 8 до 21.",
+    "cta": "Записаться онлайн",
+    "secondary": "Массаж и цены",
+    "proof": [
+      {
+        "source": "Яндекс Карты",
+        "rating": "5,0",
+        "count": 81,
+        "url": "https://yandex.ru/maps/org/lamoon/6199141126/reviews/"
+      },
+      {
+        "source": "2ГИС",
+        "rating": "4,8",
+        "count": 114,
+        "url": "https://2gis.ru/kazan/firm/70000001081245358"
+      }
+    ],
+    "image": "https://demo.top-in.ru/assets/img/massage/hero.webp",
+    "imageAlt": "Мастер делает массаж спины в тихом кабинете с тёплым светом",
+    "widget": {
+      "type": "estimate",
+      "variants": true,
+      "title": "Подберите сеанс",
+      "serviceLabel": "Массаж",
+      "defaultBrand": 0,
+      "services": [
+        "health"
+      ],
+      "cta": "Записаться на это время",
+      "note": "Цены — по прайсу салона. Приходите за 10 минут: переодеться и выпить воды."
+    }
+  },
+  "staff": [
+    {
+      "id": "m1",
+      "name": "Марина",
+      "dative": "Марине",
+      "role": "Ведущий мастер",
+      "img": "https://demo.top-in.ru/assets/img/massage/staff-1.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m2",
+      "name": "Илья",
+      "dative": "Илье",
+      "role": "Массажист",
+      "img": "https://demo.top-in.ru/assets/img/massage/staff-2.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m3",
+      "name": "Софья",
+      "dative": "Софье",
+      "role": "Массажист",
+      "img": "https://demo.top-in.ru/assets/img/massage/staff-3.webp",
+      "_placeholder": true
+    },
+    {
+      "id": "m4",
+      "name": "Валерия",
+      "dative": "Валерии",
+      "role": "Массажист",
+      "img": "https://demo.top-in.ru/assets/img/massage/staff-4.webp",
+      "_placeholder": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Массаж тела",
+      "items": [
+        {
+          "id": "health",
+          "name": "Оздоровительный массаж",
+          "desc": "50 минут — 2 200 ₽",
+          "duration": 60,
+          "price": {
+            "value": 2600,
+            "from": false
+          }
+        },
+        {
+          "id": "thai-oil",
+          "name": "Тайский массаж маслом",
+          "desc": "60 минут — 2 900 ₽; 90 минут — 4 000 ₽",
+          "duration": 60,
+          "price": {
+            "value": 2900,
+            "from": true
+          },
+          "flat": true
+        },
+        {
+          "id": "thai-slim",
+          "name": "Тайский slim-массаж",
+          "desc": "60 минут — 3 300 ₽; 90 минут — 4 100 ₽",
+          "duration": 60,
+          "price": {
+            "value": 3300,
+            "from": true
+          },
+          "flat": true
+        },
+        {
+          "id": "sport",
+          "name": "Спортивный массаж",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 3100,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "lymph",
+          "name": "Лимфодренажный массаж",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2700,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "anticell",
+          "name": "Антицеллюлитный массаж",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 3100,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "lomi",
+          "name": "Гавайский массаж ломи-ломи",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 4500,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "back",
+          "name": "Массаж спины",
+          "desc": "",
+          "duration": 40,
+          "price": {
+            "value": 1800,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "feet",
+          "name": "Тайский массаж стоп",
+          "desc": "30 минут — 1 500 ₽; 60 минут — 2 500 ₽",
+          "duration": 30,
+          "price": {
+            "value": 1500,
+            "from": true
+          },
+          "flat": true
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/massage/cat-body.webp",
+      "icon": "heart",
+      "from": "от 1 500 ₽"
+    },
+    {
+      "category": "Лицо и голова",
+      "items": [
+        {
+          "id": "face",
+          "name": "Тайский моделирующий массаж лица",
+          "desc": "",
+          "duration": 60,
+          "price": {
+            "value": 2800,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "brush",
+          "name": "Нейрорелаксация лица кисточками",
+          "desc": "Китайская техника",
+          "duration": 60,
+          "price": {
+            "value": 3100,
+            "from": false
+          },
+          "flat": true
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/massage/cat-face.webp",
+      "icon": "flower",
+      "from": "от 2 800 ₽"
+    },
+    {
+      "category": "SPA-программы",
+      "items": [
+        {
+          "id": "lotus",
+          "name": "«Лотос»",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 3500,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "gent",
+          "name": "«Джентльмен»",
+          "desc": "",
+          "duration": 90,
+          "price": {
+            "value": 4900,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "fig",
+          "name": "«90-60-90»",
+          "desc": "",
+          "duration": 85,
+          "price": {
+            "value": 3800,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "turk",
+          "name": "«Турецкие традиции»",
+          "desc": "",
+          "duration": 110,
+          "price": {
+            "value": 5200,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "soul",
+          "name": "«Гармония души»",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 5700,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "sportp",
+          "name": "«Спортивная программа»",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 5300,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "exotic",
+          "name": "«Экзотическое наслаждение»",
+          "desc": "",
+          "duration": 140,
+          "price": {
+            "value": 6500,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "choco",
+          "name": "«Шоколайф»",
+          "desc": "",
+          "duration": 150,
+          "price": {
+            "value": 6500,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "tender",
+          "name": "«Нежность»",
+          "desc": "",
+          "duration": 180,
+          "price": {
+            "value": 7600,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "cedar",
+          "name": "Кедровая бочка",
+          "desc": "",
+          "duration": 15,
+          "price": {
+            "value": 700,
+            "from": false
+          },
+          "flat": true
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/massage/cat-spa.webp",
+      "icon": "sparkle",
+      "from": "от 700 ₽"
+    },
+    {
+      "category": "Для двоих",
+      "items": [
+        {
+          "id": "tropic",
+          "name": "«Тропический рай»",
+          "desc": "",
+          "duration": 85,
+          "price": {
+            "value": 6400,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "turk2",
+          "name": "«Турецкие традиции» для двоих",
+          "desc": "",
+          "duration": 110,
+          "price": {
+            "value": 8000,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "spring",
+          "name": "«Энергия весны»",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 8200,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "love",
+          "name": "«Любовь в заботе»",
+          "desc": "",
+          "duration": 120,
+          "price": {
+            "value": 8500,
+            "from": false
+          },
+          "flat": true
+        },
+        {
+          "id": "summer",
+          "name": "«Летнее настроение»",
+          "desc": "",
+          "duration": 130,
+          "price": {
+            "value": 9100,
+            "from": false
+          },
+          "flat": true
+        }
+      ],
+      "img": "https://demo.top-in.ru/assets/img/massage/cat-spa.webp",
+      "icon": "heart",
+      "from": "от 6 400 ₽"
+    }
+  ],
+  "schedule": {
+    "mode": "own",
+    "off": [],
+    "blocks": []
+  },
+  "booking": {
+    "askStaff": true,
+    "step": 30,
+    "contactMethods": [
+      "Звонок",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "fields": [
+      {
+        "id": "notes",
+        "label": "Пожелания и противопоказания (необязательно)",
+        "placeholder": "Сильное давление, болит поясница, беременность",
+        "required": false
+      }
+    ],
+    "variants": {
+      "label": "Длительность",
+      "items": [
+        {
+          "name": "60 минут",
+          "k": 1.0,
+          "kd": 1.0
+        },
+        {
+          "name": "90 минут",
+          "k": 1.4231,
+          "kd": 1.5
+        }
+      ]
+    }
+  },
+  "sections": [
+    "hero",
+    {
+      "type": "perks",
+      "label": "Почему к нам",
+      "items": [
+        {
+          "icon": "star",
+          "title": "5,0 по 81 оценкам",
+          "text": "В 2ГИС — 4,8 по 114 оценкам"
+        },
+        {
+          "icon": "flower",
+          "title": "Тайские техники",
+          "text": "Массаж маслом, slim-массаж, массаж стоп и лица"
+        },
+        {
+          "icon": "heart",
+          "title": "Парные SPA-программы",
+          "text": "От 85 минут до двух с лишним часов"
+        },
+        {
+          "icon": "droplet",
+          "title": "Кедровая бочка",
+          "text": "И комната отдыха"
+        }
+      ]
+    },
+    {
+      "type": "cats"
+    },
+    {
+      "type": "services",
+      "title": "Массаж и цены",
+      "lead": "Цены по прайсу салона в Яндекс Картах. Для оздоровительного массажа выберите длительность — цена и время пересчитаются сами."
+    },
+    {
+      "type": "staff",
+      "title": "Мастера",
+      "lead": "Фото и имена для примера — на сайте будут ваши мастера."
+    },
+    {
+      "type": "gallery",
+      "title": "Салон",
+      "lead": "Фото из карточки салона на Яндекс Картах.",
+      "items": [
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/226077/2a0000018c62436e88cd9234b19f0239a9e3/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/10700956/2a0000018c62435d0cb99a45515d4643615d/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15413153/2a0000019690da3d4cf1bf05f3341390fb2e/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/15281020/2a0000019690d75f94a40035c08f09d809b7/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14920824/2a000001964109256c89739668983d5aa5e7/XXXL"
+        },
+        {
+          "caption": "",
+          "img": "https://avatars.mds.yandex.net/get-altay/14868744/2a0000019690da3713ba2696f7087edd8a74/XXXL"
+        }
+      ]
+    },
+    {
+      "type": "reviews",
+      "title": "Отзывы",
+      "lead": "Настоящие отзывы гостей с Яндекс Карт.",
+      "items": [
+        {
+          "name": "",
+          "source": "Яндекс Карты",
+          "date": "28 октября",
+          "rating": 5,
+          "text": "Отличный спа салон! Были на программе летнее настроение на двоих, все прошло замечательно, мастера профессионалы, все очень красиво и эстетично"
+        },
+        {
+          "name": "Людмила Т.",
+          "source": "Яндекс Карты",
+          "date": "21 мая",
+          "rating": 5,
+          "text": "Сегодня с сестрой начали день с посещения этого чудесного салона. Девочки, Люция и Гузяль , просто волшебницы!!!! Настолько они профессионалы, что не осталось сомнений. Мы вернёмся сюда еще не один раз . Все мышцы тела кричат спасибо этим девушкам!!!!"
+        },
+        {
+          "name": "Эдуард М.",
+          "source": "Яндекс Карты",
+          "date": "17 июня",
+          "rating": 5,
+          "text": "Впервые был в этой студии, массаж очень понравился! Мастер знает свое дело, подошел и индивидуальным подходом, снял все зажимы в мышцах после тренировки"
+        },
+        {
+          "name": "Эльза М.",
+          "source": "Яндекс Карты",
+          "date": "20 января",
+          "rating": 5,
+          "text": "Спасибо громкое за массаж! У мастера золотые руки , получила огромное удовольствие и релакс всего тела! Просто волшебное ощущение. Атмосфера салона очень приятная ! Спасибо огромное!"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Частые вопросы",
+      "items": [
+        {
+          "q": "Где вы находитесь?",
+          "a": "Казань, ул. Рихарда Зорге, 66Б, 13 этаж, офис 1306."
+        },
+        {
+          "q": "Когда работаете?",
+          "a": "Ежедневно с 8:00 до 21:00."
+        },
+        {
+          "q": "Есть абонементы?",
+          "a": "Да: оздоровительный массаж 60 минут — 3 сеанса за 7 300 ₽, 5 сеансов с кедровой бочкой в подарок — 12 000 ₽, 10 — 23 000 ₽; антицеллюлитный — от 8 700 ₽ за 3 сеанса."
+        },
+        {
+          "q": "Есть программы для двоих?",
+          "a": "Да, пять парных SPA-программ — от 6 400 ₽."
+        },
+        {
+          "q": "Есть ли противопоказания?",
+          "a": "Да: температура, острые воспаления, кожные заболевания в зоне массажа, тромбоз, онкология. При беременности и хронических болезнях — только после разрешения врача. Напишите об этом при записи — мастер подберёт программу."
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "title": "Как нас найти"
+    }
+  ],
+  "legal": {}
+}
