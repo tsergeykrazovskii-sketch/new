@@ -87,6 +87,19 @@
   .feat .ic svg { width: 32px; height: 32px; stroke: var(--acc-t); stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
   .feat h3 { font-size: 24px; margin-bottom: 10px; }
   .feat p { font-size: 20px; line-height: 1.45; color: var(--muted); }
+  /* оформление */
+  .look .l { position: absolute; left: 120px; top: 92px; width: 640px; }
+  .look h2 { font-size: 54px; margin-bottom: 40px; }
+  .look ul.list { gap: 18px; }
+  .look ul.list li { font-size: 23px; }
+  .look .row { position: absolute; left: 790px; top: 110px; display: flex; }
+  .look .row figure { margin: 0 0 0 -36px; width: 290px; position: relative; }
+  .look .row figure:first-child { margin-left: 0; }
+  .look .row figure:nth-child(even) { margin-top: 100px; }
+  .look .row figcaption { margin-top: 18px; text-align: center; font-size: 21px; font-weight: 700; }
+  .look .row figcaption span { display: block; font-weight: 500; font-size: 17px; color: var(--muted); margin-top: 2px; }
+  .look .phone { padding: 10px; border-radius: 40px; }
+  .look .phone img { border-radius: 31px; }
   /* 5–9 — ниши */
   .niche .l { position: absolute; left: 120px; top: 92px; width: 690px; }
   .niche h2 { font-size: 52px; margin-bottom: 26px; }
@@ -117,11 +130,11 @@
   .msg time { display: block; text-align: right; font-size: 13px; color: #6E8A5E; }
   .reply { background: #fff; border-radius: 22px 22px 22px 6px; padding: 14px 16px 10px; width: 330px; font-size: 18px; line-height: 1.42; }
   .reply time { display: block; text-align: right; font-size: 13px; color: #9A8E84; }
-  .steps3 { display: grid; gap: 24px; width: 980px; margin-top: 50px; }
+  .steps3 { display: grid; gap: 46px; width: 1000px; margin-top: 70px; }
   .steps3 .row { display: flex; gap: 30px; align-items: flex-start; }
   .steps3 .num { flex: none; width: 64px; height: 64px; border-radius: 20px; background: var(--dark); color: var(--acc); display: flex; align-items: center; justify-content: center; font-size: 26px; }
-  .steps3 h3 { font-size: 27px; margin: 2px 0 8px; }
-  .steps3 p { font-size: 22px; line-height: 1.5; color: var(--muted); }
+  .steps3 h3 { font-size: 30px; margin: 2px 0 10px; }
+  .steps3 p { font-size: 24px; line-height: 1.5; color: var(--muted); }
   .big { margin-top: 48px; display: flex; gap: 56px; width: 1000px; }
   .big div { font-size: 21px; color: var(--muted); line-height: 1.4; }
   .big b { display: block; font-family: Unbounded; font-weight: 600; font-size: 54px; color: var(--ink); margin-bottom: 6px; }
@@ -230,6 +243,28 @@
   <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>4</span></div>
 </section>
 
+<!-- Оформление -->
+<section class="s look">
+  <div class="l">
+    <div class="kick">Оформление</div>
+    <h2>Сайт в&nbsp;стиле бренда, а&nbsp;не&nbsp;«ещё один шаблон»</h2>
+    <ul class="list">
+      <li><b>16 готовых стилей:</b> у&nbsp;каждой ниши 3–4 оформления со&nbsp;своими шрифтами, цветами, скруглениями и&nbsp;анимацией</li>
+      <li><b>Своя тема:</b> цвета бренда, 77&nbsp;шрифтов с&nbsp;кириллицей, размер текста и&nbsp;заголовков, углы, отступы, вид первого экрана</li>
+      <li><b>Логотип и&nbsp;иконка сайта:</b> админка сама обрезает поля и&nbsp;убирает фон</li>
+      <li><b>Контраст проверяется:</b> при любых цветах текст остаётся читаемым</li>
+      <li>Владелец меняет оформление сам, тексты и&nbsp;цены при этом не&nbsp;сбиваются</li>
+    </ul>
+  </div>
+  <div class="row">
+    <figure><div class="phone"><img src="img/style-barber-classic.jpg" alt=""></div><figcaption>Классика<span>готовый стиль</span></figcaption></figure>
+    <figure><div class="phone"><img src="img/style-barber-american.jpg" alt=""></div><figcaption>Американ<span>готовый стиль</span></figcaption></figure>
+    <figure><div class="phone"><img src="img/style-barber-tabak.jpg" alt=""></div><figcaption>Табак<span>готовый стиль</span></figcaption></figure>
+    <figure><div class="phone"><img src="img/style-barber-own.jpg" alt=""></div><figcaption>Своя тема<span>цвета и шрифты бренда</span></figcaption></figure>
+  </div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>5</span></div>
+</section>
+
 <!-- 5–9. Ниши -->
 <section class="s niche">
   <div class="l">
@@ -246,7 +281,7 @@
     <div class="qr"><img src="qr/auto.svg" alt=""><div>Демо: техцентр «Поршень»<a href="https://demo.top-in.ru/auto/">demo.top-in.ru/auto</a></div></div>
   </div>
   <div class="r"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>porshen-ekb.ru</span></div><img src="img/auto-d.jpg" alt=""></div><div class="float"><img src="img/auto-w.jpg" alt=""></div></div>
-  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>5</span></div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>6</span></div>
 </section>
 
 <section class="s niche">
@@ -264,7 +299,7 @@
     <div class="qr"><img src="qr/barber.svg" alt=""><div>Демо: барбершоп «Ремесло»<a href="https://demo.top-in.ru/barber/">demo.top-in.ru/barber</a></div></div>
   </div>
   <div class="r"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>remeslo-barber.ru</span></div><img src="img/barber-d.jpg" alt=""></div><div class="float"><img src="img/barber-w.jpg" alt=""></div></div>
-  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>6</span></div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>7</span></div>
 </section>
 
 <section class="s niche">
@@ -282,7 +317,7 @@
     <div class="qr"><img src="qr/nails.svg" alt=""><div>Демо: студия «Миндаль»<a href="https://demo.top-in.ru/nails/">demo.top-in.ru/nails</a></div></div>
   </div>
   <div class="r"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>mindal-nails.ru</span></div><img src="img/nails-d.jpg" alt=""></div><div class="float"><img src="img/nails-w.jpg" alt=""></div></div>
-  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>7</span></div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>8</span></div>
 </section>
 
 <section class="s niche">
@@ -300,7 +335,7 @@
     <div class="qr"><img src="qr/grooming.svg" alt=""><div>Демо: груминг-салон «Чешир»<a href="https://demo.top-in.ru/grooming/">demo.top-in.ru/grooming</a></div></div>
   </div>
   <div class="r"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>cheshir-groom.ru</span></div><img src="img/grooming-d.jpg" alt=""></div><div class="float"><img src="img/grooming-w.jpg" alt=""></div></div>
-  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>8</span></div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>9</span></div>
 </section>
 
 <section class="s niche">
@@ -318,7 +353,7 @@
     <div class="qr"><img src="qr/massage.svg" alt=""><div>Демо: массажный салон «Штиль»<a href="https://demo.top-in.ru/massage/">demo.top-in.ru/massage</a></div></div>
   </div>
   <div class="r"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>shtil-massage.ru</span></div><img src="img/massage-d.jpg" alt=""></div><div class="float"><img src="img/massage-w.jpg" alt=""></div></div>
-  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>9</span></div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>10</span></div>
 </section>
 
 <!-- 10. Демо на данных клиента -->
@@ -330,10 +365,6 @@
     <div class="row"><div class="num">2</div><div><h3>Отправляем ссылку</h3><p>В&nbsp;мессенджере сразу видно превью с&nbsp;первым экраном его сайта. Ссылку хочется открыть: это не&nbsp;реклама, а&nbsp;уже готовая вещь.</p></div></div>
     <div class="row"><div class="num">3</div><div><h3>Он пробует запись и&nbsp;админку</h3><p>Может записаться, поменять цену или фото и&nbsp;сразу увидеть результат. Разговор идёт уже не&nbsp;о&nbsp;том, нужен ли&nbsp;сайт, а&nbsp;о&nbsp;том, когда его запускать.</p></div></div>
   </div>
-  <div class="big">
-    <div><b>238</b>демо уже собраны: их&nbsp;можно предлагать владельцам с&nbsp;первого дня</div>
-    <div><b>22</b>города, от&nbsp;Москвы и&nbsp;Петербурга до&nbsp;Новосибирска и&nbsp;Иркутска</div>
-  </div>
   <div class="chat"><div class="scr">
     <div class="top"><div class="ava">М</div><div><b>Студия «Миндаль»</b><span>был(а) недавно</span></div></div>
     <div class="body">
@@ -343,7 +374,7 @@
       <div class="msg" style="width:360px">Да, всё меняется в&nbsp;админке с&nbsp;телефона. Покажу за&nbsp;10&nbsp;минут — удобно сегодня?<time>11:10</time></div>
     </div>
   </div></div>
-  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>10</span></div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>11</span></div>
 </section>
 
 <!-- 11. Пакеты и цены -->
@@ -398,7 +429,7 @@
       </div>
     </div>
   </div>
-  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>11</span></div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>12</span></div>
 </section>
 
 <!-- 12. Процесс и роли -->
@@ -425,7 +456,7 @@
       <li>Материалы для продаж: демо, промо-ролики, превью ссылок</li>
     </ul></div>
   </div>
-  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>12</span></div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>13</span></div>
 </section>
 
 </body>

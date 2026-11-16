@@ -31,3 +31,8 @@ for k, u in urls.items():
     q.make(fit=True)
     q.make_image(image_factory=qrcode.image.svg.SvgPathImage).save(f'qr/{k}.svg')
 print('ok')
+
+# слайд «Оформление»: один шаблон в разных стилях (scripts: styles.mjs)
+for n in ['barber-classic', 'barber-american', 'barber-tabak', 'barber-sever', 'barber-own', 'nails-own']:
+    if os.path.exists(f'shots/style-{n}-2.png'):
+        jpg(f'style-{n}-2.png', f'style-{n}.jpg', 600)
