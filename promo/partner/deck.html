@@ -64,10 +64,16 @@
   /* 1 — обложка */
   .cover .brand { display: flex; align-items: center; gap: 22px; font-family: Unbounded; font-weight: 600; font-size: 40px; }
   .cover .brand img { width: 92px; }
-  .cover .txt { position: absolute; left: 120px; top: 250px; width: 980px; }
-  .cover h1 { margin-bottom: 40px; }
-  .cover .lead { margin-bottom: 52px; }
-  .cover .ph { position: absolute; width: 330px; }
+  .cover .txt { position: absolute; left: 120px; top: 250px; width: 660px; }
+  .cover h1 { font-size: 64px; margin-bottom: 36px; }
+  .cover .lead { font-size: 27px; margin-bottom: 44px; }
+  .cover .chips { gap: 10px; }
+  .cover .chip { font-size: 19px; padding: 9px 18px; }
+  .cover .cv-browser { position: absolute; left: 840px; top: 170px; width: 900px; border: 2px solid #4A3F38; }
+  .cover .cv-browser .bar { background: #2E2622; }
+  .cover .cv-browser .bar i { background: #5A4D45; }
+  .cover .cv-browser .bar span { background: #3A312B; color: #B9AA9C; }
+  .cover .cv-phone { position: absolute; left: 1540px; top: 400px; width: 260px; border: 2px solid #4A3F38; }
   /* 2 — задача */
   .probs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 44px; }
   .probs .card { padding: 32px 38px 34px; }
@@ -186,8 +192,8 @@
       <span class="chip">Автосервисы</span><span class="chip">Барбершопы</span><span class="chip">Студии маникюра</span><span class="chip">Груминг-салоны</span><span class="chip">Массажные салоны</span>
     </div>
   </div>
-  <div class="phone ph" style="left:1150px;top:250px;transform:rotate(-4deg)"><img src="img/auto-m.jpg" alt=""></div>
-  <div class="phone ph" style="left:1530px;top:130px;transform:rotate(3deg)"><img src="img/nails-m.jpg" alt=""></div>
+  <div class="browser cv-browser"><div class="bar"><i></i><i></i><i></i><span>mindal-nails.ru</span></div><img src="img/nails-d.jpg" alt=""></div>
+  <div class="phone cv-phone"><img src="img/nails-m.jpg" alt=""></div>
   <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>2026</span></div>
 </section>
 
