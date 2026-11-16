@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Слот — презентация для партнёра</title>
+<link rel="stylesheet" href="../../assets/fonts/unbounded.css">
+<link rel="stylesheet" href="../../assets/fonts/manrope.css">
+<style>
+  @page { size: 1920px 1080px; margin: 0; }
+  :root {
+    --bg: #F7F0E8; --card: #FFFDFA; --ink: #1F1A17; --muted: #6B5F57; --line: #E6DACB;
+    --acc: #CA9968; --acc-t: #94643A; --dark: #1F1A17; --dark2: #2B2420;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #777; }
+  body { font-family: Manrope, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+  .s { width: 1920px; height: 1080px; position: relative; overflow: hidden; background: var(--bg); padding: 92px 120px 0; break-after: page; }
+  .s.dark { background: var(--dark); color: #F7F0E8; }
+  h1, h2, h3, .num { font-family: Unbounded, sans-serif; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+  h1 { font-size: 84px; line-height: 1.08; }
+  h2 { font-size: 58px; line-height: 1.12; }
+  h3 { font-size: 30px; line-height: 1.2; }
+  p { margin: 0; }
+  .kick { font-size: 22px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--acc-t); margin-bottom: 26px; }
+  .dark .kick { color: var(--acc); }
+  .lead { font-size: 30px; line-height: 1.45; color: var(--muted); }
+  .dark .lead { color: #CDBFB2; }
+  .foot { position: absolute; left: 120px; right: 120px; bottom: 44px; display: flex; justify-content: space-between; font-size: 18px; color: #A4968A; }
+  .dark .foot { color: #7D7067; }
+  .foot b { font-weight: 700; color: var(--acc-t); }
+  .dark .foot b { color: var(--acc); }
+
+  /* устройства */
+  .browser { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 30px 80px rgba(60, 40, 20, .18), 0 0 0 1px rgba(0,0,0,.06); }
+  .browser .bar { height: 46px; background: #EFE8E0; display: flex; align-items: center; gap: 9px; padding: 0 18px; }
+  .browser .bar i { width: 13px; height: 13px; border-radius: 50%; background: #D8CCBF; display: block; }
+  .browser .bar span { margin-left: 18px; flex: 1; height: 28px; border-radius: 8px; background: #fff; font-size: 15px; color: #8A7D72; display: flex; align-items: center; padding: 0 14px; }
+  .browser img { display: block; width: 100%; }
+  .phone { background: #141110; border-radius: 54px; padding: 13px; box-shadow: 0 34px 80px rgba(40, 25, 10, .30); }
+  .phone img { display: block; width: 100%; border-radius: 42px; }
+  .phone.crop img { object-fit: cover; object-position: top; }
+  .float { border-radius: 26px; overflow: hidden; box-shadow: 0 30px 70px rgba(40, 25, 10, .25), 0 0 0 1px rgba(0,0,0,.05); background: #fff; }
+  .float img { display: block; width: 100%; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 12px; }
+  .chip { font-size: 21px; font-weight: 600; padding: 11px 22px; border-radius: 99px; border: 2px solid var(--line); background: var(--card); }
+  .dark .chip { background: transparent; border-color: #4A3F38; color: #E9DED2; }
+  .chip.acc { background: var(--acc); border-color: var(--acc); color: #1F1A17; }
+
+  ul.list { list-style: none; padding: 0; margin: 0; display: grid; gap: 20px; }
+  ul.list li { font-size: 25px; line-height: 1.42; padding-left: 40px; position: relative; }
+  ul.list li::before { content: ''; position: absolute; left: 4px; top: 13px; width: 14px; height: 14px; border-radius: 4px; background: var(--acc); transform: rotate(45deg); }
+  ul.list li b { font-weight: 700; }
+  .dark ul.list li { color: #E9DED2; }
+
+  .card { background: var(--card); border-radius: 28px; padding: 40px 42px; border: 1px solid var(--line); }
+  .qr { display: flex; align-items: center; gap: 24px; }
+  .qr img { width: 128px; height: 128px; background: #fff; padding: 10px; border-radius: 14px; border: 1px solid var(--line); }
+  .qr div { font-size: 20px; color: var(--muted); line-height: 1.4; }
+  .qr a { display: block; font-size: 25px; font-weight: 700; color: var(--ink); text-decoration: none; margin-top: 4px; }
+  .dark .qr a { color: #F7F0E8; }
+  .dark .qr div { color: #B9AA9C; }
+
+  /* 1 — обложка */
+  .cover .brand { display: flex; align-items: center; gap: 22px; font-family: Unbounded; font-weight: 600; font-size: 40px; }
+  .cover .brand img { width: 92px; }
+  .cover .txt { position: absolute; left: 120px; top: 250px; width: 980px; }
+  .cover h1 { margin-bottom: 40px; }
+  .cover .lead { margin-bottom: 52px; }
+  .cover .ph { position: absolute; width: 330px; }
+  /* 2 — задача */
+  .probs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 44px; }
+  .probs .card { padding: 32px 38px 34px; }
+  .probs .n { font-family: Unbounded; font-size: 22px; font-weight: 600; color: var(--acc-t); margin-bottom: 18px; }
+  .probs h3 { margin-bottom: 20px; font-size: 31px; }
+  .probs p { font-size: 22px; line-height: 1.45; color: var(--muted); }
+  .sol { margin-top: 26px; background: var(--dark); color: #F7F0E8; border-radius: 28px; padding: 30px 48px; display: flex; gap: 40px; align-items: center; }
+  .sol .tag { font-family: Unbounded; font-size: 30px; font-weight: 600; color: var(--acc); flex: none; }
+  .sol p { font-size: 28px; line-height: 1.45; }
+  .facts { margin-top: 30px; display: flex; gap: 60px; }
+  .facts div { font-size: 20px; color: var(--muted); line-height: 1.4; max-width: 520px; }
+  .facts b { display: block; font-family: Unbounded; font-weight: 600; font-size: 30px; color: var(--ink); margin-bottom: 6px; }
+  /* 3 — продукт */
+  .feat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; width: 1250px; margin-top: 44px; }
+  .feat .card { padding: 28px 32px 30px; }
+  .feat .ic { width: 58px; height: 58px; border-radius: 16px; background: #F1E4D4; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .feat .ic svg { width: 32px; height: 32px; stroke: var(--acc-t); stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .feat h3 { font-size: 24px; margin-bottom: 10px; }
+  .feat p { font-size: 20px; line-height: 1.45; color: var(--muted); }
+  /* 5–9 — ниши */
+  .niche .l { position: absolute; left: 120px; top: 92px; width: 690px; }
+  .niche h2 { font-size: 52px; margin-bottom: 26px; }
+  .niche .lead { font-size: 25px; margin-bottom: 34px; }
+  .niche ul.list { gap: 16px; margin-bottom: 38px; }
+  .niche ul.list li { font-size: 23px; }
+  .niche .st { font-size: 19px; font-weight: 700; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 14px; }
+  .niche .chips { margin-bottom: 40px; }
+  .niche .r { position: absolute; left: 880px; top: 150px; width: 920px; height: 860px; }
+  .niche .browser { position: absolute; left: 0; top: 0; width: 920px; }
+  .niche .float { position: absolute; left: 520px; top: 150px; width: 320px; }
+  .num-tag { display: inline-flex; gap: 14px; align-items: center; }
+  .num-tag .num { font-size: 22px; background: var(--dark); color: var(--acc); border-radius: 99px; padding: 8px 18px; }
+  /* 10 — демо */
+  .chat { position: absolute; right: 150px; top: 110px; width: 470px; height: 900px; background: #141110; border-radius: 58px; padding: 14px; box-shadow: 0 34px 80px rgba(40, 25, 10, .3); }
+  .chat .scr { width: 100%; height: 100%; border-radius: 45px; background: #E7DDD2; overflow: hidden; display: flex; flex-direction: column; }
+  .chat .top { background: #FFFDFA; padding: 54px 26px 18px; display: flex; gap: 14px; align-items: center; border-bottom: 1px solid #E0D4C6; }
+  .chat .ava { width: 50px; height: 50px; border-radius: 50%; background: #E9C9C1; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #8B4A55; font-size: 20px; }
+  .chat .top b { display: block; font-size: 20px; }
+  .chat .top span { font-size: 15px; color: #8A7D72; }
+  .chat .body { padding: 24px 18px; display: flex; flex-direction: column; gap: 14px; }
+  .msg { background: #DCF2C8; border-radius: 22px 22px 6px 22px; padding: 14px 16px 10px; align-self: flex-end; width: 400px; font-size: 18px; line-height: 1.42; }
+  .msg .pv { margin: 10px 0 8px; border-left: 4px solid #5E9C3B; padding-left: 12px; }
+  .msg .pv img { width: 100%; border-radius: 10px; display: block; margin-top: 8px; }
+  .msg .pv b { display: block; font-size: 16.5px; color: #3F7A22; }
+  .msg .pv span { font-size: 15.5px; color: #4B5A40; }
+  .msg .lnk { color: #2A6BB0; }
+  .msg time { display: block; text-align: right; font-size: 13px; color: #6E8A5E; }
+  .reply { background: #fff; border-radius: 22px 22px 22px 6px; padding: 14px 16px 10px; width: 330px; font-size: 18px; line-height: 1.42; }
+  .reply time { display: block; text-align: right; font-size: 13px; color: #9A8E84; }
+  .steps3 { display: grid; gap: 24px; width: 980px; margin-top: 50px; }
+  .steps3 .row { display: flex; gap: 30px; align-items: flex-start; }
+  .steps3 .num { flex: none; width: 64px; height: 64px; border-radius: 20px; background: var(--dark); color: var(--acc); display: flex; align-items: center; justify-content: center; font-size: 26px; }
+  .steps3 h3 { font-size: 27px; margin: 2px 0 8px; }
+  .steps3 p { font-size: 22px; line-height: 1.5; color: var(--muted); }
+  .big { margin-top: 48px; display: flex; gap: 56px; width: 1000px; }
+  .big div { font-size: 21px; color: var(--muted); line-height: 1.4; }
+  .big b { display: block; font-family: Unbounded; font-weight: 600; font-size: 54px; color: var(--ink); margin-bottom: 6px; }
+  /* 11 — цены */
+  .plans { display: grid; grid-template-columns: 1fr 1.12fr 1.12fr; gap: 28px; margin-top: 50px; align-items: stretch; }
+  .plan { border-radius: 30px; padding: 40px 40px 36px; background: var(--card); border: 1px solid var(--line); display: flex; flex-direction: column; }
+  .plan.hl { background: var(--dark); color: #F7F0E8; border-color: var(--dark); }
+  .plan .nm { font-size: 20px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--acc-t); }
+  .plan.hl .nm { color: var(--acc); }
+  .plan .pr { font-family: Unbounded; font-weight: 600; font-size: 54px; margin: 14px 0 6px; }
+  .plan .pr small { font-size: 26px; font-weight: 500; }
+  .plan .sub { font-size: 20px; color: var(--muted); margin-bottom: 26px; line-height: 1.4; }
+  .plan.hl .sub { color: #B9AA9C; }
+  .plan ul.list { gap: 12px; }
+  .plan ul.list li { font-size: 20.5px; line-height: 1.4; padding-left: 32px; }
+  .plan ul.list li::before { width: 11px; height: 11px; top: 10px; }
+  .plan.hl ul.list li { color: #E9DED2; }
+  .sup { display: grid; gap: 18px; }
+  .sup .plan { padding: 30px 36px 28px; }
+  .sup .pr { font-size: 40px; margin: 8px 0 12px; }
+  .sup ul.list li { font-size: 19px; }
+  .note { margin-top: 26px; font-size: 20px; color: var(--muted); }
+  /* 12 — процесс */
+  .flow { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; margin-top: 76px; position: relative; }
+  .flow::before { content: ''; position: absolute; left: 40px; right: 140px; top: 39px; height: 3px; background: var(--line); }
+  .flow .st { position: relative; padding-right: 26px; }
+  .flow .dot { width: 80px; height: 80px; border-radius: 50%; background: var(--card); border: 3px solid var(--acc); display: flex; align-items: center; justify-content: center; font-family: Unbounded; font-weight: 600; font-size: 26px; margin-bottom: 26px; position: relative; }
+  .flow .dot.d { background: var(--dark); border-color: var(--dark); color: var(--acc); }
+  .flow h3 { font-size: 27px; margin-bottom: 12px; }
+  .flow .t { font-size: 19px; font-weight: 800; color: var(--acc-t); margin-bottom: 10px; letter-spacing: .03em; }
+  .flow p { font-size: 21px; line-height: 1.48; color: var(--muted); }
+  .roles { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 76px; }
+  .roles .card { padding: 42px 46px 46px; }
+  .roles .card.d { background: var(--dark); color: #F7F0E8; border-color: var(--dark); }
+  .roles h3 { font-size: 27px; margin-bottom: 20px; }
+  .roles ul.list { gap: 16px; }
+  .roles ul.list li { font-size: 24px; }
+  /* 13 — тест-драйв */
+  .td { display: grid; grid-template-columns: 1.05fr 1fr; gap: 80px; margin-top: 56px; }
+  .td .steps3 { width: auto; margin-top: 0; }
+  .td .steps3 .num { background: var(--acc); color: var(--dark); }
+  .td .steps3 p { color: #CDBFB2; }
+  .td .card { background: var(--dark2); border-color: #3A312B; }
+  .td .card h3 { margin-bottom: 22px; font-size: 27px; }
+  .need { margin-top: 60px; display: grid; grid-template-columns: auto 1fr 1fr 1fr; gap: 40px; align-items: start; border-top: 1px solid #3A312B; padding-top: 44px; }
+  .need .h { font-family: Unbounded; font-weight: 600; font-size: 24px; color: var(--acc); width: 260px; line-height: 1.3; }
+  .need div { font-size: 22px; line-height: 1.45; color: #CDBFB2; }
+  .need b { display: block; color: #F7F0E8; font-size: 23px; margin-bottom: 6px; }
+</style>
+</head>
+<body>
+
+<!-- 1. Обложка -->
+<section class="s dark cover">
+  <div class="brand"><img src="../icons/slot-a.svg" alt="">Слот</div>
+  <div class="txt">
+    <h1>Сайты с&nbsp;онлайн-записью для&nbsp;локального бизнеса</h1>
+    <p class="lead">Готовый продукт для нового направления продаж: сайт, запись, расписание и&nbsp;админка на&nbsp;данных клиента. Запуск за&nbsp;3&nbsp;дня, без&nbsp;подписки.</p>
+    <div class="chips">
+      <span class="chip">Автосервисы</span><span class="chip">Барбершопы</span><span class="chip">Студии маникюра</span><span class="chip">Груминг-салоны</span><span class="chip">Массажные салоны</span>
+    </div>
+  </div>
+  <div class="phone ph" style="left:1150px;top:250px;transform:rotate(-4deg)"><img src="img/auto-m.jpg" alt=""></div>
+  <div class="phone ph" style="left:1530px;top:130px;transform:rotate(3deg)"><img src="img/nails-m.jpg" alt=""></div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>2026</span></div>
+</section>
+
+<!-- 2. Задача -->
+<section class="s">
+  <div class="kick">Задача клиента</div>
+  <h2>Клиенты хотят записаться сразу,<br>а&nbsp;салон отвечает утром</h2>
+  <div class="probs">
+    <div class="card"><div class="n">01</div><h3>Запись по&nbsp;звонку и&nbsp;в&nbsp;директ</h3><p>Администратор не&nbsp;взял трубку или ответил на&nbsp;следующий день&nbsp;— клиент уже записался к&nbsp;соседям. Больше всего записей хотят сделать вечером, когда салон закрыт.</p></div>
+    <div class="card"><div class="n">02</div><h3>Сервисы записи — это подписка</h3><p>YCLIENTS и&nbsp;аналоги стоят от&nbsp;~890&nbsp;₽ в&nbsp;месяц, и&nbsp;платить нужно всегда. Их&nbsp;мини-сайт&nbsp;— страница записи, а&nbsp;не&nbsp;сайт бренда.</p></div>
+    <div class="card"><div class="n">03</div><h3>Сайт без записи не&nbsp;продаёт</h3><p>Визитка на&nbsp;конструкторе показывает адрес и&nbsp;цены, но&nbsp;заявок не&nbsp;собирает. Собрать и&nbsp;наполнить сайт самому владельцу некогда.</p></div>
+  </div>
+  <div class="sol"><div class="tag">Слот</div><p>Клиент сам выбирает услугу, мастера и&nbsp;время в&nbsp;любое время суток. Владелец получает заявку в&nbsp;мессенджер и&nbsp;подтверждает её&nbsp;в&nbsp;админке.</p></div>
+  <div class="facts">
+    <div><b>4,7&nbsp;тыс.+</b>барбершопов только в&nbsp;городах-миллионниках</div>
+    <div><b>120&nbsp;тыс.+</b>бизнесов записывают клиентов онлайн через DIKIDI</div>
+    <div><b>600&nbsp;млрд&nbsp;₽</b>услуг автосервисов населению за&nbsp;2024&nbsp;год, +17&nbsp;%</div>
+  </div>
+  <div class="foot"><span>Источники: 2ГИС (апрель 2026), Forbes, РБК Маркетинг</span><span>2</span></div>
+</section>
+
+<!-- 3. Продукт -->
+<section class="s">
+  <div class="kick">Что получает владелец</div>
+  <h2>Комплексное решение,<br>а&nbsp;не&nbsp;просто сайт</h2>
+  <div class="feat">
+    <div class="card"><div class="ic"><svg viewBox="0 0 32 32"><rect x="4" y="6" width="24" height="18" rx="3"/><path d="M4 11h24M11 28h10M16 24v4"/></svg></div><h3>Сайт на&nbsp;его данных</h3><p>Услуги, цены, мастера, фото, отзывы, карта и&nbsp;акция&nbsp;— с&nbsp;первого дня выглядит как его собственный.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 32 32"><rect x="5" y="7" width="22" height="20" rx="3"/><path d="M5 13h22M11 4v6M21 4v6M12 20l3 3 6-6"/></svg></div><h3>Онлайн-запись</h3><p>Услуга → мастер → свободное время → контакты. Окна считаются по&nbsp;длительности услуги и&nbsp;графику.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 32 32"><path d="M5 8h22M5 16h22M5 24h22M12 4v24"/></svg></div><h3>Расписание</h3><p>Графики, отпуска, сетка дня. Время занимают только подтверждённые заявки, поэтому двойных записей нет.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 32 32"><path d="M27 5 4 14l9 3 3 10 4-7 7 5z"/></svg></div><h3>Заявки в&nbsp;мессенджер</h3><p>Telegram, MAX, ВКонтакте или почта: владелец подключает сам, в&nbsp;пару нажатий.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 32 32"><rect x="9" y="3" width="14" height="26" rx="3"/><path d="M14 24h4"/></svg></div><h3>Админка с&nbsp;телефона</h3><p>Цены, фото, мастера, акции, логотип и&nbsp;оформление. Нажал «Сохранить»&nbsp;— сайт обновился.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 32 32"><path d="M16 3 5 8v8c0 7 5 11 11 13 6-2 11-6 11-13V8z"/><path d="M11 16l4 4 7-7"/></svg></div><h3>Сайт — его</h3><p>Стоит на&nbsp;хостинге владельца, без абонентской платы. Документы по&nbsp;152-ФЗ, Метрика, SEO.</p></div>
+  </div>
+  <div class="phone" style="position:absolute;left:1440px;top:120px;width:380px"><img src="img/nails-b.jpg" alt=""></div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>3</span></div>
+</section>
+
+<!-- 4. Админка -->
+<section class="s">
+  <div style="position:absolute;left:120px;top:92px;width:620px">
+    <div class="kick">Админка</div>
+    <h2 style="margin-bottom:40px">Владелец ведёт всё сам</h2>
+    <ul class="list">
+      <li><b>Заявки:</b> подтвердить, отменить, позвонить, написать в&nbsp;WhatsApp или Telegram, выгрузить в&nbsp;Excel.</li>
+      <li><b>Расписание:</b> графики мастеров, отпуска, сетка дня. Запись по&nbsp;телефону закрывается одним нажатием.</li>
+      <li><b>Контент:</b> услуги и&nbsp;цены, фото, мастера, отзывы, акции, логотип, цвета и&nbsp;шрифты.</li>
+      <li><b>Предпросмотр</b> сразу на&nbsp;телефоне и&nbsp;история версий: любую прошлую можно вернуть.</li>
+    </ul>
+    <div class="qr" style="margin-top:44px"><img src="qr/admin.svg" alt=""><div>Попробовать демо-админку<a href="https://demo.top-in.ru/nails/admin/">demo.top-in.ru/nails/admin</a></div></div>
+  </div>
+  <div class="browser" style="position:absolute;left:870px;top:110px;width:930px"><div class="bar"><i></i><i></i><i></i><span>mindal-nails.ru/admin</span></div><img src="img/adm-d-schedule.jpg" alt=""></div>
+  <div class="phone crop" style="position:absolute;left:790px;top:400px;width:300px"><img src="img/adm-m-bookings.jpg" alt="" style="height:560px"></div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>4</span></div>
+</section>
+
+<!-- 5–9. Ниши -->
+<section class="s niche">
+  <div class="l">
+    <div class="kick num-tag"><span class="num">1/5</span>Автосервис</div>
+    <h2>Калькулятор: цена до&nbsp;звонка</h2>
+    <p class="lead">Клиент выбирает марку и&nbsp;работу и&nbsp;сразу видит цену, время и&nbsp;ближайшее окно на&nbsp;подъёмник.</p>
+    <ul class="list">
+      <li>Наценка по&nbsp;маркам в&nbsp;процентах, работы и&nbsp;цены задаёт владелец</li>
+      <li>Запись на&nbsp;пост без выбора мастера: учитывается, сколько машин помещается одновременно</li>
+      <li>В&nbsp;заявке марка, модель и&nbsp;госномер</li>
+    </ul>
+    <div class="st">3 стиля оформления</div>
+    <div class="chips"><span class="chip acc">Цех</span><span class="chip">Диагностика</span><span class="chip">Спорт</span><span class="chip">+ свой</span></div>
+    <div class="qr"><img src="qr/auto.svg" alt=""><div>Демо: техцентр «Поршень»<a href="https://demo.top-in.ru/auto/">demo.top-in.ru/auto</a></div></div>
+  </div>
+  <div class="r"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>porshen-ekb.ru</span></div><img src="img/auto-d.jpg" alt=""></div><div class="float"><img src="img/auto-w.jpg" alt=""></div></div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>5</span></div>
+</section>
+
+<section class="s niche">
+  <div class="l">
+    <div class="kick num-tag"><span class="num">2/5</span>Барбершоп</div>
+    <h2>Свободные окна прямо на&nbsp;первом экране</h2>
+    <p class="lead">Ближайшее время каждого барбера видно сразу: клиент нажимает на&nbsp;время и&nbsp;записывается.</p>
+    <ul class="list">
+      <li>Запись к&nbsp;конкретному мастеру или к&nbsp;любому свободному</li>
+      <li>Страница команды с&nbsp;фото, ролями и&nbsp;кнопкой записи к&nbsp;каждому</li>
+      <li>Прайс по&nbsp;категориям, галерея работ, отзывы</li>
+    </ul>
+    <div class="st">4 стиля оформления</div>
+    <div class="chips"><span class="chip acc">Классика</span><span class="chip">Американ</span><span class="chip">Табак</span><span class="chip">Север</span><span class="chip">+ свой</span></div>
+    <div class="qr"><img src="qr/barber.svg" alt=""><div>Демо: барбершоп «Ремесло»<a href="https://demo.top-in.ru/barber/">demo.top-in.ru/barber</a></div></div>
+  </div>
+  <div class="r"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>remeslo-barber.ru</span></div><img src="img/barber-d.jpg" alt=""></div><div class="float"><img src="img/barber-w.jpg" alt=""></div></div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>6</span></div>
+</section>
+
+<section class="s niche">
+  <div class="l">
+    <div class="kick num-tag"><span class="num">3/5</span>Студия маникюра</div>
+    <h2>Конструктор услуги с&nbsp;итоговой ценой</h2>
+    <p class="lead">Основа и&nbsp;дополнения (снятие, френч, дизайн) складываются в&nbsp;цену и&nbsp;время, окна подбираются под полную длительность.</p>
+    <ul class="list">
+      <li>Плитки категорий с&nbsp;фото: маникюр, педикюр, наращивание</li>
+      <li>Галерея дизайнов с&nbsp;фильтрами по&nbsp;стилю</li>
+      <li>Плашка акции на&nbsp;первом экране: «−20&nbsp;% на&nbsp;первое посещение»</li>
+    </ul>
+    <div class="st">3 стиля оформления</div>
+    <div class="chips"><span class="chip acc">Пудра</span><span class="chip">Шалфей</span><span class="chip">Молоко</span><span class="chip">+ свой</span></div>
+    <div class="qr"><img src="qr/nails.svg" alt=""><div>Демо: студия «Миндаль»<a href="https://demo.top-in.ru/nails/">demo.top-in.ru/nails</a></div></div>
+  </div>
+  <div class="r"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>mindal-nails.ru</span></div><img src="img/nails-d.jpg" alt=""></div><div class="float"><img src="img/nails-w.jpg" alt=""></div></div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>7</span></div>
+</section>
+
+<section class="s niche">
+  <div class="l">
+    <div class="kick num-tag"><span class="num">4/5</span>Груминг-салон</div>
+    <h2>Цена и&nbsp;время зависят от&nbsp;размера собаки</h2>
+    <p class="lead">Пять размеров от&nbsp;мини до&nbsp;гиганта: цена и&nbsp;длительность всех услуг пересчитываются, окна тоже.</p>
+    <ul class="list">
+      <li>Кошки, когти и&nbsp;уши — по&nbsp;фиксированной цене</li>
+      <li>Дополнения: колтуны, SPA-маска, чистка зубов</li>
+      <li>Наценки по&nbsp;размерам владелец задаёт в&nbsp;процентах</li>
+    </ul>
+    <div class="st">3 стиля оформления</div>
+    <div class="chips"><span class="chip acc">Мята</span><span class="chip">Бисквит</span><span class="chip">Бутик</span><span class="chip">+ свой</span></div>
+    <div class="qr"><img src="qr/grooming.svg" alt=""><div>Демо: груминг-салон «Чешир»<a href="https://demo.top-in.ru/grooming/">demo.top-in.ru/grooming</a></div></div>
+  </div>
+  <div class="r"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>cheshir-groom.ru</span></div><img src="img/grooming-d.jpg" alt=""></div><div class="float"><img src="img/grooming-w.jpg" alt=""></div></div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>8</span></div>
+</section>
+
+<section class="s niche">
+  <div class="l">
+    <div class="kick num-tag"><span class="num">5/5</span>Массажный салон</div>
+    <h2>Сеанс нужной длины в&nbsp;два нажатия</h2>
+    <p class="lead">Клиент выбирает массаж и&nbsp;длительность от&nbsp;30 до&nbsp;120&nbsp;минут: цена и&nbsp;свободные окна пересчитываются.</p>
+    <ul class="list">
+      <li>Программы и&nbsp;ритуалы (лицо, стоун-терапия) — по&nbsp;фиксированной цене</li>
+      <li>Выбор массажиста и&nbsp;подарочные сертификаты</li>
+      <li>FAQ о&nbsp;противопоказаниях: «это не&nbsp;лечебный массаж»</li>
+    </ul>
+    <div class="st">3 стиля оформления</div>
+    <div class="chips"><span class="chip acc">Песок</span><span class="chip">Эвкалипт</span><span class="chip">Тик</span><span class="chip">+ свой</span></div>
+    <div class="qr"><img src="qr/massage.svg" alt=""><div>Демо: массажный салон «Штиль»<a href="https://demo.top-in.ru/massage/">demo.top-in.ru/massage</a></div></div>
+  </div>
+  <div class="r"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>shtil-massage.ru</span></div><img src="img/massage-d.jpg" alt=""></div><div class="float"><img src="img/massage-w.jpg" alt=""></div></div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>9</span></div>
+</section>
+
+<!-- 10. Демо на данных клиента -->
+<section class="s">
+  <div class="kick">Как продаётся</div>
+  <h2>Владелец видит свой сайт<br>ещё до&nbsp;разговора о&nbsp;цене</h2>
+  <div class="steps3">
+    <div class="row"><div class="num">1</div><div><h3>Собираем демо на&nbsp;его данных</h3><p>Берём открытые данные бизнеса: карточку на&nbsp;картах, соцсети, прайс, фото и&nbsp;отзывы. За&nbsp;день собираем рабочий сайт с&nbsp;его названием, мастерами и&nbsp;ценами.</p></div></div>
+    <div class="row"><div class="num">2</div><div><h3>Отправляем ссылку</h3><p>В&nbsp;мессенджере сразу видно превью с&nbsp;первым экраном его сайта. Ссылку хочется открыть: это не&nbsp;реклама, а&nbsp;уже готовая вещь.</p></div></div>
+    <div class="row"><div class="num">3</div><div><h3>Он пробует запись и&nbsp;админку</h3><p>Может записаться, поменять цену или фото и&nbsp;сразу увидеть результат. Разговор идёт уже не&nbsp;о&nbsp;том, нужен ли&nbsp;сайт, а&nbsp;о&nbsp;том, когда его запускать.</p></div></div>
+  </div>
+  <div class="big">
+    <div><b>238</b>демо уже собраны: тест-драйв можно начать в&nbsp;первый же&nbsp;день</div>
+    <div><b>22</b>города, от&nbsp;Москвы и&nbsp;Петербурга до&nbsp;Новосибирска и&nbsp;Иркутска</div>
+  </div>
+  <div class="chat"><div class="scr">
+    <div class="top"><div class="ava">М</div><div><b>Студия «Миндаль»</b><span>был(а) недавно</span></div></div>
+    <div class="body">
+      <div class="msg">Здравствуйте! Собрали демо сайта для вашей студии с&nbsp;онлайн-записью, посмотрите:<br><span class="lnk">demo.top-in.ru/nails/</span>
+        <div class="pv"><b>Студия маникюра «Миндаль» — Санкт-Петербург</b><span>Маникюр, который держится три недели</span><img src="../../assets/share/nails.jpg" alt=""></div><time>11:02</time></div>
+      <div class="reply">Ого, это прям наш сайт? А&nbsp;цены я&nbsp;сама могу менять?<time>11:09</time></div>
+      <div class="msg" style="width:360px">Да, всё меняется в&nbsp;админке с&nbsp;телефона. Покажу за&nbsp;10&nbsp;минут — удобно сегодня?<time>11:10</time></div>
+    </div>
+  </div></div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>10</span></div>
+</section>
+
+<!-- 11. Пакеты и цены -->
+<section class="s">
+  <div class="kick">Пакеты и цены</div>
+  <h2>Разовая оплата за&nbsp;сайт и&nbsp;поддержка на&nbsp;выбор</h2>
+  <div class="plans">
+    <div class="plan">
+      <div class="nm">База</div>
+      <div class="pr"><small>от</small> 15&nbsp;000&nbsp;₽</div>
+      <div class="sub">Сайт, который собирает заявки</div>
+      <ul class="list">
+        <li>Сайт на&nbsp;шаблоне на&nbsp;данных клиента</li>
+        <li>Админка: тексты, цены, фото, мастера, контакты</li>
+        <li>Кнопка «Оставить заявку»: имя и&nbsp;телефон приходят на&nbsp;почту</li>
+        <li>Удобен на&nbsp;телефоне, документы по&nbsp;152-ФЗ</li>
+        <li>Запуск на&nbsp;хостинге клиента</li>
+      </ul>
+    </div>
+    <div class="plan hl">
+      <div class="nm">Комплекс</div>
+      <div class="pr">25&nbsp;000&nbsp;₽</div>
+      <div class="sub">Всё из&nbsp;базы, плюс:</div>
+      <ul class="list">
+        <li>Онлайн-запись по&nbsp;свободным окнам</li>
+        <li>Расписание мастеров, отпуска, сетка дня</li>
+        <li>Заявки со&nbsp;статусами, выгрузка в&nbsp;Excel</li>
+        <li>Уведомления в&nbsp;Telegram, MAX, ВКонтакте, на&nbsp;почту</li>
+        <li>Калькулятор или конструктор на&nbsp;первом экране</li>
+        <li>Своё оформление: цвета, шрифты, логотип</li>
+        <li>Яндекс Карты, Метрика, Вебмастер</li>
+      </ul>
+    </div>
+    <div class="sup">
+      <div class="plan">
+        <div class="nm">Поддержка</div>
+        <div class="pr">1&nbsp;990&nbsp;₽<small>/мес.</small></div>
+        <ul class="list">
+          <li>Правки по&nbsp;запросу владельца</li>
+          <li>Присмотр: сайт открывается, заявки доходят, резервные копии, продление домена</li>
+        </ul>
+      </div>
+      <div class="plan hl">
+        <div class="nm">Ведение</div>
+        <div class="pr">7&nbsp;500&nbsp;₽<small>/мес.</small></div>
+        <ul class="list">
+          <li>Всё из&nbsp;поддержки и&nbsp;правки контента без&nbsp;лимита</li>
+          <li>1–2 акции в&nbsp;месяц, обновление галереи</li>
+          <li>Карточки в&nbsp;Яндекс Картах и&nbsp;2ГИС, ответы на&nbsp;отзывы</li>
+          <li>Отчёт по&nbsp;заявкам раз в&nbsp;месяц</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <p class="note">Абонентской платы за&nbsp;сам сайт нет: хостинг и&nbsp;домен клиент оплачивает напрямую, около 200–300&nbsp;₽ в&nbsp;месяц.</p>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>11</span></div>
+</section>
+
+<!-- 12. Процесс и роли -->
+<section class="s">
+  <div class="kick">Как идёт работа</div>
+  <h2>От&nbsp;заявки до&nbsp;работающего сайта — неделя</h2>
+  <div class="flow">
+    <div class="st"><div class="dot">1</div><div class="t">День 0</div><h3>Заявка</h3><p>Партнёр передаёт название бизнеса и&nbsp;ссылку на&nbsp;карты или соцсети</p></div>
+    <div class="st"><div class="dot">2</div><div class="t">1 день</div><h3>Демо</h3><p>Собираем сайт на&nbsp;данных бизнеса с&nbsp;рабочей админкой</p></div>
+    <div class="st"><div class="dot">3</div><div class="t">Встреча</div><h3>Показ</h3><p>Владелец открывает свой сайт, пробует запись и&nbsp;админку</p></div>
+    <div class="st"><div class="dot">4</div><div class="t">Сделка</div><h3>Оплата</h3><p>Пакет «База» или «Комплекс», по&nbsp;желанию поддержка</p></div>
+    <div class="st"><div class="dot d">5</div><div class="t">3 рабочих дня</div><h3>Запуск</h3><p>Хостинг, домен, уведомления, проверка записи от&nbsp;начала до&nbsp;конца</p></div>
+    <div class="st"><div class="dot">6</div><div class="t">Каждый месяц</div><h3>Поддержка</h3><p>Правки, акции, Карты и&nbsp;отчёт: постоянный доход</p></div>
+  </div>
+  <div class="roles">
+    <div class="card"><h3>Партнёр</h3><ul class="list">
+      <li>Привлекает заявки и&nbsp;ведёт переговоры</li>
+      <li>Показывает демо и&nbsp;закрывает сделку</li>
+      <li>Допродаёт поддержку и&nbsp;ведение</li>
+    </ul></div>
+    <div class="card d"><h3>Слот (техническая часть)</h3><ul class="list">
+      <li>Демо на&nbsp;данных клиента за&nbsp;1&nbsp;день</li>
+      <li>Запуск за&nbsp;3&nbsp;дня, поддержка и&nbsp;ведение</li>
+      <li>Материалы для продаж: демо, промо-ролики, превью ссылок</li>
+    </ul></div>
+  </div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>12</span></div>
+</section>
+
+<!-- 13. Тест-драйв -->
+<section class="s dark">
+  <div class="kick">Тест-драйв</div>
+  <h2>Начать можно сразу</h2>
+  <div class="td">
+    <div class="steps3">
+      <div class="row"><div class="num">1</div><div><h3>Выбираем ниши и&nbsp;города</h3><p>Одна-две ниши из&nbsp;пяти. По&nbsp;ним уже готовы демо, можно стартовать в&nbsp;первый день.</p></div></div>
+      <div class="row"><div class="num">2</div><div><h3>Запускаем поток заявок</h3><p>На&nbsp;каждую заявку демо на&nbsp;данных бизнеса за&nbsp;день.</p></div></div>
+      <div class="row"><div class="num">3</div><div><h3>Считаем воронку</h3><p>Заявки → показы демо → сделки → поддержка. По&nbsp;цифрам решаем, что масштабировать.</p></div></div>
+    </div>
+    <div class="card">
+      <h3>Все шаблоны и демо</h3>
+      <div class="qr" style="margin-bottom:34px"><img src="qr/home.svg" alt=""><div>Пять ниш, у&nbsp;каждой демо-админка<a href="https://demo.top-in.ru/">demo.top-in.ru</a></div></div>
+      <ul class="list">
+        <li>5 шаблонов, 16 стилей и&nbsp;своя тема</li>
+        <li>База от&nbsp;15&nbsp;000&nbsp;₽, комплекс 25&nbsp;000&nbsp;₽</li>
+        <li>Поддержка 1&nbsp;990&nbsp;₽ или ведение 7&nbsp;500&nbsp;₽ в&nbsp;месяц</li>
+      </ul>
+    </div>
+  </div>
+  <div class="need">
+    <div class="h">Для старта договариваемся</div>
+    <div><b>Ниши и&nbsp;города</b>с&nbsp;чего начинаем тест-драйв</div>
+    <div><b>Как передавать заявки</b>таблица, CRM или общий чат</div>
+    <div><b>Расчёты</b>доля партнёра с&nbsp;сайта и&nbsp;поддержки</div>
+  </div>
+  <div class="foot"><span><b>Слот</b> · презентация для партнёров</span><span>13</span></div>
+</section>
+
+</body>
+</html>
